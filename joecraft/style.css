@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&display=swap'); /* Czcionka */
+@keyframes pulse {
+    0% {
+        transform: scale(.95);
+        box-shadow: 0 0 0 0 rgba(17,105,66,.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px transparent;
+    }
+
+    to {
+        transform: scale(.95);
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    100%{
+        opacity: 0;
+        transform: scaleX(0);
+    }
+}
+/* Podstawowe właściwości*/
+body{
+    backdrop-filter: blur(10px);
+    background-image: url('tlo.png');
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    color: #eee;
+}
+a{
+    color: #eee;
+    text-decoration: none;
+}
+a:visited{
+    color: #eee;
+}
+span.material-symbols-outlined::selection{
+    background-color: transparent;
+    color: white;
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background-color: #333;
+}
+::-webkit-scrollbar-thumb{
+    background-color:#09B1F0;
+    border-radius: 8px; 
+}
+*::selection{
+    background-color: #eee;
+    color: black;
+}
+/* =-=-=-=-=-=-=-=-= */
+/* Stopka */
+#obok-siebie{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+#stopka{
+    clear:both; 
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #333;
+}
+#stopka h3{
+    color: #4DCFFF;
+    font-weight: 200;
+}
+#stopka hr{
+    width: 50%;
+    border-color:#4DCFFF;
+}
+#stopka a:hover{
+    color:#4DCFFF;
+}
+#stopka h4{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 200;
+}
+#stopka-logo{
+    width: 256px;    
+}
+#stopka img{
+    width: 256px;
+    height: 256px;
+    position: absolute; 
+    bottom: 0;
+}
+#stopka-nawigacja{
+    width: 33%;
+}
+#stopka-wykonawcy{
+    text-align: right;
+    width: 33%;
+}
+/* Menu na urządzenia minimum 768p*/
+.rozwijane-opcje{
+    display: none;
+    position: absolute;
+    letter-spacing: 0px;
+    width: 100%;
+    background-color: #333;
+    border-top: 0;
+}
+.rozwijane-opcja{
+    height: auto;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+.rozwijane-opcja:hover{
+    color: #4DCFFF;
+    transition: 250ms;
+}
+.rozwijane-icon{
+    transition: 250ms;
+    font-size: 20px;
+}
+.rozwijane:hover > .rozwijane-opcje, .rozwijane:active > .rozwijane-opcje {
+    display: block;
+    transform-origin: center;
+    animation: fadeIn 0.25s ease-out;
+}
+.rozwijane:hover > .rozwijane-icon{
+    transform: rotate(180deg);
+}
+#tel-menu{
+    visibility: hidden;
+    position: sticky;
+    top: 0;
+}
+#menu{
+    position: sticky;
+    top: 0;
+    height: 90px;
+    width: 100%;
+    background-color: #333;
+    display: table;
+}
+#menu h1{
+    line-height: 45px;
+    float: left;
+    margin-left: 20px;
+}
+#opcje{
+    text-align: center;
+    float: right;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+#opcje .opcja, #opcja_now{
+    transition-delay: 50ms;
+    width: 200px;
+    font-weight: 700;
+}
+.opcja:hover, #opcja_now:hover{
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+#opcja_now{
+    color: #4DCFFF;
+}
+.opcja, #opcja_now {
+    line-height: 90px;
+    cursor: pointer;
+    transition: 250ms;
+    position: relative;
+    font-size: 1.5em;
+}
+.opcja{
+    color: #eee;
+}
+.opcja:hover, #opcja_now:hover{
+    letter-spacing: 2px;
+    color:#4DCFFF;
+}
+
+.opcja:hover::after, #opcja_now:hover::after {
+    transform: scaleX(1);
+}
+.material-symbols-outlined{
+    cursor: pointer;
+}
+.playercount{
+    color: #eee;
+    font-weight: 700;
+    font-size: 20px;
+    float: left;
+    margin-left: 50px;
+    line-height: 90px;
+}
+.navbar_online__pulse {
+    float: left;
+    background: #0c6b06;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    right: 10px;
+    top: 37px;
+    transform: scale(1);
+    animation: pulse 2s infinite;
+    position: relative;
+}
+
+.navbar_online__pulse:after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #6aff60;
+}
+/* =-=-=-=-=-=-=-=-= */
+
+/* Menu na urządzenia mobilne i tablety */
+#tel-menu{
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+}
+#menuToggle::selection{
+    background-color: transparent;
+    color: #eee;
+}
+#tel-menu{
+    height: auto;
+}
+.tel-opcja.visible{
+    visibility: visible;
+}
+#tel-opcje.visible{
+    visibility: visible;
+}
+#tel-widoczne{
+    height: 60px;
+    background-color: #333;
+}
+#tel-widoczne span{
+    float: right;
+    margin-right: 20px;
+    line-height: 60px;
+}
+#tel-widoczne h2{
+    line-height: 20px;
+    float: left;
+    margin-left: 20px;
+}
+#tel-opcje{
+    margin-top: -16px;
+    width: 100%;
+    background-color: #333;
+}
+.tel-opcja{
+    text-align: center;
+    padding: 10px;
+}
+.tel-odstep{
+    height: 20px;
+}
+.tel-opcja:hover{
+    transition: 100ms;
+    font-weight: 400;
+    color: #4DCFFF;
+}
+/* =-=-=-=-=-=-=-=-= */
+
+/* Strona główna*/
+span.ip-light{
+    color:#4DCFFF;
+    font-weight: 700;
+}
+span.ip-dark{
+    color: #19B5EF;
+    font-weight: 700;
+}
+span.select{
+    color: #0B9FD6;
+    font-weight: 600;
+}
+span.ip-txt-bg{
+    font-weight: 700;
+    background-size: 300% 300%;
+    background: linear-gradient(to right, #0055ff,#00b7ff);
+    background-clip: text;
+    color: transparent;
+}
+span#copy-ip{
+    transition: 200ms;
+}
+span#copy-ip:hover{
+    padding: 5px;
+    background-color: #eee;
+    color: black;
+    border-radius: 40%;
+}
+#main{
+    max-width: 1800px;
+    margin: auto;
+    min-height: 100vh; 
+}
+h1#glowny_napis{
+    font-size: 100px;
+    margin-right: 100px;
+    float: right;
+}
+p#glowny_opis{
+    float: left;
+    margin-left: 100px;
+    font-size: 40px;
+    width: 40%;
+    text-align: center;
+}
+h1#header{
+    margin-top: 200px;
+    font-size: 3em;
+    text-align: center;
+    clear: both;
+}
+#glowna{
+    clear: both;
+    margin-top: 200px;
+}
+#plusy{
+    margin: auto;
+    clear: both;
+    width: 100%;
+    height: auto;
+    margin-top: 600px;
+}
+
+.plus-img span{
+    transition: 300ms;
+    float: left;
+    width: 124px;
+    height: 124px;
+    font-size: 48px;
+    margin-right: 10px;
+    border: 2px solid #36B7E7;
+    border-radius: 20px;
+    color: #36B7E7;
+    line-height: 124px;
+    text-align: center;
+    cursor: default;
+}
+.plus:hover .plus-img span{
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+    font-size: 64px;
+    box-shadow: 0px 0px 10px #f0f0f0;
+}
+.plus-tekst{
+    float: right;
+    width: calc(100% - 138px);
+}
+.plus-header{
+    transition: 300ms;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.plus-opis{
+    color: #8E8E8E;
+    font-weight: 500;
+}
+.plus{
+    cursor: default;
+    height: 200px;
+    width: calc(33.3% - 30px);
+    margin-left: 10px;
+    float: left;
+    padding: 10px;
+}
+/* =-=-=-=-=-=-=-=-= */
+#statusy{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.status{
+    width: 300px;
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 20px;
+}
+.status_tekst{
+    background-color: #282828;
+    border-radius: 20px;
+    padding: 10px;
+}
+/* Regulamin */
+h1#regulamin-main{
+    font-size: 3em;
+    margin-top: 200px;
+    text-align: center;
+}
+#regulamin h1{
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+#regulamin span.material-symbols-outlined{
+    font-size: 16px;
+}
+#regulamin{
+    background-color: #333;
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+    padding-bottom: 30px;
+}
+.podpunkt{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    background-color: #282828;
+    width: 95%;
+    margin: auto;
+}
+
+/* Discord */
+#discord{
+    text-align: center;
+}
+#discord-btn{
+    border: 2px solid #4d57d1;
+    backdrop-filter: blur(40px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    transition: 200ms;
+}
+#discord-btn:hover{
+    background-color: #4d57d1;
+    box-shadow: 0px 0px 10px #4d57d1;
+}
+#copy-dc{
+    font-size: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+/* Media only screen */
+
+@media only screen and (min-width: 2559px) {
+    body{
+        background-image: url('tlo4k.png');
+    }
+}
+@media only screen and (min-width: 1065px) and (max-width: 1532px){
+    .rozwijane-icon{
+        display: none;
+    }
+    #opcja_now, .opcja, .rozwijane-opcja{
+        font-size: 1em;
+    }
+    h1#glowny_napis{
+        font-size: 70px;
+    }
+    p#glowny_opis{
+        font-size: 30px;
+    }
+    #plusy{
+        margin-top: 200px;
+    }
+    .plus{
+        width: calc(50% - 30px);
+    }
+}
+@media only screen and (max-width: 1150px){
+    .playercount{
+        line-height: 60px;
+    }
+    .rozwijane-opcje{
+        border-radius: 0;
+        border: 0;
+        position: relative;
+        font-size: 1em;
+        width: 100%;
+    }
+    .rozwijane-opcja{
+        line-height: normal;
+        padding-top: 20px;
+        width: 100%;
+        font-size: 1em;
+    }
+    .rozwijane-opcje.visible{
+        display: block;
+    }
+    .navbar_online__pulse{
+        top: 22px;
+        left: -140px;
+    }
+    #playercount{
+        line-height: 60px;
+    }
+    #regulamin h1{
+        text-align: center;
+        margin-left: 0;
+    }
+    .plus-header{
+        font-size: 1.5em;
+    }
+    #main{
+        width: 100%;
+    }
+    span#copy-ip{
+        visibility: hidden;
+    }
+    h1#glowny_napis{
+        float: none;
+        margin-right: 0;
+        margin-left: 32px;
+        margin-top: 60px;
+        font-size: 40px;
+        text-align: center;
+    }
+    p#glowny_opis{
+        float: none;
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 40px;
+        font-size: 20px;
+    }
+    #menu{
+        visibility: hidden;
+    }
+    #tel-menu{
+        visibility: visible;
+    }
+    #tel-opcje{
+        visibility: hidden;
+    }
+    .podpunkt{
+        width: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #plusy{
+        margin-top: 200px;
+    }
+    .plus{
+        margin-left: 0;
+        width: calc(100% - 20px);
+    }
+    #stopka img{
+        width: 128px;
+        height: 128px;
+    }
+    #stopka-logo{
+        width: 128px;
+        height: 128px;
+    }
+    ::-webkit-scrollbar{
+        width: 0;
+    }
+    ::-webkit-scrollbar-track{
+        width: 0;
+    }
+    ::-webkit-scrollbar-thumb{
+        width: 0;
+    }
+}
+@media only screen and (max-width: 700px){
+    #stopka h3{
+        font-size: 1em;
+    }
+    #stopka p, #stopka a{
+        font-size: 0.9em;
+    }
+}
+@media only screen and (max-width: 390px){
+    .playercount{
+        content: '';
+    }
+}
