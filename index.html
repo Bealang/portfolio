@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bealang portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    </head>
+</head>
+<body>
+    <header>
+        <h2>Be<span class="gradient__text">alang</span></h2>
+        <nav>
+            <a href="#omnie">O mnie</a>
+            <a href="#projekty">Projekty</a>
+            <a href="#kontakt">Skontaktuj się</a>
+        </nav>
+    </header>
+    <main id="omnie">
+        <div id="main__text">
+            <h3 class="animate__animated animate__fadeInDownBig">Miło cię poznać!</h3>
+            <h1 class="animate__animated animate__fadeInLeftBig">Zaprojektuję ci<br>
+            <span class="gradient__text">nowoczesną</span>
+            <br>stronę internetową<br>
+            i ją wykonam.</h1>
+            <p class="animate__animated animate__fadeInUpBig">Nazywam się Łukasz, mam 16 lat i od 2021 roku rozwijam kompetencje programistyczne, zaczynając od fundamentów języka C++. Obecnie koncentruję się na technologiach front-endowych, łącząc zdobytą wiedzę algorytmiczną z tworzeniem nowoczesnych interfejsów użytkownika. Dążę do budowania wydajnych i estetycznych rozwiązań, stale poszerzając swój warsztat o najnowsze standardy webowe.</p>
+            <div id="main__buttons" class="animate__animated animate__fadeInBottomLeft">
+                <a href="#projekty"><button id="button__projects">Zobacz moje projekty</button></a>
+                <a href="#kontakt"><button id="button__contact">Skontaktuj się</button></a>
+            </div>
+        </div>
+        <div class="hero-visual fade-left animate__animated animate__fadeInRightBig">
+                <div class="glass-card floating-card">
+                    <div class="card-header">
+                        <div class="dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-line w-75"></div>
+                        <div class="code-line w-50"></div>
+                        <div class="code-line w-100"></div>
+                        <div class="code-line w-80"></div>
+                    </div>
+                </div>
+        </div>
+    </main>
+    <section id="projekty">
+        <h3>Moje projekty</h3>
+        <div id="kafelki">
+            <div class="kafelek">
+                <div class="kafelek__obraz"><center><img src="assets/project-img/joecraft.png"></center></div>
+                <p class="kafelek__tytul">Joecraft.pl</p>
+                <p class="kafelek__opis">Projekt wizytówki dla wieloletniego serwera Minecraft Joecraft.pl (2020–2025). Strona została zaprojektowana jako hub agregujący najważniejsze zasoby społeczności: regulaminy, odnośniki społecznościowe oraz panele informacyjne. To realizacja, która uporządkowała komunikację z graczami i nadała projektowi profesjonalny charakter.</p>
+                <div class="kafelek__przyciski">
+                    <a href="joecraft/index.html" target="_blank"><button class="kafelek__podglad">Zobacz podgląd</button></a>
+                </div>
+            </div>
+            <div class="kafelek">
+                <div class="kafelek__obraz"><center><img src="assets/project-img/crazyskript.png"></center></div>
+                <p class="kafelek__tytul">Crazyskript.pl</p>
+                <p class="kafelek__opis">CrazySkript.pl to autorski projekt serwisu poświęconego automatyzacji serwerów Minecraft przy użyciu pluginu Skript. Prace nad platformą rozpocząłem w listopadzie 2023 roku, a oficjalny start nastąpił miesiąc później. Serwis gromadzi szeroką bazę rozwiązań – od prostych narzędzi użytkowych po zaawansowane skrypty,ułatawiające rozwój serwera.</p>
+                <div class="kafelek__przyciski">
+                    <a href="crazyskript/index.html" target="_blank"><button class="kafelek__podglad">Zobacz podgląd</button></a>
+                </div>
+            </div>
+            <div class="kafelek">
+                <div class="kafelek__obraz"><center><img src="assets/project-img/mcformatter.png"></center></div>
+                <p class="kafelek__tytul">McFormatter</p>
+                <p class="kafelek__opis"> McFormatter to narzędzie webowe stworzone z myślą o twórcach serwerów Minecraft, które pozwala na błyskawiczne formatowanie tekstu przy użyciu kodów kolorów. Aplikacja oferuje intuicyjny interfejs do generowania gotowych linii kodu, co znacząco przyspiesza pracę nad konfiguracją pluginów czy wiadomościami systemowymi.</p>
+                <div class="kafelek__przyciski">
+                    <a href="https://bealang.github.io/minecraft/" target="_blank"><button class="kafelek__podglad">Zobacz podgląd</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="kontakt">
+    <h3>Skontaktuj się <span class="gradient__text">ze mną</span></h3>
+    <div class="social__grid">
+        <a href="https://discord.com/users/1243053286668501032" class="social__item discord" target="_blank">
+            <i class="fa-brands fa-discord"></i>
+            <span>Discord</span>
+        </a>
+        <a href="https://github.com/Bealang" class="social__item github" target="_blank">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+        </a>
+        <a href="mailto:srokalukasz03@gmail.com" class="social__item email">
+            <i class="fa-solid fa-envelope"></i>
+            <span>E-mail [1]</span>
+        </a>
+        <a href="mailto:sroczka2009@gmail.com" class="social__item email">
+            <i class="fa-solid fa-envelope"></i>
+            <span>E-mail [2]</span>
+        </a>
+        <a href="https://www.youtube.com/channel/UCnMyqeqgeYsQ4FqBGoSsnTA" class="social__item youtube" target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+            <span>Youtube [1]</span>
+        </a>
+        <a href="https://youtube.com/@windows11porady82" class="social__item youtube" target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+            <span>Youtube [2]</span>
+        </a>
+        <a href="https://skript.pl/profil/43620-bealang/" class="social__item skript" target="_blank">
+            <i class="fa-solid fa-code"></i>
+            <span>Skript.pl</span>
+        </a>
+        <a href="https://www.tiktok.com/@bealang._" class="social__item tiktok" target="_blank">
+            <i class="fa-brands fa-tiktok"></i>
+            <span>TikTok</span>
+        </a>
+        <a href="https://steamcommunity.com/id/Bealang/" class="social__item steam" target="_blank">
+            <i class="fa-brands fa-steam"></i>
+            <span>Steam</span>
+        </a>
+        <a href="https://open.spotify.com/user/9vguy48odcmnisoubct9nt5u2?si=de8b786c59fd4bc1" class="social__item spotify" target="_blank">
+            <i class="fa-brands fa-spotify"></i>
+            <span>Spotify</span>
+        </a>
+    </div>
+    </section>
+    <footer>
+        <div class="footer__content">
+            <div class="footer__info">
+                <h2>Be<span class="gradient__text">alang</span></h2>
+                <p>Tworzę z pasją od 2021 roku.</p>
+            </div>
+            
+            <div class="footer__links">
+                <a href="#omnie">O mnie</a>
+                <a href="#projekty">Projekty</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; <span id="year"></span> Bealang. Wszelkie prawa zastrzeżone.</p>
+            <p>Design & Code with 💗 by Łukasz</p>
+        </div>
+    </footer>
+    <script src="overflow.js"></script>
+</body>
+</html>
