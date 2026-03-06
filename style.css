@@ -355,8 +355,6 @@ nav>a:hover {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(var(--glass-blur));
-    padding: 25px;
-    border-radius: 15px;
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 600;
@@ -365,13 +363,10 @@ nav>a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.social__item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--accent-cyan);
-    box-shadow: var(--glass-shadow);
+    flex-direction: column;
+    gap: 12px;
+    padding: 30px 20px;
+    border-radius: 20px;
 }
 
 .social__item span:hover {
@@ -379,20 +374,6 @@ nav>a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-.social__item {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(var(--glass-blur));
-    padding: 30px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: var(--transition-smooth);
 }
 
 .social__item i {
@@ -415,6 +396,7 @@ nav>a:hover {
     transform: translateY(-8px);
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-cyan);
 }
 
 .social__item:hover i {
