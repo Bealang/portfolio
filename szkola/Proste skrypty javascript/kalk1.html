@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Skrypty JS i PHP Łukasz Sroka</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=backspace" />
+</head>
+<body>
+    <header>
+        <h1>Skrypty Javascript i PHP</h1>
+    </header>
+    <section id="kalkulator">
+        <h2>Kalkulator</h2>
+        <div id="kalkulatormain">
+            <input type="text" id="wynik" disabled>
+            <div class="przyciski">
+                <button class="kalkprzycisk dlugi" onclick="kalk()">=</button>
+                <button class="kalkprzycisk" onclick="wyczysc()">C</button>
+                <button class="kalkprzycisk" onclick="usun(1)"><span class="material-symbols-outlined">backspace</span></button>
+                <button class="kalkprzycisk" onclick="dodaj('1')">1</button>
+                <button class="kalkprzycisk" onclick="dodaj('2')">2</button>
+                <button class="kalkprzycisk" onclick="dodaj('3')">3</button>
+                <button class="kalkprzycisk" onclick="dodaj('+')">+</button>
+    
+                <button class="kalkprzycisk" onclick="dodaj('4')">4</button>
+                <button class="kalkprzycisk" onclick="dodaj('5')">5</button>
+                <button class="kalkprzycisk" onclick="dodaj('6')">6</button>
+                <button class="kalkprzycisk" onclick="dodaj('-')">-</button>
+    
+                <button class="kalkprzycisk" onclick="dodaj('7')">7</button>
+                <button class="kalkprzycisk" onclick="dodaj('8')">8</button>
+                <button class="kalkprzycisk" onclick="dodaj('9')">9</button>
+                <button class="kalkprzycisk" onclick="dodaj('*')">*</button>
+                
+                <button class="kalkprzycisk dlugi" onclick="dodaj('0')">0</button>
+                <button class="kalkprzycisk" onclick="dodaj('.')">.</button>
+                <button class="kalkprzycisk" onclick="dodaj('/')">/</button>
+            </div>
+        </div>
+    </section>
+    <a href="index.html">
+        <div id="powrot">
+            Wróć
+        </div>
+    </a>
+    <footer>
+        Łukasz S 2TP gr. 1
+    </footer>
+    <script src="kalkulator.js"></script>
+</body>
+</html>

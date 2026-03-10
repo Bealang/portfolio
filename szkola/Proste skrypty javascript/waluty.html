@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Skrypty JS i PHP Łukasz Sroka</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=backspace" />
+    
+</head>
+<body>
+    <header>
+        <h1>Skrypty Javascript i PHP</h1>
+    </header>
+    <section id="przelicznik">
+        <h2>Przelicznik walut</h2>
+        
+        <div id="plninne">
+            <h3>Zamiana PLN na inne waluty</h3>
+            <input type="number" id="plnAmount" placeholder="Podaj kwotę w PLN">
+            <select id="currencySelect">
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">Funt brytyjski (GBP)</option>
+                <option value="CHF">Frank szwajcarski (CHF)</option>
+                <option value="SEK">Korona szwedzka (SEK)</option>
+                <option value="NOK">Korona norweska (NOK)</option>
+                <option value="DKK">Korona duńska (DKK)</option>
+                <option value="HUF">Forint węgierski (HUF)</option>
+                <option value="CZK">Korona czeska (CZK)</option>
+                <option value="RON">Lej rumuński (RON)</option>
+                <option value="BGN">Lew bułgarski (BGN)</option>
+            </select>
+            <button onclick="convertPLN()" class="walutyprzelicz">Przelicz</button>
+            <p id="plnResult"></p>
+        </div>
+
+        <div id="innepln">
+            <h3>Zamiana walut na PLN</h3>
+            <input type="number" id="currencyAmount" placeholder="Podaj kwotę">
+            <select id="plnSelect">
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">Funt brytyjski (GBP)</option>
+                <option value="CHF">Frank szwajcarski (CHF)</option>
+                <option value="SEK">Korona szwedzka (SEK)</option>
+                <option value="NOK">Korona norweska (NOK)</option>
+                <option value="DKK">Korona duńska (DKK)</option>
+                <option value="HUF">Forint węgierski (HUF)</option>
+                <option value="CZK">Korona czeska (CZK)</option>
+                <option value="RON">Lej rumuński (RON)</option>
+                <option value="BGN">Lew bułgarski (BGN)</option>
+            </select>
+            <button onclick="convertToPLN()" class="walutyprzelicz">Przelicz</button>
+            <p id="currencyResult"></p>
+        </div>
+    </section>
+    
+    <a href="index.html">
+        <div id="powrot">
+            Wróć
+        </div>
+    </a>
+    <footer id="stopka">
+        Łukasz S 2TP gr. 1
+    </footer>
+    <script src="walutaeu.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+header{
+    font-size: 30px;
+    background-color: rgb(179, 142, 98);
+    color: white;
+    
+}
+section, main{
+    background-color: bisque;
+    padding: 20px;
+    color: rgb(88, 60, 26);
+    min-height: calc(100vh - 170px);
+}
+h1{
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+h2{
+    margin: 0;
+    font-size: 40px;
+}
+#kalkulatormain {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+}
+
+#wynik {
+    width: 325px;
+    height: 50px;
+    text-align: right;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.przyciski {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    gap: 10px;
+}
+
+.kalkprzycisk {
+    padding: 20px;
+    font-size: 18px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 300ms;
+}
+.dlugi{
+    grid-column: span 2;
+}
+.kalkprzycisk:hover {
+    background-color: #ddd;
+}
+
+.hiperlacze{
+    background-color: rgb(179, 142, 98);
+    border-radius: 7px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    cursor: pointer;
+    transition: 300ms;
+}
+.hiperlacze:hover{
+    background-color: rgb(170, 133, 87);
+}
+main{
+    text-align: center;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+#powrot{
+    position: fixed;
+    right: 0;
+    top: 40vh;
+    font-size: 20px;
+    background-color: rgb(179, 142, 98);
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.jednostki{
+    float: left;
+}
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    color: rgb(88, 60, 26);
+    font-family: 'Poppins', sans-serif;
+    margin: 10px;
+    font-size: 15px;
+}
+#stopka{
+    clear: both;
+    background-color: rgb(88, 60, 26);
+    color: white;
+    text-align: center;
+}
+body{
+    background-color: bisque;
+}
+#przelicznik{
+    clear: both;
+}
+h5{
+    font-size: 25px;
+}
+.funkcjakwadratowainput {
+    width: 2ch;
+    margin-right: -1px;
+    text-align: right;
+    border-bottom: 2px solid rgb(88, 60, 26);
+    color: #ddd;
+}
+
+.funkcjakwadratowainput:focus {
+    width: 30px;
+}
+.funkcjakwadratowainput::placeholder{
+    color: #bebcbc;
+}
+#postacogolna{
+    margin: 40px;
+    background-color: rgb(179, 142, 98);
+    padding: 20px;
+    margin-left: -20px;
+    border-radius: 30px;
+    color: #ddd;
+}
+.walutyprzelicz{
+    background-color: rgb(88, 60, 26);
+    color: beige;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+select{
+    background-color: rgb(88, 60, 26);
+    color: beige;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+#cukierkiwynik{
+    border: none;
+}
+.salonfryzjerskiwynik{
+    font-size: 20px;
+    font-weight: 500;
+    float: right;
+    width: calc(50% - 40px);
+}
+.salonfryzjerskiform{
+    float: left;
+    width: calc(50% - 120px);
+    padding-right: 100px;
+    text-align: left;
+}

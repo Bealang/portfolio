@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Skrypty JS i PHP Łukasz Sroka</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=backspace" />
+</head>
+<body>
+    <header>
+        <h1>Skrypty Javascript i PHP</h1>
+    </header>
+    <section id="skrypt" class="salonfryzjerskiform">
+        <h2>Zamówienie fryzury i makijażu</h2>
+        <form id="formularz">
+            <label>Imię: <input type="text" id="imie" required></label><br>
+            <label>Nazwisko: <input type="text" id="nazwisko" required></label><br>
+            <label>Wiek: <input type="number" id="wiek" min="18" max="120" required></label><br>
+
+            <label>Fryzura:
+            <select id="fryzura">
+                <option value="krótkie">Krótkie</option>
+                <option value="półdługie">Półdługie</option>
+                <option value="długie">Długie</option>
+            </select>
+            </label><br><br>
+
+            <b>Makijaż:</b><br>
+            <label><input type="checkbox" id="cien"> Cień</label><br>
+            R: <input type="number" id="cien_r" min="0" max="255">
+            G: <input type="number" id="cien_g" min="0" max="255">
+            B: <input type="number" id="cien_b" min="0" max="255"><br><br>
+
+            <label><input type="checkbox" id="szminka"> Szminka</label><br>
+            R: <input type="number" id="szminka_r" min="0" max="255">
+            G: <input type="number" id="szminka_g" min="0" max="255">
+            B: <input type="number" id="szminka_b" min="0" max="255"><br><br>
+
+            <label><input type="checkbox" id="lakier"> Lakier</label><br>
+            R: <input type="number" id="lakier_r" min="0" max="255">
+            G: <input type="number" id="lakier_g" min="0" max="255">
+            B: <input type="number" id="lakier_b" min="0" max="255"><br><br>
+
+            <label>Komentarz:<br>
+            <textarea id="komentarz"></textarea>
+            </label><br>
+
+            <label>Termin wykonania:
+            <input type="date" id="termin" required>
+            </label><br><br>
+
+            <button type="reset">Resetuj</button>
+            <button type="button" onclick="pokazWynik()">Wyślij</button>
+        </form>
+        
+    </section>
+    <div id="wynik" class="salonfryzjerskiwynik" style="border: none; text-align: left; color: rgb(88, 60, 26);"></div>
+    <a href="index.html">
+        <div id="powrot">
+            Wróć
+        </div>
+    </a>
+    <footer id="stopka">
+        Łukasz S 2TP gr. 1
+    </footer>
+    <script src="salonfryzjerski.js"></script>
+</body>
+</html>

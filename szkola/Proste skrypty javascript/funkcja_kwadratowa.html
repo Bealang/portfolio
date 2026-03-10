@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Skrypty JS i PHP Łukasz Sroka</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=backspace" />
+    
+</head>
+<body>
+    <header>
+        <h1>Skrypty Javascript i PHP</h1>
+    </header>
+    <section id="przelicznik">
+        <h2>Funkcja kwadratowa</h2>
+        <section id="funkcja">
+            <div id="postacogolna">
+                <h3>Postać ogólna:</h3>
+                f(x) = <input type="text" class="input-box" id="a" placeholder="a" value="5.5555">x<sup>2</sup> + 
+                <input type="text" class="input-box" id="b" placeholder="b" value="4.5555555555">x + 
+                <input type="text" class="input-box" id="c" placeholder="c" value="-2.555555">
+                <button onclick="funkcjaKwadratowa()">Oblicz</button>
+            </div>
+    
+            <h3>Postać kanoniczna:</h3>
+            f(x) = <span id="ka">0</span>(x - <span id="kp">0</span>)<sup>2</sup> + <span id="kq">0</span>
+    
+            <h3>Postać iloczynowa:</h3>
+            f(x) = <span id="ia">0</span>(x - <span id="ix1">0</span>)(x - <span id="ix2">0</span>)
+    
+            <h3>Delta:</h3>
+            <span id="delta">0</span>
+    
+            <h3>Miejsca zerowe:</h3>
+            <span id="mx1">Brak</span> v <span id="mx2">Brak</span>
+    
+            <h3>Zbiór wartości:</h3>
+            <span id="zbior">Brak</span>
+    
+            <h3>Wierzchołek:</h3>
+            (<span id="wierzcholekX">0</span>, <span id="wierzcholekY">0</span>)
+    
+            <h3>Wzory Viete'a:</h3>
+            <span id="viete">Brak</span>
+    
+            <h3>Kierunek ramion:</h3>
+            <span id="kierunek">Brak</span>
+    
+            <h3>Monotoniczność:</h3>
+            <span id="monotonicznosc">Brak</span>
+        </section>
+    </section>
+    <a href="index.html">
+        <div id="powrot">
+            Wróć
+        </div>
+    </a>
+    <footer id="stopka">
+        Łukasz S 2TP gr. 1
+    </footer>
+    <script src="funkcja.js"></script>
+</body>
+</html>

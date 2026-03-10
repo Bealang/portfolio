@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Skrypty JS i PHP Łukasz Sroka</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=backspace" />
+    
+</head>
+<body>
+    <header>
+        <h1>Skrypty Javascript i PHP</h1>
+    </header>
+    <section id="przelicznik">
+        <h2>Przeliczanie Jednostek</h2>
+        
+        <section class="jednostki">
+            <h5>Długości</h5>
+            Milimetry (mm): <input type="number" id="mm" oninput="przelicz('mm', 'dlugosc')" min="0"min="0"><br>
+            Centymetry (cm): <input type="number" id="cm" oninput="przelicz('cm', 'dlugosc')"min="0"><br>
+            Decymetry (dm): <input type="number" id="dm" oninput="przelicz('dm', 'dlugosc')"min="0"><br>
+            Metry (m): <input type="number" id="m" oninput="przelicz('m', 'dlugosc')"min="0"><br>
+            Kilometry (km): <input type="number" id="km" oninput="przelicz('km', 'dlugosc')"min="0"><br>
+            Cale (in): <input type="number" id="in" oninput="przelicz('in', 'dlugosc')"min="0"><br>
+            Stopy (ft): <input type="number" id="ft" oninput="przelicz('ft', 'dlugosc')"min="0"><br>
+            Jardy (yd): <input type="number" id="yd" oninput="przelicz('yd', 'dlugosc')"min="0"><br>
+            Mile (mi): <input type="number" id="mi" oninput="przelicz('mi', 'dlugosc')"min="0"><br>
+            Mile morskie: <input type="number" id="nmi" oninput="przelicz('nmi', 'dlugosc')"min="0"><br>
+        </section>
+        
+        <section class="jednostki">
+            <h5>Wagi</h5>
+            Miligramy (mg): <input type="number" id="mg" oninput="przelicz('mg', 'waga')"min="0"><br>
+            Gramy (g): <input type="number" id="g" oninput="przelicz('g', 'waga')"min="0"><br>
+            Dekagramy (dag): <input type="number" id="dag" oninput="przelicz('dag', 'waga')"min="0"><br>
+            Kilogramy (kg): <input type="number" id="kg" oninput="przelicz('kg', 'waga')"min="0"><br>
+            Tony (tg): <input type="number" id="tg" oninput="przelicz('tg', 'waga')"min="0"><br>
+            Łuty (ld): <input type="number" id="ld" oninput="przelicz('ld', 'waga')"min="0"><br>
+            Kamienie (stone): <input type="number" id="stone" oninput="przelicz('stone', 'waga')"min="0"><br>
+            Unce (oz): <input type="number" id="oz" oninput="przelicz('oz', 'waga')"min="0"><br>
+            Karaty (karat): <input type="number" id="karat" oninput="przelicz('karat', 'waga')"min="0"><br>
+        </section>
+        <section class="jednostki">
+            <h5>Objętość</h5>
+            Mililitry (ml): <input type="number" id="ml" oninput="przelicz('ml', 'objetosc')"min="0"><br>
+            Litry (l): <input type="number" id="l" oninput="przelicz('l', 'objetosc')"min="0"><br>
+            Hektolitry (hl): <input type="number" id="hl" oninput="przelicz('hl', 'objetosc')"min="0"><br>
+            Centymetry sześcienne (cm³): <input type="number" id="cm3" oninput="przelicz('cm3', 'objetosc')"min="0"><br>
+            Metry sześcienne (m³): <input type="number" id="m3" oninput="przelicz('m3', 'objetosc')"min="0"><br>
+            Baryłki (barylka): <input type="number" id="barylka" oninput="przelicz('barylka', 'objetosc')"min="0"><br>
+            Galony (US): <input type="number" id="galonUS" oninput="przelicz('galonUS', 'objetosc')"min="0"><br>
+            Galony (UK): <input type="number" id="galonUK" oninput="przelicz('galonUK', 'objetosc')"min="0"><br>
+            Pinty (US): <input type="number" id="pintaUS" oninput="przelicz('pintaUS', 'objetosc')"min="0"><br>
+            Pinty (UK): <input type="number" id="pintaUK" oninput="przelicz('pintaUK', 'objetosc')"min="0"><br>
+        </section>
+        
+        <section class="jednostki">
+            <h5>Powierzchnia</h5>
+            Centymetry kwadratowe (cm²): <input type="number" id="cm2" oninput="przelicz('cm2', 'powierzchnia')"min="0"><br>
+            Metry kwadratowe (m²): <input type="number" id="m2" oninput="przelicz('m2', 'powierzchnia')"min="0"><br>
+            Kilometry kwadratowe (km²): <input type="number" id="km2" oninput="przelicz('km2', 'powierzchnia')"min="0"><br>
+            Ary (ar): <input type="number" id="ar" oninput="przelicz('ar', 'powierzchnia')"min="0"><br>
+            Hektary (ha): <input type="number" id="ha" oninput="przelicz('ha', 'powierzchnia')"min="0"><br>
+            Akry (akr): <input type="number" id="akr" oninput="przelicz('akr', 'powierzchnia')"min="0"><br>
+            Mile kwadratowe (mi²): <input type="number" id="mi2" oninput="przelicz('mi2', 'powierzchnia')"min="0"><br>
+            Cale kwadratowe (in²): <input type="number" id="in2" oninput="przelicz('in2', 'powierzchnia')"min="0"><br>
+            Jardy kwadratowe (yd²): <input type="number" id="yd2" oninput="przelicz('yd2', 'powierzchnia')"min="0"><br>
+            Stopy kwadratowe (ft²): <input type="number" id="ft2" oninput="przelicz('ft2', 'powierzchnia')"min="0"><br>
+        </section>
+        
+        <section class="jednostki">
+            <h5>Waluta (PLN)</h5>
+            Złote (zł): <input type="number" id="zl" oninput="przeliczWalute('zl')"min="0"><br>
+            Grosze (gr): <input type="number" id="gr" oninput="przeliczWalute('gr')"min="0"><br>
+        </section>
+        <section class="jednostki">
+            <h5>Ciśnienie</h5>
+            Pascal (Pa): <input type="number" id="Pa" oninput="przelicz('Pa', 'cisnienie')"min="0"><br>
+            Hektopascal (hPa): <input type="number" id="hPa" oninput="przelicz('hPa', 'cisnienie')"min="0"><br>
+            Bar: <input type="number" id="bar" oninput="przelicz('bar', 'cisnienie')"min="0"><br>
+            Psi: <input type="number" id="psi" oninput="przelicz('psi', 'cisnienie')"min="0"><br>
+            Newton/mm² (N/mm²): <input type="number" id="N/mm2" oninput="przelicz('N/mm2', 'cisnienie')"min="0"><br>
+            Kilogram/m² (kg/m²): <input type="number" id="kg/m2" oninput="przelicz('kg/m2', 'cisnienie')"min="0"><br>
+            Atmosfera techniczna (at): <input type="number" id="at" oninput="przelicz('at', 'cisnienie')"min="0"><br>
+            Atmosfera fizyczna (atm): <input type="number" id="atm" oninput="przelicz('atm', 'cisnienie')"min="0"><br>
+            Torr (Tr): <input type="number" id="Tr" oninput="przelicz('Tr', 'cisnienie')"min="0"><br>
+        </section>
+        
+        <section class="jednostki">
+            <h5>Prędkość</h5>
+            Kilometry na godzinę (km/h): <input type="number" id="km/h" oninput="przelicz('km/h', 'predkosc')"min="0"><br>
+            Mile na godzinę (mph): <input type="number" id="mph" oninput="przelicz('mph', 'predkosc')"min="0"><br>
+            Metry na sekundę (m/s): <input type="number" id="m/s" oninput="przelicz('m/s', 'predkosc')"min="0"><br>
+        </section>
+        
+        <section class="jednostki">
+            <h5>Temperatura</h5>
+            Stopnie Celsjusza (°C): <input type="number" id="C" oninput="przeliczTemperature('C')"><br>
+            Stopnie Fahrenheita (°F): <input type="number" id="F" oninput="przeliczTemperature('F')"><br>
+            Kelwiny (K): <input type="number" id="K" oninput="przeliczTemperature('K')" min="0"><br>
+            Rankine (°R): <input type="number" id="R" oninput="przeliczTemperature('R')"><br>
+            Réaumur (°r): <input type="number" id="r" oninput="przeliczTemperature('r')"><br>
+        </section>
+        
+        <section class="jednostki">
+            <h5>Czas</h5>
+            Nanosekundy (ns): <input type="number" id="ns" oninput="przelicz('ns', 'czas')"min="0"><br>
+            Mikrosekundy: <input type="number" id="mikrosekunda" oninput="przelicz('mikrosekunda', 'czas')"min="0"><br>
+            Milisekundy (ms): <input type="number" id="ms" oninput="przelicz('ms', 'czas')"min="0"><br>
+            Sekundy (s): <input type="number" id="s" oninput="przelicz('s', 'czas')"min="0"><br>
+            Minuty (min): <input type="number" id="min" oninput="przelicz('min', 'czas')"min="0"><br>
+            Godziny (h): <input type="number" id="h" oninput="przelicz('h', 'czas')"min="0"><br>
+            Dni (d): <input type="number" id="d" oninput="przelicz('d', 'czas')"min="0"><br>
+            Tygodnie: <input type="number" id="tydzien" oninput="przelicz('tydzien', 'czas')"min="0"><br>
+            Miesiące: <input type="number" id="miesiac" oninput="przelicz('miesiac', 'czas')"min="0"><br>
+            Lata: <input type="number" id="rok" oninput="przelicz('rok', 'czas')"min="0"><br>
+        </section>
+        
+        <section class="jednostki">
+            <h5>Moc</h5>
+            Kilowaty (kW): <input type="number" id="kW" oninput="przelicz('kW', 'moc')"min="0"><br>
+            Konie mechaniczne (KM): <input type="number" id="KM" oninput="przelicz('KM', 'moc')"min="0"><br>
+        </section>
+        
+    </section>
+    <a href="index.html">
+        <div id="powrot">
+            Wróć
+        </div>
+    </a>
+    <footer id="stopka">
+        Łukasz S 2TP gr. 1
+    </footer>
+    <script src="przeliczniki.js"></script>
+    <script src="waluta.js"></script>
+    <script src="temp.js"></script>
+</body>
+</html>
