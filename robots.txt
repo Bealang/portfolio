@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bealang.github.io/portfolio/sitemap.xml
+Sitemap: https://bealang.pl/sitemap.xml
