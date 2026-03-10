@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>E.14-02-19.01</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">E.14-02-19.01 - Programowanie dokumentów HTML</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Wykonywanie po stronie przeglądarki, wywoływany przez zdarzenie kliknięcia w dowolny przycisk</li>
+		<li>Skrypt ma za zadanie zmienić styl CSS dla paragrafu o treści "To jest przykład paragrafu, który..." znajdującego się w panelu głównym</li>
+		<li>Po wciśnięciu czerwonego przycisku, zmieniony jest kolor tekstu paragrafu na czerwony. Po wciśnięciu zielonego przycisku - na zielony. Po wciśnięciu niebieskiego przycisku - na niebieski</li>
+		<li>Ponadto wciśnięcie dowolnego przycisku powoduje:
+			<ol>
+				<li>Pobranie wartości z pola edycyjnego i ustawienie rozmiaru czcionki paragrafu pobraną wartością wyrażoną w procentach. Na przykład, jeżeli wpisano wartość 150 - rozmiar czcionki powinien być ustawiony na "150%"</li>
+				<li>Pobranie wyboru z listy i ustawienie czcionki paragrafu na pochyłą lub wyprostowaną</li>
+			</ol>
+		</li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<p>Podaj rozmiar tekstu w procentach: <input type="number">%</p>
+		<select>
+			<option>prosty</option>
+			<option>kursywa</option>
+		</select>
+		<p>Jakim kolorem sformatować tekst? Wybierz przycisk</p>
+		<button style="background-color: red; height: 20px; width: 8px; margin: 5px;"> </button><button style="background-color: green; height: 20px; width: 8px; margin: 5px;"> </button><button style="background-color: blue; height: 20px; width: 8px; margin: 5px;"> </button>
+		<p>To jest przykład paragrafu, który może być dowolnie formatowany przez Java Script</p>
+	</div>
+</body>
+</html>

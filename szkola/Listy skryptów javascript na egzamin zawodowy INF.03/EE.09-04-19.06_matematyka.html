@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>EE.09-04-19.06</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function dodawanie(){
+			const a=parseInt(document.getElementById('a').value);
+			const b=parseInt(document.getElementById('b').value);
+			let suma = a+b;
+			document.getElementById('wynik').innerHTML = 'Wynik:' + suma;
+		}
+		function odejmowanie(){
+			const a=parseInt(document.getElementById('a').value);
+			const b=parseInt(document.getElementById('b').value);
+			let suma = a-b;
+			document.getElementById('wynik').innerHTML = 'Wynik:' + suma;
+		}
+		function mnozenie(){
+			const a=parseInt(document.getElementById('a').value);
+			const b=parseInt(document.getElementById('b').value);
+			let suma = a*b;
+			document.getElementById('wynik').innerHTML = 'Wynik:' + suma;
+		}
+		function dzielenie(){
+			const a=parseInt(document.getElementById('a').value);
+			const b=parseInt(document.getElementById('b').value);
+			let suma = a/b;
+			document.getElementById('wynik').innerHTML = 'Wynik:' + suma;
+		}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">EE.09-04-19.06 - Pomocnik matematyczny</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Napisany w języku wykonywanym po stronie przeglądarki </li>
+		<li>Funkcjonalność może być zaimplementowana w jednym skrypcie lub w wielu</li>
+		<li>Zadaniem jest wykonanie działania na liczbach A i B w zależności od wybranego przycisku</li>
+		<li>Skrypt uruchamia się po wciśnięciu dowolnego przycisku na stronie dzialania.html </li>
+		<li>Po uruchomieniu skrypt pobiera wartości z obu pól edycyjnych. Wartości powinny być liczbami 
+			całkowitymi. Nie jest wymagane, aby skrypt sprawdzał poprawność danych </li>
+		<li>Skrypt wyświetla wynik działania pod przyciskami według wzoru: „Wynik: wartość”, gdzie 
+			wartość oznacza obliczony wcześniej wynik działania </li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; color: white;">
+	<h3>Proste działania</h3>
+	liczba A: <input type="number" id="a"><br>
+	liczba B: <input type="number" id="b"><br>
+	<button onclick="dodawanie()">+</button><button onclick="odejmowanie()">-</button><button onclick="mnozenie()">*</button><button onclick="dzielenie()">/</button>
+	<p id="wynik"></p>
+	</div>
+</body>
+</html>

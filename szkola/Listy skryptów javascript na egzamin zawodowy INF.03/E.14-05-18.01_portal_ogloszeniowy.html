@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>E.14-05-18.01 - Portal Ogłoszeniowy</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function obliczKoszt(){
+			const liczba=parseInt(document.getElementById('liczba').value);
+			const checkbox=document.getElementById('checkbox').checked;
+			let cena = liczba > 50 ? 1 : 2;
+			let wartosc = cena * liczba;
+			if (checkbox){
+				wartosc-=liczba * 0.20;
+			}
+			document.getElementById('wynik').innerText="Koszt ogłoszeń: "+ wartosc +" PLN";
+		}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">E.14-05-18.01 - Portal ogłoszeniowy</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Wykonywany po stronie przeglądarki, po wciśnięciu przycisku „Oblicz”</li>
+		<li>	Pobiera dane z obu pól z panelu prawego (liczbę oraz stan checkboxa)</li>
+		<li>Oblicza na podstawie pobranych wartości koszt ogłoszenia. Wytyczne dotyczące sposobu obliczenia kosztu znajdują się w tabeli 1</li>
+		<li>Wyświetla pod przyciskiem tekst: „Koszt ogłoszeń: … PLN", gdzie w miejscu kropek wstawiony jest obliczony koszt ogłoszeń</li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<h2>Ile kosztuje ogłoszenie?</h2>
+		Podaj liczbę ogłoszeń: <input type="number" id="liczba"><br>
+		<input type="checkbox" id="checkbox"> Policz upust na newsletter<br>
+		<button onclick="obliczKoszt()">Oblicz</button>
+		<p id="wynik"></p>
+	</div>
+</body>
+</html>

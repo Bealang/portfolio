@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.kontener {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.powrot {
+    text-decoration: none;
+    color: #b3a116;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.powrot:hover {
+    transform: translateX(-5px);
+}
+
+.arkusz-szczegoly {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.naglowek-zadania {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.naglowek-zadania h1 {
+    font-size: 2.2rem;
+    color: #222;
+}
+
+.tag-egzaminu {
+    display: inline-block;
+    background: #fffde7; /* Bardzo jasny żółty */
+    color: #b3a116;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.tresc-opisu {
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.tresc-opisu h3 {
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.tresc-opisu p {
+    margin-bottom: 15px;
+}
+
+.przyciski-akcji {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.przycisk {
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pobierz-btn {
+    background-color: #f0db4f;
+    color: #333; /* Ciemny tekst na żółtym tle lepiej wygląda */
+}
+
+.pobierz-btn:hover {
+    background-color: #d4c13d;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(240, 219, 79, 0.3);
+}
+
+.rozwiazanie-btn {
+    background-color: white;
+    color: #b3a116;
+    border: 2px solid #f0db4f;
+}
+
+.rozwiazanie-btn:hover {
+    background-color: #fffdf0;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(240, 219, 79, 0.1);
+}
+
+@media (max-width: 600px) {
+    .przyciski-akcji {
+        flex-direction: column;
+    }
+    .przycisk {
+        justify-content: center;
+    }
+}

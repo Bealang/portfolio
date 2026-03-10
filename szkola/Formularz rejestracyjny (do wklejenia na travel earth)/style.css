@@ -1,0 +1,170 @@
+@keyframes middleIn {
+	0% {
+		transform: scaleY(0%);
+	}
+	100% {
+		transform: scaleY(100%);
+	}
+}
+
+@keyframes middleOut {
+	0% {
+		transform: scaleY(100%);
+	}
+	100% {
+		transform: scaleY(0%);
+	}
+}
+@keyframes fadeIn{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 100;
+	}
+}
+body{
+	font-family: "Inter", sans-serif;
+	background-color: #F0F0F0;
+}
+body, html{
+	margin: 0;
+	scroll-behavior: smooth;
+}
+h1{
+	font-size: 3rem;
+	text-align: center;
+}
+progress{
+	width: 100%;
+	border-radius: 0;
+	border: none;
+	position: fixed;
+	top: 0;
+	transition: 300ms;
+}
+
+progress::-webkit-progress-bar {
+	background-color: #383b43;
+ }
+ progress::-webkit-progress-value {
+	background-color: #00C441;
+	transition: width 0.3s ease-in-out;
+ }
+.form{
+	max-width: 800px;
+	margin: auto;
+	text-align: center;
+	background-color: #eee;
+	border-radius: 20px;
+	box-shadow: 0px 5px 10px 0px rgba(66, 68, 90, 0.5);
+	margin-bottom: 150px;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	
+}
+option{
+	color: black;
+}
+select option:disabled[selected] {
+	color: grey; /* Ustawienie koloru tekstu na szary dla wybranej domyślnie opcji "Płeć" */
+}
+.form{
+	display: none;
+}
+.formTitle{
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+.przycisk{
+	margin: auto;
+	line-height: 40px;
+	display: block;
+}
+*.invisible{
+	animation: middleOut 0.6s ease-in-out;
+	display: none;
+}
+*.visible{
+	animation: middleIn 0.6s ease-in-out;
+	display: block;
+}
+*.fade{
+	animation: fadeIn 0.6s ease-in-out;
+	display: block;
+}
+a{
+	text-decoration: none;
+}
+.material-symbols-outlined{
+	vertical-align: text-bottom;
+}
+input[type="submit"], .przycisk{
+	text-align: center;
+	font-size: 20px;
+	height: 40px;
+	width: 400px;
+	background-color: #008BFF;
+	color: white;
+	margin-bottom: 30px;
+	border-radius: 10px;
+	transition: 300ms;
+	border-bottom: none;
+}
+input[type="submit"]:hover, .przycisk:hover{
+	color: white;
+	cursor: pointer;
+	background-color: #00C441;
+	border-bottom: none;
+}
+input, select{
+	transition: 300ms;
+	background-color: transparent;
+	width: 400px;
+	height: 40px;
+	font-size: 20px;
+	border: 2px solid transparent;
+	border: 2px solid transparent;
+	border-bottom: 2px solid #3B3B3B;
+}
+input[type]:focus, select:focus {
+	outline: none;
+	border: 2px solid transparent;
+	border-bottom: 2px solid #008BFF;
+}
+input[type]:invalid{
+	border: 2px solid #F80303;
+	border-radius: 0;
+}
+input[type="reset"]{
+	position: fixed;
+	top: 50%;
+    right: 0%;
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+	background-color: #D60808;
+	height: 60px;
+	border: 2px solid transparent;
+	font-size: 20px;
+	color: white;
+	cursor: pointer;
+	width: 200px;
+	transition: 300ms;
+}
+input[type="reset"]:focus, input[type="submit"]:focus{
+	border-bottom: none;
+}
+input[type="reset"]:hover{
+	width: 250px;
+	background-color: #F80303;
+}
+p#passwordMatch{
+	font-weight: 700;
+	font-size: 18px;
+	color: green;
+}
+span.help{
+	margin-left: 30px;
+	font-weight: 700;
+}

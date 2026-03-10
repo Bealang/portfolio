@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>E.14-06-19.06</title>
+    <link rel="stylesheet" href="style_podstrony.css">
+    <script>
+        function wyslijWiad() {
+            const imie = document.getElementById('imie').value;
+            const nazwisko = document.getElementById('nazwisko').value;
+            const email = document.getElementById('email').value;
+            const usluga = document.getElementById('select').value;
+            document.getElementById('wynik').innerHTML = imie + ' ' + nazwisko + '<br>' +  email.toLowerCase() + '<br>Usługa: ' + usluga;
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html"><div id="powrot">Powrót</div></a>
+    <h1 style="text-align: center;">E.14-06-19.06 - Pogotowie komputerowe</h1>
+    <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+        <h2 style="text-align: center;">Skrypt</h2>
+        <hr>
+        <p>Wymagania dotyczące skryptu:</p>
+        <ul>
+            <li>Wykonywany po stronie przeglądarki, wywoływany przyciskiem „Prześlij” </li>
+            <li>Skrypt pobiera wartości wprowadzone do pól formularza. Poniżej formularza, w akapicie, powinno 
+                wyświetlić się w pierwszej linii imię i nazwisko, poniżej adres email – zapisany małymi literami, bez 
+                względu na to jak zostanie wprowadzony do pola tekstowego, pod nim treść „Usługa: …”, gdzie 
+                w miejscu kropek znajduje się nazwa usługi wybranej z listy rozwijalnej, zgodnie z obrazem 3</li>
+        </ul>
+    </div>
+    <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; color: white;">
+        <table>
+            <tr>
+                <td>Imię:</td>
+                <td><input type="text" id="imie"></td>
+            </tr>
+            <tr>
+                <td>Nazwisko:</td>
+                <td><input type="text" id="nazwisko"></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>Usługa</td>
+                <td>
+                    <select id="select">
+                        <option>naprawa komputera</option>
+                        <option>odzyskiwanie danych</option>
+                        <option>problemy z oprogramowaniem</option>
+                        <option>konfiguracja sieci LAN</option>
+                        <option>inne</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox">Wyślij kopię wiadomości</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="reset" value="Resetuj"><button onclick="wyslijWiad();">Prześlij</button></td>
+            </tr>
+        </table>
+        <p id="wynik"></p>
+    </div>
+</body>
+</html>

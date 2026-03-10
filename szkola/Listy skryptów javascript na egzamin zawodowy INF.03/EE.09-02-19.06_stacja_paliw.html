@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>EE.09-02-19.06</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function oblicz(){
+            const rodzaj=parseInt(document.getElementById('rodzaj').value);
+			const litry=parseInt(document.getElementById('litry').value);
+			let suma = 0;
+            if (rodzaj === 1){
+				suma = litry*4;
+			}
+			else if(rodzaj === 2){
+				suma = litry*3.5;
+			}
+			else{
+				suma = 0;
+			}
+			document.getElementById('wynik').innerHTML = "koszt paliwa: " + suma + "zł";
+        }
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">EE.09-02-19.06 - Stacja paliw</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Napisany w języku wykonywanym po stronie przeglądarki</li>
+		<li>Skrypt uruchamia się po wciśnięciu przycisku OBLICZ na stronie obliczenia.html</li>
+		<li>Skrypt pobiera wartości z obu pól edycyjnych numerycznych </li>
+		<li>Następnie oblicza koszt paliwa ze względu na rodzaj i liczbę litrów uwzględniając:
+			<ul>
+				<li>Gdy rodzaj paliwa jest równy 1 – koszt jednego litra paliwa wynosi 4 zł </li>
+				<li>Gdy rodzaj paliwa jest równy 2 – koszt jednego litra paliwa wynosi 3,5 zł </li>
+				<li>W każdym innym przypadku koszt paliwa wynosi 0 zł</li>
+				<li>Następnie skrypt wyświetla wynik działania pod przyciskiem OBLICZ według wzoru: „koszt paliwa: 
+					wartość zł”, gdzie wartość oznacza obliczony wcześniej koszt paliwa</li>
+			</ul>
+		</li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; color: white;">
+		<h3>Oblicz koszt paliwa</h3>
+		Rodzaj paliwa (1-benzyna, 2-olej napędowy): <br>
+		<input type="number" id="rodzaj"><br>
+		Ile litrów? <br>
+		<input type="number" id="litry"><br>
+		<button onClick="oblicz();">OBLICZ</button>
+		<p id="wynik"></p>
+	</div>
+</body>
+</html>

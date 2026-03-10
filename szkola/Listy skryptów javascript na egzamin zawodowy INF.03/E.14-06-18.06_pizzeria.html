@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>E.14-06-18.06 - Pizzeria</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function obliczKoszt(){
+			const liczba=parseInt(document.getElementById('liczba').value);
+			const checkbox=document.getElementById('checkbox').checked;
+			let cena = liczba * 2;
+			if (checkbox){
+				document.getElementById('wynik').innerText="Dowieziemy twoją pizzę za darmo";
+			}
+			else{
+				document.getElementById('wynik').innerText="Dowóz będzie cię kosztował " + cena + " złotych";
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">E.14-06-18.06 - Pizzeria</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul> 
+		<li>Wykonywany po stronie przeglądarki</li>
+		<li>Pobiera dane z obu pól z panelu dolnego (liczbę oraz stan pola typu checkbox)</li>
+		<li>Zależnie od stanu pola typu checkbox podejmowane są działania:</li>
+		<li>Zależnie od stanu pola typu checkbox podejmowane są działania:<br>
+			- W przypadku zaznaczenia, wypisywany jest pod przyciskiem tekst: „ Dowieziemy Twoją pizzę za darmo ” -W przypadku odznaczenia, wyliczany jest koszt dowozu, równy 1 zł za 1 km liczony w obie strony (np. dla 5 km koszt jest równy 10 zł). Następnie wypisywany jest pod przyciskiem tekst: „ Dowóz będzie Cię kosztował ... złotych ”, gdzie kropki oznaczają koszt dowozu.</li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<h3>Oblicz koszt dostawy</h3>
+		<input type="checkbox" id="checkbox"> Jestem z zielonej góry
+		<p>albo</p>
+		Podaj liczbę kilometrów od Zielonej Góry <input type="number" id="liczba"><br>
+		<button onclick="obliczKoszt()">Oblicz</button>
+		<p id="wynik"></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="24px"
+   viewBox="0 -960 960 960"
+   width="24px"
+   fill="#e8eaed"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="capuccino.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="33.875"
+     inkscape:cx="8.4280443"
+     inkscape:cy="13.210332"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     d="m 296.62112,-184.81456 c -44,0 -81.66667,-15.66667 -113,-47 -31.33333,-31.33333 -47,-69 -47,-113 v -400 h 640 c 22,0 40.83333,7.83333 56.5,23.5 15.66667,15.66667 23.5,34.5 23.5,56.5 v 120 c 0,22 -7.83333,40.83333 -23.5,56.5 -15.66667,15.66667 -34.5,23.5 -56.5,23.5 h -80 v 120 c 0,44 -15.66667,81.66667 -47,113 -31.33333,31.33333 -69,47 -113,47 z m 0,-80 h 240 c 22,0 40.83333,-7.83333 56.5,-23.5 15.66667,-15.66667 39.58225,42.28337 17.59594,41.50738 l -401.47601,-14.16974 7.38007,-403.83764 v 320 c 0,22 7.83333,40.83333 23.5,56.5 15.66667,15.66667 34.5,23.5 56.5,23.5 z m 400,-280 h 80 v -120 h -80 z m -400,280 h -80 400 z m 180.97602,-22.20765 -95.18544,-3.33984"
+     id="path1"
+     sodipodi:nodetypes="ssscsssssscssssssssccsssccccccccc"
+     style="fill:#f5ebe0;fill-opacity:1" />
+  <path
+     style="fill:#f5ebe0;fill-opacity:1;fill-rule:nonzero;stroke:#090000;stroke-width:0"
+     d="m 310.60513,-308.73116 c -14.40005,-3.95872 -4.65691,-6.32684 -10.01952,-11.68944"
+     id="path2" />
+  <path
+     style="fill:#4b2e2a;fill-opacity:1;fill-rule:nonzero;stroke:#090000;stroke-width:0"
+     d="m 333.98402,-464.03372 -28.38865,3.34"
+     id="path4" />
+  <path
+     style="fill:#4b2e2a;fill-opacity:1;fill-rule:nonzero;stroke:#090000;stroke-width:0"
+     d="m 275.53681,-557.54928 c 3.58878,-7.17754 0.85047,-6.67966 5.00976,-6.67966"
+     id="path5" />
+  <text
+     xml:space="preserve"
+     style="font-size:480px;fill:#4b2e2a;fill-opacity:1;fill-rule:nonzero;stroke:#090000;stroke-width:0;-inkscape-font-specification:'Berlin Sans FB, Normal';font-family:'Berlin Sans FB';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+     x="237.34317"
+     y="-305.83026"
+     id="text6"><tspan
+       sodipodi:role="line"
+       id="tspan6"
+       style="stroke-width:0;-inkscape-font-specification:'Berlin Sans FB, Normal';font-family:'Berlin Sans FB';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:480px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="237.34317"
+       y="-305.83026">C</tspan></text>
+</svg>

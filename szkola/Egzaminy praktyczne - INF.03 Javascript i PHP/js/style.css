@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 40px 20px;
+}
+
+.kontener {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.naglowek-sekcji {
+    padding-left: 20px;
+    margin-bottom: 40px;
+    border-left: 8px solid #f0db4f; 
+}
+
+.naglowek-sekcji h1 {
+    font-size: 2.2rem;
+    color: #222;
+}
+
+.naglowek-sekcji p {
+    color: #666;
+    font-style: italic;
+}
+
+.lista-zadan {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wpis-arkusz {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.wpis-arkusz:hover {
+    transform: translateY(-5px);
+    background-color: #fffdf0; 
+    box-shadow: 0 10px 25px rgba(240, 219, 79, 0.3); 
+}
+
+.info-lewo h2 {
+    font-size: 1.3rem;
+    color: #b3a116; 
+    margin-bottom: 5px;
+}
+
+.info-lewo p {
+    color: #555;
+    font-size: 0.95rem;
+    width: 90%;
+}
+
+.numer-egzaminu {
+    background-color: #fffde7; 
+    color: #b3a116;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    min-width: 150px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}

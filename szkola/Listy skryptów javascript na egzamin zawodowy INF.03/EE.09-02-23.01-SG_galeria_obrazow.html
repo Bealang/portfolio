@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>EE.09-02-23.01-SG</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function obliczKoszt(){
+			const liczba=parseInt(document.getElementById('liczba').value);
+			const checkbox=document.getElementById('checkbox').checked;
+			let cena = liczba * 2;
+			if (checkbox){
+				document.getElementById('wynik').innerText="Dowieziemy twoją pizzę za darmo";
+			}
+			else{
+				document.getElementById('wynik').innerText="Dowóz będzie cię kosztował " + cena + " złotych";
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">EE.09-02-23.01-SG - Galeria obrazów</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Napisany w języku JavaScript</li>
+		<li>Składa się z trzech funkcji obsługujących wyświetlanie dużego zdjęcia w bloku prawym, zwanego dalej aktywnym zdjęciem oraz zmiennej liczbowej przechowującej numer aktywnego zdjęcia</li>
+		<li>Aktywne zdjęcie początkowo jest zdjęciem pierwszym. Wciśnięcie przycisku „next” zmienia aktywne zdjęcie na następne. Ponieważ zdjęć jest 5, gdy aktywnym zdjęciem jest piąte, po wciśnięciu „next” aktywnym zdjęciem zostaje pierwsze. Podobnie wciskając przycisk „prev”, aktywne zdjęcie jest zmieniane na poprzednie, np. 4 -> 3, 3 -> 2 ale 1 -> 5. Po kliknięciu na miniaturę, aktywnym zdjęciem staje się to kliknięte. Aplikacja utrzymuje kontekst tak, że użytkownik może nawigować na zmianę miniaturami oraz przyciskami.</li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<div id="lewy" style="float: left; width: 50%;">
+			<img src="zdjecie.jpg" alt="zdjęcie dnia">
+			<h3>Zdjęcia opublikowali</h3>
+			<table border="1">
+				<tr>
+					<td>Anna Porada</td>
+					<td>10 zdjęć</td>
+				</tr>
+				<tr>
+					<td>Krzysztof Wasilewski</td>
+					<td>12 zdjęć</td>
+				</tr>
+				<tr>
+					<td>Monika Kowalska</td>
+					<td>4 zdjęcia</td>
+				</tr>
+			</table>
+		</div>
+		<div id="prawy" style="float: right; width: 50%;">
+			<button onclick="prevzdj();">prev</button>
+			<img src="1.jpg" alt="galeria">
+			<button onclick="nextzdj()">next</button>
+			<hr>
+			<div id="miniatury">
+				<img src="1.jpg" alt="miniatura" onclick="zmienZdjecie('1.jpg')">
+				<img src="2.jpg" alt="miniatura" onclick="zmienZdjecie('2.jpg')">
+				<img src="3.jpg" alt="miniatura" onclick="zmienZdjecie('3.jpg')">
+				<img src="4.jpg" alt="miniatura" onclick="zmienZdjecie('4.jpg')">
+				<img src="5.jpg" alt="miniatura" onclick="zmienZdjecie('5.jpg')">
+			</div>
+		</div>
+		<div id="clear" style="clear: both;"></div>
+	</div>
+</body>
+</html>

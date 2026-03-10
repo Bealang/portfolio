@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>E.14-07-18.01 - Szkola ponadgimnazjalna</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function obliczSrednia(){
+			const liczba1 = parseInt(document.getElementById('liczba1').value);
+			const liczba2 = parseInt(document.getElementById('liczba2').value);
+			const liczba3 = parseInt(document.getElementById('liczba3').value);
+			if (isNaN(liczba1) || isNaN(liczba2) || isNaN(liczba3)) {
+				document.getElementById('wynik').innerText = 'wpisz poprawne dane';
+			}
+			else{
+				let srednia = (liczba1 + liczba2 + liczba3) / 3;
+				document.getElementById('wynik').innerText = 'Średnia ocen: ' + srednia; 
+			}
+	}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">E.14-07-18.01 - Szkola ponadgimnazjalna</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Wykonywany po stronie klienta,</li>
+		<li>Powinien wykonywać działania na liczbach rzeczywistych</li>
+		<li>Po kliknięciu przycisku „oblicz” skrypt pobiera dane z trzech pól tekstowych</li>
+		<li>Jeżeli przynajmniej jedno z pól jest puste lub do któregoś pola wpisano ciąg znaków, który nie jest poprawną liczbą rzeczywistą skrypt powinien wyświetlić w osobnym oknie komunikat „wpisz poprawne dane”</li>
+		<li>W przeciwnym przypadku skrypt powinien przekonwertować ciągi znaków na liczby rzeczywiste</li>
+		<li>Następnie skrypt powinien obliczyć średnią z trzech ocen</li>
+		<li>Na koniec skrypt powinien wyświetlić obliczoną średnią poniżej napisu „Średnia ocen” w prawym panelu.</li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<h4>Obliczanie średniej oceny</h4>
+		<ul>
+			<li>Polak <input type="text" id="liczba1"></li>
+			<li>Nowak <input type="text" id="liczba2"></li>
+			<li>Rysik <input type="text" id="liczba3"></li>
+		</ul>
+		<button onclick="obliczSrednia()">Oblicz</button>
+		<h4>Średnia ocen: </h4>
+		<p id="wynik"></p>
+	</div>
+</body>
+</html>

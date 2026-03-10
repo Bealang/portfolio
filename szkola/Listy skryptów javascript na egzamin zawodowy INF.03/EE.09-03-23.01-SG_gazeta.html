@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>EE.09-03-23.01-SG</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function obliczKoszt(){
+			const liczba=parseInt(document.getElementById('liczba').value);
+			const checkbox=document.getElementById('checkbox').checked;
+			let cena = liczba * 2;
+			if (checkbox){
+				document.getElementById('wynik').innerText="Dowieziemy twoją pizzę za darmo";
+			}
+			else{
+				document.getElementById('wynik').innerText="Dowóz będzie cię kosztował " + cena + " złotych";
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">EE.09-03-23.01-SG - gazeta codzienna</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Napisany w języku JavaScript</li>
+		<li>Składa się z funkcji (jednej lub kilku) obsługujących przyciski z bloku informacji</li>
+		<li>W stanie początkowym każdy z artykułów nie jest widoczny (Obraz 2)</li>
+		<li>Po wybraniu dowolnego przycisku ukazuje się artykuł pod przyciskiem. Obraz 3a przedstawia efekt wciśnięcia przycisku „Sekcja sportowa”</li>
+		<li>Następnie po wybraniu innego przycisku, wcześniej wyświetlany artykuł jest chowany, natomiast ukazuje się nowo wybrany. Obraz 3b przedstawia ten efekt, wcześniej wybrany artykuł Sekcji sportowej został schowany, wyświetlony został artykuł Sekcji aktualności</li>
+	  </ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<button>Sekcja wiadomości z kraju</button><br>
+		<button>Sekcja sportowa</button><br>
+		<button>Sekcja aktualności</button><br>
+		<button>Sekcja ogłoszeń</button><br>
+	</div>
+</body>
+</html>

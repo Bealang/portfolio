@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>E.14-05-19.06</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function wyslijWiad() {
+			const imie = document.getElementById('imie').value;
+			const nazwisko = document.getElementById('nazwisko').value;
+			const opis = document.getElementById('opis').value;
+			const checkbox = document.getElementById('checkbox').checked;
+			if (checkbox) {
+				document.getElementById('wynik').style.color = "white";
+				document.getElementById('wynik').innerHTML = imie.toUpperCase() + ' ' + nazwisko.toUpperCase() +  '<br>Treść Twojej sprawy:<br>' + opis + '<br>Na podany e-mail zostanie wysłana oferta.';
+			} else {
+				document.getElementById('wynik').style.color = "red";
+				document.getElementById('wynik').innerText = "Musisz zapoznać się z regulaminem";
+			}
+		}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">E.14-05-19.06 - Usługi informatyczne</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Wykonywany po stronie przeglądarki, wywoływany przyciskiem „Prześlij” </li>
+		<li>Skrypt pobiera wartości wprowadzone do pól formularza oraz sprawdza, czy zaznaczone zostało pole 
+			wyboru. Jeśli nie, poniżej formularza powinien wyświetlić się w paragrafie tekst w kolorze czerwonym, 
+			o treści „Musisz zapoznać się z regulaminem”. Gdy pole wyboru zostanie zaznaczone powinien pojawić
+			 się paragraf, który w pierwszej linii wyświetli imię i nazwisko, pisane wielkimi literami, poniżej tekst 
+			„Treść Twojej sprawy:” i treść wprowadzona do pola Usługa. </li>
+		<li>Na dole tekst o treści „Na podany e-mail zostanie wysłana oferta.”, zgodnie z obrazem 3 </li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; color: white;">
+
+			<table>
+				<tr>
+					<td>Imię:</td>
+					<td><input type="text" id="imie"></td>
+				</tr>
+				<tr>
+					<td>Nazwisko:</td>
+					<td><input type="text" id="nazwisko"></td>
+				</tr>
+				<tr>
+					<td>E-mail:</td>
+					<td><input type="email"></td>
+				</tr>
+				<tr>
+					<td>Usługa</td>
+					<td><textarea id="opis"></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="checkbox" id="checkbox"> Zapoznałam/em się z regulaminem</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="reset" value="Resetuj"> <button onClick="wyslijWiad();">Prześlij</button></td>
+				</tr>
+			</table>
+			<p id="wynik" style="text-align: center;"></p>
+	</div>
+</body>
+</html>

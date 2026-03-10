@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>INF.03-01-23.01-SG</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		function oblicz(){
+			const powierzchnia=parseFloat(document.getElementById('liczba').value);
+			document.getElementById('wynik').innerText = 'Liczba potrzebnych puszek: ' + Math.ceil(powierzchnia/4);
+		}
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">INF.03-01-23.01-SG - Malowanie pokoi i biur</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<p>Skrypt wykonywany po stronie przeglądarki, na podstronie cena.html ma za zadanie:</p>
+    <ul>
+      <li>Pobrać z pola edycyjnego wielkość powierzchni do pomalowania</li>
+      <li>Na podstawie pobranej wartości wyliczyć minimalną liczbę puszek wystarczającą do pomalowania tej powierzchni, przy założeniu, że:
+        <ul>
+          <li>Jedna puszka zawiera 1 litr farby</li>
+          <li>1 litr farby wystarcza do pomalowania powierzchni 4 m<sup>2</sup></li>
+          <li>Obliczona liczba puszek jest liczbą naturalną, zaokrągloną w górę, np. do pomalowania powierzchni 6 m<sup>2</sup>, potrzeba 2 puszek, a nie 1,5</li>
+        </ul>
+      </li>
+      <li>Obliczony wynik jest wyświetlony pod przyciskiem i poprzedzony napisem o treści: „Liczba potrzebnych puszek: ”</li>
+    </ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<h2>Zapotrzebowanie na farbę</h2>
+        Powierzchnia malowania (m<sup>2</sup>):
+    	<input type="number" id="liczba">
+    	<button onclick="oblicz()">Policz</button>
+		<p id="wynik"></p>
+	</div>
+</body>
+</html>

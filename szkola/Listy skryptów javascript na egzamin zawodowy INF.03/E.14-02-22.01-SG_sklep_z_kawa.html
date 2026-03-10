@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>E.14-02-22.01-SG</title>
+    <link rel="stylesheet" href="style_podstrony.css">
+    <script>
+        function zamow(){
+            const numer=parseInt(document.getElementById("numer").value);
+            const waga=parseInt(document.getElementById("waga").value);
+            let suma = 0;
+            if (numer == 1){
+                suma = waga*5;
+            }
+            else if (numer == 2){
+                suma = waga*7;
+            }
+            else if (numer == 4){
+                suma = waga*6;
+            }
+            else{
+                suma = 0;
+            }
+            document.getElementById('wynik').innerHTML = "Koszt zamówienia: " + suma + "zł";
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html"><div id="powrot">Powrót</div></a>
+    <h1 style="text-align: center;">E.14-02-22.01-SG - Sklep z kawą</h1>
+    <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+		<h2 style="text-align: center;">Skrypt</h2><hr>
+		<p>Wymagania dotyczące skryptu:</p>
+		<ul>
+			<li>Wykonywany po stronie przeglądarki</li>
+            <li>Wywoływany na stronie zamowienia.html po kliknięciu przycisku „Zamów”</li>
+            <li>Skrypt pobiera wartości z obu pól edycyjnych i oblicza koszt kawy uwzględniając jej numer i wagę, zgodnie z tabelą 1</li>
+            <li>w przypadku, gdy podano inną wartość niż 1, 2, 4 cena wynosi 0 zł</li>
+            <li>Po obliczeniu całkowitego kosztu kawy jest wyświetlany wynik pod przyciskiem w formacie: „Koszt
+                zamówienia wynosi: koszt zł”, gdzie koszt> oznacza obliczoną wartość</li>
+		</ul>
+    </div>
+    <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+        <h2>Sklep z kawą</h2>
+        Podaj numer kawy: <input type="number" id="numer"><br>
+        Podaj wagę w dekagramach: <input type="number" id="waga"><br>
+        <button onclick="zamow();">Zamów</button>
+        <p id="wynik"></p>
+    </div>
+</body>
+</html>

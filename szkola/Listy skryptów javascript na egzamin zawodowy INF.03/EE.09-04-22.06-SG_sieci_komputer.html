@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>EE.09-04-22.06-SG</title>
+    <link rel="stylesheet" href="style_podstrony.css">
+    <script>
+        
+    </script>
+</head>
+<body>
+    <a href="index.html"><div id="powrot">Powrót</div></a>
+    <h1 style="text-align: center;">EE.09-04-22.06-SG - Sieci komputerowe</h1>
+    <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+		<h2 style="text-align: center;">Skrypt</h2><hr>
+		<p>Wymagania dotyczące skryptu:</p>
+		<ul>
+            <li>Napisany w języku JavaScript:
+                <ul>
+                    <li>Składa się z funkcji aktualizującej i zamawiającej obsługujących przyciski oraz funkcji zaznaczającej braki.</li>
+                    <li>Na początku działania skryptu jest wywoływana funkcja zaznaczająca braki oraz zainicjowana jest wartością 0 zmienna przechowująca id zamówienia.</li>
+                </ul>
+            </li>
+            <li>Funkcja zaznaczająca braki:
+                <ul>
+                    <li>Sprawdza wartości w kolumnie „Dostępna Ilość” dla każdego wiersza tabeli.</li>
+                    <li>Jeżeli wartość jest równa 0, tło tej komórki zmienione jest na czerwone.</li>
+                    <li>Jeżeli wartość jest z przedziału <1, 5>, tło tej komórki zmienione jest na żółte.</li>
+                    <li>W każdym innym przypadku tło komórki jest koloru Honeydew.</li>
+                </ul>
+            </li>
+            <li>Funkcja aktualizująca:
+                <ul>
+                    <li>Wywoływana po przyciśnięciu przycisku w danym wierszu tabeli.</li>
+                    <li>Wyświetla okno z polem do wpisania wartości, podpisane: „Podaj nową ilość:”.</li>
+                    <li>Podaną w oknie wartość wpisuje do odpowiedniego wiersza, kolumny „Dostępna ilość”.</li>
+                    <li>Wywołuje funkcję zaznaczającą braki.</li>
+                </ul>
+            </li>
+            <li>Funkcja zamawiająca:
+                <ul>
+                    <li>Zwiększa o jeden id zamówienia.</li>
+                    <li>Wyświetla komunikat o treści: „Zamówienie nr: &lt;id zamówienia&gt; Produkt: &lt;nazwa produktu&gt;”.</li>
+                    <li>Pola zapisane w &lt;&gt; wypełniane są automatycznie wartością id_zamowienia oraz nazwą produktu z kolumny „Produkt” danego wiersza tabeli.</li>
+                </ul>
+            </li>
+        </ul>
+        <img src="screen.png" alt="screen">
+    </div>
+    <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+        <h3>Przeglądaj zdjęcia</h3>
+        <table>
+        <tr>
+            <th>Produkt</th>
+            <th>Jednostka</th>
+            <th>Dostępna ilość</th>
+            <th>Aktualizacja</th>
+            <th>Zamówienie</th>
+        </tr>
+        <tr>
+            <td>Skętka U/UTP drut</td>
+            <td>metr</td>
+            <td>20</td>
+            <td><button>Aktualizuj</button></td>
+            <td><button>Zamów</button></td>
+        </tr>
+        <tr>
+            <td>Skętka U/UTP linka</td>
+            <td>metr</td>
+            <td>2</td>
+            <td><button>Aktualizuj</button></td>
+            <td><button>Zamów</button></td>
+        </tr>
+        <tr>
+            <td>Wtyki 8P8C</td>
+            <td>sztuki</td>
+            <td>10</td>
+            <td><button>Aktualizuj</button></td>
+            <td><button>Zamów</button></td>
+        </tr>
+        <tr>
+            <td>Moduły Keystone</td>
+            <td>sztuki</td>
+            <td>30</td>
+            <td><button>Aktualizuj</button></td>
+            <td><button>Zamów</button></td>
+        </tr>
+        </table>
+    </div>
+</body>
+</html>

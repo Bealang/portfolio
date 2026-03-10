@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<title>E.14-11-19.01</title>
+	<link rel="stylesheet" href="style_podstrony.css">
+	<script>
+		
+	</script>
+</head>
+<body>
+	<a href="index.html"><div id="powrot">Powrót</div></a>
+	<h1 style="text-align: center;">E.14-11-19.01 - Galeria zdjęć</h1>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+	<h2 style="text-align: center;">Skrypt</h2><hr>
+	<p>Wymagania dotyczące skryptu:</p>
+	<ul>
+		<li>Wykonywany po stronie przeglądarki, wywoływany przez zdarzenia kliknięcia w miniaturę obrazu, najechanie kursorem i opuszczenie przez kursor myszy miniatury obrazu</li>
+		<li>Po najechaniu kursorem myszy na dowolną miniaturę podmieniane jest zdjęcie kolorowe na opowiadające mu zdjęcie z odcieniami szarości i filtrem, np. plik pies1.jpg zamieniany jest na pies1-szary.jpg</li>
+		<li>Po opuszczeniu miniatury przez kursor myszy jest wykonywana odwrotna transformacja - zdjęcie z odcienami szarości jest zamieniane na zdjęcie kolorowe, np. plik pies1-szary.jpg zamienany jest na pies1.jpg</li>
+		<li>Po kliknięciu na obraz-miniaturę wykonywane są dwie akcje:
+			<ol>
+				<li>Ta sama, co przy opuszczaniu kursowa - podmiana obrazu z odcieniami szarości na kolorowy</li>
+				<li>Kliknięty obraz jest wyświetlany w panelu prawym - dolnym. Np. jeżeli kliknięto na miniaturę pies3.jpg z panelu prawego górnego, to w panelu prawym dolnym jest ładowany obraz pies3.jpg</li>
+			</ol>
+		</li>
+	</ul>
+	</div>
+	<div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+		<h1>Wybierz zdjęcie</h1>
+		<img src="pies1.jpg" alt="pies1">
+		<img src="pies2.jpg" alt="pies2">
+		<img src="pies3.jpg" alt="pies3">
+	</div>
+</body>
+</html>

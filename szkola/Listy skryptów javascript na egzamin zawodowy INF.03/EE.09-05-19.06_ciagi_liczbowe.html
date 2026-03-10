@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>EE.09-05-19.06</title>
+    <link rel="stylesheet" href="style_podstrony.css">
+    <script>
+        // niestety ale ten skrypt mnie przerósł mimo tego ze mam 188 cm wzrostu, przepraszam bardzo prosze mi wybaczyc.
+    </script>
+</head>
+<body>
+    <a href="index.html"><div id="powrot">Powrót</div></a>
+    <h1 style="text-align: center;">EE.09-05-19.06 - Ciągi liczbowe</h1>
+    <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: white;">
+		<h2 style="text-align: center;">Skrypt</h2><hr>
+		<p>Wymagania dotyczące skryptu:</p>
+		<ul>
+			<li>Napisany w języku wykonywanym po stronie przeglądarki </li>
+			<li>Zadaniem jest wyświetlenie wyrazów ciągu arytmetycznego o podanym pierwszym wyrazie, różnicy ciągu i liczbie wyrazów </li>
+			<li>Skrypt uruchamia się po wciśnięciu przycisku na stronie liczby.html</li>
+			<li>Po uruchomieniu skrypt pobiera wartości z trzech pól edycyjnych. Wartości powinny być liczbami 
+				naturalnymi. Nie jest wymagane, aby skrypt sprawdzał poprawność danych </li>
+			<li>Przykład dla danych: wyraz początkowy = 40; różnica = 3; liczba wyrazów w ciągu = 9, wyrazami 
+				ciągu są 40, 43, 46, 49, 52, 55, 58, 61, 64 (zaczynają się od 40, co 3, łącznie jest ich 9) </li>
+			<li>Skrypt wyświetla wynik działania pod przyciskiem według wzoru: „Ciąg arytmetyczny zawiera 
+				wyrazy: wyraz1, wyraz2, …, wyraz_n”, gdzie wyraz1… to kolejne wyrazy ciągu</li>
+		</ul>
+        </div>
+        <div style="width: 900px; margin-left: auto; margin-right: auto; box-shadow: 10px 10px 15px; border: 2px solid #4c85ff; background-color: #4c85ff; border-radius: 10px; padding: 10px; text-align: center; color: white;">
+        <h2>Generowanie ciągu arytmetycznego</h2>
+        Pierwszy wyraz A1: <input type="number" id="a1"><br>
+        Różnica ciągu R: <input type="number" id="r"><br>
+        Liczba wyrazów w ciągu N: <input type="number" id="n"><br>
+        <button onclick="ciag()">Generuj Ciąg</button>
+        <p id="wynik"></p>
+    </div>
+</body>
+</html>
