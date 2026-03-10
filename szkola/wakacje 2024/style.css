@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Reddit+Sans+Condensed:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap');
+
+
+
+body{
+    font-family: "Reddit Sans Condensed", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background2.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1#menu_title{
+    text-align: center;
+    font-size: 70px;
+    font-family: "Fascinate Inline", system-ui;
+}
+#menu{
+    width: 960px;
+    height: 100px;
+    
+}
+#main{
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 15px;
+}
+.opis{
+    font-size: 25px;
+    float: right;
+    width: 50%;
+}
+.opis_img{
+    float: left;
+    width: 400px;
+    height: auto;
+}
+.tytul_opisu{
+    text-align: center;
+    font-size: 40px;
+}
+#stopka{
+    padding-top: 20px;
+    font-size: 15px;
+    clear: both;
+}
+hr{
+    border-top: 50px solid transparent; /* taki ala margines heh */
+    border-bottom: 3px solid black;
+    clear: both;
+}
+a{
+    color: black;
+    text-decoration: none;
+    transform: 100ms;
+}
+a:hover{
+    text-decoration: underline;
+    
+}
+.opcja{
+    width: 50%;
+    text-align: center;
+    float: left;
+    font-family: "Sofadi One", system-ui;
+    font-size: 40px;
+}
+
+
+/* Galeria */
+.zdjecie{
+    position: relative;
+    float: left;
+    margin: 10px;
+}
+.zdjecie_poziome{
+    width: 940px;
+    height: 528px;
+    background-size: cover; 
+}
+.zdjecie_pionowe{
+    height: 400px;
+    width: 300px;
+    background-size: cover;
+}
+.zdjecie_opis{
+    display: none;
+    position: absolute;
+    width: calc(100% - 40px);
+    top: 0;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+    font-size: 30px;
+    padding: 20px;
+    transform: 100ms;
+    cursor: default;
+}
+.zdjecie:hover > .zdjecie_opis{
+    display: block;
+}
