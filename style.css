@@ -258,7 +258,6 @@ nav>a:hover {
 
 h2 {
     color: var(--text-primary);
-    font-size: 35px;
 }
 
 #kafelki {
@@ -671,6 +670,10 @@ h2 {
     line-height: 1.6;
     margin-bottom: 40px;
     max-width: 90%;
+}
+
+.featured__header h2 {
+    font-size: 35px;
 }
 
 .featured__cards {
