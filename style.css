@@ -282,6 +282,8 @@ h2 {
     padding: 20px;
     border-radius: 15px;
     transition: 300ms;
+    display: flex;
+    flex-direction: column;
 }
 
 .kafelek:hover {
@@ -325,6 +327,7 @@ h2 {
 
 .kafelek__przyciski {
     display: flex;
+    margin-top: auto;
 }
 
 .kafelek__podglad {
@@ -333,6 +336,101 @@ h2 {
     background-color: var(--glass-bg);
     box-shadow: none;
     border: 1px solid var(--glass-border);
+}
+
+.kafelek__data {
+    color: var(--accent-cyan);
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.kafelek__opis_krotki {
+    color: var(--text-primary);
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+main.hero-szkolne {
+    display: block;
+    margin-top: 120px;
+    max-width: unset;
+}
+
+.hero__card {
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.2));
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 60px;
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero__content h1 {
+    font-size: 45px;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.hero__content p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+}
+
+.hero__warning {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: rgba(248, 113, 113, 0.05);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.hero__warning i {
+    color: #f87171;
+    font-size: 24px;
+    margin-top: 2px;
+}
+
+.hero__warning p {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(248, 113, 113, 0.9);
+}
+
+#button__szkolne_container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#button__szkolne {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 16px 36px;
+    color: var(--text-primary);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    backdrop-filter: blur(var(--glass-blur));
+}
+
+#button__szkolne:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 20px var(--glass-bg);
 }
 
 #kontakt {
@@ -1074,6 +1172,38 @@ footer {
 
     .hero-visual {
         display: none;
+    }
+
+    main.hero-szkolne {
+        margin-top: 160px;
+        margin-bottom: 40px;
+    }
+
+    .hero__card {
+        padding: 25px;
+        width: 90%;
+    }
+
+    .hero__content h1 {
+        font-size: 28px;
+    }
+
+    .hero__content p {
+        font-size: 15px;
+    }
+
+    .hero__warning {
+        padding: 15px;
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    .hero__warning i {
+        font-size: 20px;
+    }
+
+    .hero__warning p {
+        font-size: 14px;
     }
 
     #kafelki {
