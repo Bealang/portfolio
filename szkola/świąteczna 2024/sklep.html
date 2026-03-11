@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Święta 2024</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="wavy-colour-banner.min.js"></script>
+    <script src="odliczanie.js"></script>
+    <script src="mikolaj.js"></script>
+    <script src="ustawienia.js"></script>
+    <script src="sklep.js"></script>
+    <script src="smoothscroll.js"></script>
+</head>
+<body>
+    <canvas id="snowCanvas"></canvas>
+        <div id="menu__pc" data-wavy-colour-banner data-wcb-fade="0" data-wcb-primary-colour="#AF0808" class="demo-banner-dark">
+            <div id="koszyk"><a href="koszyk.html"><span class="material-symbols-outlined">shopping_cart</span>Wartość koszyka: <span id="koszyk__wartosc">0.00</span></a></div>
+            <div class="menu__pc__opcja"><a href="kalendarz.html">Kalendarz</a></div>
+            <div class="menu__pc__opcja"><a href="warsztaty.html">Warsztaty</a> </div>
+            <div class="menu__pc__opcja"><a href="index.html">Strona główna</a></div>
+            <div class="menu__pc__opcja"><a href="sklep.html">Sklep LEGO®</a></div>
+            <div id="ustawienie">⚙️</div>
+            <div id="ustawienia">
+                <br>
+                Ilość płatków śniegu (10-500):
+                <input type="number" id="flakeCount" value="70" min="10" max="500"><br>
+                Wyłącz animowane menu: <input type="checkbox" id="animowaneMenuCheckbox" value="true" checked><br>
+                <button onclick="ustawPlatki(); window.location.reload();" id="applySettings">Zastosuj</button>
+                <button onclick="resetPlatki(); window.location.reload(); menuReset();" >Przywróć do Domyślnych</button>
+                
+            </div>
+        </div>
+        <div id="sklep__podstrona">
+            <h2>Promowane oferty</h2>
+            <div class="sklep__item">
+                <div class="sklep__item__image ">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/bltf6729e5606d1909f/10340_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Wieniec</div>
+                <div class="sklep__item__cena">399,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(399.99, 'Wieniec')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt5b9064fcb12ba88b/10370_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Gwiazda Betlejemska</div>
+                <div class="sklep__item__cena">214,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(214.99, 'Gwiazda Betlejemska')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt6cc18cd0dcc98749/40743_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Świąteczna dekoracja stołu</div>
+                <div class="sklep__item__cena">174,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(174.99, 'Świąteczna dekoracja stołu')">Do koszyka</div>
+            </div>
+            <h2>Pozostałe</h2>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt3c4e5efcccc53a93/10339_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Poczta Świętego Mikołaja</div>
+                <div class="sklep__item__cena">439,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(439.99, 'Poczta Świętego Mikołaja')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/bltf668e3098bee4951/40746_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Ciężarówka Świętego Mikołaja</div>
+                <div class="sklep__item__cena">84,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(84.99, 'Ciężarówka Świętego Mikołaja')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt910ba57b5982c210/40744_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Kolekcja ozdób świątecznych</div>
+                <div class="sklep__item__cena">54,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(54.99, 'Kolekcja ozdób świątecznych')">Do koszyka</div>
+            </div>
+            <div id="mikolaj__chatbot__reklama" style="margin-top: 100px; margin-bottom: 100px; border-radius: 15px;">
+                <div id="mikolaj__chatbot__reklama__tekst">
+                    <h3>Porozmawiaj z Mikołajem!</h3>
+                    <p>Przeprowadź rozmowę z naszym wirtualnym Mikołajem! Kto wie, może dostaniesz prezenty o które go prosiłeś :></p>
+                    <a href="mikolaj.html"><button>Skorzystam!</button></a>
+                </div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt25470f9d8e38a8a7/40573_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Choinka</div>
+                <div class="sklep__item__cena">189,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(189.99, 'Choinka')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt07583839482ebcd5/40642.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Piernikowe ozdoby</div>
+                <div class="sklep__item__cena">54,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(54.99, 'Piernikowe ozdoby')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/bltb1140f7c937cb23a/40640.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Dziadek do orzechów LEGO®</div>
+                <div class="sklep__item__cena">54,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(54.99, 'Dziadek do orzechów LEGO®')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/bltb7d457aa2ce9f859/40499_Prod.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Sanie Świętego Mikołaja</div>
+                <div class="sklep__item__cena">174,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(174.99, 'Sanie Świętego Mikołaja')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt2069f4aa0d3bb63a/10325.png?format=webply&fit=bounds&quality=75&width=800&height=800&dpr=1">
+                </div>
+                <div class="sklep__item__opis">Górska chata</div>
+                <div class="sklep__item__cena">439,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(439.99, 'Górska chata')">Do koszyka</div>
+            </div>
+            <div class="sklep__item">
+                <div class="sklep__item__image">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt0ba2da641d7f0426/21330_prod.png?format=webply&fit=bounds&quality=100&width=400&height=400&dpr=1">
+                </div>
+                <div class="sklep__item__opis">LEGO® Ideas Sam w domu</div>
+                <div class="sklep__item__cena">1299,99 zł</div>
+                <div class="sklep__item__order" onclick="dodajKoszyk(1299.99, 'LEGO® Ideas Sam w domu')">Do koszyka</div>
+            </div>
+            <div id="sklep__kod__rabatowy">
+                <div id="uzycie__kodu__rabatowego" style="background-color: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 7px;"><span id="rabat__title">Użyj kodu rabatowego: </span><input type="text" placeholder="Kod rabatowy" id="kod__rabatowy"><button onclick="dodajRabat();">Użyj!</button></div>
+            </div>
+        </div>
+    <div id="stopka">
+        <p>Wykonał: Łukasz Sroka </p>
+    </div>
+    <div id="add__cart"><span class="material-symbols-outlined">check</span> Dodano "<span id="add__cart__item"></span>" do koszyka!</div>
+    <div id="kupon"></div>
+    <img id="mikolaj" src="mikolaj.png" alt="Mikołaj">
+    <div id="powiad">Użyj kodu <b>SWIETA2024</b> dla 24% rabatu na każdy produkt! <br> Kod ważny jest jeszcze: <b><span id="rabat__czas"></span></b></div>
+    <script src="snieg.js"></script>
+</body>
+</html>

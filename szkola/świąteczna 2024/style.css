@@ -1,0 +1,799 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Sofadi+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap');
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+}
+}
+@keyframes slideIn {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    100% {
+        top: 300px;
+        opacity: 0.8;
+    }
+}
+@keyframes jump {
+    0% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(-20px);
+    }
+    80% {
+        transform: translateY(-20px);
+      }
+    100% {
+      transform: translateY(0);
+    }
+  }
+.fadeIn {
+    animation: fadeIn 0.5s forwards;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s forwards;
+}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #fd5353 transparent;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #fd5353;
+    border-radius: 0px;
+    border: 0px none #ffffff;
+  }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 243, 243);
+    font-family: 'Parkinsans', sans-serif;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none
+}
+h2{
+    text-align: center;
+    font-size: 30px;
+}
+button::selection{
+    background-color: transparent;
+}
+#menu__pc {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    overflow: hidden;
+    font-family: "Yuji Mai", serif;
+    z-index: 5;
+}
+
+#koszyk {
+    margin-top: 25px;
+    font-size: 15px;
+    color: white;
+    margin: 15px;
+    font-family: 'Parkinsans', sans-serif;
+}
+.menu__pc__opcja {
+    margin-top: 10px;
+    font-size: 25px;
+    color: white;
+    position: relative;
+    margin: 15px;
+    transition: 300ms;
+    
+}
+.menu__pc__opcja > a{
+    color: white;
+    text-decoration: none;
+}
+.menu__pc__opcja:hover{
+    transform: scale(1.05);
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    cursor: pointer;
+}
+#ustawienie{
+    font-size: 21px;
+    height: 25px;
+    color: white;
+    margin-top: 9px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    z-index: 6;
+    display: inline-block;
+}
+#ustawienie::selection{
+    background-color: transparent;
+}
+#ustawienia{
+    display: none;
+    font-family: 'Parkinsans', sans-serif;
+    background-color: rgba(6, 83, 38, 0.8);
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 1300px;
+    padding: 15px;
+    z-index: 1;
+    border-radius: 15px;
+    font-size: 20px;
+}
+#ustawienia > input{
+    min-width: 100px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+#ustawienia > button{
+    background-color: white;
+    margin-top: 20px;
+    margin-right: 30px;
+    padding: 10px;
+    font-size: 20px;
+    border: 0;
+    cursor: pointer;
+    border-radius: 8px;
+}
+#ustawienia_widoczne.widoczny{
+    display: block;
+}
+#container{
+    margin-top: 150px;
+}
+#main{
+    height: 70vh;
+    background-image: url('main_tlo.png');
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 250px;
+}
+#main__title, #main__opis{
+    font-size: 100px;
+    text-align: left;
+    color: white;
+    margin-left: 50px;
+}
+#main__opis{
+    font-size: 20px;
+    margin-top: -50px;
+}
+#odliczanie{
+    background-color: #AF0808;
+    opacity: 0.9;
+    display: flex;
+    padding: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: white;
+    z-index: 1;
+}
+#odliczanie__dni, #odliczanie__h, #odliczanie__m, #odliczanie__s{
+    background-color: aliceblue;
+    color:rgb(55, 66, 66);
+    border-radius: 5px;
+    font-size: 30px;
+    padding: 10px;
+    min-width: 60px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: 700;
+    line-height: 45px;
+}
+#odliczanie__title{
+    font-size: 40px;
+    font-weight: 700;
+}
+.odliczanie__txt{
+    font-size: 20px;
+}
+#licznik{
+    margin-top: 40px;
+    margin-left: 150px;
+    width: 70%;
+    display: flex;
+    height: 63px;
+}
+#mikolaj {
+    position: fixed;
+    bottom: -200px;
+    right: 10%;
+    opacity: 0;
+    transition: bottom 1s ease-out, opacity 1s ease-out;
+
+}
+#powiad {
+    position: fixed;
+    display: none;
+    bottom: 90px;
+    right: 1%;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+#mikolaj.show{
+    bottom: -45px;
+    opacity: 1;
+    transition: 300ms;
+}
+#mikolaj.show:hover{
+    bottom: 5px;
+    display: block;
+    cursor: pointer;
+}
+#mikolaj:hover + #powiad{
+    display: block;
+    animation: fadeIn 1s;
+}
+
+#sklep, #sklep__podstrona{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 25%;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+    gap: 40px;
+    
+}
+#sklep__podstrona{
+    background-image: url('mikolajtlo.png'); 
+    background-attachment: fixed;
+    padding-top: 150px;
+}
+#sklep__podstrona > h2, #adwent__h2{
+    width: 100%; /* jeśli ma rozciągać się na pełną szerokość */
+    text-align: center; 
+    margin-bottom: 20px;
+    color: white;
+}
+.sklep__item{
+    flex: 1 1 calc(33.33% - 40px);
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 360px;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 360px;
+    box-shadow: 2px 0px 10px rgb(179, 176, 176);
+    height: 560px;
+    border: 5px solid linear-gradient(90deg, darkred, red, darkred);
+}
+.sklep__item__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.sklep__item__image > img {
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+}
+.sklep__item__opis{
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+.sklep__item__cena{
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+}
+.sklep__item__order{
+    width: 50%;
+    margin: auto;
+    background-color: #AF0808;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    transition: 300ms;
+}
+.sklep__item__order:hover{
+    background-color: rgb(6, 83, 38);
+
+}
+#add__cart, #kupon {
+    display: none;
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: slideIn 300ms ease-out forwards;
+    background-color: #1de003;
+    padding: 20px;
+    color: white;
+    border-radius: 5px;
+}
+
+#add__cart.show, #kupon.show {
+    display: block;
+    top: 300px;
+    opacity: 0.8;
+    animation: slideIn 300ms ease-out forwards;
+}
+#koszyk{
+    position: fixed;
+    left: 10px;
+}
+.material-symbols-outlined{
+    transform: translateY(25%);
+}
+#koszyk > a{
+    color: white;
+    text-decoration: underline;
+}
+#uzycie__kodu__rabatowego{
+    text-align: center;
+    width: 600px;
+    margin: auto;
+}
+#uzycie__kodu__rabatowego > input{
+    width: 200px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid black;
+    background-color: transparent;
+    font-family: 'Parkinsans', sans-serif;
+}
+#uzycie__kodu__rabatowego > button{
+    font-family: 'Parkinsans', sans-serif;
+    font-size: 15px;
+    padding: 5.5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+#rabat__title{
+    font-size: 20px;
+    font-weight: 700;
+}
+#stopka{
+    background-color: #AF0808;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    
+}
+#koszyk__podstrona > #main__title{
+    color: black;
+    text-align: center;
+    font-size: 100px;
+    margin: auto;
+}
+#koszyk__podstrona > #main__title > .material-symbols-outlined{ /* chciałem zobaczeć czy działa podwójny selektor dziecka i działa :> */
+    font-size: 200px;
+    margin-bottom: 100px;
+}
+#koszyk__podstrona > #main__title > .material-symbols-outlined::selection{
+    background-color: transparent;
+}
+#suma__koszyka{
+    text-align: center;
+    font-size:25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+table#koszyk__tabela{
+    margin: auto;
+}
+table#koszyk__tabela td{
+    text-align: center;
+    padding: 5px;
+    font-size: 17px;
+    height: 84px;
+}
+table#koszyk__tabela th{
+    min-width: 300px;
+    height: 94px;
+    font-size: 30px;
+}
+#th__usun{
+    width: 50px;
+}
+.td_koszyk__usun{
+    text-align: left;
+}
+.koszyk__usun{
+    transition: 300ms;
+    text-align: left;
+    font-size: 17px;
+    transform: translateY(10%);
+}
+.koszyk__usun:hover{
+    cursor: pointer;
+    color: #d10a0a;
+}
+#koszyk__wyczysc{
+    width: 200px;
+    font-size: 20px;
+    margin: 30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: #AF0808;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
+}
+#koszyk__wyczysc:hover{
+    background-color: #d10a0a;
+}
+#sortowanie{
+    margin-right: 150px;
+    text-align: right;
+    font-size: 18px;
+}
+#sortowanie select{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+}
+#koszyk__odswiez{
+    cursor: pointer;
+    font-size: 20px;
+}
+#mikolaj__chatbot__reklama{
+    width: 100%;
+    height: 400px;
+    background-image: url('mikolajreklama.png');
+    background-size: cover;
+}
+#mikolaj__chatbot__reklama > a{
+    color: black;
+    text-decoration: none;
+}
+#mikolaj__chatbot__reklama__tekst{
+    height: 100px;
+    float: right;
+    color: white;
+    text-align: center;
+    width: 900px;
+    font-family: "Yuji Mai", serif;
+}
+#mikolaj__chatbot__reklama__tekst > h3{
+    font-size: 40px;
+    font-family: 'Parkinsans', sans-serif;
+}
+#mikolaj__chatbot__reklama__tekst > p{
+    font-size: 20px;
+}
+#mikolaj__chatbot__reklama__tekst > a >button{
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Parkinsans', sans-serif;
+    transition: 200ms;
+}
+#clear{
+    clear: both;
+}
+#mikolaj__chatbot__reklama__tekst > a >button:hover{
+    background-color: rgb(6, 83, 38);
+    color: white;
+}
+#mikolaj__main{
+    margin-top: 200px;
+    width: 50%;
+    float: left;
+    text-align: center;
+    color: white;
+}
+#mikolaj__main > h1{
+    font-size: 80px;
+}
+#mikolaj__main > p{
+    font-size: 20px;
+}
+/* chatbot */
+#chatbot {
+    margin-left: 60%;
+    width: 400px;
+}
+#chatbot > h2{
+    background-color: #AF0808;
+    color: white;
+    padding: 10px;
+    width: 380px;
+    margin-bottom: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+#chatbot__wiadomosci {
+    height: 500px;
+    overflow: auto;
+    background-color: aliceblue;
+    width: 380px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -4px;
+}
+.message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #AF0808;
+    color: white;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #e1e1e1;
+    color: black;
+}
+
+#chatbot__wyslij > input {
+    width: 300px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    border-bottom-left-radius: 10px;
+}
+
+#sendButton {
+    width: 90px;
+    background-color: #AF0808;
+    color: white;
+    transition: 300ms;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-bottom-right-radius: 10px;
+    float: right;
+    margin-top: 3px;
+}
+
+#sendButton:hover {
+    background-color: #d10a0a;
+}
+#sklep__kod__rabatowy{
+    width: 100%;
+}
+.koszyk__zwieksz{
+    background-color: #1de003;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.koszyk__zmniejsz{
+    background-color: #d10a0a;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: white;
+}
+.koszyk__zwieksz, .koszyk__zmniejsz{
+    cursor: pointer;
+    transition: 100ms;
+    margin: 0;
+    border: 0;
+    text-align: center;
+    width: 25px;
+    font-size: 20px;;
+}
+.koszyk__wartosc{
+    background-color: white;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+}
+.koszyk__zwieksz, .koszyk__zmniejsz{
+    user-select: none; 
+}
+.kolumna__ilosc::selection {
+    background-color: transparent;
+}
+.zmnniejsz-ilosc:hover{
+    color:#d10a0a;
+}
+.zwieksz-ilosc:hover{
+    color:#1de003;
+}
+.nieaktywny {
+    pointer-events: none;
+    color: gray;
+}
+#kalendarz__tabela > tr > th{
+    background-color: #AF0808;
+}
+#kalendarz__tabela{
+    width: 700px;
+    height: 600px;
+    margin: auto;
+    background-color: aliceblue;
+    border: none;
+    padding: 0px;
+}
+.kalendarz__komorka::selection, .kalendarz__innymsc::selection{
+    background-color: transparent;
+}
+.kalendarz__komorka, .kalendarz__innymsc{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    transition: 300ms;
+    border: none;
+    padding: 0px;
+}
+.kalendarz__innymsc{
+    
+    background-color: #bebebeb9;
+    font-weight: 400;
+}
+.kalendarz__komorka:hover{
+    background-color: #AF0808;
+    color: white;
+    cursor: pointer;
+}
+.kalendarz__komorka.dzis {
+    background-color: rgb(6, 83, 38);
+    color: white;
+}
+.kalendarz__komorka.dzis:hover {
+    background-color: rgb(10, 133, 61);
+    color: white;
+}
+.kalendarz__komorka.bonus{
+    background-color: #1de00370;
+}
+.kalendarz__komorka.bonus:hover{
+    background-color: #1eff0070;
+}
+.kalendarz__header{
+    background-color: #d10a0a;
+    color: white;
+    height: 50px;
+    width: 100px;
+}
+.weekend{
+    background-color: #daa5a5;
+}
+#modal{
+    display: none;
+    z-index: 999;
+    top: 0;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: #af0808c2;
+    text-align: center;
+    padding-top: 30vh;
+}
+#modalClose{
+    background-color: white;
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: 300ms;
+    cursor: pointer;
+    font-family: 'Parkinsans', sans-serif;
+}
+#modalClose:hover , #ustawienia > button:hover{
+    background-color: aliceblue;
+}
+#zadanie__tytul{
+    color: white;
+    font-size: 40px;
+}
+#zadanie__opis{
+    color: white;
+    font-size: 20px;
+}
+#modal.show{
+    display: block;
+}
+
+#warsztat__opcje{
+    margin: auto;
+    width: 90%;
+    padding: 20px;
+    background-color: #ffffffa4;
+}
+.warsztat__title{
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Yuji Mai", serif;
+    margin: 15px;
+}
+.warsztat__opcja{
+    background-color: #ff5c5c;
+    color: white;
+    min-width: 80px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 200ms;
+    text-align: center;
+}
+.warsztat__opcja:hover{
+    background-color: #f77474;
+}
+.opcja__wkrotce{
+    opacity: 0.8;
+    text-decoration: line-through;
+    color: #999;
+}
+#warsztat__flexbox{
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+#warsztat__opis{
+    width: 90%;
+    padding: 20px;
+    margin: auto;
+    background-color: #ffffffa4;
+    margin-top: 20px;
+}

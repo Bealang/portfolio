@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Święta 2024 - Koszyk</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="wavy-colour-banner.min.js"></script>
+    <script src="odliczanie.js"></script>
+    <script src="mikolaj.js"></script>
+    <script src="ustawienia.js"></script>
+    <script src="sklep.js"></script>
+    <script src="smoothscroll.js"></script>
+</head>
+<body>
+    <canvas id="snowCanvas"></canvas>
+    <div id="menu__pc" data-wavy-colour-banner data-wcb-fade="0" data-wcb-primary-colour="#AF0808" class="demo-banner-dark">
+        <div id="koszyk"><a href="koszyk.html"><span class="material-symbols-outlined">shopping_cart</span>Wartość koszyka: <span id="koszyk__wartosc">0.00</span></a></div>
+        <div class="menu__pc__opcja"><a href="kalendarz.html">Kalendarz</a></div>
+        <div class="menu__pc__opcja"><a href="warsztaty.html">Warsztaty</a> </div>
+        <div class="menu__pc__opcja"><a href="index.html">Strona główna</a></div>
+        <div class="menu__pc__opcja"><a href="sklep.html">Sklep LEGO®</a></div>
+        <div id="ustawienie">⚙️</div>
+        <div id="ustawienia">
+            <br>
+            Ilość płatków śniegu (10-500):
+            <input type="number" id="flakeCount" value="70" min="10" max="500"><br>
+            Wyłącz animowane menu: <input type="checkbox" id="animowaneMenuCheckbox" value="true" checked><br>
+            <button onclick="ustawPlatki(); window.location.reload();" id="applySettings">Zastosuj</button>
+            <button onclick="resetPlatki(); window.location.reload(); menuReset();" >Przywróć do Domyślnych</button>
+        </div>
+    </div>
+    <div id="container">
+        
+        <div id="koszyk__podstrona">
+            <h1 id="main__title"><span class="material-symbols-outlined">shopping_cart</span></h1>
+            <th>
+                <div id="sortowanie">
+                    <label for="sortowanieKoszyka">Sortuj wg: </label>
+                    <select id="sortowanieKoszyka" onchange="sortujKoszyk(this.value)">
+                        <option value="najstarsze">Najstarszych</option>
+                        <option value="najnowsze">Najnowszych</option>
+                        <option value="najdrozsze">Najdroższych</option>
+                        <option value="najtansze">Najtańszych</option>
+                        <option value="najwiecej">Największej ilości</option>
+                        <option value="najmniej">Najmniejszej ilości</option>
+                    </select>
+                    <span class="material-symbols-outlined" id="koszyk__odswiez">refresh</span>
+                </div>
+            </th>
+            <table id="koszyk__tabela">
+                <thead>
+                    <tr>
+                        <th>Ilość</th>
+                        <th>Produkt</th>
+                        <th>Cena</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <button onclick="wyczyscKoszyk()" id="koszyk__wyczysc">Wyczyść koszyk</button>
+            <div id="suma__koszyka">Suma: 0.00 zł</div>
+            <div id="uzycie__kodu__rabatowego"><span id="rabat__title">Kod rabatowy: </span><input type="text" placeholder="" id="kod__rabatowy"><button onclick="dodajRabat();">Użyj!</button></div>
+            <div id="mikolaj__chatbot__reklama" style="margin-top: 100px; margin-bottom: 100px;">
+                <div id="mikolaj__chatbot__reklama__tekst">
+                    <h3>Porozmawiaj z Mikołajem!</h3>
+                    <p>Przeprowadź rozmowę z naszym wirtualnym Mikołajem! Kto wie, może dostaniesz prezenty o które go prosiłeś :></p>
+                    <a href="mikolaj.html"><button>Skorzystam!</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="stopka">
+        <p>Wykonał: Łukasz Sroka </p>
+    </div>
+    <div id="add__cart"><span class="material-symbols-outlined">check</span> Dodano "<span id="add__cart__item"></span>" do koszyka!</div>
+    <div id="kupon"></div>
+    <img id="mikolaj" src="mikolaj.png" alt="Mikołaj">
+    <div id="powiad">Użyj kodu <b>SWIETA2024</b> dla 24% rabatu na każdy produkt! <br> Kod ważny jest jeszcze: <b><span id="rabat__czas"></span></b></div>
+    <script src="snieg.js"></script>
+</body>
+</html>
