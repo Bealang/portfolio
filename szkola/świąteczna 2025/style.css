@@ -1,0 +1,1060 @@
+@import url('https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+* {
+    font-family: "Merriweather", serif;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background-color: #284435;
+    color: #F7EECD;
+    height: 80px;
+    width: 100%;
+    top: 0;
+}
+
+header > h1 {
+    font-weight: 700;
+}
+
+header > a {
+    position: relative;
+    font-weight: 400;
+    text-decoration: none;
+    color: #F7EECD;
+    line-height: 80px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+header > a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 25px;
+    left: 0;
+    background-color: rgb(196, 189, 152);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+header > a:hover {
+    color: rgb(196, 189, 152);
+}
+
+header > a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+header > img {
+    padding: 10px;
+}
+
+main {
+    margin-top: 80px;
+    background: url('kominek.png');
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+}
+
+main > h1 {
+    text-align: center;
+    color: #F7EECD;
+    font-family: "Merriweather", serif;
+    padding-top: 300px;
+    font-size: 60px;
+    width: 70%;
+    margin: auto;
+}
+
+#countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(40, 68, 53, 0.75);
+    border: 1px solid rgba(247, 238, 205, 0.3);
+    padding: 15px 20px;
+    border-radius: 12px;
+    min-width: 80px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.label {
+    font-family: "Merriweather", serif;
+    font-size: 0.8rem;
+    color: #F7EECD;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.separator {
+    font-size: 3rem;
+    color: #F7EECD;
+    padding-bottom: 25px;
+    opacity: 0.8;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.number-wrapper {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+}
+
+.number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Merriweather", serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #F7EECD;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-in {
+    animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#przepisy {
+    background-color: #f1eedf;
+    margin-top: -33px;
+    height: auto;
+    min-height: 800px;
+    font-family: "Merriweather", serif;
+    padding: 60px 20px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#przepisy h2 {
+    color: #703031;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding-top: 40px;
+}
+
+#lista_przepisow {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.przepis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    min-height: 450px;
+    background-color: #FDFBF7;
+    border: 1px solid rgba(112, 48, 49, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(112, 48, 49, 0.1);
+}
+
+.przepis > img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #F7EECD;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+}
+
+.przepis > h3, #szczegolowy_przepis > h4 {
+    color: #703031;
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.przepis > p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #522b18;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.przepis > button, #szczegolowy_przepis > button, #lista_przepisow > a > button, #wygenerowane > button {
+    background-color: #703031;
+    color: #F7EECD;
+    border: 1px solid #703031;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.przepis > button:hover, #szczegolowy_przepis > button:hover, #przyciski > button:hover, #lista_przepisow > a > button:hover, #wygenerowane > button:hover {
+    background-color: #8B4041;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#szczegolowy_przepis > button {
+    margin-top: 10px;
+}
+
+#szczegolowy_przepis {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: 60vh;
+    z-index: 999;
+    background-color: #FDFBF7;
+    border: 1px solid rgba(112, 48, 49, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(112, 48, 49, 0.1);
+    transition: opacity 0.4s ease-in-out, visibility 0.4s;
+}
+
+#rozmyte_tlo {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 998;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.4s ease-in-out, visibility 0.4s;
+}
+
+#przepis_opis {
+    padding: 20px;
+}
+
+#przepis_opis_div {
+    height: 80%;
+    overflow-y: auto;
+}
+
+#sekcja_quizu {
+    background-color: #722d32;
+    min-height: calc(80vh - 80px);
+    color: #ecdcbe;
+    padding-bottom: 50px;
+}
+
+#sekcja_quizu > h2 {
+    color: #ecdcbe;
+    padding-top: 40px;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 0px;
+}
+
+#quiz {
+    background: url('quiz.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 95%;
+    max-width: 672px;
+    aspect-ratio: 672 / 384;
+    height: auto;
+    border-radius: 20px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#licznik-pytan {
+    text-align: center;
+    color: #722d32;
+    font-weight: bold;
+    padding-top: 14%;
+    font-size: clamp(10px, 2vw, 14px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+#quiz > p {
+    color: #722d32;
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 3%;
+    font-size: clamp(14px, 2.5vw, 20px);
+    height: auto;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#przyciski {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 5%;
+}
+
+#przyciski > button {
+    width: 45%;
+    height: auto;
+    background-color: #703031;
+    border: 1px solid #8d4639;
+    color: #F7EECD;
+    border-radius: 10000px;
+    position: relative;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 35px;
+    padding: 8px 5px;
+    font-size: clamp(10px, 2vw, 14px);
+}
+
+#przyciski.ukryte > button {
+    opacity: 0 !important;
+    transform: scale(0.8) translateY(20px) !important;
+    pointer-events: none;
+}
+
+#przyciski.ukryte > button:nth-child(1) { transition-delay: 0.0s; }
+#przyciski.ukryte > button:nth-child(2) { transition-delay: 0.1s; }
+#przyciski.ukryte > button:nth-child(3) { transition-delay: 0.2s; }
+#przyciski.ukryte > button:nth-child(4) { transition-delay: 0.3s; }
+
+#przyciski:not(.ukryte) > button {
+    transition-delay: 0s;
+}
+
+#przyciski > button.poprawna {
+    background-color: #2e5c33 !important;
+    border-color: #4CAF50;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+    z-index: 10;
+}
+
+#przyciski > button.bledna {
+    background-color: #522022 !important;
+    border-color: #3f1516;
+    color: #a0a0a0;
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+#pytanie {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+#pytanie.fade-out {
+    opacity: 0;
+}
+
+#wynik-quizu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 0;
+    margin-bottom: 5%;
+    font-weight: bold;
+    font-size: clamp(12px, 2vw, 16px);
+}
+
+#wynik-quizu .dobrze {
+    color: #2e5c33;
+}
+
+#wynik-quizu .zle {
+    color: #8B4041;
+}
+
+#zyczenia {
+    background-color: #f1eedf;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: "Merriweather", serif;
+}
+
+#zyczenia > h3 {
+    text-align: center;
+    color: #703031;
+    font-size: 30px;
+    margin-bottom: 30px; /* Dodałem mały odstęp */
+}
+
+#zyczenia-flexbox {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Zmniejszyłem ze 150px, bo na mniejszych ekranach się rozjedzie */
+    flex-wrap: wrap; /* Żeby na telefonie spadło pod spód */
+}
+
+#formularz, #wygenerowane {
+    background-color: #703031;
+    border: 1px solid #924041;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    color: white;
+    padding: 40px; /* Zmniejszyłem ze 150px - 150px to bardzo dużo */
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+
+#wygenerowane {
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    min-width: 300px; /* Zabezpieczenie, żeby nie było za wąskie */
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formularz > form > input {
+    background-color: #e3e3e3;
+    border: none;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    color: #703031;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%; /* Żeby inputy były szerokie */
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+#wygenerowane > p{
+    text-align: left;
+}
+/* Styl dla przycisku w sekcji wygenerowane (Twój) */
+#wygenerowane > button {
+    background-color: #284435;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#wygenerowane > button:hover {
+    background-color: #2e5c33;
+}
+
+/* --- DODATEK: Styl dla przycisku generowania (żeby pasował) --- */
+#generuj-btn {
+    background-color: #e3e3e3; /* Jasny, żeby kontrastował z ciemnym tłem */
+    color: #703031;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    transition: transform 0.2s;
+}
+
+#generuj-btn:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+}
+
+footer {
+    background-color: #284435;
+    height: 80px;
+    color: #ecdcbe;
+}
+
+footer > p {
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+}
+
+.niewidoczny {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.delay-100 { animation-delay: 0ms; }
+.delay-200 { animation-delay: 50ms; }
+.delay-300 { animation-delay: 100ms; }
+
+#odtwarzacz {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 260px;
+    background: rgba(40, 68, 53, 0.90);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(247, 238, 205, 0.3);
+    border-radius: 20px;
+    padding: 20px 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    font-family: "Merriweather", serif;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#odtwarzacz.ukryty {
+    transform: translateY(100%); 
+}
+
+#odtwarzacz.ukryty:hover {
+    transform: translateY(100%);
+}
+
+#odtwarzacz:hover {
+    transform: translateY(-5px);
+}
+
+#zwin-odtwarzacz {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background: rgba(40, 68, 53, 0.90);
+    border: 1px solid rgba(247, 238, 205, 0.3);
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+}
+
+#zwin-odtwarzacz svg {
+    transition: transform 0.3s ease;
+    fill: #F7EECD;
+}
+
+#odtwarzacz:not(.ukryty) #zwin-odtwarzacz svg {
+    transform: rotate(180deg);
+}
+
+#odtwarzacz.ukryty #zwin-odtwarzacz svg {
+    transform: rotate(0deg);
+}
+
+#tytul {
+    color: #F7EECD;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+#autor {
+    color: #c4bd98;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#kontrolki {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 5px;
+}
+
+.kontrolka {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+}
+
+.kontrolka svg {
+    fill: #F7EECD;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+    transition: fill 0.2s ease;
+}
+
+.kontrolka:hover svg {
+    fill: #fff;
+    transform: scale(1.1);
+}
+
+.main-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #703031;
+    border: 2px solid #8d4639;
+    box-shadow: 0 4px 10px rgba(112, 48, 49, 0.4);
+}
+
+.main-btn:hover {
+    background-color: #8B4041;
+    transform: scale(1.1);
+}
+
+.main-btn:active {
+    transform: scale(0.95);
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #703031;
+    box-shadow: 0 0 10px #703031;
+    transition: width 0.1s linear;
+}
+
+#kontener-glosnosci {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(247, 238, 205, 0.1);
+}
+
+.kontrolka-mala {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.kontrolka-mala svg {
+    fill: #e3e3e3;
+    transition: transform 0.2s ease;
+}
+
+.kontrolka-mala:hover svg {
+    fill: #fff;
+    transform: scale(1.1);
+}
+
+#pasek-glosnosci {
+    width: 100px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#wypelnienie-glosnosci {
+    width: 100%;
+    height: 100%;
+    background-color: #F7EECD;
+    border-radius: 2px;
+}
+/* --- Promocja Kalendarza Adwentowego (Strona Główna) --- */
+
+#kalendarz-promo {
+    background-color: #284435; /* Ciemna zieleń dla kontrastu */
+    color: #F7EECD;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.3); /* Wewnętrzny cień dla głębi */
+}
+
+.kalendarz-content {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px dashed rgba(247, 238, 205, 0.3);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+#kalendarz-promo h2 {
+    font-size: 3.5rem; 
+    margin-bottom: 20px;
+    color: #F7EECD;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+#kalendarz-promo p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #d8cfb4;
+}
+
+.btn-kalendarz {
+    display: inline-block;
+    background-color: #703031;
+    color: #F7EECD;
+    text-decoration: none;
+    padding: 18px 45px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    border: 2px solid #8d4639;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-kalendarz:hover {
+    background-color: #8B4041;
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    color: #fff;
+}
+/* --- KALENDARZ ADWENTOWY --- */
+
+#kalendarz {
+    padding: 100px 20px 50px 20px;
+    background-color: #f1eedf;
+    min-height: 100vh;
+    text-align: center;
+}
+
+#kalendarz h2 {
+    color: #703031;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.podtytul {
+    color: #522b18;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+
+#kalendarz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+.dzien-box {
+    background-color: #703031;
+    color: #F7EECD;
+    border: 2px solid #8d4639;
+    border-radius: 15px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.dzien-box span {
+    z-index: 2;
+}
+
+.dzien-box:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: #8B4041;
+    box-shadow: 0 10px 20px rgba(112, 48, 49, 0.4);
+}
+
+
+.dzien-box.otwarte {
+    background-color: #284435;
+    border-color: #3e6650;
+    color: #a8bfae;
+    text-decoration: line-through;
+}
+
+
+.dzien-box.zablokowane {
+    background-color: #a0a0a0;
+    border-color: #888;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.dzien-box.zablokowane:hover {
+    transform: none;
+    background-color: #a0a0a0;
+}
+
+
+#modal-zadanie {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#modal-zadanie.ukryty {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: #FDFBF7;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid #703031;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    transform: scale(1);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#modal-zadanie.ukryty .modal-content {
+    transform: scale(0.7);
+}
+
+#zamknij-modal {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #703031;
+}
+
+#dzien-tytul {
+    font-size: 2rem;
+    color: #703031;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #d8cfb4;
+    padding-bottom: 10px;
+}
+
+#tresc-zadania {
+    font-size: 1.2rem;
+    color: #284435;
+    line-height: 1.6;
+}
+
+#ikonka-zadania {
+    font-size: 4rem;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    #kalendarz-promo {
+        padding: 40px 10px;
+    }
+    
+    #kalendarz-promo h2 {
+        font-size: 2.2rem;
+    }
+    
+    .btn-kalendarz {
+        width: 100%;
+        padding: 15px 20px;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    #zyczenia-flexbox {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #formularz, #wygenerowane {
+        width: 95%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    header > a {
+        line-height: normal;
+        font-size: 16px;
+    }
+    
+    header > img {
+        width: 50px;
+    }
+
+    main {
+        margin-top: 160px;
+        background-position: center;
+    }
+
+    main > h1 {
+        font-size: 36px;
+        padding-top: 150px;
+        width: 90%;
+    }
+
+    #countdown-container { gap: 5px; margin-top: 50px; }
+    .time-box { min-width: 50px; padding: 10px; }
+    .number-wrapper { height: 35px; width: 40px; }
+    .number { font-size: 1.5rem; }
+    .separator { font-size: 1.5rem; padding-bottom: 20px;}
+    .label { font-size: 0.6rem; }
+
+    .przepis {
+        width: 90%;
+        min-height: auto;
+    }
+
+    #odtwarzacz {
+        width: 90%;
+        left: 5%;
+        bottom: 10px;
+        padding: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #tytul { font-size: 14px; width: 100%; margin: 0;}
+    #autor { display: none; }
+    
+    #kontrolki { gap: 10px; margin: 5px auto; }
+    
+    #kontener-glosnosci {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+    #pasek-glosnosci { width: 60px; }
+    
+    #zyczenia-flexbox {
+        flex-direction: column;
+    }
+}

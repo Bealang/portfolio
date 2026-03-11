@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Święta 2025!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="odliczanie.js"></script>
+    <script src="przepis.js"></script>
+    <script src="quiz.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="animacje.js"></script>
+    <script src="smoothscroll.js"></script>
+    <script src="muzyka.js"></script>
+    <script src="zyczenia.js"></script>
+</head>
+<body>
+    <div id="rozmyte_tlo"></div>
+    <header>
+        <img src="renifer.png">
+        <a href="index.html">Strona główna</a>
+        <a href="index.html">Quiz świąteczny</a>
+        <a href="przepisy.html">Przepisy</a>
+        <a href="zyczenia.html">Życzenia</a>
+        <a href="kalendarz.html">Kalendarz adwentowy</a>
+    </header>
+    <div id="odtwarzacz">
+        <div id="zwin-odtwarzacz">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path d="m280-400 200-200 200 200H280Z"/>
+            </svg>
+        </div>
+
+        <div class="progress-bar" id="pasek-postepu">
+            <div class="progress-fill" id="postep-wypelnienie"></div>
+        </div>
+        <div id="tytul">Wybierz utwór...</div>
+        <div id="autor">Autor nieznany</div> 
+        <div id="kontrolki">
+            <div id="poprzednia" class="kontrolka">
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"><path d="M220-240v-480h80v480h-80Zm520 0L380-480l360-240v480Zm-80-240Zm0 90v-180l-136 90 136 90Z"/></svg>
+            </div>
+            <div id="play-pause" class="kontrolka main-btn">
+                <svg id="ikona-play-pause" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px">
+                <path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/>
+                </svg>
+            </div>
+            <div id="nastepna" class="kontrolka">
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"><path d="M660-240v-480h80v480h-80Zm-440 0v-480l360 240-360 240Zm80-240Zm0 90 136-90-136-90v180Z"/></svg>
+            </div>
+        </div>
+        <div id="kontener-glosnosci">
+            <div id="ikona-glosnosci" class="kontrolka-mala">
+                <svg id="svg-glosnosci" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path d="M560-131v-82q90-26 145-100t55-168q0-94-55-168T560-749v-82q124 28 202 125.5T840-481q0 127-78 224.5T560-131ZM120-360v-240h160l200-200v640L280-360H120Zm440 40v-322q47 22 73.5 66t26.5 96q0 51-26.5 94.5T560-320ZM400-606l-86 86H200v80h114l86 86v-252ZM300-480Z"/>
+                </svg>
+            </div>
+            <div id="pasek-glosnosci">
+                <div id="wypelnienie-glosnosci"></div>
+            </div>
+        </div>
+    </div>
+    <section id="zyczenia" style="min-height: calc(100vh - 80px); padding-top: 80px;">
+        <h3>Wygeneruj spersonalizowane życzenia!</h3>
+        <div id="zyczenia-flexbox">
+            <div id="formularz" class="scroll-anim niewidoczny delay-100">
+                <form>
+                    <label>Twoje imię:</label><br>
+                    <input type="text" id="imie" placeholder="np. Łukasz"><br><br>
+                    
+                    <label>Imię adresata:</label><br>
+                    <input type="text" id="adresat" placeholder="np. Asia"><br><br>
+
+                    <button type="button" id="generuj-btn">Wylosuj życzenia</button>
+                </form>
+            </div>
+
+            <div id="wygenerowane" class="scroll-anim niewidoczny delay-200">
+                <p id="tresc-zyczen">Wpisz imiona i kliknij przycisk, aby stworzyć kartkę!</p>
+                <button id="kopiuj-btn" style="display: none;">Skopiuj do schowka</button>
+            </div>
+        </div> 
+    </section>
+    <footer>
+        <p>Wykonawca: Łukasz Sroka 3TP</p>
+    </footer>
+</body>
+</html>

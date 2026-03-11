@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Święta 2025!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="odliczanie.js"></script>
+    <script src="przepis.js"></script>
+    <script src="quiz.js"></script>
+    <script src="glowny_napis.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="animacje.js"></script>
+    <script src="smoothscroll.js"></script>
+    <script src="muzyka.js"></script>
+    <script src="zyczenia.js"></script>
+</head>
+<body onload="losujNapis();">
+    <div id="rozmyte_tlo"></div>
+    <header>
+        <img src="renifer.png">
+        <a href="index.html">Strona główna</a>
+        <a href="quiz.html">Quiz świąteczny</a>
+        <a href="przepisy.html">Przepisy</a>
+        <a href="zyczenia.html">Życzenia</a>
+        <a href="kalendarz.html">Kalendarz adwentowy</a>
+    </header>
+    
+    <div id="odtwarzacz">
+        <div id="zwin-odtwarzacz">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path d="m280-400 200-200 200 200H280Z"/>
+            </svg>
+        </div>
+
+        <div class="progress-bar" id="pasek-postepu">
+            <div class="progress-fill" id="postep-wypelnienie"></div>
+        </div>
+        <div id="tytul">Wybierz utwór...</div>
+        <div id="autor">Autor nieznany</div> 
+        <div id="kontrolki">
+            <div id="poprzednia" class="kontrolka">
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"><path d="M220-240v-480h80v480h-80Zm520 0L380-480l360-240v480Zm-80-240Zm0 90v-180l-136 90 136 90Z"/></svg>
+            </div>
+            <div id="play-pause" class="kontrolka main-btn">
+                <svg id="ikona-play-pause" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px">
+                <path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/>
+                </svg>
+            </div>
+            <div id="nastepna" class="kontrolka">
+                <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"><path d="M660-240v-480h80v480h-80Zm-440 0v-480l360 240-360 240Zm80-240Zm0 90 136-90-136-90v180Z"/></svg>
+            </div>
+        </div>
+        <div id="kontener-glosnosci">
+            <div id="ikona-glosnosci" class="kontrolka-mala">
+                <svg id="svg-glosnosci" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path d="M560-131v-82q90-26 145-100t55-168q0-94-55-168T560-749v-82q124 28 202 125.5T840-481q0 127-78 224.5T560-131ZM120-360v-240h160l200-200v640L280-360H120Zm440 40v-322q47 22 73.5 66t26.5 96q0 51-26.5 94.5T560-320ZM400-606l-86 86H200v80h114l86 86v-252ZM300-480Z"/>
+                </svg>
+            </div>
+            <div id="pasek-glosnosci">
+                <div id="wypelnienie-glosnosci"></div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <h1 id="glowny_napis" class="animate__animated animate__fadeInDown">Poczuj magię świąt!</h1>
+        <div id="countdown-container">
+            <div class="time-box scroll-anim niewidoczny">
+                <div id="days-wrapper" class="number-wrapper">
+                    <span class="number">00</span>
+                </div>
+                <span class="label">Dni</span>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-box scroll-anim niewidoczny delay-100">
+                <div id="hours-wrapper" class="number-wrapper">
+                    <span class="number">00</span>
+                </div>
+                <span class="label">Godz</span>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-box scroll-anim niewidoczny delay-200">
+                <div id="minutes-wrapper" class="number-wrapper">
+                    <span class="number">00</span>
+                </div>
+                <span class="label">Min</span>
+            </div>
+
+            <div class="separator">:</div>
+
+            <div class="time-box scroll-anim niewidoczny delay-300">
+                <div id="seconds-wrapper" class="number-wrapper">
+                    <span class="number">00</span>
+                </div>
+                <span class="label">Sek</span>
+            </div>
+        </div>
+    </main>
+    <section id="przepisy">
+        <div id="szczegolowy_przepis">
+            <h4 id="przepis_tytul">Tytuł przepisu</h4>
+            <div id="przepis_opis_div">
+                <p id="przepis_opis">Opis przepisu</p>
+            </div>
+            <button onclick="ukryjPrzepis()">Zamknij</button>
+        </div>
+        <h2 class="scroll-anim niewidoczny">Smaki dzieciństwa</h2>
+        <div id="lista_przepisow">
+            <div class="przepis scroll-anim niewidoczny delay-100" >
+                <img src="renifer.png">
+                <h3>Uszka z grzybami</h3>
+                <p>Tradycyjne, ręcznie lepione uszka z farszem z leśnych grzybów i kapusty. Smak, bez którego nie ma Wigilii.</p>
+                <button class="btn-przepis" data-przepis="uszka" onclick="otworzPrzepis('uszka')">Otwórz przepis</button>
+            </div>
+            <div class="przepis scroll-anim niewidoczny delay-200">
+                <img src="renifer.png">
+                <h3>Barszcz Czerwony</h3>
+                <p>Klarowny, esencjonalny barszcz na domowym zakwasie. Podawany z uszkami pełnymi aromatycznego farszu.</p>
+                <button class="btn-przepis" data-przepis="barszcz" onclick="otworzPrzepis('barszcz')">Otwórz przepis</button>
+            </div>
+            <div class="przepis scroll-anim niewidoczny delay-300">
+                <img src="renifer.png">
+                <h3>Zupa grzybowa</h3>
+                <p>Zupa grzybowa to tradycyjna, aromatyczna zupa przygotowywana z suszonych lub świeżych grzybów leśnych.</p>
+                <button class="btn-przepis" data-przepis="grzybowa" onclick="otworzPrzepis('grzybowa')">Otwórz przepis</button>
+            </div>
+            <a href="przepisy.html"><button>Zobacz resztę przepisów</button></a>
+        </div>
+    </section>
+    <section id="sekcja_quizu">
+        <h2 class="scroll-anim niewidoczny">Świąteczny quiz!</h2>
+        <div id="quiz" class="scroll-anim niewidoczny">
+            <div id="licznik-pytan">Pytanie 1 / 20</div>
+            <p id="pytanie">Pytanie</p>
+            <div id="przyciski">
+                <button id="odpA">A. Odpowiedz A</button>
+                <button id="odpB">B. Odpowiedz B</button>
+                <button id="odpC">C. Odpowiedz C</button>
+                <button id="odpD">D. Odpowiedz D</button>
+            </div>
+            <div id="wynik-quizu">
+                <span class="dobrze">Poprawne: <span id="liczba-poprawnych">0</span></span>
+                <span class="zle">Błędne: <span id="liczba-blednych">0</span></span>
+            </div>
+        </div>
+    </section>
+    <section id="kalendarz-promo" class="">
+    <div class="kalendarz-content scroll-anim niewidoczny">
+        <h2>Kalendarz Adwentowy</h2>
+        <p>Odliczaj dni do Wigilii razem z nami! Codziennie czeka na Ciebie nowa niespodzianka: świąteczne ciekawostki, żarty i mini-wyzwania.</p>
+        <a href="kalendarz.html" class="btn-kalendarz">
+            Otwórz dzisiejsze okienko
+        </a>
+    </div>
+    </section>
+    <section id="zyczenia">
+        <h3>Wygeneruj spersonalizowane życzenia!</h3>
+        <div id="zyczenia-flexbox">
+            <div id="formularz" class="scroll-anim niewidoczny delay-100">
+                <form>
+                    <label>Twoje imię:</label><br>
+                    <input type="text" id="imie" placeholder="np. Łukasz"><br><br>
+                    
+                    <label>Imię adresata:</label><br>
+                    <input type="text" id="adresat" placeholder="np. Asia"><br><br>
+
+                    <button type="button" id="generuj-btn">Wylosuj życzenia</button>
+                </form>
+            </div>
+
+            <div id="wygenerowane" class="scroll-anim niewidoczny delay-200">
+                <p id="tresc-zyczen">Wpisz imiona i kliknij przycisk, aby stworzyć kartkę!</p>
+                <button id="kopiuj-btn" style="display: none;">Skopiuj do schowka</button>
+            </div>
+        </div> 
+    </section>
+    
+    <footer>
+        <p>Wykonawca: Łukasz Sroka 3TP</p>
+    </footer>
+</body>
+</html>
