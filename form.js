@@ -8,7 +8,7 @@
 // 4. Skopiuj swój Public Key z zakładki Account > API Keys
 // ============================================================
 const EMAILJS_PUBLIC_KEY = 'RZK1nw4Vj1eZiggfr';   // ← wpisz swój klucz
-const EMAILJS_SERVICE_ID = 'service_dnkrj6g';   // ← wpisz Service ID
+const EMAILJS_SERVICE_ID = 'service_et6laoc';   // ← wpisz Service ID
 const EMAILJS_TEMPLATE_ID = 'template_h5b0n9s';  // ← wpisz Template ID
 
 emailjs.init(EMAILJS_PUBLIC_KEY);
