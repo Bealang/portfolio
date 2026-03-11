@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Travel Earth</title>
+    <script src="menu.js"></script>
+	<script src="smoothscroll.js"></script>
+    <script src="skrypt.js"></script>
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html"><div id="navbar__title">Travel Earth</div></a>
+        <div id="navbar__menu" onclick="openmenu();"><span class="material-symbols-outlined" id="navbar__menu__span">menu</span></div>
+		<div id="rozwijane__menu">
+            <div id="rozwijane__menu__options">
+                <a href="index1.html"><div class="rozwijane__menu__option">Kontakt</div></a>
+                <a href="index2.html"><div class="rozwijane__menu__option">O nas</div></a>
+                <a href="index3.html"><div class="rozwijane__menu__option">Oferta</div></a>
+                <a href="index4.html"><div class="rozwijane__menu__option">Rejestracja</div></a>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="aboutus__title">
+            <h1 id="aboutus__main">O nas</h1>
+            <p class="aboutus__opis">Jesteśmy profesjonalnym biurem podróży działającym nieprzerwanie od ponad 6 lat. Nie jedna osoba już nam zaufała, wybierając akurat nas! Mamy aż 4 siedziby na terenie małopolski. Serdecznie zachęcamy do skorzystania z naszych usług!</p>
+        </div> 
+        <div id="aboutus__all">
+            <div class="aboutus__slide active" onclick="setslide(1);">1</div>
+            <div class="aboutus__slide" onclick="setslide(2);">2</div>
+            <div class="aboutus__slide" onclick="setslide(3);">3</div>
+            <div class="aboutus__slide aboutus__slide__last" onclick="setslide(4);">4</div>
+
+
+
+            <div class="aboutus__content aboutus__content__1 visible">
+                <div class="aboutus__content__blur">
+                    <h2 class="aboutus__content__h2">Wygoda</h2>
+                    <p class="aboutus__content__description">Zamawiając u nas usługę, my wszystko za ciebie załatwimy. Planowanie wakacji nigdy nie było tak proste, nawet dla wielu osób!</p>
+                    <img src="wygoda.png">
+                </div>
+            </div>
+            <div class="aboutus__content aboutus__content__2">
+
+                <div class="aboutus__content__blur">
+                    <h2 class="aboutus__content__h2">Zbalansowana cena</h2>
+                    <p class="aboutus__content__description">Nasza wycena jest bardzo różnorodna - u nas znajdziesz swoje wymarzone wakacje, nawet z małym budżetem! W porównaniu do konkurencyjnych firm, mamy naprawdę niskie ceny!</p>
+                    <img src="money.png">
+                </div>
+            </div>
+            <div class="aboutus__content aboutus__content__3">
+                <div class="aboutus__content__blur">
+                    <h2 class="aboutus__content__h2">Transport</h2>
+                    <p class="aboutus__content__description">Współpracujemy z najlepszymi transportowymi firmami. W naszej ofercie dostępnych jest wiele środków transportu, od autokaru, aż po samolot!</p>
+                    <img src="samolot.png">
+                </div>
+            </div>
+            <div class="aboutus__content aboutus__content__4">
+                <div class="aboutus__content__blur">
+                    <h2 class="aboutus__content__h2">Gwarancja bezpieczeństwa</h2>
+                    <p class="aboutus__content__description">Polisa Ubezpieczeniowa na czas podróży to jedna z najważniejszych umów do zawarcia przed wyjazdem. Oferujemy najlepsze na rynku ubezpieczenia turystyczne Signal Iduna, TU Europa i Colonnade.</p>
+                </div>
+                <img src="basen.png">
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="links">
+            <a href="index.html"><div class="link">Strona Główna</div></a>
+            <a href="index2.html"><div class="link">O nas</div></a>
+            <a href="index1.html"><div class="link">Kontakt</div></a>
+            <a href="index3.html"><div class="link">Oferta</div></a>
+            <a href="index4.html"><div class="link">Rejestracja</div></a>
+        </div>
+
+        <div id="headquarters">
+            <div class="headquarters__title">Siedziby</div>
+            <div class="headquarter">
+                <div class="headquarter__title">Myślenice</div>
+                <div class="headquarter__address">ul. 3 Maja 97b</div>
+            </div>
+            <div class="headquarter">
+                <div class="headquarter__title">Rudnik-Myślenice</div>
+                <div class="headquarter__address">ul. Szkolna 55 </div>
+            </div>
+            <div class="headquarter">
+                <div class="headquarter__title">Kraków</div>
+                <div class="headquarter__address">ul. Pawia 5</div>
+            </div>
+            <div class="headquarter">
+                <div class="headquarter__title">Sułkowice</div>
+                <div class="headquarter__address">Sportowa 2a, 32-440</div>
+            </div>
+        </div>
+        <div id="follow__rights">
+            <div id="follow">
+                <div class="follow__title">Zaobserwuj nas:</div>
+                <div class="follow__link"><a href="https://facebook.com" class="fa fa-2x fa-facebook" target="_blank"></a></div>
+                <div class="follow__line"></div>
+                <div class="follow__link"><a href="https://x.com" class="fa fa-2x fa-twitter" target="_blank"></a></div>
+                <div class="follow__line"></div>
+                <div class="follow__link"><a href="https://youtube.com" class="fa fa-2x fa-youtube" target="_blank"></a></div>
+                <div class="follow__line"></div>
+                <div class="follow__link"><a href="https://instagram.com" class="fa fa-2x fa-instagram" target="_blank"></a></div>
+            </div>
+            <div id="rights">Wszelkie prawa zastrzeżone © Travel Earth, Łukasz Sroka 2024</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Travel Earth</title>
+    <script src="menu.js"></script>
+	<script src="smoothscroll.js"></script>
+    <script src="skrypt.js"></script>
+	<script src="oferta.js"></script>
+</head>
+<body>
+    <div id="navbar">
+        <a href="index.html"><div id="navbar__title">Travel Earth</div></a>
+        <div id="navbar__menu" onclick="openmenu();"><span class="material-symbols-outlined" id="navbar__menu__span">menu</span></div>
+		<div id="rozwijane__menu">
+            <div id="rozwijane__menu__options">
+                <a href="index1.html"><div class="rozwijane__menu__option">Kontakt</div></a>
+                <a href="index2.html"><div class="rozwijane__menu__option">O nas</div></a>
+                <a href="index3.html"><div class="rozwijane__menu__option">Oferta</div></a>
+                <a href="index4.html"><div class="rozwijane__menu__option">Rejestracja</div></a>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="offer__title">
+            <h1 id="offer__main">Oferta</h1>
+            <p class="offer__opis">Zapoznaj się z naszą bogatą ofertą wyjazdów</p>
+        </div> 
+        <div id="offer__all">
+			<div id="offer__selects">
+				<div class="offer__select" onclick="setcountry(1);">Polska</div>
+				<div class="offer__select" onclick="setcountry(2);">Grecja</div>
+				<div class="offer__select" onclick="setcountry(3);">Włochy</div>
+				<div class="offer__select" onclick="setcountry(4);">USA</div>
+				<div class="offer__select" onclick="setcountry(5);">Hiszpania</div>
+				<div class="offer__select" onclick="setcountry(6);" style="border-right: none;" >Francja</div>
+			</div>
+
+			<div class="offer__content offer__content__1">
+				<div class="offer__country" style="clear: both;">
+					<img src="splener_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Western Camp Resort i<br> park rozrywki ENERGYLANDIA</div>
+						<div class="offer__country__location">Polska</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.7</div>
+							<div class="offer__country__amount">82 opinii</div>
+							<div class="offer__country__procent">99% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 215zł/os</div>
+							<div class="offer__country__date">12.04.2024 - 21.04.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+				<div class="offer__country" style="clear: both;">
+					<img src="spleliz_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Hotel Spa Medical Dwór Elizy</div>
+						<div class="offer__country__location">Polska</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.3</div>
+							<div class="offer__country__amount">24 opinie</div>
+							<div class="offer__country__procent">96% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 615zł/os</div>
+							<div class="offer__country__date">24.03.2024 - 27.03.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="offer__content offer__content__2">
+				<div class="offer__country">
+					<img src="kgshipo_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Hotel Kipriotis Hippocrates</div>
+						<div class="offer__country__location">Grecja, Kos</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.0</div>
+							<div class="offer__country__amount">651 opinii</div>
+							<div class="offer__country__procent">95% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 2949zł/os</div>
+							<div class="offer__country__date">04.05.2024 - 13.05.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+				<div class="offer__country" style="clear: both;">
+					<img src="cfuange_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Hotel Angela Beach</div>
+						<div class="offer__country__location">Grecja, Korfu</div>
+						<div class="offer__country__stars">⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">4.9</div>
+							<div class="offer__country__amount">1637 opinii</div>
+							<div class="offer__country__procent">92% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 1749zł/os</div>
+							<div class="offer__country__date">25.05.2024 - 30.05.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="offer__content offer__content__3">
+				<div class="offer__country">
+					<img src="nappilu_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Hotel Pietra di Luna</div>
+						<div class="offer__country__location">Włochy, Kampania</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.7</div>
+							<div class="offer__country__amount">4 opinie</div>
+							<div class="offer__country__procent">100% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 2079zł/os</div>
+							<div class="offer__country__date">08.04.2024 - 10.04.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+				<div class="offer__country" style="clear: both;">
+					<img src="vcecity_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Wenecja</div>
+						<div class="offer__country__location">Włochy</div>
+						<div class="offer__country__stars">⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.3</div>
+							<div class="offer__country__amount">272 opinie</div>
+							<div class="offer__country__procent">94% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 2 149zł/os</div>
+							<div class="offer__country__date">24.03.2024 - 27.03.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="offer__content offer__content__4">
+				<div class="offer__country">
+					<img src="nycnowy_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Nowy Jork</div>
+						<div class="offer__country__location">Stany Zjednoczone</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">6.0</div>
+							<div class="offer__country__amount">156 opinii</div>
+							<div class="offer__country__procent">94% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 9889zł/os</div>
+							<div class="offer__country__date">28.05.2024 - 3.06.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+				<div class="offer__country" style="clear: both;">
+					<img src="ausnycedku_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Hotel The Benjamin <br>Royal Sonesta New York</div>
+						<div class="offer__country__location">Stany Zjednoczone, Nowy Jork</div>
+						<div class="offer__country__stars">⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">6.0</div>
+							<div class="offer__country__amount">1 opinia</div>
+							<div class="offer__country__procent">100% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 8 113zł/os</div>
+							<div class="offer__country__date">19.04.2024 - 24.04.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="offer__content offer__content__5">
+				<div class="offer__country" style="clear: both;">
+					<img src="fuebjam_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Hotel Occidental Jandia Mar <br> (Barceló Jandia Mar)</div>
+						<div class="offer__country__location">Wyspy Kanaryjskie, Fuerteventura</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.5</div>
+							<div class="offer__country__amount">4612 opinii</div>
+							<div class="offer__country__procent">95 % osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 3 549zł/os</div>
+							<div class="offer__country__date">25.03.2024 - 1.04.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+				<div class="offer__country" style="clear: both;">
+					<img src="lpataba_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Hotel Tabaiba Princess</div>
+						<div class="offer__country__location">Wyspy Kanaryjskie, Gran Canaria</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.4</div>
+							<div class="offer__country__amount">948 opinii</div>
+							<div class="offer__country__procent">98% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 5 114zł/os</div>
+							<div class="offer__country__date">31.05.2024 - 7.06.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="offer__content offer__content__6">
+				<div class="offer__country" style="clear: both;">
+					<img src="ncepklw_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Kameralna podróż <br>– Lazurowe Wybrzeże</div>
+						<div class="offer__country__location">Francja</div>
+						<div class="offer__country__stars">⭐⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">5.5</div>
+							<div class="offer__country__amount">10 opinii</div>
+							<div class="offer__country__procent">100% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 4 389zł/os</div>
+							<div class="offer__country__date">27.08.2024 - 31.08.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+				<div class="offer__country" style="clear: both;">
+					<img src="ncecitr_0.png" class="offer__country__img">
+					<div class="offer__country__info">
+						<div class="offer__country__title">Nicea</div>
+						<div class="offer__country__location">Francja</div>
+						<div class="offer__country__stars">⭐⭐⭐</div>
+						<div class="offer__country__opinie">
+							<div class="offer__country__avg">4.8</div>
+							<div class="offer__country__amount">132 opinii</div>
+							<div class="offer__country__procent">89% osób poleca ten hotel</div>
+						</div>
+					</div>
+					<div class="offer__country__order">
+							<div class="offer__country__price">od 2 699 zł/os</div>
+							<div class="offer__country__date">27.04.2024 - 30.04.2024</div>
+							<a href="index4.html"><div class="offer__country__order__btn">Zamów</div></a>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="links">
+            <a href="index.html"><div class="link">Strona Główna</div></a>
+            <a href="index2.html"><div class="link">O nas</div></a>
+            <a href="index1.html"><div class="link">Kontakt</div></a>
+            <a href="index3.html"><div class="link">Oferta</div></a>
+            <a href="index4.html"><div class="link">Rejestracja</div></a>
+        </div>
+
+        <div id="headquarters">
+            <div class="headquarters__title">Siedziby</div>
+            <div class="headquarter">
+                <div class="headquarter__title">Myślenice</div>
+                <div class="headquarter__address">ul. 3 Maja 97b</div>
+            </div>
+            <div class="headquarter">
+                <div class="headquarter__title">Rudnik-Myślenice</div>
+                <div class="headquarter__address">ul. Szkolna 55 </div>
+            </div>
+            <div class="headquarter">
+                <div class="headquarter__title">Kraków</div>
+                <div class="headquarter__address">ul. Pawia 5</div>
+            </div>
+            <div class="headquarter">
+                <div class="headquarter__title">Sułkowice</div>
+                <div class="headquarter__address">Sportowa 2a, 32-440</div>
+            </div>
+        </div>
+        <div id="follow__rights">
+            <div id="follow">
+                <div class="follow__title">Zaobserwuj nas:</div>
+                <div class="follow__link"><a href="https://facebook.com" class="fa fa-2x fa-facebook" target="_blank"></a></div>
+                <div class="follow__line"></div>
+                <div class="follow__link"><a href="https://x.com" class="fa fa-2x fa-twitter" target="_blank"></a></div>
+                <div class="follow__line"></div>
+                <div class="follow__link"><a href="https://youtube.com" class="fa fa-2x fa-youtube" target="_blank"></a></div>
+                <div class="follow__line"></div>
+                <div class="follow__link"><a href="https://instagram.com" class="fa fa-2x fa-instagram" target="_blank"></a></div>
+            </div>
+            <div id="rights">Wszelkie prawa zastrzeżone © Travel Earth, Łukasz Sroka 2024</div>
+        </div>
+    </div>
+</body>
+</html>
