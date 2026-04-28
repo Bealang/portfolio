@@ -30,9 +30,14 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Header scroll effect
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    const scrollY = window.scrollY;
+    if (scrollY <= 50) {
+        header.classList.remove('scrolled', 'hidden-up');
+    } else if (scrollY > 300) {
         header.classList.add('scrolled');
+        header.classList.remove('hidden-up');
     } else {
+        header.classList.add('hidden-up');
         header.classList.remove('scrolled');
     }
 });

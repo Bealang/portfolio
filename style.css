@@ -411,7 +411,52 @@ header {
     transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Home Page Header (Initial Transparent State) */
+.home-page header {
+    top: 15px;
+    width: 85%;
+    max-width: 1500px;
+    padding: 0 50px;
+    border-radius: 5000px;
+    height: 80px;
+    
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0),
+        inset 0 0 20px rgba(255, 255, 255, 0);
+}
 
+/* Home Page Header (Hidden Up State) */
+.home-page header.hidden-up {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Home Page Header (Scrolled State) */
+.home-page header.scrolled {
+    top: 15px;
+    width: 80%;
+    max-width: 1400px;
+    border-radius: 5000px;
+    padding: 0 50px;
+    
+    /* Restore Liquid Glass */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+    backdrop-filter: blur(50px) saturate(180%);
+    -webkit-backdrop-filter: blur(50px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.15),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+
+    height: 80px;
+}
 
 nav {
     display: flex;
@@ -2697,6 +2742,34 @@ nav>a.active::after {
         -webkit-backdrop-filter: none !important;
         border-bottom-color: transparent !important;
         box-shadow: none !important;
+    }
+
+    .home-page header {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        height: 65px !important;
+        padding: 0 20px !important;
+        border-radius: 0 !important;
+        top: 0 !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .home-page header.scrolled {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        height: 65px !important;
+        padding: 0 20px !important;
+        border-radius: 0 !important;
+        top: 0 !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%) !important;
+        backdrop-filter: blur(50px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(50px) saturate(180%) !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
     
     .hamburger {
