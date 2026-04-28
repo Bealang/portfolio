@@ -27,3 +27,49 @@ window.addEventListener('resize', checkOverflow);
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Header scroll effect
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        header.classList.toggle('menu-open');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            header.classList.remove('menu-open');
+        });
+    });
+
+    // Move nav to body on mobile to fix backdrop-filter bugs
+    const moveNav = () => {
+        if (window.innerWidth <= 850) {
+            if (navMenu.parentElement !== document.body) {
+                document.body.appendChild(navMenu);
+            }
+        } else {
+            if (navMenu.parentElement !== header) {
+                header.appendChild(navMenu);
+            }
+        }
+    };
+    window.addEventListener('resize', moveNav);
+    moveNav();
+}
+

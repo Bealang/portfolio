@@ -175,7 +175,7 @@ form?.addEventListener('submit', function (e) {
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(() => {
             setLoading(false);
-            showNotification('success', '✅ Wiadomość wysłana! Odpiszę najszybciej jak mogę.');
+            showNotification('success', '✅ Wiadomość wysłana! Odpiszemy najszybciej jak możemy.');
             form.reset();
             // Zapisz aktualny czas po udanej wysyłce
             localStorage.setItem('lastEmailSentTime', Date.now().toString());
@@ -183,6 +183,6 @@ form?.addEventListener('submit', function (e) {
         .catch((error) => {
             setLoading(false);
             console.error('EmailJS error:', error);
-            showNotification('error', '❌ Nie udało się wysłać wiadomości. Napisz bezpośrednio na srokalukasz03@gmail.com');
+            showNotification('error', '❌ Nie udało się wysłać wiadomości. Napisz bezpośrednio na kontakt@web2sell.pl');
         });
 });
