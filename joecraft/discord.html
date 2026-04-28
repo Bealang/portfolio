@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="pl" style="height: 100%;">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" href="img/favicon.png" sizes="any" type="image/svg+xml">
+    <meta name="robots" content="follow"/>
+    <meta name="author" content="Bealang" />
+    <meta name="description" content="Serdecznie zapraszamy na naszego Discorda!"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1.0, width=device-width" viewport-fit=cover/>
+    <meta http-equiv="refresh" content="30; url=https://discord.gg/wtYVfCcbcv "/>
+    <title>Joecraft.pl - Discord</title>
+    
+    <script src="playercount.js"></script>
+    <script src="menu_tel.js"></script>
+    <script src="copy.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body style="height: 100%;">
+    <div id="menu">
+        <h1><span class="ip-txt-bg">JoeCraft.pl</span></h1>
+        <div class="playercount"><span class="navbar_online__pulse"></span>Online:&nbsp<span class="online1">0</span></div>
+        <div id="opcje">
+            <a href="index.html"><div class="opcja">Strona Główna</div></a>
+            <a href="sklep.html"><div class="opcja">Sklep</div></a>
+            <div class="opcja rozwijane">Informacje<span class="material-symbols-outlined rozwijane-icon">expand_more</span>
+                <div class="rozwijane-opcje">
+                    <a href="regulamin.html"><div class="rozwijane-opcja">Regulamin</div></a>
+                    <a href="faq.html"><div class="rozwijane-opcja">FAQ</div></a>
+                    <a href="bany/index.php"><div class="rozwijane-opcja">Bany</div></a>
+                    <a href="status.html"><div class="rozwijane-opcja">Status</div></a>
+                </div>
+            </div>
+            <a href="discord.html"><div id="opcja_now">Discord</div></a>
+        </div>
+    </div>
+    <div id="tel-menu">
+        <div id="tel-widoczne">
+            <a href="index.html"><h2>Joecraft.pl</h2></a>
+            <div class="playercount"><span class="navbar_online__pulse"></span>Online:&nbsp<span class="online2">0</span></div>
+            <span class="material-symbols-outlined" id="menuToggle">menu</span>
+        </div>
+        <div id="tel-opcje">
+            <div class="tel-odstep"></div>
+            <a href="index.html"><div class="tel-opcja">Strona Główna</div></a>
+            <a href="sklep.html"><div class="tel-opcja">Sklep</div></a>
+            <div class="tel-opcja" onclick="rozwijane();">Informacje
+                <div class="rozwijane-opcje">
+                    <a href="regulamin.html"><div class="rozwijane-opcja" style="padding-top: 20px;">Regulamin</div></a>
+                    <a href="faq.html"><div class="rozwijane-opcja">FAQ</div></a>
+                    <a href="bany/index.php"><div class="rozwijane-opcja">Bany</div></a>
+                    <a href="status.html"><div class="rozwijane-opcja">Status</div></a>
+                </div>
+            </div>
+            <a href="discord.html"><div class="tel-opcja">Discord</div></a>
+        </div>
+    </div>
+    <div id="main" style="height: 100%;">
+        <div id="discord">
+            <h1 id="header">Discord</h1>
+            <a href="https://discord.gg/wtYVfCcbcv"><div id="discord-btn">Dołącz na naszego Discorda!</div></a>
+            <p id="copy-dc"><u>Skopiuj link do Discorda</u><span class="material-symbols-outlined" onclick="copy('https://discord.gg/wtYVfCcbcv', 'Skopiowano link do Discorda');">content_copy</span></p>
+        </div>
+    </div>
+    <div id="stopka">
+        <div id="obok-siebie">
+            <div id="stopka-nawigacja">
+                <h3>Nawigacja</h3>
+                <a href="index.html"><p>Strona główna</a></p>
+                <a href="index2.html"><p>Regulamin</a></p>
+                <a href="index3.html"><p>Discord</a></p>
+                <a href="sklep.html"><p>Sklep</a></p>
+            </div>
+            <div id="stopka-logo">
+                <img alt="logo strony" src="img/favicon.png">
+            </div>
+            <div id="stopka-wykonawcy">
+                <h3>Wykonawcy</h3>
+                <p>Web Developer: Bealang</p>
+                <p>Technik: NotPiotrekDev, Togglerine, wojteqxzn</p>
+                <p>Właściciel: Belfedor, nataliaa.k27, Togglerine</p>
+                <u><a href="rekrutacja.html"><h3>Rekrutacja</h3></a></u>
+            </div>
+        </div>
+        <hr>
+        <h4>Joecraft.pl 2020-2024 | Autor: <a href="autor.html" target="_blank">Bealang</a></h4>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="pl" style="height: 100%;">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" href="img/favicon.png" sizes="any" type="image/svg+xml">
+    <meta name="robots" content="follow"/>
+    <meta name="author" content="Bealang" />
+    <meta name="description" content="Serdecznie zapraszamy na naszego Discorda!"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1.0, width=device-width" viewport-fit=cover/>
+    <title>Joecraft.pl - FAQ</title>
+    
+    <script src="playercount.js"></script>
+    <script src="menu_tel.js"></script>
+    <script src="copy.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <h1><span class="ip-txt-bg">JoeCraft.pl</span></h1>
+        <div class="playercount"><span class="navbar_online__pulse"></span>Online:&nbsp<span class="online1">0</span></div>
+        <div id="opcje">
+            <a href="index.html"><div class="opcja">Strona Główna</div></a>
+            <a href="sklep.html"><div class="opcja">Sklep</div></a>
+            <div class="rozwijane" id="opcja_now">Informacje<span class="material-symbols-outlined rozwijane-icon">expand_more</span>
+                <div class="rozwijane-opcje">
+                    <a href="regulamin.html"><div class="rozwijane-opcja">Regulamin</div></a>
+                    <a href="faq.html"><div class="rozwijane-opcja">FAQ</div></a>
+                    <a href="bany/index.php"><div class="rozwijane-opcja">Bany</div></a>
+                    <a href="status.html"><div class="rozwijane-opcja">Status</div></a>
+                </div>
+            </div>
+            <a href="discord.html"><div class="opcja">Discord</div></a>
+        </div>
+    </div>
+    <div id="tel-menu">
+        <div id="tel-widoczne">
+            <a href="index.html"><h2>Joecraft.pl</h2></a>
+            <div class="playercount"><span class="navbar_online__pulse"></span>Online:&nbsp<span class="online2">0</span></div>
+            <span class="material-symbols-outlined" id="menuToggle">menu</span>
+        </div>
+        <div id="tel-opcje">
+            <div class="tel-odstep"></div>
+            <a href="index.html"><div class="tel-opcja">Strona Główna</div></a>
+            <a href="sklep.html"><div class="tel-opcja">Sklep</div></a>
+            <div class="tel-opcja" onclick="rozwijane();">Informacje
+                <div class="rozwijane-opcje">
+                    <a href="regulamin.html"><div class="rozwijane-opcja" style="padding-top: 20px;">Regulamin</div></a>
+                    <a href="faq.html"><div class="rozwijane-opcja">FAQ</div></a>
+                    <a href="bany/index.php"><div class="rozwijane-opcja">Bany</div></a>
+                    <a href="status.html"><div class="rozwijane-opcja">Status</div></a>
+                </div>
+            </div>
+            <a href="discord.html"><div class="tel-opcja">Discord</div></a>
+        </div>
+    </div>
+    <div id="main">
+        <h1 id="regulamin-main">FAQ</h1>
+        <div id="regulamin">
+            <h1>Jaki jest adres serwera?</h1>
+            <div class="podpunkt">
+                <p>Adres serwera to joecraft.pl.<span class="material-symbols-outlined" onclick="copy('joecraft.pl', 'Skopiowano IP serwera');">content_copy</span></p>
+            </div>
+            <h1>Na jakich wersjach mogę wejść?</h1>
+            <div class="podpunkt">
+                <p>Od wersji 1.8 do 1.20.4 (najnowszej), ale polecamy wchodzić na najnowszej wersji.</p>
+            </div>
+            <h1>Jakie są tryby na serwerze?</h1>
+            <div class="podpunkt">
+                <p>Chwilowo tylko Survival i Działki Creative, ale z czasem dodamy nowe tryby.</p>
+            </div>
+            <h1>Jak mogę wrócić na spawn?</h1>
+            <div class="podpunkt">
+                <p>Na spawn można teleportować komendą <b>/spawn</b><span class="material-symbols-outlined" onclick="copy('/spawn', 'Skopiowano komendę');">content_copy</span></p>
+            </div>
+            <h1>Jak mogę dostać admina?</h1>
+            <div class="podpunkt">
+                <p>Napisz podanie, które znajduje się pod linkiem <u><a href="rekrutacja.html">www.joecraft.pl/rekrutacja</a></u></p>
+            </div>
+            <h1>Czy nad bedrockiem w netherze pojawiają się moby?</h1>
+            <div class="podpunkt">
+                <p>Nie, nie pojawiają się.</p>
+            </div>
+            <h1>Jak włączyć TNT na działce?</h1>
+            <div class="podpunkt">
+                <p>Wpisując komendę <b>/lands spawn</b><span class="material-symbols-outlined" onclick="copy('/lands spawn', 'Skopiowano komendę');">content_copy</span> i włączyć w ustawieniach działki.</p>
+            </div>
+            <h1>Kupiłem/am rangę i jej nie mam!</h1>
+            <div class="podpunkt">
+                <p>Rangę otrzymasz z maksymalnie 3 minutowym opóźnieniem</p>
+            </div>
+            <h1>Jak wejść na inny tryb?</h1>
+            <div class="podpunkt">
+                <p>Na spawnie (<b>/spawn</b><span class="material-symbols-outlined" onclick="copy('/spawn', 'Skopiowano komendę');">content_copy</span>) lub za pomocą komendy odpowiadającej trybowi, np /survival<span class="material-symbols-outlined" onclick="copy('/survival', 'Skopiowano komendę:');">content_copy</span></p>
+            </div>
+        </div>
+        <div class="tel-odstep"></div>
+    </div>
+    <div id="stopka">
+        <div id="obok-siebie">
+            <div id="stopka-nawigacja">
+                <h3>Nawigacja</h3>
+                <a href="index.html"><p>Strona główna</a></p>
+                <a href="index2.html"><p>Regulamin</a></p>
+                <a href="index4.html"><p>FAQ</a></p>
+                <a href="index3.html"><p>Discord</a></p>
+                <a href="sklep.html"><p>Sklep</a></p>
+            </div>
+            <div id="stopka-logo">
+                <img alt="logo strony" src="img/favicon.png">
+            </div>
+            <div id="stopka-wykonawcy">
+                <h3>Wykonawcy</h3>
+                <p>Web Developer: Bealang</p>
+                <p>Technik: NotPiotrekDev, Togglerine, wojteqxzn</p>
+                <p>Właściciel: Belfedor, nataliaa.k27, Togglerine</p>
+                <u><a href="rekrutacja.html"><h3>Rekrutacja</h3></a></u>
+            </div>
+        </div>
+        <hr>
+        <h4>Joecraft.pl 2020-2024 | Autor: <a href="autor.html" target="_blank">Bealang</a></h4>
+    </div>
+</body>
+</html>
