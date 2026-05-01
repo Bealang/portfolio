@@ -34,6 +34,17 @@ html {
     overflow-x: hidden;
 }
 
+/* Sub-page layout fix — position: relative gives hero-bg an anchor point */
+.cennik-page,
+.privacy-container {
+    position: relative;
+}
+
+.cennik-page>.hero-bg,
+.privacy-container>.hero-bg {
+    overflow: hidden;
+}
+
 /* Hero Section Container */
 .hero-section {
     position: relative;
@@ -110,19 +121,19 @@ html {
 
 @keyframes blob-float {
     0% {
-        transform: translate(0, 0) scale(1);
+        transform: translateY(0) scale(1);
     }
 
     33% {
-        transform: translate(50px, -50px) scale(1.1);
+        transform: translateY(-50px) scale(1.1);
     }
 
     66% {
-        transform: translate(-30px, 20px) scale(0.9);
+        transform: translateY(20px) scale(0.9);
     }
 
     100% {
-        transform: translate(0, 0) scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -1887,6 +1898,7 @@ footer {
     align-items: center;
     width: 100%;
     padding-top: 140px;
+    overflow: hidden;
 }
 
 #cennik {
