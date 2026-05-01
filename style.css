@@ -230,7 +230,6 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-
 .btn-primary:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -1073,6 +1072,13 @@ h2 {
     text-align: center;
 }
 
+/* Email icon gradient */
+.email i, .card__arrow {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.9));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
 .card__content {
     margin-left: 25px;
     display: flex;
@@ -1098,7 +1104,7 @@ h2 {
 
 .card__arrow {
     font-size: 20px !important;
-    -webkit-text-fill-color: var(--text-secondary) !important;
+    -webkit-text-fill-color: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.9)) !important;
     background: none !important;
     opacity: 0;
     transform: translateX(-20px);
@@ -1109,7 +1115,7 @@ h2 {
 .featured__card:hover .card__arrow {
     opacity: 1;
     transform: translateX(0);
-    -webkit-text-fill-color: var(--brand-color) !important;
+    -webkit-text-fill-color: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.9)) !important;
 }
 
 .contact__others {
