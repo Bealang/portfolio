@@ -160,7 +160,7 @@ html {
     display: block;
     font-size: clamp(40px, 5vw, 64px);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.1;
     color: var(--text-primary);
     margin-bottom: 30px;
     letter-spacing: -1px;
@@ -180,7 +180,7 @@ html {
 }
 
 .text-glow::after {
-    content: 'nowoczesną';
+    content: attr(data-text);
     position: absolute;
     left: 0;
     top: 0;
@@ -192,6 +192,46 @@ html {
     filter: blur(15px);
     opacity: 0.5;
     z-index: -1;
+}
+
+
+
+
+
+.typing-stack {
+    display: grid;
+    grid-template-areas: "stack";
+    align-items: start;
+    justify-items: start;
+}
+
+.ghost-layer {
+    grid-area: stack;
+    visibility: hidden;
+    pointer-events: none;
+    display: block; /* Reserves space */
+}
+
+.visible-layer {
+    grid-area: stack;
+    display: block;
+    width: 100%;
+}
+
+.animate-fade-in-left {
+    opacity: 0;
+    animation: fade-in-left-key 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fade-in-left-key {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .hero-desc {

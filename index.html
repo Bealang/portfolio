@@ -74,20 +74,17 @@
             <div class="hero-text-reveal">
                 <h1 class="hero-seo-title" data-aos="fade-down" data-aos-duration="800">web2sell - Tworzenie stron
                     internetowych Myślenice</h1>
-                <h2 class="hero-title" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
-                    Zaprojektujemy dla Ciebie<br>
-                    <span class="gradient__text text-glow">nowoczesną</span>
-                    <br>stronę internetową<br>
-                    i ją wykonamy.
+                <h2 class="hero-title typing-stack">
+                    <span id="type-title-ghost" class="ghost-layer"></span>
+                    <span id="type-title" class="visible-layer"></span>
                 </h2>
-                <p class="hero-desc" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Jesteśmy zespołem
-                    web2sell i zajmujemy się profesjonalnym dostarczaniem wyników, a nie tylko robieniem ładnych
-                    stron. Tworzymy rozwiązania dla firm, które szukają realnych wzrostów sprzedaży i wizerunku eksperta
-                    w swojej branży. Nasi specjaliści oferują pełne zaangażowanie, nowoczesną infrastrukturę chmurową i
-                    kod zoptymalizowany pod kątem konwersji.</p>
+                <p class="hero-desc typing-stack">
+                    <span id="type-desc-ghost" class="ghost-layer"></span>
+                    <span id="type-desc" class="visible-layer"></span>
+                </p>
                 <div id="main__buttons" class="hero-buttons" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="600">
-                    <a href="#projekty"><button class="btn-glass btn-primary">Zobacz nasze projekty</button></a>
+                    data-aos-delay="2500">
+                    <a href="#projekty"><button class="btn-glass btn-primary">Nasze realizacje</button></a>
                     <a href="#kontakt"><button class="btn-glass btn-secondary">Skontaktuj się</button></a>
                 </div>
             </div>
@@ -306,6 +303,57 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, mirror: false, offset: 100 });
+    </script>
+
+    <script>
+        (function () {
+            const titleGhost = document.getElementById('type-title-ghost');
+            const descGhost = document.getElementById('type-desc-ghost');
+            const titleElement = document.getElementById('type-title');
+            const descElement = document.getElementById('type-desc');
+
+            const titleHTML = "Zaprojektujemy.<br><span class='gradient__text text-glow' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.";
+            const descHTML = "W web2sell porzucamy popularne, obciążające systemy zarządzania treścią na rzecz nowoczesnych rozwiązań programistycznych. Budujemy witryny od podstaw, wykorzystując autorski kod, który gwarantuje najwyższą szybkość działania, bezpieczeństwo oraz pełną optymalizację pod wyszukiwarki. Dzięki eliminacji zbędnych wtyczek i szablonów, Twoja lokalna firma zyska unikalne narzędzie, które zapewnia użytkownikom błyskawiczny dostęp do informacji i realnie wspiera Twój rozwój w sieci.";
+
+            if (titleGhost) titleGhost.innerHTML = titleHTML;
+            if (descGhost) descGhost.innerHTML = descHTML;
+
+            function typeWriter(element, html, speed, callback) {
+                let i = 0;
+                let currentHTML = "";
+
+                function type() {
+                    if (i < html.length) {
+                        if (html[i] === '<') {
+                            let endTag = html.indexOf('>', i);
+                            currentHTML += html.substring(i, endTag + 1);
+                            i = endTag + 1;
+                        } else {
+                            currentHTML += html[i];
+                            i++;
+                        }
+                        element.innerHTML = currentHTML;
+                        setTimeout(type, speed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                type();
+            }
+
+            setTimeout(() => {
+                if (titleElement) {
+                    typeWriter(titleElement, titleHTML, 40, () => {
+                        setTimeout(() => {
+                                if (descElement) {
+                                    descElement.innerHTML = descHTML;
+                                    descElement.classList.add('animate-fade-in-left');
+                                }
+                        }, 400);
+                    });
+                }
+            }, 600);
+        })();
     </script>
 
     <script>
