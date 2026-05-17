@@ -1,0 +1,23 @@
+---
+interface Props {
+  activePage?: string;
+}
+
+const { activePage = '' } = Astro.props;
+const isHome = activePage === 'home';
+---
+
+<header>
+    <a href={isHome ? '#' : '/'} class="logo-text">web2<span class="gradient__text">sell</span></a>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav id="nav-menu">
+        <a href={isHome ? '#onas' : '/#onas'} class="nav-link">O nas</a>
+        <a href={isHome ? '#projekty' : '/#projekty'} class="nav-link">Projekty</a>
+        <a href="/cennik" class:list={["nav-link", { active: activePage === 'cennik' }]}>Cennik</a>
+        <a href={isHome ? '#kontakt' : '/#kontakt'} class="nav-cta">Zamów</a>
+    </nav>
+</header>

@@ -1,0 +1,34 @@
+---
+title: "Zdrowe Stopy"
+tag: "Podolog • 2026"
+color: "#344b43"
+accent: "rgba(88, 122, 39, 0.25)"
+url: "https://podologiamyslenice.pl"
+thumbnail: "/assets/project-img/zdrowe_stopy.png"
+thumbnailAlt: "Zdrowe stopy - strona gabinetu podologicznego"
+gallery:
+  - "/assets/project-img/zdrowe_stopy_1.png"
+  - "/assets/project-img/zdrowe_stopy_2.png"
+  - "/assets/project-img/zdrowe_stopy_3.png"
+  - "/assets/project-img/zdrowe_stopy_4.png"
+order: 1
+---
+
+# O projekcie
+
+Strona internetowa gabinetu podologicznego "Zdrowe Stopy" w Myślenicach jest odświeżeniem starej strony. Klientka na starej stronie miała niezaaktualizowane ceny i godziny otwarcia. Strona działała bardzo wolno, na dodatek była na bardzo drogim hostingu. Zaproponowaliśmy jej odnowienie strony i postawienie jej na szybszym, jednocześnie kilkunastokrotnie tańszym hostingu. Strona obecnie działa błyskawicznie i wygląda bardzo nowocześnie. Zintegrowaliśmy również API systemu rezerwacji **ProAssist** w celu łatwiejszej rezerwacji terminów.
+
+# Co zrobiliśmy?
+
+- **Pełną responsywność** — strona wygląda świetnie zarówno na smartfonach, jak i na komputerach stacjonarnych.
+- **Optymalizację SEO** — dzięki niej, witryna zajmuje najwyższe pozycje w lokalnych wynikach wyszukiwania w Myślenicach.
+- **System rezerwacji** — wdrożyliśmy prosty formularz rezerwacyjny z integracją zewnętrznego systemu ProAssist.
+- **Szybkie działanie** — strona jest zbudowana na najnowszym i najszybszym frameworku, jakim jest Astro. Dzięki temu działa błyskawicznie pomimo wielu obrazków na stronie.
+
+# Technologie
+
+- Vite
+- Astro
+- HTML
+- CSS
+- JavaScript

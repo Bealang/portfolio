@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBg from '../components/HeroBg.astro';
+---
+
+<Layout
+  title="Cennik | web2sell - Tworzenie stron www Myślenice"
+  description="Poznaj cennik usług od web2sell. Niedrogie i ultrawydajne wizytówki www, profesjonalne tworzenie stron www i pozycjonowanie lokalne dla firm w Myślenicach."
+>
+    <Header activePage="cennik" />
+
+    <main class="cennik-page">
+        <HeroBg behindContent={true} />
+
+        <section id="cennik">
+            <h2 class="cennik__title">Wybierz swój <span class="gradient__text">pakiet</span></h2>
+            <p class="cennik__subtitle">Poniższe ceny są tylko orientacyjne i mogą się różnić w zależności od indywidualnych potrzeb.</p>
+
+            <div class="pricing-cards">
+                <!-- Pakiet Start -->
+                <div class="pricing-card">
+                    <h3>Pakiet Start <br><span>(Wizytówka)</span></h3>
+                    <div class="price">od 1500 zł</div>
+                    <p class="kafelek__opis" style="margin-bottom: 20px;">
+                        Idealny wybór na początek dla małych firm i freelancerów. Tworzymy profesjonalną wizytówkę, która buduje zaufanie od pierwszego kliknięcia. Znajdziesz tu wszystko, czego potrzebuje Twój klient: ofertę, cennik i szybki kontakt. Twoja firma zyskuje profesjonalny adres w sieci i doskonałą szybkość działania, co Google po prostu kocha.
+                    </p>
+                    <ul class="features">
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Nowoczesna strona (1-3 podstrony)</li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Przejrzysta oferta i cennik</li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Intuicyjny formularz kontaktowy</li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Pełna responsywność (świetny wygląd na telefonach)</li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg><strong>Podstawowe SEO – Twoja firma widoczna w Google</strong></li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg><strong>Certyfikat SSL (bezpieczeństwo i zielona kłódka)</strong></li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg><strong>Podpięcie analityki Google (widzisz, kto i ile osób Cię odwiedza)</strong></li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg><strong>Podstawowy hosting Cloudflare w gratisie</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Pakiet System (Biznes - Highlight) -->
+                <div class="pricing-card highlighted">
+                    <div class="badge">Najpopularniejszy dla biznesu</div>
+                    <h3>Pakiet System <br><span>(Dedykowany)</span></h3>
+                    <div class="price">od 3000 zł</div>
+                    <p class="kafelek__opis" style="margin-bottom: 20px;">
+                        Kompletny system sprzedażowy stworzony z myślą o firmach, które potrzebują czegoś więcej niż zwykłej strony. Tworzymy autorskie moduły dopasowane do Twojego biznesu – od systemów rezerwacji i zamówień, po sekcje aktualności czy portale ogłoszeniowe. Ty rzucasz wyzwanie, my budujemy narzędzie, które je udźwignie. Całość obsługujesz przez banalnie prosty, autorski panel, dzięki któremu zarządzanie treścią zajmuje sekundy.
+                    </p>
+                    <ul class="features">
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-blue)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg><strong>Wszystko, co w pakiecie Start</strong></li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-cyan)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Autorskie rozwiązania (np. system ogłoszeń, blog, aktualności)</li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-cyan)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Dedykowane funkcje dopasowane w 100% do Twoich potrzeb</li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-cyan)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Intuicyjny panel administratora – zarządzasz stroną bez wiedzy technicznej</li>
+                        <li><svg class="pricing-icon" width="18" height="18" viewBox="0 0 24 24" fill="var(--accent-cyan)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" /></svg>Maksymalna wydajność i szybkość (Twoja strona wyprzedza konkurencję)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <article class="seo-text">
+                <h2>Cennik tworzenia stron w Myślenicach – inwestycja w rozwój Twojej firmy</h2>
+                <p>
+                    W dzisiejszych czasach każda rozwijająca się firma potrzebuje profesjonalnego miejsca w sieci.
+                    Lokalne biznesy mogą zyskać ogromną przewagę dzięki nowoczesnej, świetnie prezentującej się ofercie.
+                    <strong>Profesjonalne tworzenie stron www Myślenice</strong> to nie tylko zrobienie ładnej
+                    wizytówki, ale przede wszystkim budowa silnego zaufania wśród klientów, którzy każdego dnia szukają
+                    Twoich usług w Google. Dobrze wykonana witryna staje się Twoim najlepszym handlowcem czynnym całą
+                    dobę.
+                </p>
+                <p>
+                    Zamiast korzystać z ciężkich, powolnych i skomplikowanych szablonów, oferujemy tylko sprawdzone i
+                    zoptymalizowane, dedykowane rozwiązania. Dzięki temu zapewniamy <strong>tanie strony internetowe
+                        Myślenice</strong>, bez ukrytych kosztów abonamentowych, powolnych serwerów czy wadliwego kodu.
+                    Twoja strona będzie działać błyskawicznie, bezawaryjnie na każdym komputerze czy urządzeniu
+                    mobilnym. Wybierając nasze usługi, masz pewność, że kod strony jest ultra lekki, nowoczesny i
+                    dostosowany do aktualnych, wymagających standardów webowych.
+                </p>
+                <p>
+                    Podstawą dzisiejszego sukcesu w internecie jest oczywiście widoczność w wyszukiwarkach. Kluczowym
+                    krokiem na drodze do tego jest odpowiednie <strong>pozycjonowanie lokalne dla firm</strong>.
+                    Tworzone przez nas strony od początku posiadają zaplanowaną odpowiednią strukturę, przemyślane
+                    nagłówki oraz podstawową optymalizację SEO, co znacznie ułatwia indeksowanie ich przez algorytmy
+                    Google i naturalnie przyciąga więcej klientów z Myślenic, jak i z okolicznych miejscowości. To
+                    doskonała inwestycja z przejrzystą ofertą i jasnymi zasadami współpracy.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+    (function () {
+        var header = document.querySelector('header');
+        window.addEventListener('scroll', function () {
+            var scrollY = window.scrollY;
+            if (scrollY <= 50) { header.classList.remove('scrolled', 'hidden-up'); }
+            else if (scrollY > 300) { header.classList.add('scrolled'); header.classList.remove('hidden-up'); }
+            else { header.classList.add('hidden-up'); header.classList.remove('scrolled'); }
+        });
+        var hamburger = document.getElementById('hamburger');
+        var navMenu = document.getElementById('nav-menu');
+        if (hamburger) {
+            hamburger.addEventListener('click', function () {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                header.classList.toggle('menu-open');
+            });
+            document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    header.classList.remove('menu-open');
+                });
+            });
+        }
+    })();
+    </script>
+
+    <script is:inline>
+    (function () {
+        var descriptions = document.querySelectorAll('.kafelek__opis');
+        function handleScrollFade(el) {
+            var isAtBottom = el.scrollHeight - el.scrollTop <= el.clientHeight + 2;
+            if (isAtBottom) el.classList.remove('has-fade');
+            else if (el.scrollHeight > el.clientHeight) el.classList.add('has-fade');
+        }
+        descriptions.forEach(function (el) {
+            handleScrollFade(el);
+            el.addEventListener('scroll', function () { handleScrollFade(el); });
+        });
+    })();
+    </script>
+</Layout>

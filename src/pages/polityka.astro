@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBg from '../components/HeroBg.astro';
+---
+
+<Layout
+  title="Polityka Prywatności | web2sell"
+  description="Polityka prywatności i informacje o ochronie danych osobowych na stronie web2sell."
+>
+    <Header activePage="polityka" />
+
+    <main class="privacy-container">
+        <HeroBg behindContent={true} />
+
+        <div class="privacy__header">
+            <h1>Polityka <span class="gradient__text">Prywatności</span></h1>
+            <p>Ostatnia aktualizacja: kwiecień 2026 r.</p>
+        </div>
+
+        <section class="privacy__content">
+            <h2>1. Wstęp</h2>
+            <p>Niniejsza polityka prywatności określa zasady przetwarzania i ochrony danych osobowych przekazanych przez
+                Użytkowników w związku z korzystaniem z formularza kontaktowego na naszej stronie internetowej.</p>
+            <p>Strona jest prowadzona przez zespół agencji web2sell, a my jesteśmy jej Administratorem.</p>
+
+            <h2>2. Kto jest administratorem danych?</h2>
+            <p>Administratorem Twoich danych osobowych przekazywanych w formularzu kontaktowym jest:<br>
+                <strong>Zespół web2sell</strong><br>
+                E-mail do kontaktu: <a href="mailto:kontakt@web2sell.pl" class="privacy-link">kontakt@web2sell.pl</a>
+            </p>
+
+            <h2>3. Jakie dane przetwarzamy i w jakim celu?</h2>
+            <p>Kiedy korzystasz z formularza kontaktowego, podajesz nam swoje dane takie jak:</p>
+            <ul>
+                <li>Imię i Nazwisko,</li>
+                <li>Adres e-mail,</li>
+                <li>Treść wiadomości,</li>
+                <li>Opcjonalnie numer telefonu.</li>
+            </ul>
+            <p>Powyższe dane są przetwarzane <strong>wyłącznie w celu odczytania Twojej wiadomości i udzielenia Ci na
+                    nią odpowiedzi</strong>. Nie wykorzystujemy ich do newsletterów, marketingu czy tworzenia profili.
+                Podanie danych jest całkowicie dobrowolne, ale niezbędne do nawiązania kontaktu.</p>
+
+            <h2>4. Czas przechowywania danych</h2>
+            <p>Twoje dane (w postaci wiadomości e-mail na naszej skrzynce odbiorczej) są przechowywane jedynie przez
+                czas
+                niezbędny do wymiany korespondencji i załatwienia sprawy, z którą do nas napisałeś, a następnie są
+                trwale usuwane.</p>
+
+            <h2>5. Komu przekazywane są dane? (Zewnętrzne usługi)</h2>
+            <p>W celu dostarczenia wiadomości z formularza prosto na naszą skrzynkę pocztową korzystamy z usługi
+                <strong>EmailJS</strong>.
+            </p>
+            <p>Firma obsługująca API EmailJS działa jako podmiot przetwarzający dane w naszym imieniu (tzw. procesor).
+                Więcej informacji o tym, jak dbają oni o bezpieczeństwo, można znaleźć pod adresem: <a
+                    href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener"
+                    class="privacy-link">Polityka prywatności EmailJS</a>.</p>
+
+            <h2>6. Twoje prawa</h2>
+            <p>W związku z tym, że przetwarzamy Twoje dane, przysługuje Ci prawo do:</p>
+            <ul>
+                <li>Dostępu do treści swoich danych,</li>
+                <li>Sprostowania lub usunięcia danych (prawo do bycia zapomnianym),</li>
+                <li>Cofnięcia zgody na ich przetwarzanie z poziomu formularza.</li>
+            </ul>
+            <p>Skoro dane sprowadzają się tylko do wiadomości e-mail – jeśli chcesz, abyśmy trwale usunęli naszą
+                dotychczasową korespondencję z naszej skrzynki, wystarczy, że wyślesz do nas prośbę na adres:
+                <a href="mailto:kontakt@web2sell.pl" class="privacy-link">kontakt@web2sell.pl</a>.
+            </p>
+
+            <h2>7. Ciasteczka (Cookies)</h2>
+            <p>Formularz kontaktowy wykorzystuje lokalną pamięć przeglądarki (<code>localStorage</code>) jedynie w
+                celach bezpieczeństwa, tj. w celu blokowania wysyłki spamu – zapisywany jest wyłącznie znacznik czasu
+                (odliczenie 2 minut po pomyślnym przesłaniu wiadomości). Strona nie wykorzystuje ciasteczek w rozumieniu
+                śledzącym ani reklamowym.</p>
+        </section>
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+    (function () {
+        var header = document.querySelector('header');
+        window.addEventListener('scroll', function () {
+            var scrollY = window.scrollY;
+            if (scrollY <= 50) { header.classList.remove('scrolled', 'hidden-up'); }
+            else if (scrollY > 300) { header.classList.add('scrolled'); header.classList.remove('hidden-up'); }
+            else { header.classList.add('hidden-up'); header.classList.remove('scrolled'); }
+        });
+        var hamburger = document.getElementById('hamburger');
+        var navMenu = document.getElementById('nav-menu');
+        if (hamburger) {
+            hamburger.addEventListener('click', function () {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                header.classList.toggle('menu-open');
+            });
+            document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    header.classList.remove('menu-open');
+                });
+            });
+        }
+    })();
+    </script>
+</Layout>

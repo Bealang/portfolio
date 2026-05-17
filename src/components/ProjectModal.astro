@@ -1,0 +1,62 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  tag: string;
+  color: string;
+  url?: string;
+  gallery: string[];
+  Content: any;
+}
+
+const { slug, title, tag, color, url, gallery, Content } = Astro.props;
+---
+
+<div class="project-modal" id={`modal-${slug}`} data-slug={slug} aria-hidden="true" role="dialog" aria-label={`Szczegóły projektu: ${title}`}>
+    <div class="project-modal__backdrop"></div>
+    <div class="project-modal__container">
+        <button class="project-modal__close" aria-label="Zamknij modal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="project-modal__header" style={`background: ${color};`}>
+            <div class="project-modal__header-content">
+                <h2 class="project-modal__title">{title}</h2>
+                <span class="project-modal__tag">{tag}</span>
+                {url && (
+                    <a href={url} target="_blank" rel="noopener noreferrer" class="project-modal__link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        Odwiedź stronę
+                    </a>
+                )}
+            </div>
+        </div>
+
+        <div class="project-modal__body">
+            {gallery.length > 0 && (
+                <div class="project-modal__gallery">
+                    <div class="swiper project-gallery-swiper">
+                        <div class="swiper-wrapper">
+                            {gallery.map((img, i) => (
+                                <div class="swiper-slide">
+                                    <img src={img} alt={`${title} — zdjęcie ${i + 1}`} loading="lazy">
+                                </div>
+                            ))}
+                        </div>
+                        {gallery.length > 1 && (
+                            <>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            <div class="project-modal__content">
+                <Content />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  tag: string;
+  color: string;
+  accent: string;
+  thumbnail: string;
+  thumbnailAlt: string;
+}
+
+const { slug, title, tag, color, accent, thumbnail, thumbnailAlt } = Astro.props;
+---
+
+<div
+  class="c3d__card"
+  data-color={color}
+  data-accent={accent}
+  data-slug={slug}
+>
+    <div class="c3d__card-inner" style={`background: ${color}; --card-accent: ${accent}; cursor: pointer;`}>
+        <div class="c3d__logo-wrap">
+            <img src={thumbnail} alt={thumbnailAlt} loading="lazy" style="border-radius:10px;">
+        </div>
+        <p class="c3d__name">{title}</p>
+        <span class="c3d__tag">{tag}</span>
+    </div>
+</div>

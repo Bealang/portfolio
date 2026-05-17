@@ -1,0 +1,247 @@
+---
+// ContactForm component - EmailJS integration
+---
+
+<section id="kontakt" data-aos="fade-up" data-aos-duration="1000">
+    <div class="contact__container">
+        <div class="contact__featured" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+            <div class="featured__header">
+                <h2>Skontaktuj się <span class="gradient__text">z nami</span></h2>
+                <p>Masz pomysł na nowy projekt? Zauważyłeś błąd na stronie? A może potrzebujesz szybkiej odpowiedzi
+                    na pytanie? Napisz do nas przez formularz lub bezpośrednio na maila – gwarantujemy taką samą,
+                    błyskawiczną reakcję w obu przypadkach!</p>
+            </div>
+
+            <div class="featured__cards">
+                <a href="mailto:pomoc@web2sell.pl" class="featured__card email">
+                    <div class="card__glow"></div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="card__content">
+                        <span class="card__title">Wsparcie techniczne i pomoc przy awariach</span>
+                        <span class="card__value">pomoc@web2sell.pl</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right card__arrow"></i>
+                </a>
+
+                <a href="mailto:kontakt@web2sell.pl" class="featured__card email">
+                    <div class="card__glow"></div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="card__content">
+                        <span class="card__title">Ogólne pytania i współpraca</span>
+                        <span class="card__value">kontakt@web2sell.pl</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right card__arrow"></i>
+                </a>
+                <a href="mailto:poprawka@web2sell.pl" class="featured__card email">
+                    <div class="card__glow"></div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="card__content">
+                        <span class="card__title">Zamówienia poprawek i aktualizacji treści</span>
+                        <span class="card__value">poprawka@web2sell.pl</span>
+                    </div>
+                    <i class="fa-solid fa-arrow-right card__arrow"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="kontakt__formularz" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+            <h2>Formularz <span class="gradient__text">kontaktowy</span></h2>
+            <form id="kontakt__form" novalidate>
+                <div id="kontakt__formularz__lewy">
+                    <div class="form__group">
+                        <label for="imie" class="kontakt__formularz__label">Imię <span class="required">*</span></label>
+                        <input type="text" id="imie" name="imie" placeholder="Jan" autocomplete="given-name">
+                        <span class="form__error" id="imie__error"></span>
+                    </div>
+                    <div class="form__group">
+                        <label for="nazwisko" class="kontakt__formularz__label">Nazwisko <span class="required">*</span></label>
+                        <input type="text" id="nazwisko" name="nazwisko" placeholder="Kowalski" autocomplete="family-name">
+                        <span class="form__error" id="nazwisko__error"></span>
+                    </div>
+                    <div class="form__group">
+                        <label for="kontakt_info" class="kontakt__formularz__label">Adres e-mail <span class="required">*</span></label>
+                        <input type="email" id="kontakt_info" name="kontakt" placeholder="twoj@email.com" autocomplete="email">
+                        <span class="form__error" id="kontakt__error"></span>
+                    </div>
+                </div>
+                <div id="kontakt__formularz__prawy">
+                    <div class="form__group">
+                        <label for="tresc" class="kontakt__formularz__label">Treść wiadomości <span class="required">*</span></label>
+                        <textarea id="tresc" name="tresc" placeholder="Słuchamy Cię! Opisz, w czym rzecz. Jeśli wolisz, żebyśmy zadzwonili, dopisz swój numer telefonu – tak będzie szybciej."></textarea>
+                        <span class="form__error" id="tresc__error"></span>
+                    </div>
+                    <div class="form__group rodo__group">
+                        <label class="rodo__label">
+                            <input type="checkbox" id="rodo" name="rodo" required>
+                            <span class="rodo__checkmark"></span>
+                            <span class="rodo__text">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
+                                udzielenia odpowiedzi na zapytanie. <a href="/polityka">Polityka
+                                    prywatności</a></span>
+                        </label>
+                        <span class="form__error" id="rodo__error"></span>
+                    </div>
+                </div>
+                <button type="submit" id="form__submit" class="form__submit__btn">
+                    <span class="btn__text">Wyślij wiadomość</span>
+                    <i class="fa-solid fa-paper-plane btn__icon"></i>
+                    <span class="btn__loading" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i>
+                        Wysyłanie...</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+<div id="form__notification" class="form__notification" style="display:none;">
+    <i class="notification__icon"></i>
+    <span class="notification__text"></span>
+</div>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script is:inline>
+// ============================================================
+// EMAILJS KONFIGURACJA
+// ============================================================
+const EMAILJS_PUBLIC_KEY = 'RZK1nw4Vj1eZiggfr';
+const EMAILJS_SERVICE_ID = 'service_dnkrj6g';
+const EMAILJS_TEMPLATE_ID = 'template_h5b0n9s';
+
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// ─── Elementy DOM ────────────────────────────────────────────
+const form = document.getElementById('kontakt__form');
+const submitBtn = document.getElementById('form__submit');
+const btnText = submitBtn?.querySelector('.btn__text');
+const btnIcon = submitBtn?.querySelector('.btn__icon');
+const btnLoading = submitBtn?.querySelector('.btn__loading');
+const notification = document.getElementById('form__notification');
+const notifIcon = notification?.querySelector('.notification__icon');
+const notifText = notification?.querySelector('.notification__text');
+
+// ─── Walidacja pól ───────────────────────────────────────────
+function showError(fieldId, message) {
+    const el = document.getElementById(fieldId + '__error');
+    const input = document.getElementById(fieldId) || document.querySelector('[name="' + fieldId + '"]');
+    if (el) {
+        el.textContent = message;
+        el.classList.add('visible');
+    }
+    if (input) input.classList.add('input--error');
+}
+
+function clearError(fieldId) {
+    const el = document.getElementById(fieldId + '__error');
+    const input = document.getElementById(fieldId) || document.querySelector('[name="' + fieldId + '"]');
+    if (el) {
+        el.textContent = '';
+        el.classList.remove('visible');
+    }
+    if (input) input.classList.remove('input--error');
+}
+
+function validateForm() {
+    let valid = true;
+
+    const imie = document.getElementById('imie').value.trim();
+    if (!imie) { showError('imie', 'Imię jest wymagane.'); valid = false; }
+    else { clearError('imie'); }
+
+    const nazwisko = document.getElementById('nazwisko').value.trim();
+    if (!nazwisko) { showError('nazwisko', 'Nazwisko jest wymagane.'); valid = false; }
+    else { clearError('nazwisko'); }
+
+    const kontakt = document.getElementById('kontakt_info').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!kontakt) { showError('kontakt', 'Podaj adres e-mail.'); valid = false; }
+    else if (!emailRegex.test(kontakt)) { showError('kontakt', 'Podaj poprawny adres e-mail.'); valid = false; }
+    else { clearError('kontakt'); }
+
+    const tresc = document.getElementById('tresc').value.trim();
+    if (!tresc || tresc.length < 10) { showError('tresc', 'Wpisz wiadomość (min. 10 znaków).'); valid = false; }
+    else { clearError('tresc'); }
+
+    const rodo = document.getElementById('rodo').checked;
+    if (!rodo) { showError('rodo', 'Wymagana zgoda na przetwarzanie danych.'); valid = false; }
+    else { clearError('rodo'); }
+
+    return valid;
+}
+
+// ─── Resetowanie błędów na bieżąco ───────────────────────────
+['imie', 'nazwisko', 'kontakt_info', 'tresc'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const errorId = id === 'kontakt_info' ? 'kontakt' : id;
+    el.addEventListener('input', () => clearError(errorId));
+});
+document.getElementById('rodo')?.addEventListener('change', () => clearError('rodo'));
+
+// ─── Powiadomienie ────────────────────────────────────────────
+function showNotification(type, message) {
+    notification.className = 'form__notification ' + type;
+    notifIcon.className = 'notification__icon fa-solid ' + (type === 'success' ? 'fa-check-circle' : 'fa-circle-exclamation');
+    notifText.textContent = message;
+    notification.style.display = 'flex';
+
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 6000);
+}
+
+// ─── Wysyłanie formularza ─────────────────────────────────────
+function setLoading(loading) {
+    if (loading) {
+        btnText.style.display = 'none';
+        btnIcon.style.display = 'none';
+        btnLoading.style.display = 'inline-flex';
+        submitBtn.disabled = true;
+    } else {
+        btnText.style.display = 'inline';
+        btnIcon.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled = false;
+    }
+}
+
+form?.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const lastSentTime = localStorage.getItem('lastEmailSentTime');
+    const cooldownTime = 2 * 60 * 1000;
+
+    if (lastSentTime) {
+        const timeElapsed = Date.now() - parseInt(lastSentTime, 10);
+        if (timeElapsed < cooldownTime) {
+            const timeLeft = Math.ceil((cooldownTime - timeElapsed) / 1000);
+            const minutesLeft = Math.floor(timeLeft / 60);
+            const secondsLeft = timeLeft % 60;
+            const timeString = minutesLeft > 0 ? `${minutesLeft}m ${secondsLeft}s` : `${secondsLeft}s`;
+            showNotification('error', `⏳ Odczekaj jeszcze ${timeString} przed wysłaniem kolejnej wiadomości.`);
+            return;
+        }
+    }
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    const templateParams = {
+        imie: document.getElementById('imie').value.trim(),
+        nazwisko: document.getElementById('nazwisko').value.trim(),
+        kontakt: document.getElementById('kontakt_info').value.trim(),
+        tresc: document.getElementById('tresc').value.trim(),
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(() => {
+            setLoading(false);
+            showNotification('success', '✅ Wiadomość wysłana! Odpiszemy najszybciej jak możemy.');
+            form.reset();
+            localStorage.setItem('lastEmailSentTime', Date.now().toString());
+        })
+        .catch((error) => {
+            setLoading(false);
+            console.error('EmailJS error:', error);
+            showNotification('error', '❌ Nie udało się wysłać wiadomości. Napisz bezpośrednio na kontakt@web2sell.pl');
+        });
+});
+</script>

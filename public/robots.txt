@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://web2sell.pl/sitemap.xml

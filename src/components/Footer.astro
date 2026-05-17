@@ -1,0 +1,30 @@
+---
+const currentYear = new Date().getFullYear();
+
+interface Props {
+  isHome?: boolean;
+}
+
+const { isHome = false } = Astro.props;
+---
+
+<footer>
+    <div class="footer__content">
+        <div class="footer__info">
+            <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a>
+            <p>Tworzymy z pasją.</p>
+        </div>
+
+        <div class="footer__links">
+            <a href={isHome ? '#onas' : '/#onas'}>O nas</a>
+            <a href={isHome ? '#projekty' : '/#projekty'}>Projekty</a>
+            <a href="/cennik">Cennik</a>
+            <a href={isHome ? '#kontakt' : '/#kontakt'}>Kontakt</a>
+            <a href="/polityka">Polityka prywatności</a>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <p>&copy; {currentYear} web2sell. Wszelkie prawa zastrzeżone.</p>
+        <p>Design & Code with 💗 by zespół web2sell</p>
+    </div>
+</footer>

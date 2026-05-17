@@ -1,0 +1,421 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroBg from '../components/HeroBg.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ProjectModal from '../components/ProjectModal.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { getCollection, render } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+
+const renderedProjects = await Promise.all(
+  projects.map(async (project) => {
+    const { Content } = await render(project);
+    return { ...project, Content };
+  })
+);
+---
+
+<Layout
+  title="Web2Sell | Tworzenie stron www Myślenice"
+  description="Web2Sell - profesjonalne tworzenie stron www Myślenice. Nowoczesne, szybkie i responsywne strony internetowe dla firm. Zobacz nasze portfolio projektów i skontaktuj się!"
+  bodyClass="home-page"
+>
+    <Header activePage="home" />
+
+    <main id="onas" class="hero-section">
+        <HeroBg />
+
+        <div id="main__text" class="hero-content">
+            <div class="hero-text-reveal">
+                <h1 class="hero-seo-title" data-aos="fade-down" data-aos-duration="800">web2sell - Tworzenie stron internetowych Myślenice</h1>
+                <h2 class="hero-title typing-stack">
+                    <span id="type-title-ghost" class="ghost-layer"></span>
+                    <span id="type-title" class="visible-layer"></span>
+                </h2>
+                <p class="hero-desc typing-stack">
+                    <span id="type-desc-ghost" class="ghost-layer"></span>
+                    <span id="type-desc" class="visible-layer"></span>
+                </p>
+                <div id="main__buttons" class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2500">
+                    <a href="#projekty"><button class="btn-glass btn-primary">Nasze realizacje</button></a>
+                    <a href="#kontakt"><button class="btn-glass btn-secondary">Skontaktuj się</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="300">
+            <div class="abstract-composition">
+                <div class="shape glass-cube"></div>
+                <div class="shape sphere-gradient"></div>
+                <div class="shape torus-ring"></div>
+                <div class="shape glass-panel"></div>
+                <div class="shape floating-orb"></div>
+            </div>
+        </div>
+    </main>
+
+    <section id="projekty">
+        <div class="projekty__heading" data-aos="fade-up" data-aos-duration="800">
+            <h2>Nasze <span class="gradient__text">projekty</span></h2>
+            <p class="projekty__subtitle">Przeciągnij lub kliknij strzałki, aby odkryć więcej</p>
+        </div>
+        <div class="c3d__scene" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="c3d__track" id="c3dTrack">
+                {renderedProjects.map((project) => (
+                    <ProjectCard
+                        slug={project.id}
+                        title={project.data.title}
+                        tag={project.data.tag}
+                        color={project.data.color}
+                        accent={project.data.accent}
+                        thumbnail={project.data.thumbnail}
+                        thumbnailAlt={project.data.thumbnailAlt}
+                    />
+                ))}
+            </div>
+            <button class="c3d__nav c3d__nav--prev" id="c3dPrev" aria-label="Poprzedni"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="c3d__nav c3d__nav--next" id="c3dNext" aria-label="Następny"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="c3d__dots" id="c3dDots"></div>
+    </section>
+
+    <section id="cennik-teaser" class="cennik-teaser" data-aos="fade-up" data-aos-duration="1000">
+        <div class="cennik-teaser__box">
+            <div class="cennik-teaser__content">
+                <h2>Zdecydowałeś się na <span class="gradient__text">współpracę?</span></h2>
+                <p>Nie pozwól, by Twoja firma zostawała w internecie w tyle. Wybierz rozwiązanie uszyte na miarę Twoich
+                    potrzeb i zbuduj w pełni profesjonalny wizerunek w sieci.</p>
+            </div>
+            <div class="cennik-teaser__action">
+                <a href="/cennik" class="cennik-btn-glow">
+                    <span>Zobacz cennik i pakiety</span>
+                    <i class="fa-solid fa-rocket"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <ContactForm />
+
+    <Footer isHome={true} />
+
+    <!-- Pre-rendered project modals (hidden, opened via JS) -->
+    {renderedProjects.map((project) => (
+        <ProjectModal
+            slug={project.id}
+            title={project.data.title}
+            tag={project.data.tag}
+            color={project.data.color}
+            url={project.data.url}
+            gallery={project.data.gallery}
+            Content={project.Content}
+        />
+    ))}
+
+    <!-- Typing animation -->
+    <script is:inline>
+    (function () {
+        const titleGhost = document.getElementById('type-title-ghost');
+        const descGhost = document.getElementById('type-desc-ghost');
+        const titleElement = document.getElementById('type-title');
+        const descElement = document.getElementById('type-desc');
+
+        const titleHTML = "Zaprojektujemy.<br><span class='gradient__text text-glow' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.";
+        const descHTML = "W web2sell porzucamy popularne, obciążające systemy zarządzania treścią na rzecz nowoczesnych rozwiązań programistycznych. Budujemy witryny od podstaw, wykorzystując autorski kod, który gwarantuje najwyższą szybkość działania, bezpieczeństwo oraz pełną optymalizację pod wyszukiwarki. Dzięki eliminacji zbędnych wtyczek i szablonów, Twoja lokalna firma zyska unikalne narzędzie, które zapewnia użytkownikom błyskawiczny dostęp do informacji i realnie wspiera Twój rozwój w sieci.";
+
+        if (titleGhost) titleGhost.innerHTML = titleHTML;
+        if (descGhost) descGhost.innerHTML = descHTML;
+
+        function typeWriter(element, html, speed, callback) {
+            let i = 0;
+            let currentHTML = "";
+            function type() {
+                if (i < html.length) {
+                    if (html[i] === '<') {
+                        let endTag = html.indexOf('>', i);
+                        currentHTML += html.substring(i, endTag + 1);
+                        i = endTag + 1;
+                    } else {
+                        currentHTML += html[i];
+                        i++;
+                    }
+                    element.innerHTML = currentHTML;
+                    setTimeout(type, speed);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            type();
+        }
+
+        setTimeout(() => {
+            if (titleElement) {
+                typeWriter(titleElement, titleHTML, 40, () => {
+                    setTimeout(() => {
+                        if (descElement) {
+                            descElement.innerHTML = descHTML;
+                            descElement.classList.add('animate-fade-in-left');
+                        }
+                    }, 400);
+                });
+            }
+        }, 600);
+    })();
+    </script>
+
+    <!-- 3D Slider -->
+    <script is:inline>
+    (function () {
+        var cards = Array.from(document.querySelectorAll('.c3d__card'));
+        var dotsEl = document.getElementById('c3dDots');
+        var prevBtn = document.getElementById('c3dPrev');
+        var nextBtn = document.getElementById('c3dNext');
+        var total = cards.length;
+        var current = 0;
+        var autoTimer = null;
+        var CARD_W = 320;
+        var GAP = 360;
+
+        function updateDimensions() {
+            var w = window.innerWidth;
+            if (w <= 600) { CARD_W = 240; GAP = 260; }
+            else if (w <= 900) { CARD_W = 270; GAP = 300; }
+            else { CARD_W = 320; GAP = 360; }
+        }
+        updateDimensions();
+        window.addEventListener('resize', function () { updateDimensions(); applyLayout(false); });
+
+        // Build dots
+        cards.forEach(function (_, i) {
+            var d = document.createElement('button');
+            d.className = 'c3d__dot';
+            d.setAttribute('aria-label', 'Slajd ' + (i + 1));
+            d.addEventListener('click', function () { goTo(i); });
+            dotsEl.appendChild(d);
+        });
+
+        // Handle card clicks → open modal
+        var currentDragDelta = 0;
+        cards.forEach(function (card) {
+            card.addEventListener('click', function (e) {
+                if (Math.abs(currentDragDelta) > 5) { e.preventDefault(); return; }
+                var slug = card.dataset.slug;
+                if (slug) {
+                    var modal = document.getElementById('modal-' + slug);
+                    if (modal) openModal(modal);
+                }
+            });
+        });
+
+        function applyLayout(dragging, dragOffset) {
+            if (dragOffset === undefined) dragOffset = 0;
+            cards.forEach(function (card, i) {
+                var rel = i - current;
+                var abs = Math.abs(rel);
+                var tx = rel * GAP - CARD_W / 2 + dragOffset;
+                var ty = -50 + (abs === 0 ? -10 : 0);
+                var scale = abs === 0 ? 1 : (abs === 1 ? 0.78 : 0.62);
+                var opacity = abs === 0 ? 1 : (abs === 1 ? 0.55 : (abs === 2 ? 0.3 : 0.15));
+                var brightness = abs === 0 ? 1 : (abs === 1 ? 0.55 : 0.3);
+                var zIndex = abs === 0 ? 20 : (abs === 1 ? 15 : 5);
+                var shadow = abs === 0
+                    ? '0 50px 100px rgba(0,0,0,0.35), 0 20px 40px rgba(139,92,246,0.2)'
+                    : '0 15px 35px rgba(0,0,0,0.15)';
+
+                card.style.transform = 'translate(' + tx + 'px, ' + ty + '%) scale(' + scale + ')';
+                card.style.opacity = opacity;
+                card.style.filter = 'brightness(' + brightness + ')';
+                card.style.zIndex = zIndex;
+                card.style.boxShadow = shadow;
+
+                if (!dragging) card.classList.toggle('is-active', i === current);
+                card.style.transition = dragging
+                    ? 'transform 0.1s ease-out'
+                    : 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease';
+            });
+
+            if (!dragging) {
+                var dots = dotsEl.querySelectorAll('.c3d__dot');
+                dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+            }
+        }
+
+        function goTo(idx) {
+            if (idx < 0) idx = total - 1;
+            else if (idx >= total) idx = 0;
+            current = idx;
+            applyLayout(false, 0);
+            resetAuto();
+        }
+
+        function resetAuto() {
+            if (autoTimer) clearInterval(autoTimer);
+            if (document.querySelector('.project-modal.is-open')) return;
+            autoTimer = setInterval(function () { goTo(current + 1); }, 3500);
+        }
+        window.sliderResetAuto = resetAuto;
+        window.sliderStopAuto = function() { if (autoTimer) clearInterval(autoTimer); };
+
+        prevBtn.addEventListener('click', function () { goTo(current - 1); });
+        nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+        // Drag
+        var startX = 0;
+        var isDragging = false;
+        var scene = document.querySelector('.c3d__scene');
+
+        scene.addEventListener('mousedown', function (e) {
+            isDragging = true; startX = e.clientX; currentDragDelta = 0;
+            scene.classList.add('is-dragging');
+            if (autoTimer) clearInterval(autoTimer);
+        });
+        window.addEventListener('mousemove', function (e) {
+            if (!isDragging) return;
+            currentDragDelta = e.clientX - startX;
+            if (current === 0 && currentDragDelta > 0) currentDragDelta *= 0.3;
+            else if (current === total - 1 && currentDragDelta < 0) currentDragDelta *= 0.3;
+            applyLayout(true, currentDragDelta);
+        });
+        window.addEventListener('mouseup', function () {
+            if (!isDragging) return;
+            isDragging = false;
+            scene.classList.remove('is-dragging');
+            if (Math.abs(currentDragDelta) > 55) goTo(currentDragDelta < 0 ? current + 1 : current - 1);
+            else { applyLayout(false, 0); resetAuto(); }
+            setTimeout(function () { currentDragDelta = 0; }, 0);
+        });
+
+        scene.addEventListener('touchstart', function (e) {
+            isDragging = true; startX = e.touches[0].clientX; currentDragDelta = 0;
+            if (autoTimer) clearInterval(autoTimer);
+            scene.classList.add('is-dragging');
+        }, { passive: true });
+        scene.addEventListener('touchmove', function (e) {
+            if (!isDragging) return;
+            currentDragDelta = e.touches[0].clientX - startX;
+            if (current === 0 && currentDragDelta > 0) currentDragDelta *= 0.3;
+            else if (current === total - 1 && currentDragDelta < 0) currentDragDelta *= 0.3;
+            applyLayout(true, currentDragDelta);
+        }, { passive: true });
+        scene.addEventListener('touchend', function () {
+            if (!isDragging) return;
+            isDragging = false;
+            scene.classList.remove('is-dragging');
+            if (Math.abs(currentDragDelta) > 50) goTo(currentDragDelta < 0 ? current + 1 : current - 1);
+            else { applyLayout(false, 0); resetAuto(); }
+            setTimeout(function () { currentDragDelta = 0; }, 0);
+        });
+
+        applyLayout(false, 0);
+        resetAuto();
+    })();
+    </script>
+
+    <!-- Modal Manager -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script is:inline>
+    (function () {
+        var activeSwipers = [];
+
+        window.openModal = function (modal) {
+            modal.setAttribute('aria-hidden', 'false');
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+            if (window.sliderStopAuto) window.sliderStopAuto();
+
+            // Init Swiper for gallery
+            var swiperEl = modal.querySelector('.project-gallery-swiper');
+            if (swiperEl) {
+                var swiper = new Swiper(swiperEl, {
+                    loop: swiperEl.querySelectorAll('.swiper-slide').length > 1,
+                    pagination: { el: swiperEl.querySelector('.swiper-pagination'), clickable: true },
+                    navigation: {
+                        nextEl: swiperEl.querySelector('.swiper-button-next'),
+                        prevEl: swiperEl.querySelector('.swiper-button-prev'),
+                    },
+                    keyboard: { enabled: true },
+                    grabCursor: true,
+                });
+                activeSwipers.push(swiper);
+            }
+        };
+
+        window.closeModal = function (modal) {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (window.sliderResetAuto) window.sliderResetAuto();
+
+            // Destroy Swiper instances
+            activeSwipers.forEach(function (s) { s.destroy(true, true); });
+            activeSwipers = [];
+        };
+
+        // Close button
+        document.querySelectorAll('.project-modal__close').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                closeModal(btn.closest('.project-modal'));
+            });
+        });
+
+        // Backdrop click
+        document.querySelectorAll('.project-modal__backdrop').forEach(function (backdrop) {
+            backdrop.addEventListener('click', function () {
+                closeModal(backdrop.closest('.project-modal'));
+            });
+        });
+
+        // Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                var openModal = document.querySelector('.project-modal.is-open');
+                if (openModal) closeModal(openModal);
+            }
+        });
+    })();
+    </script>
+
+    <!-- Header scroll & hamburger -->
+    <script is:inline>
+    (function () {
+        var header = document.querySelector('header');
+        window.addEventListener('scroll', function () {
+            var scrollY = window.scrollY;
+            if (scrollY <= 50) { header.classList.remove('scrolled', 'hidden-up'); }
+            else if (scrollY > 300) { header.classList.add('scrolled'); header.classList.remove('hidden-up'); }
+            else { header.classList.add('hidden-up'); header.classList.remove('scrolled'); }
+        });
+
+        var hamburger = document.getElementById('hamburger');
+        var navMenu = document.getElementById('nav-menu');
+        var navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', function () {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                header.classList.toggle('menu-open');
+            });
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    header.classList.remove('menu-open');
+                });
+            });
+            var moveNav = function () {
+                if (window.innerWidth <= 850) {
+                    if (navMenu.parentElement !== document.body) document.body.appendChild(navMenu);
+                } else {
+                    if (navMenu.parentElement !== header) header.appendChild(navMenu);
+                }
+            };
+            window.addEventListener('resize', moveNav);
+            moveNav();
+        }
+    })();
+    </script>
+</Layout>
