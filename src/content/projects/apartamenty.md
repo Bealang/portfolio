@@ -29,4 +29,9 @@ order: 3
 
 ### Technologie
 
-HTML, CSS, JavaScript (menu mobilne)
+- Node.js
+- PostgreSQL
+- HTML
+- CSS
+- Javascript
+- React
