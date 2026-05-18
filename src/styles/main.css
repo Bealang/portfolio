@@ -36,11 +36,13 @@ html {
 
 /* Sub-page layout fix — position: relative gives hero-bg an anchor point */
 .cennik-page,
+.zamow-page,
 .privacy-container {
     position: relative;
 }
 
 .cennik-page>.hero-bg,
+.zamow-page>.hero-bg,
 .privacy-container>.hero-bg {
     overflow: hidden;
 }
@@ -262,6 +264,7 @@ html {
     backdrop-filter: blur(10px);
     max-width: 250px;
     margin-left: 0;
+    text-decoration: none !important;
 }
 
 .btn-primary {
@@ -1937,7 +1940,8 @@ footer {
 }
 
 /* ─── CENNIK - MAIN STYLES ──────────────────────────────────── */
-.cennik-page {
+.cennik-page,
+.zamow-page {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -2427,16 +2431,16 @@ footer {
 .badge-title {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     background: rgba(139, 92, 246, 0.1);
     color: var(--accent-blue);
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 50px;
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
     text-transform: none !important;
     letter-spacing: normal !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 22px !important;
     border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
@@ -2894,7 +2898,10 @@ nav>a.active::after {
         border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
 
-    header.menu-open {
+    header.menu-open,
+    .home-page header.menu-open,
+    .home-page header.scrolled.menu-open {
+        transition: none !important;
         background: transparent !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
@@ -3011,3 +3018,966 @@ nav>a.active::after {
         position: relative;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ZAMÓW PAGE — All sections
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Hero Section ─────────────────────────────────────────── */
+.zamow-hero {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.zamow-hero__inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.zamow-hero__title {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+}
+
+.zamow-hero__desc {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto 35px auto;
+}
+
+.zamow-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.zamow-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    transition: width 0.3s ease;
+}
+
+.zamow-link:hover::after {
+    width: 100%;
+}
+
+.zamow-link:hover {
+    color: var(--accent-cyan);
+}
+
+.zamow-hero__actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ─── Proces / Horizontal Timeline ─────────────────────────── */
+.zamow-proces {
+    width: 100%;
+    max-width: 1400px;
+    margin: 60px auto 0;
+    padding: 0 0 40px;
+    box-sizing: border-box;
+}
+
+.zamow-proces__header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.zamow-proces__header h2 {
+    font-size: 42px;
+    color: var(--text-primary);
+    margin: 10px 0 14px;
+    line-height: 1.2;
+}
+
+.zamow-proces__header p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Timeline wrapper */
+.htl-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 70px;
+    box-sizing: border-box;
+}
+
+.htl-viewport {
+    overflow-x: auto;
+    width: 100%;
+    cursor: grab;
+    padding: 20px 0 40px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    -webkit-overflow-scrolling: touch;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.htl-viewport::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.htl-viewport.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto; /* disable smooth scroll during active dragging */
+}
+
+.htl-track {
+    display: flex;
+    gap: 32px;
+    position: relative;
+    width: max-content;
+    padding-left: calc(50% - 190px);
+    padding-right: calc(50% - 190px);
+}
+
+/* Line connecting steps */
+.htl-track::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: calc(50vw - 70px);
+    right: calc(50vw - 70px);
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    opacity: 0.35;
+    border-radius: 2px;
+    z-index: 0;
+}
+
+/* Individual step */
+.htl-step {
+    flex: 0 0 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0.25;
+    transform: scale(0.93) translateY(10px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Step dot (icon circle) */
+.htl-step__dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.htl-step__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
+    position: relative;
+    z-index: 2;
+}
+
+.htl-step__icon i {
+    color: #fff;
+    font-size: 20px;
+}
+
+.htl-step__icon--final {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.45);
+}
+
+.htl-step__number {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.htl-step--final .htl-step__number {
+    color: #10b981;
+}
+
+/* Step card */
+.htl-step__card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+    transition: var(--transition-smooth);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.htl-step__card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+
+.htl-step__card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.htl-step__card--final {
+    border-color: rgba(16, 185, 129, 0.3);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(240, 253, 244, 0.8));
+}
+
+@media (max-width: 600px) {
+    .htl-step {
+        flex: 0 0 280px;
+    }
+    .htl-track {
+        padding-left: calc(50% - 140px);
+        padding-right: calc(50% - 140px);
+    }
+}
+
+/* Navigation arrows */
+.htl-nav {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 16px;
+    color: var(--accent-blue);
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    flex-shrink: 0;
+}
+
+.htl-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.htl-nav--prev { left: 10px; }
+.htl-nav--next { right: 10px; }
+
+/* Dots */
+.htl-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.htl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: rgba(139, 92, 246, 0.2);
+    cursor: pointer;
+    transition: all 0.35s;
+    border: none;
+    padding: 0;
+}
+
+.htl-dot.is-active {
+    background: var(--accent-blue);
+    width: 28px;
+}
+
+/* ─── FAQ Section ──────────────────────────────────────────── */
+.zamow-faq {
+    width: 100%;
+    max-width: 800px;
+    margin: 70px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.zamow-faq__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.zamow-faq__header h2 {
+    font-size: 42px;
+    color: var(--text-primary);
+    margin: 10px 0 0;
+    line-height: 1.2;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: 0 4px 20px rgba(31, 38, 135, 0.04);
+    overflow: hidden;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 8px 30px rgba(31, 38, 135, 0.06);
+}
+
+.faq-item.is-open {
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 10px 40px rgba(139, 92, 246, 0.1);
+}
+
+.faq-item__question {
+    width: 100%;
+    padding: 22px 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: left;
+    transition: color 0.3s;
+}
+
+.faq-item__question:hover {
+    color: var(--accent-blue);
+}
+
+.faq-item__chevron {
+    font-size: 14px;
+    color: var(--accent-blue);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.is-open .faq-item__chevron {
+    transform: rotate(180deg);
+}
+
+.faq-item__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 28px;
+}
+
+.faq-item.is-open .faq-item__answer {
+    max-height: 300px;
+    padding: 0 28px 22px;
+}
+
+.faq-item__answer p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ─── Checklist Section ────────────────────────────────────── */
+.zamow-checklist {
+    width: 100%;
+    max-width: 1000px;
+    margin: 70px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.zamow-checklist__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.zamow-checklist__header h2 {
+    font-size: 42px;
+    color: var(--text-primary);
+    margin: 10px 0 14px;
+    line-height: 1.2;
+}
+
+.zamow-checklist__header p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.checklist-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.checklist-card {
+    position: relative;
+    cursor: pointer;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px 24px;
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: 0 4px 20px rgba(31, 38, 135, 0.04);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+}
+
+.checklist-card:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.08);
+    transform: translateY(-4px);
+}
+
+.checklist-card.is-checked {
+    border-color: rgba(34, 197, 94, 0.4);
+    background: linear-gradient(145deg, rgba(240, 253, 244, 0.9), rgba(255, 255, 255, 0.5));
+}
+
+.checklist-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checklist-checkmark {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.04);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.checklist-checkmark i {
+    color: white;
+    font-size: 12px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.checklist-card.is-checked .checklist-checkmark {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-color: #22c55e;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+.checklist-card.is-checked .checklist-checkmark i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.checklist-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.checklist-card__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(139, 92, 246, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.checklist-card__icon i {
+    font-size: 24px;
+    color: var(--accent-blue);
+    transition: all 0.3s ease;
+}
+
+.checklist-card.is-checked .checklist-card__icon {
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.checklist-card.is-checked .checklist-card__icon i {
+    color: #22c55e;
+}
+
+.checklist-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.checklist-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Progress bar */
+.checklist-progress {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.checklist-progress__bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.checklist-progress__fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: 10px;
+    transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.checklist-progress__text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+/* ─── CTA / Kontakt Section ────────────────────────────────── */
+.zamow-kontakt {
+    width: 100%;
+    max-width: 1200px;
+    margin: 70px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.zamow-kontakt__header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.zamow-kontakt__header h2 {
+    font-size: 42px;
+    color: var(--text-primary);
+    margin: 10px 0 14px;
+    line-height: 1.2;
+}
+
+.zamow-kontakt__header p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ─── Responsive — Zamow Page ──────────────────────────────── */
+@media (max-width: 900px) {
+    .zamow-hero__title {
+        font-size: 36px;
+    }
+
+    .zamow-hero__desc {
+        font-size: 16px;
+    }
+
+    .zamow-hero__actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .zamow-proces__header h2,
+    .zamow-faq__header h2,
+    .zamow-checklist__header h2,
+    .zamow-kontakt__header h2 {
+        font-size: 32px;
+    }
+
+    .htl-wrapper {
+        padding: 0 50px;
+    }
+
+    .htl-step {
+        flex: 0 0 340px;
+    }
+
+    .htl-track {
+        gap: 24px;
+    }
+
+    .htl-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .htl-nav--prev { left: 5px; }
+    .htl-nav--next { right: 5px; }
+
+    .checklist-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .checklist-card {
+        flex-direction: column;
+        text-align: left;
+        padding: 20px;
+        position: relative;
+    }
+
+    .checklist-checkmark {
+        top: 30px;
+        right: 20px;
+        left: auto;
+    }
+
+    .checklist-card__content {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 12px 16px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .checklist-card__icon {
+        grid-column: 1;
+        grid-row: 1;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .checklist-card h3 {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 19px;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.2;
+        padding-right: 36px;
+    }
+
+    .checklist-card__content::after {
+        content: '';
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        height: 1px;
+        background: rgba(139, 92, 246, 0.12);
+        width: 100%;
+        margin: 2px 0;
+    }
+
+    .checklist-card p {
+        grid-column: 1 / span 2;
+        grid-row: 3;
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0;
+        color: var(--text-secondary);
+    }
+
+    .zamow-page {
+        padding-top: 65px !important;
+    }
+
+    .zamow-hero {
+        padding-top: 15px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .zamow-hero {
+        padding-top: 10px !important;
+    }
+
+    .zamow-hero__title {
+        font-size: 30px;
+    }
+
+    .zamow-page {
+        padding-top: 65px !important;
+    }
+
+    .htl-wrapper {
+        padding: 0 40px;
+    }
+
+    .htl-step {
+        flex: 0 0 280px;
+    }
+
+    .htl-track {
+        gap: 20px;
+    }
+
+    .htl-nav {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .htl-nav--prev { left: 3px; }
+    .htl-nav--next { right: 3px; }
+
+    .zamow-faq__header h2,
+    .zamow-checklist__header h2,
+    .zamow-kontakt__header h2 {
+        font-size: 28px;
+    }
+
+    .faq-item__question {
+        font-size: 15px;
+        padding: 18px 20px;
+    }
+
+    .faq-item__answer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .faq-item.is-open .faq-item__answer {
+        padding: 0 20px 18px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CENNIK PAGE — Realizacja Section
+   ═══════════════════════════════════════════════════════════════ */
+
+.cennik-realizacja {
+    margin-top: 80px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.cennik-realizacja__inner {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 60px 40px;
+    backdrop-filter: blur(var(--glass-blur));
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.cennik-realizacja__inner:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.12);
+    transform: translateY(-4px);
+}
+
+.cennik-realizacja__inner h2 {
+    font-size: 42px;
+    color: var(--text-primary);
+    margin: 10px 0 16px;
+    line-height: 1.2;
+}
+
+.cennik-realizacja__subtitle {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 0 35px 0;
+}
+
+.realizacja-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.realizacja-btn {
+    text-decoration: none;
+    padding: 16px 40px;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+
+@media (max-width: 900px) {
+    .cennik-realizacja {
+        margin-top: 50px;
+        padding: 0 15px;
+    }
+
+    .cennik-realizacja__inner {
+        padding: 45px 30px;
+    }
+
+    .cennik-realizacja__inner h2 {
+        font-size: 32px;
+    }
+
+    .cennik-realizacja__subtitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cennik-realizacja__inner {
+        padding: 35px 20px;
+        border-radius: 20px;
+    }
+
+    .cennik-realizacja__inner h2 {
+        font-size: 28px;
+    }
+
+    .cennik-realizacja__subtitle {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    .realizacja-btn {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+        padding: 14px 24px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS — ZAMÓW PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hero Stagger */
+.zamow-hero__inner > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zamow-hero--active .zamow-hero__inner > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.zamow-hero--active .zamow-hero__inner > *:nth-child(1) { transition-delay: 0.1s; }
+.zamow-hero--active .zamow-hero__inner > *:nth-child(2) { transition-delay: 0.25s; }
+.zamow-hero--active .zamow-hero__inner > *:nth-child(3) { transition-delay: 0.4s; }
+.zamow-hero--active .zamow-hero__inner > *:nth-child(4) { transition-delay: 0.55s; }
+
+/* General Scroll Reveal Elements (for headers, faq, checklist, etc) */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element.reveal--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Horizontal Timeline Steps Scroll Reveal (Option B) */
+.htl-step.htl-step--visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Checklist Cards Stagger Reveal */
+.checklist-cards.reveal--visible .checklist-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.checklist-cards.reveal--visible .checklist-card:nth-child(1) { transition-delay: 0.1s; }
+.checklist-cards.reveal--visible .checklist-card:nth-child(2) { transition-delay: 0.25s; }
+.checklist-cards.reveal--visible .checklist-card:nth-child(3) { transition-delay: 0.4s; }
+
+/* FAQ Items Stagger Reveal */
+.faq-list.reveal--visible .faq-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-list.reveal--visible .faq-item:nth-child(1) { transition-delay: 0.1s; }
+.faq-list.reveal--visible .faq-item:nth-child(2) { transition-delay: 0.25s; }
+.faq-list.reveal--visible .faq-item:nth-child(3) { transition-delay: 0.4s; }

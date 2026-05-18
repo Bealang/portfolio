@@ -18,6 +18,6 @@ const isHome = activePage === 'home';
         <a href={isHome ? '#onas' : '/#onas'} class="nav-link">O nas</a>
         <a href={isHome ? '#projekty' : '/#projekty'} class="nav-link">Projekty</a>
         <a href="/cennik" class:list={["nav-link", { active: activePage === 'cennik' }]}>Cennik</a>
-        <a href={isHome ? '#kontakt' : '/#kontakt'} class="nav-cta">Zamów</a>
+        <a href="/zamow" class:list={["nav-cta", { active: activePage === 'zamow' }]}>Zamów</a>
     </nav>
 </header>
