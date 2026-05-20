@@ -9,6 +9,10 @@ interface Props {
 const { title, description, canonical, bodyClass = '' } = Astro.props;
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 
+import '@fontsource/figtree/300.css';
+import '@fontsource/figtree/400.css';
+import '@fontsource/figtree/600.css';
+import '@fontsource/figtree/800.css';
 import '../styles/main.css';
 ---
 
@@ -23,9 +27,6 @@ import '../styles/main.css';
     <meta name="robots" content="index, follow">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -125,7 +126,7 @@ import '../styles/main.css';
           gap: 8px;
       }
       .project-modal__title {
-          font-family: 'Outfit', sans-serif;
+          font-family: 'Figtree', sans-serif;
           font-size: 1.8rem;
           font-weight: 800;
           color: #fff;
@@ -206,14 +207,14 @@ import '../styles/main.css';
           line-height: 1.7;
       }
       .project-modal__content h2 {
-          font-family: 'Outfit', sans-serif;
+          font-family: 'Figtree', sans-serif;
           font-size: 1.3rem;
           font-weight: 700;
           color: var(--text-primary);
           margin: 0 0 16px;
       }
       .project-modal__content h3 {
-          font-family: 'Outfit', sans-serif;
+          font-family: 'Figtree', sans-serif;
           font-size: 1.05rem;
           font-weight: 600;
           color: var(--text-primary);

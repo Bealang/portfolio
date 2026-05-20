@@ -16,8 +16,100 @@ const isHome = activePage === 'home';
     </div>
     <nav id="nav-menu">
         <a href={isHome ? '#onas' : '/#onas'} class="nav-link">O nas</a>
-        <a href={isHome ? '#projekty' : '/#projekty'} class="nav-link">Projekty</a>
+        <a href={isHome ? '#projekty' : '/#projekty'} class="nav-link">Realizacje</a>
         <a href="/cennik" class:list={["nav-link", { active: activePage === 'cennik' }]}>Cennik</a>
         <a href="/zamow" class:list={["nav-cta", { active: activePage === 'zamow' }]}>Zamów</a>
     </nav>
 </header>
+
+<script is:inline>
+(function () {
+    var header = document.querySelector('header');
+    if (!header) return;
+
+    // ──────────────────────────────────────────────────
+    // 1. Scroll handler — transparent ↔ hidden-up ↔ scrolled
+    // ──────────────────────────────────────────────────
+    window.addEventListener('scroll', function () {
+        var scrollY = window.scrollY;
+        if (scrollY <= 50) {
+            header.classList.remove('scrolled', 'hidden-up');
+        } else if (scrollY > 300) {
+            header.classList.add('scrolled');
+            header.classList.remove('hidden-up');
+        } else {
+            header.classList.add('hidden-up');
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // ──────────────────────────────────────────────────
+    // 2. Hamburger menu (mobile)
+    // ──────────────────────────────────────────────────
+    var hamburger = document.getElementById('hamburger');
+    var navMenu = document.getElementById('nav-menu');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            header.classList.toggle('menu-open');
+        });
+        document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                header.classList.remove('menu-open');
+            });
+        });
+
+        // Move nav to body on mobile for fullscreen overlay
+        var moveNav = function () {
+            if (window.innerWidth <= 850) {
+                if (navMenu.parentElement !== document.body) document.body.appendChild(navMenu);
+            } else {
+                if (navMenu.parentElement !== header) header.appendChild(navMenu);
+            }
+        };
+        window.addEventListener('resize', moveNav);
+        moveNav();
+    }
+
+    // ──────────────────────────────────────────────────
+    // 3. Nav transition animation (desktop only)
+    //    When header has background (scrolled), clicking a
+    //    navigation link first plays an expand + fade-bg
+    //    animation, THEN navigates to the new page.
+    // ──────────────────────────────────────────────────
+    document.querySelectorAll('header a[href], #nav-menu a[href]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var href = link.getAttribute('href');
+
+            // Skip anchors, mailto, tel, javascript, empty
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+
+            // Skip if on mobile (header is flat, no animation needed)
+            if (window.innerWidth <= 995) return;
+
+            // Determine if navigating to a different page
+            var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+            var targetPath = href.split('#')[0].split('?')[0].replace(/\/$/, '') || '/';
+
+            // If same page (e.g. /#onas from home) — don't intercept
+            if (currentPath === targetPath) return;
+
+            // If header is NOT scrolled (transparent, at top) — navigate instantly
+            if (!header.classList.contains('scrolled')) return;
+
+            // ── ANIMATE: expand header width, then navigate ──
+            e.preventDefault();
+            header.classList.add('nav-transitioning');
+
+            // Navigate after animation completes
+            setTimeout(function () {
+                window.location.href = href;
+            }, 167);
+        });
+    });
+})();
+</script>

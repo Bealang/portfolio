@@ -6,38 +6,26 @@
     <div class="contact__container">
         <div class="contact__featured" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
             <div class="featured__header">
-                <h2>Skontaktuj się <span class="gradient__text">z nami</span></h2>
-                <p>Masz pomysł na nowy projekt? Zauważyłeś błąd na stronie? A może potrzebujesz szybkiej odpowiedzi
-                    na pytanie? Napisz do nas przez formularz lub bezpośrednio na maila – gwarantujemy taką samą,
-                    błyskawiczną reakcję w obu przypadkach!</p>
+                <h2>Zamów <span class="gradient__text">darmową</span> wycenę</h2>
+                <p>Skontaktuj się z nami poprzez formularz kontaktowy, bądź poniższy adres e-mail, aby otrzymać indywidualną wycenę dla swojego projektu. Zazwyczaj odpowiadamy w ciągu 24 godzin.</p>
             </div>
 
             <div class="featured__cards">
-                <a href="mailto:pomoc@web2sell.pl" class="featured__card email">
-                    <div class="card__glow"></div>
-                    <i class="fa-solid fa-envelope"></i>
-                    <div class="card__content">
-                        <span class="card__title">Wsparcie techniczne i pomoc przy awariach</span>
-                        <span class="card__value">pomoc@web2sell.pl</span>
-                    </div>
-                    <i class="fa-solid fa-arrow-right card__arrow"></i>
-                </a>
-
                 <a href="mailto:kontakt@web2sell.pl" class="featured__card email">
                     <div class="card__glow"></div>
                     <i class="fa-solid fa-envelope"></i>
                     <div class="card__content">
-                        <span class="card__title">Ogólne pytania i współpraca</span>
+                        <span class="card__title">Kontakt poprzez adres e-mail</span>
                         <span class="card__value">kontakt@web2sell.pl</span>
                     </div>
                     <i class="fa-solid fa-arrow-right card__arrow"></i>
                 </a>
-                <a href="mailto:poprawka@web2sell.pl" class="featured__card email">
+                <a href="tel:+48530315860" class="featured__card phone">
                     <div class="card__glow"></div>
-                    <i class="fa-solid fa-envelope"></i>
+                    <i class="fa-solid fa-phone"></i>
                     <div class="card__content">
-                        <span class="card__title">Zamówienia poprawek i aktualizacji treści</span>
-                        <span class="card__value">poprawka@web2sell.pl</span>
+                        <span class="card__title">Kontakt telefoniczny/SMS</span>
+                        <span class="card__value">+48 530 315 860</span>
                     </div>
                     <i class="fa-solid fa-arrow-right card__arrow"></i>
                 </a>
@@ -45,18 +33,23 @@
         </div>
 
         <div id="kontakt__formularz" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
-            <h2>Formularz <span class="gradient__text">kontaktowy</span></h2>
             <form id="kontakt__form" novalidate>
                 <div id="kontakt__formularz__lewy">
                     <div class="form__group">
-                        <label for="imie" class="kontakt__formularz__label">Imię <span class="required">*</span></label>
-                        <input type="text" id="imie" name="imie" placeholder="Jan" autocomplete="given-name">
+                        <label for="imie" class="kontakt__formularz__label">Imię i Nazwisko <span class="required">*</span></label>
+                        <input type="text" id="imie" name="imie" placeholder="Jan Kowalski" autocomplete="name">
                         <span class="form__error" id="imie__error"></span>
                     </div>
                     <div class="form__group">
-                        <label for="nazwisko" class="kontakt__formularz__label">Nazwisko <span class="required">*</span></label>
-                        <input type="text" id="nazwisko" name="nazwisko" placeholder="Kowalski" autocomplete="family-name">
-                        <span class="form__error" id="nazwisko__error"></span>
+                        <label for="usluga" class="kontakt__formularz__label">Wstępna usługa <span class="required">*</span></label>
+                        <select id="usluga" name="usluga">
+                            <option value="Nie wiem. Chcę to ustalić" selected>Nie wiem. Chcę to ustalić</option>
+                            <option value="OnePage (Szybki start w sieci)">OnePage (Szybki start w sieci)</option>
+                            <option value="Wizytówka Multi-Page (Budowa autorytetu)">Wizytówka Multi-Page (Budowa autorytetu)</option>
+                            <option value="Wizytówka + CMS (Dynamiczne treści)">Wizytówka + CMS (Dynamiczne treści)</option>
+                            <option value="System Dedykowany (Rozwiązania &quot;Full Custom&quot;)">System Dedykowany (Rozwiązania "Full Custom")</option>
+                        </select>
+                        <span class="form__error" id="usluga__error"></span>
                     </div>
                     <div class="form__group">
                         <label for="kontakt_info" class="kontakt__formularz__label">Adres e-mail <span class="required">*</span></label>
@@ -142,12 +135,9 @@ function validateForm() {
     let valid = true;
 
     const imie = document.getElementById('imie').value.trim();
-    if (!imie) { showError('imie', 'Imię jest wymagane.'); valid = false; }
+    if (!imie) { showError('imie', 'Imię i nazwisko są wymagane.'); valid = false; }
+    else if (imie.split(' ').filter(Boolean).length < 2) { showError('imie', 'Wpisz imię oraz nazwisko.'); valid = false; }
     else { clearError('imie'); }
-
-    const nazwisko = document.getElementById('nazwisko').value.trim();
-    if (!nazwisko) { showError('nazwisko', 'Nazwisko jest wymagane.'); valid = false; }
-    else { clearError('nazwisko'); }
 
     const kontakt = document.getElementById('kontakt_info').value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -167,12 +157,13 @@ function validateForm() {
 }
 
 // ─── Resetowanie błędów na bieżąco ───────────────────────────
-['imie', 'nazwisko', 'kontakt_info', 'tresc'].forEach(id => {
+['imie', 'kontakt_info', 'tresc'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     const errorId = id === 'kontakt_info' ? 'kontakt' : id;
     el.addEventListener('input', () => clearError(errorId));
 });
+document.getElementById('usluga')?.addEventListener('change', () => clearError('usluga'));
 document.getElementById('rodo')?.addEventListener('change', () => clearError('rodo'));
 
 // ─── Powiadomienie ────────────────────────────────────────────
@@ -226,7 +217,7 @@ form?.addEventListener('submit', function (e) {
 
     const templateParams = {
         imie: document.getElementById('imie').value.trim(),
-        nazwisko: document.getElementById('nazwisko').value.trim(),
+        nazwisko: " — Usługa: " + document.getElementById('usluga').value.trim(),
         kontakt: document.getElementById('kontakt_info').value.trim(),
         tresc: document.getElementById('tresc').value.trim(),
     };

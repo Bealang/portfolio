@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Polityka Prywatności | web2sell</title><meta name="description" content="Polityka prywatności i informacje o ochronie danych osobowych na stronie web2sell."><link rel="canonical" href="https://web2sell.pl/polityka/"><meta name="robots" content="index, follow"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet"><!-- Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><!-- AOS Animations --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!-- Swiper --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!-- Styles --><!-- Google Analytics --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP"></script><script>
+<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Polityka Prywatności | web2sell</title><meta name="description" content="Polityka prywatności i informacje o ochronie danych osobowych na stronie web2sell."><link rel="canonical" href="https://web2sell.pl/polityka/"><meta name="robots" content="index, follow"><!-- Fonts --><!-- Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><!-- AOS Animations --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!-- Swiper --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!-- Styles --><!-- Google Analytics --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP"></script><script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -18,7 +18,97 @@
         },
         "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
     }
-    </script><link rel="stylesheet" href="/_astro/HeroBg.Brasv-wH.css"></head> <body class>  <header> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> <nav id="nav-menu"> <a href="/#onas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Projekty</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/zamow" class="nav-cta">Zamów</a> </nav> </header> <main class="privacy-container"> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="grid-lines"></div> <div class="glow-overlay"></div> </div> <div class="privacy__header"> <h1>Polityka <span class="gradient__text">Prywatności</span></h1> <p>Ostatnia aktualizacja: kwiecień 2026 r.</p> </div> <section class="privacy__content"> <h2>1. Wstęp</h2> <p>Niniejsza polityka prywatności określa zasady przetwarzania i ochrony danych osobowych przekazanych przez
+    </script><link rel="stylesheet" href="/_astro/HeroBg.BLhPXBwB.css"></head> <body class>  <header> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> <nav id="nav-menu"> <a href="/#onas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/zamow" class="nav-cta">Zamów</a> </nav> </header> <script>
+(function () {
+    var header = document.querySelector('header');
+    if (!header) return;
+
+    // ──────────────────────────────────────────────────
+    // 1. Scroll handler — transparent ↔ hidden-up ↔ scrolled
+    // ──────────────────────────────────────────────────
+    window.addEventListener('scroll', function () {
+        var scrollY = window.scrollY;
+        if (scrollY <= 50) {
+            header.classList.remove('scrolled', 'hidden-up');
+        } else if (scrollY > 300) {
+            header.classList.add('scrolled');
+            header.classList.remove('hidden-up');
+        } else {
+            header.classList.add('hidden-up');
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // ──────────────────────────────────────────────────
+    // 2. Hamburger menu (mobile)
+    // ──────────────────────────────────────────────────
+    var hamburger = document.getElementById('hamburger');
+    var navMenu = document.getElementById('nav-menu');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            header.classList.toggle('menu-open');
+        });
+        document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                header.classList.remove('menu-open');
+            });
+        });
+
+        // Move nav to body on mobile for fullscreen overlay
+        var moveNav = function () {
+            if (window.innerWidth <= 850) {
+                if (navMenu.parentElement !== document.body) document.body.appendChild(navMenu);
+            } else {
+                if (navMenu.parentElement !== header) header.appendChild(navMenu);
+            }
+        };
+        window.addEventListener('resize', moveNav);
+        moveNav();
+    }
+
+    // ──────────────────────────────────────────────────
+    // 3. Nav transition animation (desktop only)
+    //    When header has background (scrolled), clicking a
+    //    navigation link first plays an expand + fade-bg
+    //    animation, THEN navigates to the new page.
+    // ──────────────────────────────────────────────────
+    document.querySelectorAll('header a[href], #nav-menu a[href]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var href = link.getAttribute('href');
+
+            // Skip anchors, mailto, tel, javascript, empty
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+
+            // Skip if on mobile (header is flat, no animation needed)
+            if (window.innerWidth <= 995) return;
+
+            // Determine if navigating to a different page
+            var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+            var targetPath = href.split('#')[0].split('?')[0].replace(/\/$/, '') || '/';
+
+            // If same page (e.g. /#onas from home) — don't intercept
+            if (currentPath === targetPath) return;
+
+            // If header is NOT scrolled (transparent, at top) — navigate instantly
+            if (!header.classList.contains('scrolled')) return;
+
+            // ── ANIMATE: expand header width, then navigate ──
+            e.preventDefault();
+            header.classList.add('nav-transitioning');
+
+            // Navigate after animation completes
+            setTimeout(function () {
+                window.location.href = href;
+            }, 500);
+        });
+    });
+})();
+</script> <main class="privacy-container"> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="grid-lines"></div> <div class="glow-overlay"></div> </div> <div class="privacy__header"> <h1>Polityka <span class="gradient__text">Prywatności</span></h1> <p>Ostatnia aktualizacja: kwiecień 2026 r.</p> </div> <section class="privacy__content"> <h2>1. Wstęp</h2> <p>Niniejsza polityka prywatności określa zasady przetwarzania i ochrony danych osobowych przekazanych przez
                 Użytkowników w związku z korzystaniem z formularza kontaktowego na naszej stronie internetowej.</p> <p>Strona jest prowadzona przez zespół agencji web2sell, a my jesteśmy jej Administratorem.</p> <h2>2. Kto jest administratorem danych?</h2> <p>Administratorem Twoich danych osobowych przekazywanych w formularzu kontaktowym jest:<br> <strong>Zespół web2sell</strong><br>
 E-mail do kontaktu: <a href="mailto:kontakt@web2sell.pl" class="privacy-link">kontakt@web2sell.pl</a> </p> <h2>3. Jakie dane przetwarzamy i w jakim celu?</h2> <p>Kiedy korzystasz z formularza kontaktowego, podajesz nam swoje dane takie jak:</p> <ul> <li>Imię i Nazwisko,</li> <li>Adres e-mail,</li> <li>Treść wiadomości,</li> <li>Opcjonalnie numer telefonu.</li> </ul> <p>Powyższe dane są przetwarzane <strong>wyłącznie w celu odczytania Twojej wiadomości i udzielenia Ci na
                     nią odpowiedzi</strong>. Nie wykorzystujemy ich do newsletterów, marketingu czy tworzenia profili.
@@ -34,32 +124,6 @@ E-mail do kontaktu: <a href="mailto:kontakt@web2sell.pl" class="privacy-link">ko
 </p> <h2>7. Ciasteczka (Cookies)</h2> <p>Formularz kontaktowy wykorzystuje lokalną pamięć przeglądarki (<code>localStorage</code>) jedynie w
                 celach bezpieczeństwa, tj. w celu blokowania wysyłki spamu – zapisywany jest wyłącznie znacznik czasu
                 (odliczenie 2 minut po pomyślnym przesłaniu wiadomości). Strona nie wykorzystuje ciasteczek w rozumieniu
-                śledzącym ani reklamowym.</p> </section> </main> <footer> <div class="footer__content"> <div class="footer__info"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <p>Tworzymy z pasją.</p> </div> <div class="footer__links"> <a href="/#onas">O nas</a> <a href="/#projekty">Projekty</a> <a href="/cennik">Cennik</a> <a href="/zamow">Zamów</a> <a href="/#kontakt">Kontakt</a> <a href="/polityka">Polityka prywatności</a> </div> </div> <div class="footer__bottom"> <p>&copy; 2026 web2sell. Wszelkie prawa zastrzeżone.</p> <p>Design & Code with 💗 by zespół web2sell</p> </div> </footer> <script>
-    (function () {
-        var header = document.querySelector('header');
-        window.addEventListener('scroll', function () {
-            var scrollY = window.scrollY;
-            if (scrollY <= 50) { header.classList.remove('scrolled', 'hidden-up'); }
-            else if (scrollY > 300) { header.classList.add('scrolled'); header.classList.remove('hidden-up'); }
-            else { header.classList.add('hidden-up'); header.classList.remove('scrolled'); }
-        });
-        var hamburger = document.getElementById('hamburger');
-        var navMenu = document.getElementById('nav-menu');
-        if (hamburger) {
-            hamburger.addEventListener('click', function () {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                header.classList.toggle('menu-open');
-            });
-            document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    header.classList.remove('menu-open');
-                });
-            });
-        }
-    })();
-    </script>  <!-- AOS --> <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>
+                śledzącym ani reklamowym.</p> </section> </main> <footer> <div class="footer__content"> <div class="footer__info"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <p>Tworzymy z pasją.</p> </div> <div class="footer__links"> <a href="/#onas">O nas</a> <a href="/#projekty">Projekty</a> <a href="/cennik">Cennik</a> <a href="/zamow">Zamów</a> <a href="/#kontakt">Kontakt</a> <a href="/polityka">Polityka prywatności</a> </div> </div> <div class="footer__bottom"> <p>&copy; 2026 web2sell. Wszelkie prawa zastrzeżone.</p> <p>Design & Code with 💗 by zespół web2sell</p> </div> </footer>  <!-- AOS --> <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>
         AOS.init({ once: true, mirror: false, offset: 100 });
     </script> </body> </html>

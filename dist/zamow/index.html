@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Zamów stronę | web2sell - Tworzenie stron www Myślenice</title><meta name="description" content="Zamów swoją nową stronę internetową w web2sell. Poznaj proces realizacji, FAQ i złóż zamówienie przez formularz kontaktowy. Bezpłatna wycena w 24h."><link rel="canonical" href="https://web2sell.pl/zamow/"><meta name="robots" content="index, follow"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet"><!-- Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><!-- AOS Animations --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!-- Swiper --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!-- Styles --><!-- Google Analytics --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP"></script><script>
+<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Zamów stronę | web2sell - Tworzenie stron www Myślenice</title><meta name="description" content="Zamów swoją nową stronę internetową w web2sell. Poznaj proces realizacji, FAQ i złóż zamówienie przez formularz kontaktowy. Bezpłatna wycena w 24h."><link rel="canonical" href="https://web2sell.pl/zamow/"><meta name="robots" content="index, follow"><!-- Fonts --><!-- Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><!-- AOS Animations --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!-- Swiper --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!-- Styles --><!-- Google Analytics --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP"></script><script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -18,8 +18,97 @@
         },
         "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
     }
-    </script><link rel="stylesheet" href="/_astro/HeroBg.Brasv-wH.css"></head> <body class>  <header> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> <nav id="nav-menu"> <a href="/#onas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Projekty</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/zamow" class="nav-cta active">Zamów</a> </nav> </header> <main class="zamow-page"> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="grid-lines"></div> <div class="glow-overlay"></div> </div> <!-- SEKCJA 1: Hero — jak złożyć zamówienie --> <section id="zamow-hero" class="zamow-hero"> <div class="zamow-hero__inner"> <span class="badge-title"> <i class="fa-solid fa-paper-plane"></i> Jak zamówić stronę?
-</span> <h1 class="zamow-hero__title">
+    </script><link rel="stylesheet" href="/_astro/HeroBg.BLhPXBwB.css"></head> <body class>  <header> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> <nav id="nav-menu"> <a href="/#onas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/zamow" class="nav-cta active">Zamów</a> </nav> </header> <script>
+(function () {
+    var header = document.querySelector('header');
+    if (!header) return;
+
+    // ──────────────────────────────────────────────────
+    // 1. Scroll handler — transparent ↔ hidden-up ↔ scrolled
+    // ──────────────────────────────────────────────────
+    window.addEventListener('scroll', function () {
+        var scrollY = window.scrollY;
+        if (scrollY <= 50) {
+            header.classList.remove('scrolled', 'hidden-up');
+        } else if (scrollY > 300) {
+            header.classList.add('scrolled');
+            header.classList.remove('hidden-up');
+        } else {
+            header.classList.add('hidden-up');
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // ──────────────────────────────────────────────────
+    // 2. Hamburger menu (mobile)
+    // ──────────────────────────────────────────────────
+    var hamburger = document.getElementById('hamburger');
+    var navMenu = document.getElementById('nav-menu');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            header.classList.toggle('menu-open');
+        });
+        document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                header.classList.remove('menu-open');
+            });
+        });
+
+        // Move nav to body on mobile for fullscreen overlay
+        var moveNav = function () {
+            if (window.innerWidth <= 850) {
+                if (navMenu.parentElement !== document.body) document.body.appendChild(navMenu);
+            } else {
+                if (navMenu.parentElement !== header) header.appendChild(navMenu);
+            }
+        };
+        window.addEventListener('resize', moveNav);
+        moveNav();
+    }
+
+    // ──────────────────────────────────────────────────
+    // 3. Nav transition animation (desktop only)
+    //    When header has background (scrolled), clicking a
+    //    navigation link first plays an expand + fade-bg
+    //    animation, THEN navigates to the new page.
+    // ──────────────────────────────────────────────────
+    document.querySelectorAll('header a[href], #nav-menu a[href]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var href = link.getAttribute('href');
+
+            // Skip anchors, mailto, tel, javascript, empty
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+
+            // Skip if on mobile (header is flat, no animation needed)
+            if (window.innerWidth <= 995) return;
+
+            // Determine if navigating to a different page
+            var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+            var targetPath = href.split('#')[0].split('?')[0].replace(/\/$/, '') || '/';
+
+            // If same page (e.g. /#onas from home) — don't intercept
+            if (currentPath === targetPath) return;
+
+            // If header is NOT scrolled (transparent, at top) — navigate instantly
+            if (!header.classList.contains('scrolled')) return;
+
+            // ── ANIMATE: expand header width, then navigate ──
+            e.preventDefault();
+            header.classList.add('nav-transitioning');
+
+            // Navigate after animation completes
+            setTimeout(function () {
+                window.location.href = href;
+            }, 500);
+        });
+    });
+})();
+</script> <main class="zamow-page"> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="grid-lines"></div> <div class="glow-overlay"></div> </div> <!-- SEKCJA 1: Hero — jak złożyć zamówienie --> <section id="zamow-hero" class="zamow-hero"> <div class="zamow-hero__inner"> <h1 class="zamow-hero__title">
 Zbudujmy coś <span class="gradient__text">wyjątkowego</span> </h1> <p class="zamow-hero__desc">
 Proces jest prosty i przejrzysty. Zacznij od zapoznania się
                     z naszą
@@ -31,8 +120,7 @@ Proces jest prosty i przejrzysty. Zacznij od zapoznania się
 </p> <div class="zamow-hero__actions"> <a href="#zamow-kontakt" class="btn-glass btn-primary" style="text-decoration: none;">
 Złóż zamówienie <i class="fa-solid fa-arrow-down"></i> </a> <a href="/cennik" class="btn-glass btn-secondary" style="text-decoration: none;">
 Zobacz cennik
-</a> </div> </div> </section> <!-- SEKCJA 2: Proces budowania strony — Horizontal Timeline --> <section id="zamow-proces" class="zamow-proces"> <div class="zamow-proces__header reveal-element"> <span class="badge-title"> <i class="fa-solid fa-diagram-project"></i> Krok po kroku
-</span> <h2>Jak wygląda <span class="gradient__text">proces?</span></h2> <p>
+</a> </div> </div> </section> <!-- SEKCJA 2: Proces budowania strony — Horizontal Timeline --> <section id="zamow-proces" class="zamow-proces"> <div class="zamow-proces__header reveal-element"> <h2>Jak wygląda <span class="gradient__text">proces?</span></h2> <p>
 Przejrzysta ścieżka od pierwszego kontaktu do gotowej strony
 </p> </div> <div class="htl-wrapper"> <button class="htl-nav htl-nav--prev" id="htlPrev" aria-label="Poprzedni krok"> <i class="fa-solid fa-chevron-left"></i> </button> <div class="htl-viewport" id="htlViewport"> <div class="htl-track" id="htlTrack"> <!-- Krok 1 --> <div class="htl-step" data-step="1"> <div class="htl-step__dot"> <div class="htl-step__icon"> <i class="fa-solid fa-comments"></i> </div> <span class="htl-step__number">01</span> </div> <div class="htl-step__card"> <h3>Kontakt & opis potrzeb</h3> <p>
 Napisz do nas ogólnie czego potrzebujesz —
@@ -78,8 +166,7 @@ Twoja strona jest online i gotowa na podbój
                                     internetu! Otrzymujesz pełny kod źródłowy,
                                     krótką dokumentację techniczną i wsparcie,
                                     gdyby cokolwiek było potrzebne.
-</p> </div> </div> </div> </div> <button class="htl-nav htl-nav--next" id="htlNext" aria-label="Następny krok"> <i class="fa-solid fa-chevron-right"></i> </button> </div> </section> <!-- SEKCJA 3: FAQ --> <section id="zamow-faq" class="zamow-faq"> <div class="zamow-faq__header reveal-element"> <span class="badge-title"> <i class="fa-solid fa-circle-question"></i> FAQ
-</span> <h2>
+</p> </div> </div> </div> </div> <button class="htl-nav htl-nav--next" id="htlNext" aria-label="Następny krok"> <i class="fa-solid fa-chevron-right"></i> </button> </div> </section> <!-- SEKCJA 3: FAQ --> <section id="zamow-faq" class="zamow-faq"> <div class="zamow-faq__header reveal-element"> <h2>
 Najczęściej zadawane <span class="gradient__text">pytania</span> </h2> </div> <div class="faq-list reveal-element"> <div class="faq-item"> <button class="faq-item__question" aria-expanded="false"> <span>Czy muszę mieć kupioną domenę i hosting przed
                             kontaktem?</span> <i class="fa-solid fa-chevron-down faq-item__chevron"></i> </button> <div class="faq-item__answer"> <p> <strong>Nie.</strong> Nie trzeba, gdyż wszystko konfigurujemy
                             od zera. Jesteśmy w stanie także przenieść stronę na inny
@@ -106,39 +193,11 @@ Koszt utrzymania strony zależy od wybranego pakietu.
                             twojanazwa.pl, której koszt to 99zł netto rocznie.
 <br><br>
 Zarejestrowanie domeny na pierwszy rok: <b>~15zł netto</b><br>
-Zarejestrowanie hostingu na pierwszy rok: <b>~50zł netto</b> </p> </div> </div> </div> </section> <!-- SEKCJA 4: Checklista to-do --> <section id="zamow-checklist" class="zamow-checklist"> <div class="zamow-checklist__header reveal-element"> <span class="badge-title"> <i class="fa-solid fa-list-check"></i> Checklista
-</span> <h2>
-Przygotuj się do <span class="gradient__text">zamówienia</span> </h2> <p>
-Zaznacz elementy, które masz już przygotowane — postęp
-                    zapisuje się automatycznie.
-</p> </div> <div class="checklist-cards reveal-element"> <label class="checklist-card" data-key="checklist-inspiracja"> <input type="checkbox" class="checklist-checkbox"> <span class="checklist-checkmark"> <i class="fa-solid fa-check"></i> </span> <div class="checklist-card__content"> <div class="checklist-card__icon"> <i class="fa-solid fa-lightbulb"></i> </div> <h3>Inspiracja</h3> <p>
-Masz w głowie zarys projektu? Przygotuj linki do 2-3
-                            stron (nawet z innych branż), które skradły Twoje
-                            serce. Zwróć uwagę na to, co Ci się w nich podoba:
-                            układ sekcji, animacje, a może konkretny styl menu?
-                            Dzięki temu od razu złapiemy punkt zaczepienia.
-</p> </div> </label> <label class="checklist-card" data-key="checklist-materialy"> <input type="checkbox" class="checklist-checkbox"> <span class="checklist-checkmark"> <i class="fa-solid fa-check"></i> </span> <div class="checklist-card__content"> <div class="checklist-card__icon"> <i class="fa-solid fa-images"></i> </div> <h3>Materiały</h3> <p>
-Zbierz wszystko, co ma reprezentować Twój biznes.
-                            Będziemy potrzebować Twojego logo (najlepiej w
-                            formacie wektorowym .svg lub .png bez tła), zdjęcia
-                            zespołu, biura lub produktów. Masz już gotowe
-                            teksty? Dorzuć je! Jeśli nie, bez paniki – zrobimy
-                            copywriting za Ciebie.
-</p> </div> </label> <label class="checklist-card" data-key="checklist-struktura"> <input type="checkbox" class="checklist-checkbox"> <span class="checklist-checkmark"> <i class="fa-solid fa-check"></i> </span> <div class="checklist-card__content"> <div class="checklist-card__icon"> <i class="fa-solid fa-sitemap"></i> </div> <h3>Struktura</h3> <p>
-Zastanów się, jakich zakładek i sekcji najbardziej
-                            potrzebujesz, by skutecznie sprzedawać. Czy
-                            wystarczy prosty układ typu O nas, Oferta, Kontakt,
-                            czy planujesz w przyszłości rozbudowę o bloga,
-                            rozbudowaną galerię realizacji, FAQ dla klientów
-                            albo system rezerwacji?
-</p> </div> </label> </div> <div class="checklist-progress" id="checklistProgress"> <div class="checklist-progress__bar"> <div class="checklist-progress__fill" id="checklistFill"></div> </div> <span class="checklist-progress__text" id="checklistText">0 / 3 gotowe</span> </div> </section> <!-- SEKCJA 5: CTA + Formularz kontaktowy --> <section id="zamow-kontakt" class="zamow-kontakt"> <div class="zamow-kontakt__header reveal-element"> <span class="badge-title"> <i class="fa-solid fa-envelope-open-text"></i> Złóż zamówienie
-</span> <h2>
+Zarejestrowanie hostingu na pierwszy rok: <b>~50zł netto</b> </p> </div> </div> </div> </section> <!-- SEKCJA 5: CTA + Formularz kontaktowy --> <section id="zamow-kontakt" class="zamow-kontakt"> <div class="zamow-kontakt__header reveal-element"> <h2>
 Gotowy na <span class="gradient__text">współpracę?</span> </h2> <p>
 Wypełnij formularz poniżej, opisz swój pomysł, a my wrócimy
                     z bezpłatną wyceną w ciągu 24h.
-</p> </div> <div class="reveal-element"> <section id="kontakt" data-aos="fade-up" data-aos-duration="1000"> <div class="contact__container"> <div class="contact__featured" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"> <div class="featured__header"> <h2>Skontaktuj się <span class="gradient__text">z nami</span></h2> <p>Masz pomysł na nowy projekt? Zauważyłeś błąd na stronie? A może potrzebujesz szybkiej odpowiedzi
-                    na pytanie? Napisz do nas przez formularz lub bezpośrednio na maila – gwarantujemy taką samą,
-                    błyskawiczną reakcję w obu przypadkach!</p> </div> <div class="featured__cards"> <a href="mailto:pomoc@web2sell.pl" class="featured__card email"> <div class="card__glow"></div> <i class="fa-solid fa-envelope"></i> <div class="card__content"> <span class="card__title">Wsparcie techniczne i pomoc przy awariach</span> <span class="card__value">pomoc@web2sell.pl</span> </div> <i class="fa-solid fa-arrow-right card__arrow"></i> </a> <a href="mailto:kontakt@web2sell.pl" class="featured__card email"> <div class="card__glow"></div> <i class="fa-solid fa-envelope"></i> <div class="card__content"> <span class="card__title">Ogólne pytania i współpraca</span> <span class="card__value">kontakt@web2sell.pl</span> </div> <i class="fa-solid fa-arrow-right card__arrow"></i> </a> <a href="mailto:poprawka@web2sell.pl" class="featured__card email"> <div class="card__glow"></div> <i class="fa-solid fa-envelope"></i> <div class="card__content"> <span class="card__title">Zamówienia poprawek i aktualizacji treści</span> <span class="card__value">poprawka@web2sell.pl</span> </div> <i class="fa-solid fa-arrow-right card__arrow"></i> </a> </div> </div> <div id="kontakt__formularz" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"> <h2>Formularz <span class="gradient__text">kontaktowy</span></h2> <form id="kontakt__form" novalidate> <div id="kontakt__formularz__lewy"> <div class="form__group"> <label for="imie" class="kontakt__formularz__label">Imię <span class="required">*</span></label> <input type="text" id="imie" name="imie" placeholder="Jan" autocomplete="given-name"> <span class="form__error" id="imie__error"></span> </div> <div class="form__group"> <label for="nazwisko" class="kontakt__formularz__label">Nazwisko <span class="required">*</span></label> <input type="text" id="nazwisko" name="nazwisko" placeholder="Kowalski" autocomplete="family-name"> <span class="form__error" id="nazwisko__error"></span> </div> <div class="form__group"> <label for="kontakt_info" class="kontakt__formularz__label">Adres e-mail <span class="required">*</span></label> <input type="email" id="kontakt_info" name="kontakt" placeholder="twoj@email.com" autocomplete="email"> <span class="form__error" id="kontakt__error"></span> </div> </div> <div id="kontakt__formularz__prawy"> <div class="form__group"> <label for="tresc" class="kontakt__formularz__label">Treść wiadomości <span class="required">*</span></label> <textarea id="tresc" name="tresc" placeholder="Słuchamy Cię! Opisz, w czym rzecz. Jeśli wolisz, żebyśmy zadzwonili, dopisz swój numer telefonu – tak będzie szybciej."></textarea> <span class="form__error" id="tresc__error"></span> </div> <div class="form__group rodo__group"> <label class="rodo__label"> <input type="checkbox" id="rodo" name="rodo" required> <span class="rodo__checkmark"></span> <span class="rodo__text">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
+</p> </div> <div class="reveal-element"> <section id="kontakt" data-aos="fade-up" data-aos-duration="1000"> <div class="contact__container"> <div class="contact__featured" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"> <div class="featured__header"> <h2>Zamów <span class="gradient__text">darmową</span> wycenę</h2> <p>Skontaktuj się z nami poprzez formularz kontaktowy, bądź poniższy adres e-mail, aby otrzymać indywidualną wycenę dla swojego projektu. Zazwyczaj odpowiadamy w ciągu 24 godzin.</p> </div> <div class="featured__cards"> <a href="mailto:kontakt@web2sell.pl" class="featured__card email"> <div class="card__glow"></div> <i class="fa-solid fa-envelope"></i> <div class="card__content"> <span class="card__title">Kontakt poprzez adres e-mail</span> <span class="card__value">kontakt@web2sell.pl</span> </div> <i class="fa-solid fa-arrow-right card__arrow"></i> </a> <a href="tel:+48530315860" class="featured__card phone"> <div class="card__glow"></div> <i class="fa-solid fa-phone"></i> <div class="card__content"> <span class="card__title">Kontakt telefoniczny/SMS</span> <span class="card__value">+48 530 315 860</span> </div> <i class="fa-solid fa-arrow-right card__arrow"></i> </a> </div> </div> <div id="kontakt__formularz" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400"> <form id="kontakt__form" novalidate> <div id="kontakt__formularz__lewy"> <div class="form__group"> <label for="imie" class="kontakt__formularz__label">Imię i Nazwisko <span class="required">*</span></label> <input type="text" id="imie" name="imie" placeholder="Jan Kowalski" autocomplete="name"> <span class="form__error" id="imie__error"></span> </div> <div class="form__group"> <label for="usluga" class="kontakt__formularz__label">Wstępna usługa <span class="required">*</span></label> <select id="usluga" name="usluga"> <option value="Nie wiem. Chcę to ustalić" selected>Nie wiem. Chcę to ustalić</option> <option value="OnePage (Szybki start w sieci)">OnePage (Szybki start w sieci)</option> <option value="Wizytówka Multi-Page (Budowa autorytetu)">Wizytówka Multi-Page (Budowa autorytetu)</option> <option value="Wizytówka + CMS (Dynamiczne treści)">Wizytówka + CMS (Dynamiczne treści)</option> <option value="System Dedykowany (Rozwiązania &quot;Full Custom&quot;)">System Dedykowany (Rozwiązania "Full Custom")</option> </select> <span class="form__error" id="usluga__error"></span> </div> <div class="form__group"> <label for="kontakt_info" class="kontakt__formularz__label">Adres e-mail <span class="required">*</span></label> <input type="email" id="kontakt_info" name="kontakt" placeholder="twoj@email.com" autocomplete="email"> <span class="form__error" id="kontakt__error"></span> </div> </div> <div id="kontakt__formularz__prawy"> <div class="form__group"> <label for="tresc" class="kontakt__formularz__label">Treść wiadomości <span class="required">*</span></label> <textarea id="tresc" name="tresc" placeholder="Słuchamy Cię! Opisz, w czym rzecz. Jeśli wolisz, żebyśmy zadzwonili, dopisz swój numer telefonu – tak będzie szybciej."></textarea> <span class="form__error" id="tresc__error"></span> </div> <div class="form__group rodo__group"> <label class="rodo__label"> <input type="checkbox" id="rodo" name="rodo" required> <span class="rodo__checkmark"></span> <span class="rodo__text">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
                                 udzielenia odpowiedzi na zapytanie. <a href="/polityka">Polityka
                                     prywatności</a></span> </label> <span class="form__error" id="rodo__error"></span> </div> </div> <button type="submit" id="form__submit" class="form__submit__btn"> <span class="btn__text">Wyślij wiadomość</span> <i class="fa-solid fa-paper-plane btn__icon"></i> <span class="btn__loading" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i>
 Wysyłanie...</span> </button> </form> </div> </div> </section> <div id="form__notification" class="form__notification" style="display:none;"> <i class="notification__icon"></i> <span class="notification__text"></span> </div> <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> <script>
@@ -186,12 +245,9 @@ function validateForm() {
     let valid = true;
 
     const imie = document.getElementById('imie').value.trim();
-    if (!imie) { showError('imie', 'Imię jest wymagane.'); valid = false; }
+    if (!imie) { showError('imie', 'Imię i nazwisko są wymagane.'); valid = false; }
+    else if (imie.split(' ').filter(Boolean).length < 2) { showError('imie', 'Wpisz imię oraz nazwisko.'); valid = false; }
     else { clearError('imie'); }
-
-    const nazwisko = document.getElementById('nazwisko').value.trim();
-    if (!nazwisko) { showError('nazwisko', 'Nazwisko jest wymagane.'); valid = false; }
-    else { clearError('nazwisko'); }
 
     const kontakt = document.getElementById('kontakt_info').value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -211,12 +267,13 @@ function validateForm() {
 }
 
 // ─── Resetowanie błędów na bieżąco ───────────────────────────
-['imie', 'nazwisko', 'kontakt_info', 'tresc'].forEach(id => {
+['imie', 'kontakt_info', 'tresc'].forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     const errorId = id === 'kontakt_info' ? 'kontakt' : id;
     el.addEventListener('input', () => clearError(errorId));
 });
+document.getElementById('usluga')?.addEventListener('change', () => clearError('usluga'));
 document.getElementById('rodo')?.addEventListener('change', () => clearError('rodo'));
 
 // ─── Powiadomienie ────────────────────────────────────────────
@@ -270,7 +327,7 @@ form?.addEventListener('submit', function (e) {
 
     const templateParams = {
         imie: document.getElementById('imie').value.trim(),
-        nazwisko: document.getElementById('nazwisko').value.trim(),
+        nazwisko: " — Usługa: " + document.getElementById('usluga').value.trim(),
         kontakt: document.getElementById('kontakt_info').value.trim(),
         tresc: document.getElementById('tresc').value.trim(),
     };
@@ -289,40 +346,6 @@ form?.addEventListener('submit', function (e) {
         });
 });
 </script> </div> </section> </main> <footer> <div class="footer__content"> <div class="footer__info"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <p>Tworzymy z pasją.</p> </div> <div class="footer__links"> <a href="/#onas">O nas</a> <a href="/#projekty">Projekty</a> <a href="/cennik">Cennik</a> <a href="/zamow">Zamów</a> <a href="/#kontakt">Kontakt</a> <a href="/polityka">Polityka prywatności</a> </div> </div> <div class="footer__bottom"> <p>&copy; 2026 web2sell. Wszelkie prawa zastrzeżone.</p> <p>Design & Code with 💗 by zespół web2sell</p> </div> </footer>  <script>
-        (function () {
-            var header = document.querySelector("header");
-            window.addEventListener("scroll", function () {
-                var scrollY = window.scrollY;
-                if (scrollY <= 50) {
-                    header.classList.remove("scrolled", "hidden-up");
-                } else if (scrollY > 300) {
-                    header.classList.add("scrolled");
-                    header.classList.remove("hidden-up");
-                } else {
-                    header.classList.add("hidden-up");
-                    header.classList.remove("scrolled");
-                }
-            });
-            var hamburger = document.getElementById("hamburger");
-            var navMenu = document.getElementById("nav-menu");
-            if (hamburger) {
-                hamburger.addEventListener("click", function () {
-                    hamburger.classList.toggle("active");
-                    navMenu.classList.toggle("active");
-                    header.classList.toggle("menu-open");
-                });
-                document
-                    .querySelectorAll(".nav-link, .nav-cta")
-                    .forEach(function (link) {
-                        link.addEventListener("click", function () {
-                            hamburger.classList.remove("active");
-                            navMenu.classList.remove("active");
-                            header.classList.remove("menu-open");
-                        });
-                    });
-            }
-        })();
-    </script>  <script>
         (function () {
             var viewport = document.getElementById("htlViewport");
             var prevBtn = document.getElementById("htlPrev");
@@ -487,44 +510,6 @@ form?.addEventListener('submit', function (e) {
                     }
                 });
             });
-        })();
-    </script>  <script>
-        (function () {
-            var cards = document.querySelectorAll(".checklist-card");
-            var fill = document.getElementById("checklistFill");
-            var text = document.getElementById("checklistText");
-            var total = cards.length;
-
-            function updateProgress() {
-                var checked = 0;
-                cards.forEach(function (card) {
-                    var key = card.dataset.key;
-                    var cb = card.querySelector(".checklist-checkbox");
-                    if (cb.checked) checked++;
-                });
-                var pct = Math.round((checked / total) * 100);
-                fill.style.width = pct + "%";
-                text.textContent = checked + " / " + total + " gotowe";
-            }
-
-            // Load state from localStorage
-            cards.forEach(function (card) {
-                var key = card.dataset.key;
-                var cb = card.querySelector(".checklist-checkbox");
-                var saved = localStorage.getItem(key);
-                if (saved === "true") {
-                    cb.checked = true;
-                    card.classList.add("is-checked");
-                }
-
-                cb.addEventListener("change", function () {
-                    localStorage.setItem(key, cb.checked ? "true" : "false");
-                    card.classList.toggle("is-checked", cb.checked);
-                    updateProgress();
-                });
-            });
-
-            updateProgress();
         })();
     </script>  <script>
         (function () {
