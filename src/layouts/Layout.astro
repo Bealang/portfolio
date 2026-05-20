@@ -182,6 +182,26 @@ import '../styles/main.css';
           border-radius: 12px;
           overflow: hidden;
       }
+      @keyframes modal-shimmer {
+          0% {
+              background-position: -200% 0;
+          }
+          100% {
+              background-position: 200% 0;
+          }
+      }
+      .swiper-slide-shimmer {
+          background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+          background-size: 200% 100%;
+          animation: modal-shimmer 1.5s infinite linear;
+          border-radius: 12px;
+          min-height: 250px;
+      }
+      @media (max-width: 600px) {
+          .swiper-slide-shimmer {
+              min-height: 180px;
+          }
+      }
       .project-modal__gallery .swiper-slide img {
           width: 100%;
           height: 100%;

@@ -448,6 +448,30 @@ const renderedProjects = await Promise.all(
             document.body.style.overflow = 'hidden';
             if (window.sliderStopAuto) window.sliderStopAuto();
 
+            // Dynamic lazy loading for images in the opened modal
+            var lazyImgs = modal.querySelectorAll('.modal-lazy-img');
+            lazyImgs.forEach(function (img) {
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+
+                    var handleLoad = function () {
+                        img.style.opacity = '1';
+                        var parentSlide = img.closest('.swiper-slide-shimmer');
+                        if (parentSlide) {
+                            parentSlide.classList.remove('swiper-slide-shimmer');
+                        }
+                    };
+
+                    img.addEventListener('load', handleLoad);
+
+                    // Check if already cached/completed by browser
+                    if (img.complete) {
+                        handleLoad();
+                    }
+                }
+            });
+
             // Init Swiper for gallery
             var swiperEl = modal.querySelector('.project-gallery-swiper');
             if (swiperEl) {
@@ -460,6 +484,8 @@ const renderedProjects = await Promise.all(
                     },
                     keyboard: { enabled: true },
                     grabCursor: true,
+                    observer: true,
+                    observeParents: true
                 });
                 activeSwipers.push(swiper);
             }
