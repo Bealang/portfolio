@@ -599,22 +599,11 @@ const renderedProjects = await Promise.all(
                     GAP = 360;
                 }
             }
-            updateDimensions();
+
             window.addEventListener("resize", function () {
                 updateDimensions();
                 applyLayout(false);
-            });
-
-            // Build dots
-            cards.forEach(function (_, i) {
-                var d = document.createElement("button");
-                d.className = "c3d__dot";
-                d.setAttribute("aria-label", "Slajd " + (i + 1));
-                d.addEventListener("click", function () {
-                    goTo(i);
-                });
-                dotsEl.appendChild(d);
-            });
+            }, { passive: true });
 
             // Handle card clicks → open modal
             var currentDragDelta = 0;
@@ -785,8 +774,31 @@ const renderedProjects = await Promise.all(
                 }, 0);
             });
 
-            applyLayout(false, 0);
-            resetAuto();
+            function initSlider() {
+                updateDimensions();
+
+                // Build dots
+                cards.forEach(function (_, i) {
+                    var d = document.createElement("button");
+                    d.className = "c3d__dot";
+                    d.setAttribute("aria-label", "Slajd " + (i + 1));
+                    d.addEventListener("click", function () {
+                        goTo(i);
+                    });
+                    dotsEl.appendChild(d);
+                });
+
+                applyLayout(false, 0);
+                resetAuto();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    requestAnimationFrame(initSlider);
+                }, { once: true });
+            } else {
+                requestAnimationFrame(initSlider);
+            }
         })();
     </script>
 
