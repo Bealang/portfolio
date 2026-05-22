@@ -168,32 +168,69 @@
     <span class="notification__text"></span>
 </div>
 
-<script
-    is:inline
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-></script>
-<script is:inline>
+<script>
     // ============================================================
-    // EMAILJS KONFIGURACJA
+    // EMAILJS KONFIGURACJA & Dynamic Loader
     // ============================================================
     const EMAILJS_PUBLIC_KEY = "RZK1nw4Vj1eZiggfr";
     const EMAILJS_SERVICE_ID = "service_dnkrj6g";
     const EMAILJS_TEMPLATE_ID = "template_h5b0n9s";
 
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+    let emailjsLoaded = false;
+    let loadingPromise: Promise<void> | null = null;
+
+    function loadEmailJS(): Promise<void> {
+        if (emailjsLoaded) return Promise.resolve();
+        if (loadingPromise) return loadingPromise;
+
+        loadingPromise = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+            script.async = true;
+            script.onload = () => {
+                emailjsLoaded = true;
+                if ((window as any).emailjs) {
+                    (window as any).emailjs.init(EMAILJS_PUBLIC_KEY);
+                }
+                resolve();
+            };
+            script.onerror = () => {
+                loadingPromise = null;
+                reject(new Error("Nie udało się załadować biblioteki EmailJS."));
+            };
+            document.body.appendChild(script);
+        });
+
+        return loadingPromise;
+    }
 
     // ─── Elementy DOM ────────────────────────────────────────────
-    const form = document.getElementById("kontakt__form");
-    const submitBtn = document.getElementById("form__submit");
-    const btnText = submitBtn?.querySelector(".btn__text");
-    const btnIcon = submitBtn?.querySelector(".btn__icon");
-    const btnLoading = submitBtn?.querySelector(".btn__loading");
-    const notification = document.getElementById("form__notification");
-    const notifIcon = notification?.querySelector(".notification__icon");
-    const notifText = notification?.querySelector(".notification__text");
+    const form = document.getElementById("kontakt__form") as HTMLFormElement | null;
+    const submitBtn = document.getElementById("form__submit") as HTMLButtonElement | null;
+    const btnText = submitBtn?.querySelector(".btn__text") as HTMLElement | null;
+    const btnIcon = submitBtn?.querySelector(".btn__icon") as HTMLElement | null;
+    const btnLoading = submitBtn?.querySelector(".btn__loading") as HTMLElement | null;
+    const notification = document.getElementById("form__notification") as HTMLElement | null;
+    const notifIcon = notification?.querySelector(".notification__icon") as HTMLElement | null;
+    const notifText = notification?.querySelector(".notification__text") as HTMLElement | null;
+
+    // Load EmailJS dynamically when user interacts with the form
+    if (form) {
+        const triggerDynamicLoad = () => {
+            loadEmailJS().catch(err => console.error("EmailJS lazy load error:", err));
+            // Remove event listeners so we only try to load once
+            form.removeEventListener("focusin", triggerDynamicLoad);
+            form.removeEventListener("mouseenter", triggerDynamicLoad);
+            form.removeEventListener("touchstart", triggerDynamicLoad);
+        };
+
+        form.addEventListener("focusin", triggerDynamicLoad, { passive: true });
+        form.addEventListener("mouseenter", triggerDynamicLoad, { passive: true });
+        form.addEventListener("touchstart", triggerDynamicLoad, { passive: true });
+    }
 
     // ─── Walidacja pól ───────────────────────────────────────────
-    function showError(fieldId, message) {
+    function showError(fieldId: string, message: string) {
         const el = document.getElementById(fieldId + "__error");
         const input =
             document.getElementById(fieldId) ||
@@ -205,7 +242,7 @@
         if (input) input.classList.add("input--error");
     }
 
-    function clearError(fieldId) {
+    function clearError(fieldId: string) {
         const el = document.getElementById(fieldId + "__error");
         const input =
             document.getElementById(fieldId) ||
@@ -220,7 +257,8 @@
     function validateForm() {
         let valid = true;
 
-        const imie = document.getElementById("imie").value.trim();
+        const imieEl = document.getElementById("imie") as HTMLInputElement | null;
+        const imie = imieEl ? imieEl.value.trim() : "";
         if (!imie) {
             showError("imie", "Imię i nazwisko są wymagane.");
             valid = false;
@@ -231,7 +269,8 @@
             clearError("imie");
         }
 
-        const kontakt = document.getElementById("kontakt_info").value.trim();
+        const kontaktEl = document.getElementById("kontakt_info") as HTMLInputElement | null;
+        const kontakt = kontaktEl ? kontaktEl.value.trim() : "";
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!kontakt) {
             showError("kontakt", "Podaj adres e-mail.");
@@ -243,7 +282,8 @@
             clearError("kontakt");
         }
 
-        const tresc = document.getElementById("tresc").value.trim();
+        const trescEl = document.getElementById("tresc") as HTMLTextAreaElement | null;
+        const tresc = trescEl ? trescEl.value.trim() : "";
         if (!tresc || tresc.length < 10) {
             showError("tresc", "Wpisz wiadomość (min. 10 znaków).");
             valid = false;
@@ -251,7 +291,8 @@
             clearError("tresc");
         }
 
-        const rodo = document.getElementById("rodo").checked;
+        const rodoEl = document.getElementById("rodo") as HTMLInputElement | null;
+        const rodo = rodoEl ? rodoEl.checked : false;
         if (!rodo) {
             showError("rodo", "Wymagana zgoda na przetwarzanie danych.");
             valid = false;
@@ -277,7 +318,8 @@
         ?.addEventListener("change", () => clearError("rodo"));
 
     // ─── Powiadomienie ────────────────────────────────────────────
-    function showNotification(type, message) {
+    function showNotification(type: "success" | "error", message: string) {
+        if (!notification || !notifIcon || !notifText) return;
         notification.className = "form__notification " + type;
         notifIcon.className =
             "notification__icon fa-solid " +
@@ -291,7 +333,8 @@
     }
 
     // ─── Wysyłanie formularza ─────────────────────────────────────
-    function setLoading(loading) {
+    function setLoading(loading: boolean) {
+        if (!submitBtn || !btnText || !btnIcon || !btnLoading) return;
         if (loading) {
             btnText.style.display = "none";
             btnIcon.style.display = "none";
@@ -305,7 +348,7 @@
         }
     }
 
-    form?.addEventListener("submit", function (e) {
+    form?.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const lastSentTime = localStorage.getItem("lastEmailSentTime");
@@ -333,35 +376,56 @@
 
         setLoading(true);
 
-        const templateParams = {
-            imie: document.getElementById("imie").value.trim(),
-            nazwisko:
-                " — Usługa: " + document.getElementById("usluga").value.trim(),
-            kontakt: document.getElementById("kontakt_info").value.trim(),
-            tresc: document.getElementById("tresc").value.trim(),
-        };
+        try {
+            // Ensure EmailJS is fully loaded
+            await loadEmailJS();
 
-        emailjs
-            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-            .then(() => {
-                setLoading(false);
-                showNotification(
-                    "success",
-                    "✅ Wiadomość wysłana! Odpiszemy najszybciej jak możemy.",
-                );
-                form.reset();
-                localStorage.setItem(
-                    "lastEmailSentTime",
-                    Date.now().toString(),
-                );
-            })
-            .catch((error) => {
-                setLoading(false);
-                console.error("EmailJS error:", error);
-                showNotification(
-                    "error",
-                    "❌ Nie udało się wysłać wiadomości. Napisz bezpośrednio na kontakt@web2sell.pl",
-                );
-            });
+            if (!(window as any).emailjs) {
+                throw new Error("Biblioteka EmailJS nie została załadowana.");
+            }
+
+            const imieEl = document.getElementById("imie") as HTMLInputElement | null;
+            const uslugaEl = document.getElementById("usluga") as HTMLSelectElement | null;
+            const kontaktEl = document.getElementById("kontakt_info") as HTMLInputElement | null;
+            const trescEl = document.getElementById("tresc") as HTMLTextAreaElement | null;
+
+            const templateParams = {
+                imie: imieEl ? imieEl.value.trim() : "",
+                nazwisko:
+                    " — Usługa: " + (uslugaEl ? uslugaEl.value.trim() : ""),
+                kontakt: kontaktEl ? kontaktEl.value.trim() : "",
+                tresc: trescEl ? trescEl.value.trim() : "",
+            };
+
+            (window as any).emailjs
+                .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(() => {
+                    setLoading(false);
+                    showNotification(
+                        "success",
+                        "✅ Wiadomość wysłana! Odpiszemy najszybciej jak możemy.",
+                    );
+                    form.reset();
+                    localStorage.setItem(
+                        "lastEmailSentTime",
+                        Date.now().toString(),
+                    );
+                })
+                .catch((error: any) => {
+                    setLoading(false);
+                    console.error("EmailJS error:", error);
+                    showNotification(
+                        "error",
+                        "❌ Nie udało się wysłać wiadomości. Napisz bezpośrednio na kontakt@web2sell.pl",
+                    );
+                });
+        } catch (error: any) {
+            setLoading(false);
+            console.error("EmailJS submit error:", error);
+            showNotification(
+                "error",
+                `❌ Błąd: ${error.message || "Nie udało się załadować formularza. Napisz bezpośrednio na kontakt@web2sell.pl"}`
+            );
+        }
     });
 </script>
