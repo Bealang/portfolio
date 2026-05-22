@@ -18,14 +18,32 @@ const isHome = activePage === 'home';
         <a href={isHome ? '#onas' : '/#onas'} class="nav-link">O nas</a>
         <a href={isHome ? '#projekty' : '/#projekty'} class="nav-link">Realizacje</a>
         <a href="/cennik" class:list={["nav-link", { active: activePage === 'cennik' }]}>Cennik</a>
+        <a href="/blog" class:list={["nav-link", { active: activePage === 'blog' }]}>Blog</a>
         <a href="/zamow" class:list={["nav-cta", { active: activePage === 'zamow' }]}>Zamów</a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Zmień motyw">
+            <i class="fa-solid fa-sun sun-icon"></i>
+            <i class="fa-solid fa-moon moon-icon"></i>
+        </button>
     </nav>
 </header>
 
-<script is:inline>
+<script>
 (function () {
     var header = document.querySelector('header');
     if (!header) return;
+
+    // ──────────────────────────────────────────────────
+    // Theme Toggle Handler
+    // ──────────────────────────────────────────────────
+    var themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            var currentTheme = document.documentElement.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
 
     // ──────────────────────────────────────────────────
     // 1. Scroll handler — transparent ↔ hidden-up ↔ scrolled

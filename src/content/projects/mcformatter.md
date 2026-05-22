@@ -4,11 +4,11 @@ tag: "Formatowanie tekstu • 2026"
 color: "#0a200f"
 accent: "rgba(34, 197, 94, 0.2)"
 url: "https://bealang.github.io/minecraft/"
-thumbnail: "/assets/project-img/mcformatter.png"
+thumbnail: "/assets/project-img/mcformatter.avif"
 thumbnailAlt: "McFormatter - narzędzie do formatowania tekstu Minecraft"
 gallery:
-  - "/assets/project-img/mcformatter_1.png"
-  - "/assets/project-img/mcformatter_2.png"
+  - "/assets/project-img/mcformatter_1.avif"
+  - "/assets/project-img/mcformatter_2.avif"
 order: 4
 ---
 

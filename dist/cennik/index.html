@@ -1,14 +1,18 @@
-<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cennik | web2sell - Tworzenie stron www Myślenice</title><meta name="description" content="Poznaj cennik usług od web2sell. Niedrogie i ultrawydajne wizytówki www, profesjonalne tworzenie stron www i pozycjonowanie lokalne dla firm w Myślenicach."><link rel="canonical" href="https://web2sell.pl/cennik/"><meta name="robots" content="index, follow"><!-- Fonts --><!-- Icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><!-- AOS Animations --><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!-- Swiper --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!-- Styles --><!-- Google Analytics --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP"></script><script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-QZ55XLZEDP');
-    </script><!-- Structured Data --><script type="application/ld+json">
+<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cennik | web2sell - Tworzenie stron www Myślenice</title><meta name="description" content="Poznaj cennik usług od web2sell. Niedrogie i ultrawydajne wizytówki www, profesjonalne tworzenie stron www i pozycjonowanie lokalne dla firm w Myślenicach."><link rel="canonical" href="https://web2sell.pl/cennik/"><meta name="robots" content="index, follow"><!-- Fonts --><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript><!-- Styles --><!-- Google Analytics (Delayed non-blocking initialization to protect Main Thread & CPU metrics) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script type="module">(function(){var n=!1;function e(){if(!n){n=!0,window.removeEventListener("scroll",e),window.removeEventListener("mousemove",e),window.removeEventListener("touchstart",e),window.removeEventListener("keydown",e);var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP",document.head.appendChild(t),window.dataLayer=window.dataLayer||[],window.gtag=function(){window.dataLayer.push(arguments)},window.gtag("js",new Date),window.gtag("config","G-QZ55XLZEDP")}}setTimeout(e,3500),window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("mousemove",e,{passive:!0}),window.addEventListener("touchstart",e,{passive:!0}),window.addEventListener("keydown",e,{passive:!0})})();</script><!-- Structured Data --><script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "web2sell - Tworzenie stron www",
-        "image": "https://web2sell.pl/assets/project-img/joecraft.png",
+        "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
         "url": "https://web2sell.pl/",
         "telephone": "",
         "address": {
@@ -18,97 +22,7 @@
         },
         "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
     }
-    </script><link rel="stylesheet" href="/_astro/HeroBg.pjik6THx.css"></head> <body class>  <header> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> <nav id="nav-menu"> <a href="/#onas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link active">Cennik</a> <a href="/zamow" class="nav-cta">Zamów</a> </nav> </header> <script>
-(function () {
-    var header = document.querySelector('header');
-    if (!header) return;
-
-    // ──────────────────────────────────────────────────
-    // 1. Scroll handler — transparent ↔ hidden-up ↔ scrolled
-    // ──────────────────────────────────────────────────
-    window.addEventListener('scroll', function () {
-        var scrollY = window.scrollY;
-        if (scrollY <= 50) {
-            header.classList.remove('scrolled', 'hidden-up');
-        } else if (scrollY > 300) {
-            header.classList.add('scrolled');
-            header.classList.remove('hidden-up');
-        } else {
-            header.classList.add('hidden-up');
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // ──────────────────────────────────────────────────
-    // 2. Hamburger menu (mobile)
-    // ──────────────────────────────────────────────────
-    var hamburger = document.getElementById('hamburger');
-    var navMenu = document.getElementById('nav-menu');
-
-    if (hamburger) {
-        hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            header.classList.toggle('menu-open');
-        });
-        document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
-            link.addEventListener('click', function () {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                header.classList.remove('menu-open');
-            });
-        });
-
-        // Move nav to body on mobile for fullscreen overlay
-        var moveNav = function () {
-            if (window.innerWidth <= 850) {
-                if (navMenu.parentElement !== document.body) document.body.appendChild(navMenu);
-            } else {
-                if (navMenu.parentElement !== header) header.appendChild(navMenu);
-            }
-        };
-        window.addEventListener('resize', moveNav);
-        moveNav();
-    }
-
-    // ──────────────────────────────────────────────────
-    // 3. Nav transition animation (desktop only)
-    //    When header has background (scrolled), clicking a
-    //    navigation link first plays an expand + fade-bg
-    //    animation, THEN navigates to the new page.
-    // ──────────────────────────────────────────────────
-    document.querySelectorAll('header a[href], #nav-menu a[href]').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            var href = link.getAttribute('href');
-
-            // Skip anchors, mailto, tel, javascript, empty
-            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
-
-            // Skip if on mobile (header is flat, no animation needed)
-            if (window.innerWidth <= 995) return;
-
-            // Determine if navigating to a different page
-            var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-            var targetPath = href.split('#')[0].split('?')[0].replace(/\/$/, '') || '/';
-
-            // If same page (e.g. /#onas from home) — don't intercept
-            if (currentPath === targetPath) return;
-
-            // If header is NOT scrolled (transparent, at top) — navigate instantly
-            if (!header.classList.contains('scrolled')) return;
-
-            // ── ANIMATE: expand header width, then navigate ──
-            e.preventDefault();
-            header.classList.add('nav-transitioning');
-
-            // Navigate after animation completes
-            setTimeout(function () {
-                window.location.href = href;
-            }, 167);
-        });
-    });
-})();
-</script> <main class="cennik-page"> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="grid-lines"></div> <div class="glow-overlay"></div> </div> <section id="cennik"> <h2 class="cennik__title reveal-element">Cennik <span class="gradient__text">naszych</span> usług</h2> <!-- PRZEŁĄCZNIK NETTO / BRUTTO --> <div class="pricing-toggle-wrapper reveal-element" style="transition-delay: 0.2s;"> <span class="toggle-label active" id="label-netto">Ceny Netto</span> <button class="pricing-toggle-switch" id="price-toggle" aria-label="Przełącz ceny netto/brutto" role="switch" aria-checked="false"> <span class="toggle-slider"></span> </button> <span class="toggle-label" id="label-brutto">Ceny Brutto <span class="vat-badge">(+23% VAT)</span></span> </div> <!-- KONTENER NOWEGO CENNIKA 3+1 --> <div class="full-pricing-grid-container"> <!-- Rząd 3 pakietów standardowych obok siebie --> <div class="pricing-grid-standard"> <!-- Pakiet OnePage --> <div class="pricing-card reveal-element" id="full-card-onepage" style="transition-delay: 0.1s;"> <h3>OnePage <span class="subtitle">(Szybki start w sieci)</span></h3> <p class="card-summary">
+    </script><link rel="stylesheet" href="/_astro/HeroBg.CsfjIDLJ.css"></head> <body class>  <header> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> <nav id="nav-menu"> <a href="/#onas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link active">Cennik</a> <a href="/blog" class="nav-link">Blog</a> <a href="/zamow" class="nav-cta">Zamów</a> <button id="theme-toggle" class="theme-toggle-btn" aria-label="Zmień motyw"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </button> </nav> </header> <script type="module">(function(){var e=document.querySelector("header");if(e){var s=document.getElementById("theme-toggle");s&&s.addEventListener("click",function(){var t=document.documentElement.getAttribute("data-theme"),a=t==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a)}),window.addEventListener("scroll",function(){var t=window.scrollY;t<=50?e.classList.remove("scrolled","hidden-up"):t>300?(e.classList.add("scrolled"),e.classList.remove("hidden-up")):(e.classList.add("hidden-up"),e.classList.remove("scrolled"))});var r=document.getElementById("hamburger"),i=document.getElementById("nav-menu");if(r){r.addEventListener("click",function(){r.classList.toggle("active"),i.classList.toggle("active"),e.classList.toggle("menu-open")}),document.querySelectorAll(".nav-link, .nav-cta").forEach(function(t){t.addEventListener("click",function(){r.classList.remove("active"),i.classList.remove("active"),e.classList.remove("menu-open")})});var c=function(){window.innerWidth<=850?i.parentElement!==document.body&&document.body.appendChild(i):i.parentElement!==e&&e.appendChild(i)};window.addEventListener("resize",c),c()}document.querySelectorAll("header a[href], #nav-menu a[href]").forEach(function(t){t.addEventListener("click",function(a){var n=t.getAttribute("href");if(!(!n||n.startsWith("#")||n.startsWith("mailto:")||n.startsWith("tel:")||n.startsWith("javascript:"))&&!(window.innerWidth<=995)){var l=window.location.pathname.replace(/\/$/,"")||"/",d=n.split("#")[0].split("?")[0].replace(/\/$/,"")||"/";l!==d&&e.classList.contains("scrolled")&&(a.preventDefault(),e.classList.add("nav-transitioning"),setTimeout(function(){window.location.href=n},167))}})})}})();</script> <main class="cennik-page"> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="grid-lines"></div> <div class="glow-overlay"></div> </div> <section id="cennik"> <h2 class="cennik__title reveal-element">Cennik <span class="gradient__text">naszych</span> usług</h2> <!-- PRZEŁĄCZNIK NETTO / BRUTTO --> <div class="pricing-toggle-wrapper reveal-element" style="transition-delay: 0.2s;"> <span class="toggle-label active" id="label-netto">Ceny Netto</span> <button class="pricing-toggle-switch" id="price-toggle" aria-label="Przełącz ceny netto/brutto" role="switch" aria-checked="false"> <span class="toggle-slider"></span> </button> <span class="toggle-label" id="label-brutto">Ceny Brutto <span class="vat-badge">(+23% VAT)</span></span> </div> <!-- KONTENER NOWEGO CENNIKA 3+1 --> <div class="full-pricing-grid-container"> <!-- Rząd 3 pakietów standardowych obok siebie --> <div class="pricing-grid-standard"> <!-- Pakiet OnePage --> <div class="pricing-card reveal-element" id="full-card-onepage" style="transition-delay: 0.1s;"> <h3>OnePage <span class="subtitle">(Szybki start w sieci)</span></h3> <p class="card-summary">
 Szybka, magnetyczna i jednostronicowa wizytówka, która natychmiast zamienia odwiedzających w klientów. Stworzona dla lokalnych usługodawców oraz na start.
 </p> <div class="price">od <span class="price-value" data-net="1000" data-gross="1230">1000</span> <span class="currency">zł</span> <span class="price-suffix">/netto<sup>1</sup></span></div> <a href="/zamow?pakiet=onepage" class="pricing-btn">Wybierz OnePage</a> </div> <!-- Pakiet Wizytówka Multi-Page --> <div class="pricing-card reveal-element" id="full-card-multipage" style="transition-delay: 0.25s;"> <h3>Wizytówka Multi-Page <span class="subtitle">(Budowa autorytetu)</span></h3> <p class="card-summary">
 Pełnoprawna strona podzielona na kilka dedykowanych podstron. Buduje silne zaufanie i pozwala precyzyjnie opisać poszczególne usługi.
@@ -140,7 +54,7 @@ Podstawą dzisiejszego sukcesu w internecie jest oczywiście widoczność w wysz
                     nagłówki oraz podstawową optymalizację SEO, co znacznie ułatwia indeksowanie ich przez algorytmy
                     Google i naturalnie przyciąga więcej klientów z Myślenic, jak i z okolicznych miejscowości. To
                     doskonała inwestycja z przejrzystą ofertą i jasnymi zasadami współpracy.
-</p> </article> </section> </main> <footer> <div class="footer__content"> <div class="footer__info"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <p>Tworzymy z pasją.</p> </div> <div class="footer__links"> <a href="/#onas">O nas</a> <a href="/#projekty">Projekty</a> <a href="/cennik">Cennik</a> <a href="/zamow">Zamów</a> <a href="/#kontakt">Kontakt</a> <a href="/polityka">Polityka prywatności</a> </div> </div> <div class="footer__bottom"> <p>&copy; 2026 web2sell. Wszelkie prawa zastrzeżone.</p> <p>Design & Code with 💗 by zespół web2sell</p> </div> </footer> <script>
+</p> </article> </section> </main> <footer> <div class="footer__content"> <div class="footer__info"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <p>Tworzymy z pasją.</p> </div> <div class="footer__links"> <a href="/#onas">O nas</a> <a href="/#projekty">Projekty</a> <a href="/cennik">Cennik</a> <a href="/zamow">Zamów</a> <a href="/blog">Blog</a> <a href="/#kontakt">Kontakt</a> <a href="/polityka">Polityka prywatności</a> </div> </div> <div class="footer__bottom"> <p>&copy; 2026 web2sell. Wszelkie prawa zastrzeżone.</p> <p>Design & Code with 💗 by zespół web2sell</p> </div> </footer> <script>
     (function () {
 
         // PRZEŁĄCZNIK CEN NETTO / BRUTTO
@@ -231,6 +145,4 @@ Podstawą dzisiejszego sukcesu w internecie jest oczywiście widoczność w wysz
             });
         }
     })();
-    </script>  <!-- AOS --> <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>
-        AOS.init({ once: true, mirror: false, offset: 100 });
-    </script> </body> </html>
+    </script>  <!-- AOS (Bundled and deferred natively by Astro) --> <script type="module" src="/_astro/Layout.astro_astro_type_script_index_1_lang.C6dKaTGC.js"></script> </body> </html>

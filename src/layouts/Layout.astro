@@ -13,6 +13,7 @@ import '@fontsource/figtree/300.css';
 import '@fontsource/figtree/400.css';
 import '@fontsource/figtree/600.css';
 import '@fontsource/figtree/800.css';
+import 'aos/dist/aos.css';
 import '../styles/main.css';
 ---
 
@@ -20,6 +21,16 @@ import '../styles/main.css';
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <script is:inline>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <meta name="description" content={description}>
@@ -28,14 +39,9 @@ import '../styles/main.css';
 
     <!-- Fonts -->
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- AOS Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Icons (Asynchronous non-blocking load) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Styles -->
     <style is:global>
@@ -73,8 +79,8 @@ import '../styles/main.css';
           width: 90%;
           max-width: 800px;
           max-height: 85vh;
-          background: #ffffff;
-          border: none;
+          background: var(--modal-bg);
+          border: 1px solid var(--glass-border);
           border-radius: 16px;
           overflow: hidden;
           display: flex;
@@ -197,6 +203,9 @@ import '../styles/main.css';
           border-radius: 12px;
           min-height: 250px;
       }
+      html[data-theme="dark"] .swiper-slide-shimmer {
+          background: linear-gradient(90deg, #1c1c1e 25%, #2c2c2e 50%, #1c1c1e 75%);
+      }
       @media (max-width: 600px) {
           .swiper-slide-shimmer {
               min-height: 180px;
@@ -253,14 +262,40 @@ import '../styles/main.css';
       }
     </style>
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics (Delayed non-blocking initialization to protect Main Thread & CPU metrics) -->
     <meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP"></script>
-    <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-QZ55XLZEDP');
+    <script>
+        (function() {
+            var gaInitialized = false;
+            function initGA() {
+                if (gaInitialized) return;
+                gaInitialized = true;
+
+                // Remove interaction listeners
+                window.removeEventListener('scroll', initGA);
+                window.removeEventListener('mousemove', initGA);
+                window.removeEventListener('touchstart', initGA);
+                window.removeEventListener('keydown', initGA);
+
+                // Inject gtag.js
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP';
+                document.head.appendChild(script);
+
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function() { window.dataLayer.push(arguments); };
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-QZ55XLZEDP');
+            }
+
+            // Load after 3.5 seconds delay or on first real user interaction (scroll, move, touch, key)
+            var gaTimer = setTimeout(initGA, 3500);
+            window.addEventListener('scroll', initGA, { passive: true });
+            window.addEventListener('mousemove', initGA, { passive: true });
+            window.addEventListener('touchstart', initGA, { passive: true });
+            window.addEventListener('keydown', initGA, { passive: true });
+        })();
     </script>
 
     <!-- Structured Data -->
@@ -269,7 +304,7 @@ import '../styles/main.css';
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "web2sell - Tworzenie stron www",
-        "image": "https://web2sell.pl/assets/project-img/joecraft.png",
+        "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
         "url": "https://web2sell.pl/",
         "telephone": "",
         "address": {
@@ -286,9 +321,9 @@ import '../styles/main.css';
 <body class={bodyClass}>
     <slot />
 
-    <!-- AOS -->
-    <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script is:inline>
+    <!-- AOS (Bundled and deferred natively by Astro) -->
+    <script>
+        import AOS from 'aos';
         AOS.init({ once: true, mirror: false, offset: 100 });
     </script>
 </body>

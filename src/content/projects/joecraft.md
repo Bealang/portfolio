@@ -4,13 +4,13 @@ tag: "Serwer Minecraft • 2024"
 color: "#0a1628"
 accent: "rgba(59, 130, 246, 0.25)"
 url: "https://web2sell.pl/joecraft/"
-thumbnail: "/assets/project-img/joecraft.png"
+thumbnail: "/assets/project-img/joecraft.avif"
 thumbnailAlt: "Joecraft.pl - strona serwera Minecraft"
 gallery:
-  - "/assets/project-img/joecraft_1.png"
-  - "/assets/project-img/joecraft_2.png"
-  - "/assets/project-img/joecraft_3.png"
-  - "/assets/project-img/joecraft_4.png"
+  - "/assets/project-img/joecraft_1.avif"
+  - "/assets/project-img/joecraft_2.avif"
+  - "/assets/project-img/joecraft_3.avif"
+  - "/assets/project-img/joecraft_4.avif"
 order: 2
 ---
 

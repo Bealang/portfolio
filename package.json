@@ -12,9 +12,11 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
     "@fontsource/figtree": "^5.2.10",
+    "aos": "^2.3.4",
     "astro": "^6.3.3"
   },
   "devDependencies": {
+    "sharp": "^0.34.5",
     "typescript": "^6.0.3"
   }
 }

@@ -4,13 +4,13 @@ tag: "Podolog • 2026"
 color: "#344b43"
 accent: "rgba(88, 122, 39, 0.25)"
 url: "https://podologiamyslenice.pl"
-thumbnail: "/assets/project-img/zdrowe_stopy.png"
+thumbnail: "/assets/project-img/zdrowe_stopy.avif"
 thumbnailAlt: "Zdrowe stopy - strona gabinetu podologicznego"
 gallery:
-  - "/assets/project-img/zdrowe_stopy_1.png"
-  - "/assets/project-img/zdrowe_stopy_2.png"
-  - "/assets/project-img/zdrowe_stopy_3.png"
-  - "/assets/project-img/zdrowe_stopy_4.png"
+  - "/assets/project-img/zdrowe_stopy_1.avif"
+  - "/assets/project-img/zdrowe_stopy_2.avif"
+  - "/assets/project-img/zdrowe_stopy_3.avif"
+  - "/assets/project-img/zdrowe_stopy_4.avif"
 order: 1
 ---
 

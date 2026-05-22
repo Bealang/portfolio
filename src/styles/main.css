@@ -13,12 +13,256 @@
     --glass-blur: 40px;
     --glass-shadow: 0 10px 30px rgba(31, 38, 135, 0.05);
 
+    /* Dynamic values to abstract hardcoded ones */
+    --modal-bg: #ffffff;
+    --card-bg: #ffffff;
+    --input-bg: rgba(255, 255, 255, 0.95);
+    --input-border: #cbd5e1;
+    --scrolled-header-bg: rgba(255, 255, 255, 0.75);
+    --scrolled-header-border: rgba(255, 255, 255, 0.4);
+    --mobile-scrolled-header-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+    --mobile-scrolled-header-border: rgba(255, 255, 255, 0.2);
+
+    /* Inset Highlights (preventing white lines in dark mode) */
+    --box-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    --header-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    --tech-icon-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    --tech-icon-hover-inset: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    --tech-icon-drag-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    /* Tech Icon Variables */
+    --tech-icon-bg: rgba(255, 255, 255, 0.45);
+    --tech-icon-border: rgba(255, 255, 255, 0.5);
+    --tech-icon-shadow: 0 15px 35px rgba(31, 38, 135, 0.08);
+    --tech-icon-hover-bg: rgba(255, 255, 255, 0.7);
+    --tech-icon-hover-border: rgba(139, 92, 246, 0.4);
+    --tech-icon-drag-bg: rgba(255, 255, 255, 0.7);
+    --tech-icon-drag-border: rgba(139, 92, 246, 0.6);
+    --tech-name-bg: rgba(255, 255, 255, 0.85);
+
+    /* Tech Icon Dynamic Shadows */
+    --tech-icon-drag-shadow: 0 30px 60px rgba(139, 92, 246, 0.25);
+    --tech-icon-hover-shadow: 0 25px 50px rgba(139, 92, 246, 0.18);
+
+    /* Grid lines color */
+    --grid-line-color: rgba(0, 0, 0, 0.03);
+
+    /* Pricing Toggle Background */
+    --pricing-toggle-bg: rgba(255, 255, 255, 0.45);
+
+    /* Pricing Toggle Switch (Light theme) */
+    --pricing-switch-bg: rgba(139, 92, 246, 0.15);
+    --pricing-switch-border: 1.5px solid rgba(139, 92, 246, 0.3);
+    --pricing-switch-active-bg: rgba(236, 72, 153, 0.15);
+    --pricing-switch-active-border: rgba(236, 72, 153, 0.4);
+    --pricing-switch-focus: 0 0 0 3px rgba(139, 92, 246, 0.4);
+    --pricing-switch-slider-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+    --pricing-switch-slider-active-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+
+    /* Card and Component Hover Borders & Shadows (Light theme) */
+    --card-hover-border: rgba(139, 92, 246, 0.3);
+    --card-hover-shadow: 0 15px 40px rgba(139, 92, 246, 0.15);
+    
+    --timeline-card-hover-border: rgba(139, 92, 246, 0.35);
+    --timeline-card-hover-shadow: 0 16px 48px rgba(31, 38, 135, 0.09), 0 0 20px rgba(139, 92, 246, 0.08);
+
+    --pricing-card-active-shadow: 0 20px 40px rgba(139, 92, 246, 0.12), var(--glass-shadow);
+    --pricing-card-dedicated-hover-border: rgba(139, 92, 246, 0.3);
+    --pricing-card-dedicated-hover-shadow: 0 15px 35px rgba(139, 92, 246, 0.05), var(--glass-shadow);
+
+    --faq-hover-border: rgba(139, 92, 246, 0.25);
+    --faq-open-border: rgba(139, 92, 246, 0.35);
+    --faq-open-shadow: 0 10px 40px rgba(139, 92, 246, 0.1);
+
+    --szkolne-hover-bg: rgba(139, 92, 246, 0.1);
+    --szkolne-hover-border: rgba(139, 92, 246, 0.4);
+    --szkolne-hover-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+
+    /* Process Card & SEO Text (Light theme) */
+    --process-card-bg: rgba(255, 255, 255, 0.5);
+    --process-card-hover-bg: rgba(255, 255, 255, 0.8);
+    --process-card-hover-border: rgba(139, 92, 246, 0.35);
+    --process-card-num-gradient: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.15));
+    --seo-text-bg: rgba(255, 255, 255, 0.45);
+
+    /* Fullscreen Mobile Menu Background */
+    --mobile-nav-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 100%);
+
+    /* Dynamic Translucent Card Gradients */
+    --card-grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 100%);
+    --card-grad-glass-alt: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.2) 100%);
+    --card-grad-145: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%);
+    --card-grad-145-alt: linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.3) 100%);
+    --card-grad-145-bright: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
+    --card-grad-145-white: linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(255, 245, 235, 0.8) 100%);
+    --card-grad-ded: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%);
+    --card-grad-145-green: linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(240, 253, 244, 0.8) 100%);
+
     /* Layout */
     --container-width: 1200px;
     --section-spacing: 70px;
 
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+html[data-theme="dark"] {
+    /* Main Dark Colors - #101010 background as requested */
+    --bg-color: #101010;
+    
+    /* Clean, highly readable text */
+    --text-primary: #f9fafb;
+    --text-secondary: #e5e7eb;
+
+    /* Premium high-contrast purple & pink tones */
+    --accent-blue: #a78bfa; /* Luminous lavender violet */
+    --accent-blue-hover: #c084fc; /* Bright fuchsia-purple */
+    --accent-cyan: #fb7185; /* Vibrant luxury rose-pink */
+
+    /* Glassmorphism tuned for dark backgrounds (Mega dark grey borders, no violet) */
+    --glass-bg: rgba(22, 22, 22, 0.7); /* translucent lighter dark layer for depth */
+    --glass-border: rgba(255, 255, 255, 0.04); /* elegant, extremely dark border */
+    --glass-blur: 40px;
+    --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+    /* Layered depth variables (Z-axis depth) */
+    --modal-bg: #161616; /* solid slightly lighter dark for modal containers */
+    --card-bg: #161616;  /* solid card background to stack nicely over #101010 */
+    --input-bg: rgba(26, 26, 26, 0.85); /* semi-dark background for inputs */
+    --input-border: rgba(255, 255, 255, 0.06); /* elegant, extremely dark borders */
+    
+    /* Header scrolled backgrounds (Subtle mega dark borders) */
+    --scrolled-header-bg: rgba(16, 16, 16, 0.8);
+    --scrolled-header-border: rgba(255, 255, 255, 0.03);
+    --mobile-scrolled-header-bg: linear-gradient(135deg, rgba(16, 16, 16, 0.6) 0%, rgba(16, 16, 16, 0.3) 100%);
+    --mobile-scrolled-header-border: rgba(255, 255, 255, 0.03);
+
+    /* Inset Highlights - Completely transparent/none in dark mode to remove the top 1-2px white highlight */
+    --box-inset-shadow: none;
+    --header-inset-shadow: none;
+    --tech-icon-inset-shadow: none;
+    --tech-icon-hover-inset: none;
+    --tech-icon-drag-inset: none;
+
+    /* Tech Icon Variables (Dark theme, mega dark borders, NO violet border) */
+    --tech-icon-bg: rgba(22, 22, 22, 0.75);
+    --tech-icon-border: rgba(255, 255, 255, 0.03); /* mega dark border */
+    --tech-icon-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    --tech-icon-hover-bg: rgba(16, 16, 16, 0.95);
+    --tech-icon-hover-border: rgba(255, 255, 255, 0.06); /* mega dark border */
+    --tech-icon-drag-bg: rgba(20, 20, 20, 0.95);
+    --tech-icon-drag-border: rgba(255, 255, 255, 0.06);
+    --tech-name-bg: rgba(22, 22, 22, 0.9);
+
+    /* Tech Icon Dynamic Shadows (Dark theme - deep dark cienie, brak fioletu) */
+    --tech-icon-drag-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    --tech-icon-hover-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+    /* Grid lines color */
+    --grid-line-color: rgba(255, 255, 255, 0.05);
+
+    /* Pricing Toggle Background */
+    --pricing-toggle-bg: rgba(22, 22, 22, 0.7);
+
+    /* Pricing Toggle Switch (Dark theme - mega dark/grey, no fiolet) */
+    --pricing-switch-bg: rgba(255, 255, 255, 0.05);
+    --pricing-switch-border: 1.5px solid rgba(255, 255, 255, 0.08);
+    --pricing-switch-active-bg: rgba(255, 255, 255, 0.1);
+    --pricing-switch-active-border: rgba(255, 255, 255, 0.15);
+    --pricing-switch-focus: 0 0 0 3px rgba(255, 255, 255, 0.15);
+    --pricing-switch-slider-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --pricing-switch-slider-active-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+    /* Card and Component Hover Borders & Shadows (Dark theme - mega dark, płaski hover) */
+    --card-hover-border: rgba(255, 255, 255, 0.04);
+    --card-hover-shadow: var(--glass-shadow);
+
+    --timeline-card-hover-border: rgba(255, 255, 255, 0.04);
+    --timeline-card-hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+    --pricing-card-active-shadow: var(--glass-shadow);
+    --pricing-card-dedicated-hover-border: rgba(255, 255, 255, 0.04);
+    --pricing-card-dedicated-hover-shadow: var(--glass-shadow);
+
+    --faq-hover-border: rgba(255, 255, 255, 0.04);
+    --faq-open-border: rgba(255, 255, 255, 0.08);
+    --faq-open-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+
+    --szkolne-hover-bg: rgba(255, 255, 255, 0.05);
+    --szkolne-hover-border: rgba(255, 255, 255, 0.1);
+    --szkolne-hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+    /* Process Card & SEO Text (Dark theme - piękne ciemne szkło) */
+    --process-card-bg: rgba(22, 22, 22, 0.7);
+    --process-card-hover-bg: rgba(22, 22, 22, 0.7); /* płaski hover */
+    --process-card-hover-border: rgba(255, 255, 255, 0.04); /* płaski hover */
+    --process-card-num-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    --seo-text-bg: rgba(22, 22, 22, 0.7);
+
+    /* Fullscreen Mobile Menu Background */
+    --mobile-nav-bg: linear-gradient(135deg, rgba(16, 16, 16, 0.95) 0%, rgba(10, 10, 10, 0.9) 100%);
+
+    /* Rich translucent dark card backgrounds (no more gray gradients!) */
+    --card-grad-glass: linear-gradient(135deg, rgba(22, 22, 22, 0.75) 0%, rgba(14, 14, 14, 0.4) 100%);
+    --card-grad-glass-alt: linear-gradient(135deg, rgba(26, 26, 26, 0.75) 0%, rgba(16, 16, 16, 0.4) 100%);
+    --card-grad-145: linear-gradient(145deg, rgba(22, 22, 22, 0.85) 0%, rgba(14, 14, 14, 0.5) 100%);
+    --card-grad-145-alt: linear-gradient(145deg, rgba(20, 20, 20, 0.8) 0%, rgba(12, 12, 12, 0.45) 100%);
+    --card-grad-145-bright: linear-gradient(145deg, rgba(26, 26, 26, 0.85) 0%, rgba(16, 16, 16, 0.5) 100%);
+    --card-grad-145-white: linear-gradient(145deg, rgba(28, 28, 28, 0.9) 0%, rgba(18, 18, 18, 0.55) 100%);
+    --card-grad-ded: linear-gradient(135deg, rgba(22, 22, 22, 0.7) 0%, rgba(14, 14, 14, 0.35) 100%);
+    --card-grad-145-green: linear-gradient(145deg, rgba(20, 35, 25, 0.85) 0%, rgba(10, 20, 15, 0.55) 100%);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 10px;
+}
+
+html[data-theme="dark"] .theme-toggle-btn {
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.25);
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: scale(1.08) rotate(15deg);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+html[data-theme="dark"] .theme-toggle-btn:hover {
+    background: rgba(167, 139, 250, 0.15);
+    border-color: rgba(167, 139, 250, 0.4);
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.2);
+}
+
+/* Hide inappropriate icon based on active theme */
+html[data-theme="dark"] .theme-toggle-btn .moon-icon {
+    display: none;
+}
+
+html[data-theme="light"] .theme-toggle-btn .sun-icon {
+    display: none;
+}
+
+/* Header adjust when toggle is present */
+.hamburger {
+    margin-left: 10px;
 }
 
 * {
@@ -37,13 +281,17 @@ html {
 /* Sub-page layout fix — position: relative gives hero-bg an anchor point */
 .cennik-page,
 .zamow-page,
-.privacy-container {
+.privacy-container,
+.blog-container,
+.post-container {
     position: relative;
 }
 
 .cennik-page>.hero-bg,
 .zamow-page>.hero-bg,
-.privacy-container>.hero-bg {
+.privacy-container>.hero-bg,
+.blog-container>.hero-bg,
+.post-container>.hero-bg {
     overflow: hidden;
 }
 
@@ -113,8 +361,8 @@ html {
     width: 100%;
     height: 100%;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
     background-size: 40px 40px;
     opacity: 0.5;
     mask-image: radial-gradient(circle at center, black, transparent 80%);
@@ -328,18 +576,18 @@ html {
 .tech-icon-glass {
     width: 108px;
     height: 108px;
-    background: rgba(255, 255, 255, 0.45);
+    background: var(--tech-icon-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--tech-icon-border);
     border-radius: 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-shadow: 
-        0 15px 35px rgba(31, 38, 135, 0.08), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        var(--tech-icon-shadow), 
+        var(--tech-icon-inset-shadow);
     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     cursor: grab;
@@ -354,11 +602,11 @@ html {
     transition: none !important;
     cursor: grabbing !important;
     z-index: 9999 !important;
-    background: rgba(255, 255, 255, 0.7) !important;
-    border-color: rgba(139, 92, 246, 0.6) !important;
+    background: var(--tech-icon-drag-bg) !important;
+    border-color: var(--tech-icon-drag-border) !important;
     box-shadow: 
         0 30px 60px rgba(139, 92, 246, 0.25), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+        var(--tech-icon-drag-inset) !important;
 }
 
 /* Pause the floating animation of the parent wrapper while dragging */
@@ -381,11 +629,11 @@ html {
     opacity: 0;
     transform: translateY(-5px);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--tech-name-bg);
     backdrop-filter: blur(5px);
     padding: 4px 12px;
     border-radius: 20px;
-    border: 1px solid rgba(139, 92, 246, 0.15);
+    border: 1px solid var(--glass-border);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     white-space: nowrap;
     pointer-events: none;
@@ -460,11 +708,11 @@ html {
 
 .tech-icon-wrapper:hover .tech-icon-glass {
     transform: scale(1.15) translateZ(30px) rotateX(0deg) rotateY(0deg);
-    background: rgba(255, 255, 255, 0.7);
-    border-color: rgba(139, 92, 246, 0.4);
+    background: var(--tech-icon-hover-bg);
+    border-color: var(--tech-icon-hover-border);
     box-shadow: 
         0 25px 50px rgba(139, 92, 246, 0.18), 
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        var(--tech-icon-hover-inset);
 }
 
 .tech-icon-wrapper:hover .tech-svg {
@@ -702,13 +950,13 @@ header.scrolled {
     padding: 0 50px;
 
     /* Liquid Glass Effect */
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--scrolled-header-bg);
     backdrop-filter: blur(25px) saturate(200%);
     -webkit-backdrop-filter: blur(25px) saturate(200%);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--scrolled-header-border);
     box-shadow:
         0 10px 40px rgba(0, 0, 0, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        var(--header-inset-shadow);
 
     height: 80px;
 }
@@ -772,12 +1020,12 @@ h2 {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background: #ffffff;
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     overflow: hidden;
     transition: var(--transition-smooth);
-    box-shadow: 0 10px 30px rgba(31, 38, 135, 0.05);
+    box-shadow: var(--glass-shadow);
 }
 
 .kafelek:hover {
@@ -881,7 +1129,7 @@ h2 {
 #kontakt__formularz {
     flex: 1.6;
     margin-top: 0;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    background: var(--card-grad-145);
     border: 1px solid var(--glass-border);
     border-radius: 30px;
     padding: 50px;
@@ -941,7 +1189,7 @@ h2 {
 /* Label */
 .kontakt__formularz__label {
     display: block;
-    color: #1e293b;
+    color: var(--text-primary);
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 6px;
@@ -967,8 +1215,8 @@ h2 {
 #kontakt__form input[type="email"],
 #kontakt__form select,
 #kontakt__form textarea {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1.5px solid #cbd5e1;
+    background: var(--input-bg);
+    border: 1.5px solid var(--input-border);
     backdrop-filter: blur(8px);
     padding: 14px 18px;
     color: var(--text-primary);
@@ -993,10 +1241,14 @@ h2 {
     padding-right: 45px;
 }
 
+html[data-theme="dark"] #kontakt__form select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23cbd5e1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
 /* Stylizacja opcji select dla estetyki systemowej */
 #kontakt__form select option {
-    background: #ffffff;
-    color: #111827;
+    background: var(--modal-bg);
+    color: var(--text-primary);
 }
 
 #kontakt__form input[type="text"]::placeholder,
@@ -1010,8 +1262,8 @@ h2 {
 #kontakt__form select:focus,
 #kontakt__form textarea:focus {
     border-color: var(--accent-blue);
-    background: rgba(139, 92, 246, 0.05);
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+    background: var(--input-bg);
+    box-shadow: 0 0 0 3px var(--glass-border);
 }
 
 #kontakt__form input[type="text"].input--error,
@@ -1346,7 +1598,7 @@ h2 {
 
 .contact__others {
     flex: 1;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    background: var(--card-grad-145);
     border: 1px solid var(--glass-border);
     border-radius: 30px;
     padding: 40px;
@@ -1453,7 +1705,7 @@ footer {
 .footer__bottom {
     max-width: 1200px;
     margin: 0 auto;
-    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    border-top: 1px solid var(--glass-border);
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
@@ -1528,7 +1780,7 @@ footer {
 }
 
 .privacy__content {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    background: var(--card-grad-145-alt);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 40px 50px;
@@ -1743,7 +1995,7 @@ footer {
 /* Karta projektu */
 .timeline__card {
     width: calc(50% - 80px);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+    background: var(--card-grad-145-bright);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 30px;
@@ -1762,7 +2014,7 @@ footer {
 
 .timeline__card--featured {
     border-color: rgba(245, 158, 11, 0.3);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(255, 245, 235, 0.8));
+    background: var(--card-grad-145-white);
 }
 
 .timeline__card--featured:hover {
@@ -2330,8 +2582,8 @@ footer {
     justify-content: center;
     gap: 16px;
     margin: 10px auto 40px auto;
-    background: rgba(255, 255, 255, 0.45);
-    border: 1px solid rgba(139, 92, 246, 0.15);
+    background: var(--pricing-toggle-bg);
+    border: 1px solid var(--glass-border);
     padding: 10px 24px;
     border-radius: 100px;
     backdrop-filter: blur(var(--glass-blur));
@@ -2406,8 +2658,8 @@ footer {
 
 /* --- Pricing Card Base --- */
 .pricing-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 100%);
-    border: 1px solid rgba(139, 92, 246, 0.15);
+    background: var(--card-grad-glass);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 40px;
     display: flex;
@@ -2419,7 +2671,7 @@ footer {
     position: relative;
     text-align: left;
     box-sizing: border-box;
-    box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: var(--glass-shadow), var(--box-inset-shadow);
 }
 
 /* --- Pricing Grid Standard (3 Columns) --- */
@@ -2444,7 +2696,7 @@ footer {
 
 /* --- Pricing Card CMS Wyróżnienie (Opcja A) --- */
 .pricing-card.card--active {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 100%);
+    background: var(--card-grad-glass);
     border: none;
     transform: scale(1.04);
     z-index: 2;
@@ -2529,8 +2781,8 @@ footer {
 
 /* --- Pricing Card Dedicated (Szeroki Baner) --- */
 .pricing-card-dedicated {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.2) 100%);
-    border: 1px solid rgba(139, 92, 246, 0.15);
+    background: var(--card-grad-glass-alt);
+    border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 40px 50px;
     display: flex;
@@ -2541,7 +2793,7 @@ footer {
     box-sizing: border-box;
     position: relative;
     backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-    box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: var(--glass-shadow), var(--box-inset-shadow);
     margin-bottom: 20px;
     transition: var(--transition-smooth);
     margin-top: 20px;
@@ -2652,7 +2904,7 @@ footer {
 
 .comparison-table-container {
     width: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%);
+    background: var(--card-grad-ded);
     border: 1px solid rgba(139, 92, 246, 0.15);
     border-radius: 24px;
     padding: 10px;
@@ -2884,7 +3136,7 @@ footer {
 /* SEO Text Layout */
 .seo-text {
     margin-top: 80px;
-    background: rgba(255, 255, 255, 0.45);
+    background: var(--seo-text-bg);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 40px;
@@ -3148,11 +3400,12 @@ nav>a.active::after {
 .swiper-button-next,
 .swiper-button-prev {
     color: var(--accent-blue) !important;
-    background: #ffffff;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.15);
+    box-shadow: var(--glass-shadow);
     transition: all 0.3s;
 }
 
@@ -3357,16 +3610,16 @@ nav>a.active::after {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #ffffff;
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     width: 50px;
     height: 50px;
     border-radius: 50%;
     font-size: 18px;
-    color: #8b5cf6;
+    color: var(--accent-blue);
     cursor: pointer;
     z-index: 100;
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
+    box-shadow: var(--glass-shadow);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
@@ -3532,11 +3785,11 @@ nav>a.active::after {
         padding: 0 20px !important;
         border-radius: 0 !important;
         top: 0 !important;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%) !important;
+        background: var(--mobile-scrolled-header-bg) !important;
         backdrop-filter: blur(50px) saturate(180%) !important;
         -webkit-backdrop-filter: blur(50px) saturate(180%) !important;
         border: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-bottom: 1px solid var(--mobile-scrolled-header-border) !important;
     }
 
     /* Disable nav-transitioning animation on mobile */
@@ -3582,7 +3835,7 @@ nav>a.active::after {
         left: 0;
         width: 100%;
         height: 100vh;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.5) 100%) !important;
+        background: var(--mobile-nav-bg) !important;
         backdrop-filter: blur(50px) saturate(180%) !important;
         -webkit-backdrop-filter: blur(50px) saturate(180%) !important;
         clip-path: inset(0 0 100% 0);
@@ -3840,7 +4093,7 @@ nav>a.active::after {
 
 /* Step card */
 .htl-step__card {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    background: var(--card-grad-145);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 28px 24px;
@@ -3869,7 +4122,7 @@ nav>a.active::after {
 
 .htl-step__card--final {
     border-color: rgba(16, 185, 129, 0.3);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(240, 253, 244, 0.8));
+    background: var(--card-grad-145-green);
 }
 
 @media (max-width: 600px) {
@@ -3887,8 +4140,8 @@ nav>a.active::after {
     position: absolute;
     top: 55%;
     transform: translateY(-50%);
-    background: #ffffff;
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -3896,7 +4149,7 @@ nav>a.active::after {
     color: var(--accent-blue);
     cursor: pointer;
     z-index: 10;
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+    box-shadow: var(--glass-shadow);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
@@ -3966,7 +4219,7 @@ nav>a.active::after {
 }
 
 .faq-item {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+    background: var(--card-grad-145);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
     backdrop-filter: blur(var(--glass-blur));

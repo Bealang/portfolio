@@ -4,18 +4,35 @@
 
 <section id="kontakt" data-aos="fade-up" data-aos-duration="1000">
     <div class="contact__container">
-        <div class="contact__featured" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+        <div
+            class="contact__featured"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+        >
             <div class="featured__header">
-                <h2>Zamów <span class="gradient__text">darmową</span> wycenę</h2>
-                <p>Skontaktuj się z nami poprzez formularz kontaktowy, bądź poniższy adres e-mail, aby otrzymać indywidualną wycenę dla swojego projektu. Zazwyczaj odpowiadamy w ciągu 24 godzin.</p>
+                <h2>
+                    Zamów <span class="gradient__text">darmową</span> wycenę
+                </h2>
+                <p>
+                    Skontaktuj się z nami poprzez formularz kontaktowy, bądź
+                    poniższy adres e-mail/nr. telefonu , aby otrzymać
+                    indywidualną wycenę dla swojego projektu. Zazwyczaj
+                    odpowiadamy w ciągu 24 godzin.
+                </p>
             </div>
 
             <div class="featured__cards">
-                <a href="mailto:kontakt@web2sell.pl" class="featured__card email">
+                <a
+                    href="mailto:kontakt@web2sell.pl"
+                    class="featured__card email"
+                >
                     <div class="card__glow"></div>
                     <i class="fa-solid fa-envelope"></i>
                     <div class="card__content">
-                        <span class="card__title">Kontakt poprzez adres e-mail</span>
+                        <span class="card__title"
+                            >Kontakt poprzez adres e-mail</span
+                        >
                         <span class="card__value">kontakt@web2sell.pl</span>
                     </div>
                     <i class="fa-solid fa-arrow-right card__arrow"></i>
@@ -24,7 +41,8 @@
                     <div class="card__glow"></div>
                     <i class="fa-solid fa-phone"></i>
                     <div class="card__content">
-                        <span class="card__title">Kontakt telefoniczny/SMS</span>
+                        <span class="card__title">Kontakt telefoniczny/SMS</span
+                        >
                         <span class="card__value">+48 530 315 860</span>
                     </div>
                     <i class="fa-solid fa-arrow-right card__arrow"></i>
@@ -32,53 +50,114 @@
             </div>
         </div>
 
-        <div id="kontakt__formularz" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+        <div
+            id="kontakt__formularz"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="400"
+        >
             <form id="kontakt__form" novalidate>
                 <div id="kontakt__formularz__lewy">
                     <div class="form__group">
-                        <label for="imie" class="kontakt__formularz__label">Imię i Nazwisko <span class="required">*</span></label>
-                        <input type="text" id="imie" name="imie" placeholder="Jan Kowalski" autocomplete="name">
+                        <label for="imie" class="kontakt__formularz__label"
+                            >Imię i Nazwisko <span class="required">*</span
+                            ></label
+                        >
+                        <input
+                            type="text"
+                            id="imie"
+                            name="imie"
+                            placeholder="Jan Kowalski"
+                            autocomplete="name"
+                        />
                         <span class="form__error" id="imie__error"></span>
                     </div>
                     <div class="form__group">
-                        <label for="usluga" class="kontakt__formularz__label">Wstępna usługa <span class="required">*</span></label>
+                        <label for="usluga" class="kontakt__formularz__label"
+                            >Wstępna usługa <span class="required">*</span
+                            ></label
+                        >
                         <select id="usluga" name="usluga">
-                            <option value="Nie wiem. Chcę to ustalić" selected>Nie wiem. Chcę to ustalić</option>
-                            <option value="OnePage (Szybki start w sieci)">OnePage (Szybki start w sieci)</option>
-                            <option value="Wizytówka Multi-Page (Budowa autorytetu)">Wizytówka Multi-Page (Budowa autorytetu)</option>
-                            <option value="Wizytówka + CMS (Dynamiczne treści)">Wizytówka + CMS (Dynamiczne treści)</option>
-                            <option value="System Dedykowany (Rozwiązania &quot;Full Custom&quot;)">System Dedykowany (Rozwiązania "Full Custom")</option>
+                            <option value="Nie wiem. Chcę to ustalić" selected
+                                >Nie wiem. Chcę to ustalić</option
+                            >
+                            <option value="OnePage (Szybki start w sieci)"
+                                >OnePage (Szybki start w sieci)</option
+                            >
+                            <option
+                                value="Wizytówka Multi-Page (Budowa autorytetu)"
+                                >Wizytówka Multi-Page (Budowa autorytetu)</option
+                            >
+                            <option value="Wizytówka + CMS (Dynamiczne treści)"
+                                >Wizytówka + CMS (Dynamiczne treści)</option
+                            >
+                            <option
+                                value='System Dedykowany (Rozwiązania "Full Custom")'
+                                >System Dedykowany (Rozwiązania "Full Custom")</option
+                            >
                         </select>
                         <span class="form__error" id="usluga__error"></span>
                     </div>
                     <div class="form__group">
-                        <label for="kontakt_info" class="kontakt__formularz__label">Adres e-mail <span class="required">*</span></label>
-                        <input type="email" id="kontakt_info" name="kontakt" placeholder="twoj@email.com" autocomplete="email">
+                        <label
+                            for="kontakt_info"
+                            class="kontakt__formularz__label"
+                            >Adres e-mail <span class="required">*</span></label
+                        >
+                        <input
+                            type="email"
+                            id="kontakt_info"
+                            name="kontakt"
+                            placeholder="twoj@email.com"
+                            autocomplete="email"
+                        />
                         <span class="form__error" id="kontakt__error"></span>
                     </div>
                 </div>
                 <div id="kontakt__formularz__prawy">
                     <div class="form__group">
-                        <label for="tresc" class="kontakt__formularz__label">Treść wiadomości <span class="required">*</span></label>
-                        <textarea id="tresc" name="tresc" placeholder="Słuchamy Cię! Opisz, w czym rzecz. Jeśli wolisz, żebyśmy zadzwonili, dopisz swój numer telefonu – tak będzie szybciej."></textarea>
+                        <label for="tresc" class="kontakt__formularz__label"
+                            >Treść wiadomości <span class="required">*</span
+                            ></label
+                        >
+                        <textarea
+                            id="tresc"
+                            name="tresc"
+                            placeholder="Słuchamy Cię! Opisz, w czym rzecz. Jeśli wolisz, żebyśmy zadzwonili, dopisz swój numer telefonu – tak będzie szybciej."
+                        ></textarea>
                         <span class="form__error" id="tresc__error"></span>
                     </div>
                     <div class="form__group rodo__group">
                         <label class="rodo__label">
-                            <input type="checkbox" id="rodo" name="rodo" required>
+                            <input
+                                type="checkbox"
+                                id="rodo"
+                                name="rodo"
+                                required
+                            />
                             <span class="rodo__checkmark"></span>
-                            <span class="rodo__text">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
-                                udzielenia odpowiedzi na zapytanie. <a href="/polityka">Polityka
-                                    prywatności</a></span>
+                            <span class="rodo__text"
+                                >Wyrażam zgodę na przetwarzanie moich danych
+                                osobowych w celu udzielenia odpowiedzi na
+                                zapytanie. <a href="/polityka"
+                                    >Polityka prywatności</a
+                                ></span
+                            >
                         </label>
                         <span class="form__error" id="rodo__error"></span>
                     </div>
                 </div>
-                <button type="submit" id="form__submit" class="form__submit__btn">
+                <button
+                    type="submit"
+                    id="form__submit"
+                    class="form__submit__btn"
+                >
                     <span class="btn__text">Wyślij wiadomość</span>
                     <i class="fa-solid fa-paper-plane btn__icon"></i>
-                    <span class="btn__loading" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i>
-                        Wysyłanie...</span>
+                    <span class="btn__loading" style="display:none;"
+                        ><i class="fa-solid fa-spinner fa-spin"></i>
+                        Wysyłanie...</span
+                    >
                 </button>
             </form>
         </div>
@@ -89,150 +168,200 @@
     <span class="notification__text"></span>
 </div>
 
-<script is:inline src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script
+    is:inline
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+></script>
 <script is:inline>
-// ============================================================
-// EMAILJS KONFIGURACJA
-// ============================================================
-const EMAILJS_PUBLIC_KEY = 'RZK1nw4Vj1eZiggfr';
-const EMAILJS_SERVICE_ID = 'service_dnkrj6g';
-const EMAILJS_TEMPLATE_ID = 'template_h5b0n9s';
+    // ============================================================
+    // EMAILJS KONFIGURACJA
+    // ============================================================
+    const EMAILJS_PUBLIC_KEY = "RZK1nw4Vj1eZiggfr";
+    const EMAILJS_SERVICE_ID = "service_dnkrj6g";
+    const EMAILJS_TEMPLATE_ID = "template_h5b0n9s";
 
-emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailjs.init(EMAILJS_PUBLIC_KEY);
 
-// ─── Elementy DOM ────────────────────────────────────────────
-const form = document.getElementById('kontakt__form');
-const submitBtn = document.getElementById('form__submit');
-const btnText = submitBtn?.querySelector('.btn__text');
-const btnIcon = submitBtn?.querySelector('.btn__icon');
-const btnLoading = submitBtn?.querySelector('.btn__loading');
-const notification = document.getElementById('form__notification');
-const notifIcon = notification?.querySelector('.notification__icon');
-const notifText = notification?.querySelector('.notification__text');
+    // ─── Elementy DOM ────────────────────────────────────────────
+    const form = document.getElementById("kontakt__form");
+    const submitBtn = document.getElementById("form__submit");
+    const btnText = submitBtn?.querySelector(".btn__text");
+    const btnIcon = submitBtn?.querySelector(".btn__icon");
+    const btnLoading = submitBtn?.querySelector(".btn__loading");
+    const notification = document.getElementById("form__notification");
+    const notifIcon = notification?.querySelector(".notification__icon");
+    const notifText = notification?.querySelector(".notification__text");
 
-// ─── Walidacja pól ───────────────────────────────────────────
-function showError(fieldId, message) {
-    const el = document.getElementById(fieldId + '__error');
-    const input = document.getElementById(fieldId) || document.querySelector('[name="' + fieldId + '"]');
-    if (el) {
-        el.textContent = message;
-        el.classList.add('visible');
+    // ─── Walidacja pól ───────────────────────────────────────────
+    function showError(fieldId, message) {
+        const el = document.getElementById(fieldId + "__error");
+        const input =
+            document.getElementById(fieldId) ||
+            document.querySelector('[name="' + fieldId + '"]');
+        if (el) {
+            el.textContent = message;
+            el.classList.add("visible");
+        }
+        if (input) input.classList.add("input--error");
     }
-    if (input) input.classList.add('input--error');
-}
 
-function clearError(fieldId) {
-    const el = document.getElementById(fieldId + '__error');
-    const input = document.getElementById(fieldId) || document.querySelector('[name="' + fieldId + '"]');
-    if (el) {
-        el.textContent = '';
-        el.classList.remove('visible');
+    function clearError(fieldId) {
+        const el = document.getElementById(fieldId + "__error");
+        const input =
+            document.getElementById(fieldId) ||
+            document.querySelector('[name="' + fieldId + '"]');
+        if (el) {
+            el.textContent = "";
+            el.classList.remove("visible");
+        }
+        if (input) input.classList.remove("input--error");
     }
-    if (input) input.classList.remove('input--error');
-}
 
-function validateForm() {
-    let valid = true;
+    function validateForm() {
+        let valid = true;
 
-    const imie = document.getElementById('imie').value.trim();
-    if (!imie) { showError('imie', 'Imię i nazwisko są wymagane.'); valid = false; }
-    else if (imie.split(' ').filter(Boolean).length < 2) { showError('imie', 'Wpisz imię oraz nazwisko.'); valid = false; }
-    else { clearError('imie'); }
+        const imie = document.getElementById("imie").value.trim();
+        if (!imie) {
+            showError("imie", "Imię i nazwisko są wymagane.");
+            valid = false;
+        } else if (imie.split(" ").filter(Boolean).length < 2) {
+            showError("imie", "Wpisz imię oraz nazwisko.");
+            valid = false;
+        } else {
+            clearError("imie");
+        }
 
-    const kontakt = document.getElementById('kontakt_info').value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!kontakt) { showError('kontakt', 'Podaj adres e-mail.'); valid = false; }
-    else if (!emailRegex.test(kontakt)) { showError('kontakt', 'Podaj poprawny adres e-mail.'); valid = false; }
-    else { clearError('kontakt'); }
+        const kontakt = document.getElementById("kontakt_info").value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!kontakt) {
+            showError("kontakt", "Podaj adres e-mail.");
+            valid = false;
+        } else if (!emailRegex.test(kontakt)) {
+            showError("kontakt", "Podaj poprawny adres e-mail.");
+            valid = false;
+        } else {
+            clearError("kontakt");
+        }
 
-    const tresc = document.getElementById('tresc').value.trim();
-    if (!tresc || tresc.length < 10) { showError('tresc', 'Wpisz wiadomość (min. 10 znaków).'); valid = false; }
-    else { clearError('tresc'); }
+        const tresc = document.getElementById("tresc").value.trim();
+        if (!tresc || tresc.length < 10) {
+            showError("tresc", "Wpisz wiadomość (min. 10 znaków).");
+            valid = false;
+        } else {
+            clearError("tresc");
+        }
 
-    const rodo = document.getElementById('rodo').checked;
-    if (!rodo) { showError('rodo', 'Wymagana zgoda na przetwarzanie danych.'); valid = false; }
-    else { clearError('rodo'); }
+        const rodo = document.getElementById("rodo").checked;
+        if (!rodo) {
+            showError("rodo", "Wymagana zgoda na przetwarzanie danych.");
+            valid = false;
+        } else {
+            clearError("rodo");
+        }
 
-    return valid;
-}
-
-// ─── Resetowanie błędów na bieżąco ───────────────────────────
-['imie', 'kontakt_info', 'tresc'].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const errorId = id === 'kontakt_info' ? 'kontakt' : id;
-    el.addEventListener('input', () => clearError(errorId));
-});
-document.getElementById('usluga')?.addEventListener('change', () => clearError('usluga'));
-document.getElementById('rodo')?.addEventListener('change', () => clearError('rodo'));
-
-// ─── Powiadomienie ────────────────────────────────────────────
-function showNotification(type, message) {
-    notification.className = 'form__notification ' + type;
-    notifIcon.className = 'notification__icon fa-solid ' + (type === 'success' ? 'fa-check-circle' : 'fa-circle-exclamation');
-    notifText.textContent = message;
-    notification.style.display = 'flex';
-
-    setTimeout(() => {
-        notification.style.display = 'none';
-    }, 6000);
-}
-
-// ─── Wysyłanie formularza ─────────────────────────────────────
-function setLoading(loading) {
-    if (loading) {
-        btnText.style.display = 'none';
-        btnIcon.style.display = 'none';
-        btnLoading.style.display = 'inline-flex';
-        submitBtn.disabled = true;
-    } else {
-        btnText.style.display = 'inline';
-        btnIcon.style.display = 'inline';
-        btnLoading.style.display = 'none';
-        submitBtn.disabled = false;
+        return valid;
     }
-}
 
-form?.addEventListener('submit', function (e) {
-    e.preventDefault();
+    // ─── Resetowanie błędów na bieżąco ───────────────────────────
+    ["imie", "kontakt_info", "tresc"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const errorId = id === "kontakt_info" ? "kontakt" : id;
+        el.addEventListener("input", () => clearError(errorId));
+    });
+    document
+        .getElementById("usluga")
+        ?.addEventListener("change", () => clearError("usluga"));
+    document
+        .getElementById("rodo")
+        ?.addEventListener("change", () => clearError("rodo"));
 
-    const lastSentTime = localStorage.getItem('lastEmailSentTime');
-    const cooldownTime = 2 * 60 * 1000;
+    // ─── Powiadomienie ────────────────────────────────────────────
+    function showNotification(type, message) {
+        notification.className = "form__notification " + type;
+        notifIcon.className =
+            "notification__icon fa-solid " +
+            (type === "success" ? "fa-check-circle" : "fa-circle-exclamation");
+        notifText.textContent = message;
+        notification.style.display = "flex";
 
-    if (lastSentTime) {
-        const timeElapsed = Date.now() - parseInt(lastSentTime, 10);
-        if (timeElapsed < cooldownTime) {
-            const timeLeft = Math.ceil((cooldownTime - timeElapsed) / 1000);
-            const minutesLeft = Math.floor(timeLeft / 60);
-            const secondsLeft = timeLeft % 60;
-            const timeString = minutesLeft > 0 ? `${minutesLeft}m ${secondsLeft}s` : `${secondsLeft}s`;
-            showNotification('error', `⏳ Odczekaj jeszcze ${timeString} przed wysłaniem kolejnej wiadomości.`);
-            return;
+        setTimeout(() => {
+            notification.style.display = "none";
+        }, 6000);
+    }
+
+    // ─── Wysyłanie formularza ─────────────────────────────────────
+    function setLoading(loading) {
+        if (loading) {
+            btnText.style.display = "none";
+            btnIcon.style.display = "none";
+            btnLoading.style.display = "inline-flex";
+            submitBtn.disabled = true;
+        } else {
+            btnText.style.display = "inline";
+            btnIcon.style.display = "inline";
+            btnLoading.style.display = "none";
+            submitBtn.disabled = false;
         }
     }
 
-    if (!validateForm()) return;
+    form?.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    setLoading(true);
+        const lastSentTime = localStorage.getItem("lastEmailSentTime");
+        const cooldownTime = 2 * 60 * 1000;
 
-    const templateParams = {
-        imie: document.getElementById('imie').value.trim(),
-        nazwisko: " — Usługa: " + document.getElementById('usluga').value.trim(),
-        kontakt: document.getElementById('kontakt_info').value.trim(),
-        tresc: document.getElementById('tresc').value.trim(),
-    };
+        if (lastSentTime) {
+            const timeElapsed = Date.now() - parseInt(lastSentTime, 10);
+            if (timeElapsed < cooldownTime) {
+                const timeLeft = Math.ceil((cooldownTime - timeElapsed) / 1000);
+                const minutesLeft = Math.floor(timeLeft / 60);
+                const secondsLeft = timeLeft % 60;
+                const timeString =
+                    minutesLeft > 0
+                        ? `${minutesLeft}m ${secondsLeft}s`
+                        : `${secondsLeft}s`;
+                showNotification(
+                    "error",
+                    `⏳ Odczekaj jeszcze ${timeString} przed wysłaniem kolejnej wiadomości.`,
+                );
+                return;
+            }
+        }
 
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-        .then(() => {
-            setLoading(false);
-            showNotification('success', '✅ Wiadomość wysłana! Odpiszemy najszybciej jak możemy.');
-            form.reset();
-            localStorage.setItem('lastEmailSentTime', Date.now().toString());
-        })
-        .catch((error) => {
-            setLoading(false);
-            console.error('EmailJS error:', error);
-            showNotification('error', '❌ Nie udało się wysłać wiadomości. Napisz bezpośrednio na kontakt@web2sell.pl');
-        });
-});
+        if (!validateForm()) return;
+
+        setLoading(true);
+
+        const templateParams = {
+            imie: document.getElementById("imie").value.trim(),
+            nazwisko:
+                " — Usługa: " + document.getElementById("usluga").value.trim(),
+            kontakt: document.getElementById("kontakt_info").value.trim(),
+            tresc: document.getElementById("tresc").value.trim(),
+        };
+
+        emailjs
+            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(() => {
+                setLoading(false);
+                showNotification(
+                    "success",
+                    "✅ Wiadomość wysłana! Odpiszemy najszybciej jak możemy.",
+                );
+                form.reset();
+                localStorage.setItem(
+                    "lastEmailSentTime",
+                    Date.now().toString(),
+                );
+            })
+            .catch((error) => {
+                setLoading(false);
+                console.error("EmailJS error:", error);
+                showNotification(
+                    "error",
+                    "❌ Nie udało się wysłać wiadomości. Napisz bezpośrednio na kontakt@web2sell.pl",
+                );
+            });
+    });
 </script>

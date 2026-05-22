@@ -1,0 +1,326 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroBg from '../../components/HeroBg.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  // Pokazujemy po 6 wpisów na stronę dla idealnego rozkładu siatki 3x2 na dużych ekranach
+  return paginate(posts, { pageSize: 6 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout
+  title={`Blog i Wiedza - Strona ${page.currentPage} | web2sell`}
+  description="Nasz blog to baza wiedzy o tworzeniu super szybkich stron www, lokalnym SEO i nowoczesnych technologiach takich jak Astro czy React."
+>
+    <Header activePage="blog" />
+
+    <main class="blog-container">
+        <HeroBg behindContent={true} />
+
+        <div class="blog__header">
+            <h1 data-aos="fade-up" data-aos-duration="800">
+                Blog web2<span class="gradient__text">sell</span>
+            </h1>
+        </div>
+
+        <section class="blog__content">
+            <div class="blog__grid">
+                {page.data.map((post) => (
+                    <BlogCard
+                        slug={post.id}
+                        title={post.data.title}
+                        description={post.data.description}
+                        pubDate={post.data.pubDate}
+                        image={post.data.image}
+                        imageAlt={post.data.imageAlt}
+                        author={post.data.author}
+                    />
+                ))}
+            </div>
+
+            {page.lastPage > 1 && (
+                <nav class="pagination" aria-label="Nawigacja po stronach bloga" data-aos="fade-up" data-aos-duration="800">
+                    {page.url.prev ? (
+                        <a href={page.url.prev} class="pagination__btn pagination__btn--prev" aria-label="Poprzednia strona">
+                            <i class="fa-solid fa-chevron-left"></i> Poprzednia
+                        </a>
+                    ) : (
+                        <span class="pagination__btn pagination__btn--disabled">
+                            <i class="fa-solid fa-chevron-left"></i> Poprzednia
+                        </span>
+                    )}
+
+                    <div class="pagination__numbers">
+                        {Array.from({ length: page.lastPage }, (_, i) => {
+                            const pageNum = i + 1;
+                            const href = pageNum === 1 ? '/blog' : `/blog/${pageNum}`;
+                            const isActive = page.currentPage === pageNum;
+                            return (
+                                <a
+                                  href={href}
+                                  class:list={["pagination__number", { active: isActive }]}
+                                  aria-current={isActive ? "page" : undefined}
+                                >
+                                    {pageNum}
+                                </a>
+                            );
+                        })}
+                    </div>
+
+                    {page.url.next ? (
+                        <a href={page.url.next} class="pagination__btn pagination__btn--next" aria-label="Następna strona">
+                            Następna <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    ) : (
+                        <span class="pagination__btn pagination__btn--disabled">
+                            Następna <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+                    )}
+                </nav>
+            )}
+        </section>
+    </main>
+
+    <Footer />
+
+    <!-- Floating CTA (Poznaj naszą ofertę cennikową) -->
+    <a href="/cennik" class="floating-cta" aria-label="Poznaj naszą ofertę cennikową">
+        <span>Poznaj naszą ofertę</span>
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+</Layout>
+
+<style>
+    .blog-container {
+        position: relative;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: 160px 5% 80px;
+        min-height: 80vh;
+    }
+
+    .blog__header {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .blog__badge {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--accent-cyan);
+        background: rgba(236, 72, 153, 0.08);
+        border: 1px solid rgba(236, 72, 153, 0.2);
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 20px;
+    }
+
+    .blog__header h1 {
+        font-family: 'Figtree', sans-serif;
+        font-size: clamp(32px, 4.5vw, 54px);
+        font-weight: 800;
+        color: var(--text-primary);
+        line-height: 1.15;
+        margin: 0 0 20px;
+        letter-spacing: -1px;
+    }
+
+    .blog__header p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+        font-weight: 300;
+    }
+
+    .blog__content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .blog__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    @media (max-width: 1024px) {
+        .blog__grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog__grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            gap: 28px;
+        }
+    }
+
+    /* Paginacja */
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .pagination__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+        border: 1px solid var(--glass-border);
+        background: var(--card-bg);
+        color: var(--text-primary);
+        box-shadow: var(--glass-shadow);
+    }
+
+    .pagination__btn i {
+        font-size: 0.8rem;
+    }
+
+    .pagination__btn:not(.pagination__btn--disabled):hover {
+        transform: translateY(-2px);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 5px 15px rgba(139, 92, 246, 0.1);
+    }
+
+    .pagination__btn--disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .pagination__numbers {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .pagination__number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        background: var(--card-bg);
+        color: var(--text-primary);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+    }
+
+    .pagination__number:hover {
+        transform: translateY(-2px);
+        border-color: var(--card-hover-border);
+    }
+
+    .pagination__number.active {
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 5px 15px rgba(139, 92, 246, 0.25);
+    }
+
+    @media (max-width: 600px) {
+        .blog-container {
+            padding-top: 130px;
+        }
+
+        .pagination {
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 30px;
+        }
+
+        .pagination__numbers {
+            order: -1;
+        }
+    }
+
+    /* ==========================================================================
+       FLOATING CTA STYLES (ALWAYS VISIBLE EN ROUTE TO /CENNIK)
+       ========================================================================== */
+    .floating-cta {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #fff !important;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    box-shadow 0.3s ease, 
+                    background-color 0.3s ease;
+        cursor: pointer;
+    }
+    .floating-cta i {
+        font-size: 0.9rem;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        color: #fff;
+    }
+    .floating-cta:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    }
+    .floating-cta:hover i {
+        transform: translateX(4px);
+    }
+    .floating-cta:active {
+        transform: translateY(-2px) scale(0.98);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+        .floating-cta {
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 22px;
+            font-size: 0.88rem;
+            gap: 8px;
+        }
+    }
+</style>

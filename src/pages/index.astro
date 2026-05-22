@@ -31,11 +31,11 @@ const renderedProjects = await Promise.all(
             <div class="hero-text-reveal">
                 <h1 class="hero-seo-title" data-aos="fade-down" data-aos-duration="800">web2sell - Tworzenie stron internetowych Myślenice</h1>
                 <h2 class="hero-title typing-stack">
-                    <span id="type-title-ghost" class="ghost-layer"></span>
+                    <span id="type-title-ghost" class="ghost-layer">Zaprojektujemy.<br><span class='gradient__text text-glow' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.</span>
                     <span id="type-title" class="visible-layer"></span>
                 </h2>
                 <p class="hero-desc typing-stack">
-                    <span id="type-desc-ghost" class="ghost-layer"></span>
+                    <span id="type-desc-ghost" class="ghost-layer">W web2sell porzucamy popularne, obciążające systemy zarządzania treścią na rzecz nowoczesnych rozwiązań programistycznych. Budujemy witryny od podstaw, wykorzystując autorski kod, który gwarantuje najwyższą szybkość działania, bezpieczeństwo oraz pełną optymalizację pod wyszukiwarki. Dzięki eliminacji zbędnych wtyczek i szablonów, Twoja lokalna firma zyska unikalne narzędzie, które zapewnia użytkownikom błyskawiczny dostęp do informacji i realnie wspiera Twój rozwój w sieci.</span>
                     <span id="type-desc" class="visible-layer"></span>
                 </p>
                 <div id="main__buttons" class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2500">
@@ -238,7 +238,7 @@ const renderedProjects = await Promise.all(
     ))}
 
     <!-- Typing animation -->
-    <script is:inline>
+    <script>
     (function () {
         const titleGhost = document.getElementById('type-title-ghost');
         const descGhost = document.getElementById('type-desc-ghost');
@@ -289,7 +289,7 @@ const renderedProjects = await Promise.all(
     </script>
 
     <!-- 3D Slider -->
-    <script is:inline>
+    <script>
     (function () {
         var cards = Array.from(document.querySelectorAll('.c3d__card'));
         var dotsEl = document.getElementById('c3dDots');
@@ -436,13 +436,13 @@ const renderedProjects = await Promise.all(
     })();
     </script>
 
-    <!-- Modal Manager -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script is:inline>
+    <!-- Modal Manager (Bundled & Defer, with dynamic Swiper load on-demand) -->
+    <script>
     (function () {
         var activeSwipers = [];
+        var swiperLoaded = false;
 
-        window.openModal = function (modal) {
+        window.openModal = async function (modal) {
             modal.setAttribute('aria-hidden', 'false');
             modal.classList.add('is-open');
             document.body.style.overflow = 'hidden';
@@ -475,6 +475,23 @@ const renderedProjects = await Promise.all(
             // Init Swiper for gallery
             var swiperEl = modal.querySelector('.project-gallery-swiper');
             if (swiperEl) {
+                if (!swiperLoaded) {
+                    // Dynamically inject Swiper CSS
+                    var link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+                    document.head.appendChild(link);
+
+                    // Dynamically inject Swiper JS
+                    await new Promise(function (resolve) {
+                        var script = document.createElement('script');
+                        script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+                        script.onload = resolve;
+                        document.body.appendChild(script);
+                    });
+                    swiperLoaded = true;
+                }
+
                 var swiper = new Swiper(swiperEl, {
                     loop: swiperEl.querySelectorAll('.swiper-slide').length > 1,
                     pagination: { el: swiperEl.querySelector('.swiper-pagination'), clickable: true },
@@ -530,7 +547,7 @@ const renderedProjects = await Promise.all(
 
 
     <!-- Technology Interactive Drag Controller -->
-    <script is:inline>
+    <script>
     (function () {
         var glasses = document.querySelectorAll('.tech-icon-glass');
         var isDragging = false;
