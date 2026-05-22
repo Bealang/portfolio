@@ -1,26 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import HeroBg from '../components/HeroBg.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import ProjectModal from '../components/ProjectModal.astro';
-import ContactForm from '../components/ContactForm.astro';
-import { getCollection, render } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ProjectModal from "../components/ProjectModal.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { getCollection, render } from "astro:content";
 
-const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection("projects")).sort(
+    (a, b) => a.data.order - b.data.order,
+);
 
 const renderedProjects = await Promise.all(
-  projects.map(async (project) => {
-    const { Content } = await render(project);
-    return { ...project, Content };
-  })
+    projects.map(async (project) => {
+        const { Content } = await render(project);
+        return { ...project, Content };
+    }),
 );
 ---
 
 <Layout
-  title="Web2Sell | Tworzenie stron www Myślenice"
-  description="Web2Sell - profesjonalne tworzenie stron www Myślenice. Nowoczesne, szybkie i responsywne strony internetowe dla firm. Zobacz nasze portfolio projektów i skontaktuj się!"
+    title="Web2Sell | Tworzenie stron www Myślenice"
+    description="Web2Sell - profesjonalne tworzenie stron www Myślenice. Nowoczesne, szybkie i responsywne strony internetowe dla firm. Zobacz nasze portfolio projektów i skontaktuj się!"
 >
     <Header activePage="home" />
 
@@ -29,33 +31,83 @@ const renderedProjects = await Promise.all(
 
         <div id="main__text" class="hero-content">
             <div class="hero-text-reveal">
-                <h1 class="hero-seo-title" data-aos="fade-down" data-aos-duration="800">web2sell - Tworzenie stron internetowych Myślenice</h1>
+                <h1
+                    class="hero-seo-title"
+                    data-aos="fade-down"
+                    data-aos-duration="800"
+                >
+                    web2sell - Tworzenie stron internetowych Myślenice
+                </h1>
                 <h2 class="hero-title typing-stack">
-                    <span id="type-title-ghost" class="ghost-layer">Zaprojektujemy.<br><span class='gradient__text text-glow' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.</span>
+                    <span id="type-title-ghost" class="ghost-layer"
+                        >Zaprojektujemy.<br /><span
+                            class="gradient__text text-glow"
+                            data-text="Zbudujemy">Zbudujemy.</span
+                        ><br />Od zera.<br />Dla Twojej firmy.</span
+                    >
                     <span id="type-title" class="visible-layer"></span>
                 </h2>
                 <p class="hero-desc typing-stack">
-                    <span id="type-desc-ghost" class="ghost-layer">W web2sell porzucamy popularne, obciążające systemy zarządzania treścią na rzecz nowoczesnych rozwiązań programistycznych. Budujemy witryny od podstaw, wykorzystując autorski kod, który gwarantuje najwyższą szybkość działania, bezpieczeństwo oraz pełną optymalizację pod wyszukiwarki. Dzięki eliminacji zbędnych wtyczek i szablonów, Twoja lokalna firma zyska unikalne narzędzie, które zapewnia użytkownikom błyskawiczny dostęp do informacji i realnie wspiera Twój rozwój w sieci.</span>
+                    <span id="type-desc-ghost" class="ghost-layer"
+                        >W web2sell porzucamy popularne, obciążające systemy
+                        zarządzania treścią na rzecz nowoczesnych rozwiązań
+                        programistycznych. Budujemy witryny od podstaw,
+                        wykorzystując autorski kod, który gwarantuje najwyższą
+                        szybkość działania, bezpieczeństwo oraz pełną
+                        optymalizację pod wyszukiwarki. Dzięki eliminacji
+                        zbędnych wtyczek i szablonów, Twoja lokalna firma zyska
+                        unikalne narzędzie, które zapewnia użytkownikom
+                        błyskawiczny dostęp do informacji i realnie wspiera Twój
+                        rozwój w sieci.</span
+                    >
                     <span id="type-desc" class="visible-layer"></span>
                 </p>
-                <div id="main__buttons" class="hero-buttons" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2500">
-                    <a href="#projekty"><button class="btn-glass btn-primary">Nasze realizacje</button></a>
-                    <a href="#kontakt"><button class="btn-glass btn-secondary">Skontaktuj się</button></a>
+                <div
+                    id="main__buttons"
+                    class="hero-buttons"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="2500"
+                >
+                    <a href="#projekty"
+                        ><button class="btn-glass btn-primary"
+                            >Nasze realizacje</button
+                        ></a
+                    >
+                    <a href="#kontakt"
+                        ><button class="btn-glass btn-secondary"
+                            >Skontaktuj się</button
+                        ></a
+                    >
                 </div>
             </div>
         </div>
 
-        <div class="hero-visual" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="300">
+        <div
+            class="hero-visual"
+            data-aos="fade-left"
+            data-aos-duration="1500"
+            data-aos-delay="300"
+        >
             <div class="abstract-composition">
                 <!-- React (Foreground, crisp) -->
                 <div class="tech-icon-wrapper tech-react depth-front float-1">
                     <div class="tech-icon-glass">
-                        <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none" class="tech-svg">
-                            <circle cx="0" cy="0" r="2.05" fill="#61DAFB"/>
+                        <svg
+                            viewBox="-11.5 -10.23174 23 20.46348"
+                            fill="none"
+                            class="tech-svg"
+                        >
+                            <circle cx="0" cy="0" r="2.05" fill="#61DAFB"
+                            ></circle>
                             <g stroke="#61DAFB" stroke-width="1.2">
-                                <ellipse rx="11" ry="4.2"/>
-                                <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-                                <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                                <ellipse rx="11" ry="4.2"></ellipse>
+                                <ellipse rx="11" ry="4.2" transform="rotate(60)"
+                                ></ellipse>
+                                <ellipse
+                                    rx="11"
+                                    ry="4.2"
+                                    transform="rotate(120)"></ellipse>
                             </g>
                         </svg>
                         <span class="tech-name">React</span>
@@ -66,11 +118,21 @@ const renderedProjects = await Promise.all(
                 <div class="tech-icon-wrapper tech-astro depth-mid float-2">
                     <div class="tech-icon-glass">
                         <svg viewBox="0 0 24 24" fill="none" class="tech-svg">
-                            <path d="M19.006 14.364c.264-1.395-.125-2.73-.85-3.855-.916-1.42-2.316-2.457-3.766-3.415C13.256 6.34 12 5.093 12 3.5c0 1.593-1.256 2.84-2.39 3.594-1.45.958-2.85 1.995-3.766 3.415-.725 1.125-1.114 2.46-.85 3.855.334 1.765 1.636 3.245 3.328 3.86.326.118.666.196 1.01.233.153.018.307.027.464.027h4.408c.157 0 .31-.01.464-.027.344-.037.684-.115 1.01-.233 1.692-.615 2.994-2.095 3.328-3.86zM12 17.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="url(#astroGradient)"/>
+                            <path
+                                d="M19.006 14.364c.264-1.395-.125-2.73-.85-3.855-.916-1.42-2.316-2.457-3.766-3.415C13.256 6.34 12 5.093 12 3.5c0 1.593-1.256 2.84-2.39 3.594-1.45.958-2.85 1.995-3.766 3.415-.725 1.125-1.114 2.46-.85 3.855.334 1.765 1.636 3.245 3.328 3.86.326.118.666.196 1.01.233.153.018.307.027.464.027h4.408c.157 0 .31-.01.464-.027.344-.037.684-.115 1.01-.233 1.692-.615 2.994-2.095 3.328-3.86zM12 17.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+                                fill="url(#astroGradient)"></path>
                             <defs>
-                                <linearGradient id="astroGradient" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FF5D01"/>
-                                    <stop offset="1" stop-color="#FF00A0"/>
+                                <linearGradient
+                                    id="astroGradient"
+                                    x1="3"
+                                    y1="3"
+                                    x2="21"
+                                    y2="21"
+                                    gradientUnits="userSpaceOnUse"
+                                >
+                                    <stop stop-color="#FF5D01"></stop>
+                                    <stop offset="1" stop-color="#FF00A0"
+                                    ></stop>
                                 </linearGradient>
                             </defs>
                         </svg>
@@ -82,16 +144,36 @@ const renderedProjects = await Promise.all(
                 <div class="tech-icon-wrapper tech-vite depth-front float-3">
                     <div class="tech-icon-glass">
                         <svg viewBox="0 0 24 24" fill="none" class="tech-svg">
-                            <path d="M22.5 3.75L12.75 22.5L1.5 3.75H22.5Z" fill="url(#viteGradient)"/>
-                            <path d="M16.5 1.5L9 8.25L14.25 9.75L6.75 18L18.75 7.5L13.5 6L16.5 1.5Z" fill="url(#lightningGradient)"/>
+                            <path
+                                d="M22.5 3.75L12.75 22.5L1.5 3.75H22.5Z"
+                                fill="url(#viteGradient)"></path>
+                            <path
+                                d="M16.5 1.5L9 8.25L14.25 9.75L6.75 18L18.75 7.5L13.5 6L16.5 1.5Z"
+                                fill="url(#lightningGradient)"></path>
                             <defs>
-                                <linearGradient id="viteGradient" x1="1.5" y1="3.75" x2="19.5" y2="19.5" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#41D1FF"/>
-                                    <stop offset="1" stop-color="#BD34FE"/>
+                                <linearGradient
+                                    id="viteGradient"
+                                    x1="1.5"
+                                    y1="3.75"
+                                    x2="19.5"
+                                    y2="19.5"
+                                    gradientUnits="userSpaceOnUse"
+                                >
+                                    <stop stop-color="#41D1FF"></stop>
+                                    <stop offset="1" stop-color="#BD34FE"
+                                    ></stop>
                                 </linearGradient>
-                                <linearGradient id="lightningGradient" x1="6.75" y1="1.5" x2="18.75" y2="18" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#FF8F3E"/>
-                                    <stop offset="1" stop-color="#FFEB3B"/>
+                                <linearGradient
+                                    id="lightningGradient"
+                                    x1="6.75"
+                                    y1="1.5"
+                                    x2="18.75"
+                                    y2="18"
+                                    gradientUnits="userSpaceOnUse"
+                                >
+                                    <stop stop-color="#FF8F3E"></stop>
+                                    <stop offset="1" stop-color="#FFEB3B"
+                                    ></stop>
                                 </linearGradient>
                             </defs>
                         </svg>
@@ -103,8 +185,11 @@ const renderedProjects = await Promise.all(
                 <div class="tech-icon-wrapper tech-ts depth-mid float-4">
                     <div class="tech-icon-glass">
                         <svg viewBox="0 0 24 24" fill="none" class="tech-svg">
-                            <rect width="24" height="24" rx="4" fill="#3178C6" />
-                            <path d="M11.5 15.5H9.5V8.5H14.5V10.5H11.5V15.5ZM19 11.5C19 10 18 9 16.5 9C15 9 14 10 14 11.5V12C14 13.5 15 14 16.5 14.5C18 15 18 15.5 18 16C18 16.5 17.5 17 16.5 17C15.5 17 15 16.5 15 15.5H13C13 17.5 14.5 18.5 16.5 18.5C18.5 18.5 20 17.5 20 15.5C20 13.5 19 13 17.5 12.5C16 12 16 11.5 16 11C16 10.5 16.5 10 17.2 10C17.9 10 18.2 10.3 18.2 11.2H19Z" fill="white" />
+                            <rect width="24" height="24" rx="4" fill="#3178C6"
+                            ></rect>
+                            <path
+                                d="M11.5 15.5H9.5V8.5H14.5V10.5H11.5V15.5ZM19 11.5C19 10 18 9 16.5 9C15 9 14 10 14 11.5V12C14 13.5 15 14 16.5 14.5C18 15 18 15.5 18 16C18 16.5 17.5 17 16.5 17C15.5 17 15 16.5 15 15.5H13C13 17.5 14.5 18.5 16.5 18.5C18.5 18.5 20 17.5 20 15.5C20 13.5 19 13 17.5 12.5C16 12 16 11.5 16 11C16 10.5 16.5 10 17.2 10C17.9 10 18.2 10.3 18.2 11.2H19Z"
+                                fill="white"></path>
                         </svg>
                         <span class="tech-name">TypeScript</span>
                     </div>
@@ -114,8 +199,12 @@ const renderedProjects = await Promise.all(
                 <div class="tech-icon-wrapper tech-node depth-back float-5">
                     <div class="tech-icon-glass">
                         <svg viewBox="0 0 24 24" fill="none" class="tech-svg">
-                            <path d="M12 2L3 7.2v9.6L12 22l9-5.2V7.2L12 2zm7.5 13.9L12 20.2 4.5 15.9V8.1L12 3.8l7.5 4.3v7.8z" fill="#339933"/>
-                            <path d="M12 6.5l5.2 3v5l-5.2 3-5.2-3v-5l5.2-3z" fill="#66CC33"/>
+                            <path
+                                d="M12 2L3 7.2v9.6L12 22l9-5.2V7.2L12 2zm7.5 13.9L12 20.2 4.5 15.9V8.1L12 3.8l7.5 4.3v7.8z"
+                                fill="#339933"></path>
+                            <path
+                                d="M12 6.5l5.2 3v5l-5.2 3-5.2-3v-5l5.2-3z"
+                                fill="#66CC33"></path>
                         </svg>
                         <span class="tech-name">Node.js</span>
                     </div>
@@ -125,8 +214,11 @@ const renderedProjects = await Promise.all(
                 <div class="tech-icon-wrapper tech-js depth-front float-6">
                     <div class="tech-icon-glass">
                         <svg viewBox="0 0 24 24" fill="none" class="tech-svg">
-                            <rect width="24" height="24" rx="4" fill="#F7DF1E" />
-                            <path d="M12.5 14.5c0 1.2-.8 2-2 2s-2-.8-2-2h1.2c0 .5.3.8.8.8s.8-.3.8-.8v-5h1.2v5zm6 0c0 1.2-.8 2-2 2s-2-.8-2-2h1.2c0 .5.3.8.8.8s.8-.3.8-.8v-.5c0-.8-.5-1.2-1.2-1.5-.8-.3-1.6-.7-1.6-1.7v-.5c0-1.2.8-2 2-2s2 .8 2 2h-1.2c0-.5-.3-.8-.8-.8s-.8.3-.8.8v.5c0 .8.5 1.2 1.2 1.5.8.3 1.6.7 1.6 1.7v.5z" fill="black" />
+                            <rect width="24" height="24" rx="4" fill="#F7DF1E"
+                            ></rect>
+                            <path
+                                d="M12.5 14.5c0 1.2-.8 2-2 2s-2-.8-2-2h1.2c0 .5.3.8.8.8s.8-.3.8-.8v-5h1.2v5zm6 0c0 1.2-.8 2-2 2s-2-.8-2-2h1.2c0 .5.3.8.8.8s.8-.3.8-.8v-.5c0-.8-.5-1.2-1.2-1.5-.8-.3-1.6-.7-1.6-1.7v-.5c0-1.2.8-2 2-2s2 .8 2 2h-1.2c0-.5-.3-.8-.8-.8s-.8.3-.8.8v.5c0 .8.5 1.2 1.2 1.5.8.3 1.6.7 1.6 1.7v.5z"
+                                fill="black"></path>
                         </svg>
                         <span class="tech-name">JavaScript</span>
                     </div>
@@ -136,11 +228,21 @@ const renderedProjects = await Promise.all(
                 <div class="tech-icon-wrapper tech-html depth-back float-7">
                     <div class="tech-icon-glass">
                         <svg viewBox="0 0 24 24" fill="none" class="tech-svg">
-                            <path d="M2.5 2L4.5 20.5L12 22L19.5 20.5L21.5 2H2.5ZM17.5 7H8.5L8.7 9.5H17.2L16.7 15L12 16.2L7.3 15L7 12H9.5L9.7 13.2L12 13.8L14.3 13.2L14.6 9.5H7.1L6.5 4.5H18L17.5 7Z" fill="url(#htmlGradient)"/>
+                            <path
+                                d="M2.5 2L4.5 20.5L12 22L19.5 20.5L21.5 2H2.5ZM17.5 7H8.5L8.7 9.5H17.2L16.7 15L12 16.2L7.3 15L7 12H9.5L9.7 13.2L12 13.8L14.3 13.2L14.6 9.5H7.1L6.5 4.5H18L17.5 7Z"
+                                fill="url(#htmlGradient)"></path>
                             <defs>
-                                <linearGradient id="htmlGradient" x1="2.5" y1="2" x2="21.5" y2="22" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#E44D26"/>
-                                    <stop offset="1" stop-color="#F16529"/>
+                                <linearGradient
+                                    id="htmlGradient"
+                                    x1="2.5"
+                                    y1="2"
+                                    x2="21.5"
+                                    y2="22"
+                                    gradientUnits="userSpaceOnUse"
+                                >
+                                    <stop stop-color="#E44D26"></stop>
+                                    <stop offset="1" stop-color="#F16529"
+                                    ></stop>
                                 </linearGradient>
                             </defs>
                         </svg>
@@ -152,11 +254,21 @@ const renderedProjects = await Promise.all(
                 <div class="tech-icon-wrapper tech-css depth-mid float-8">
                     <div class="tech-icon-glass">
                         <svg viewBox="0 0 24 24" fill="none" class="tech-svg">
-                            <path d="M2.5 2L4.5 20.5L12 22L19.5 20.5L21.5 2H2.5ZM17.2 7.5H8.3L8.5 9.5H16.9L16.4 14.5L12 15.7L7.6 14.5L7.3 11.5H9.8L10 12.8L12 13.3L14 12.8L14.2 9.5H7.1L6.6 4.5H18L17.2 7.5Z" fill="url(#cssGradient)"/>
+                            <path
+                                d="M2.5 2L4.5 20.5L12 22L19.5 20.5L21.5 2H2.5ZM17.2 7.5H8.3L8.5 9.5H16.9L16.4 14.5L12 15.7L7.6 14.5L7.3 11.5H9.8L10 12.8L12 13.3L14 12.8L14.2 9.5H7.1L6.6 4.5H18L17.2 7.5Z"
+                                fill="url(#cssGradient)"></path>
                             <defs>
-                                <linearGradient id="cssGradient" x1="2.5" y1="2" x2="21.5" y2="22" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="#2062AF"/>
-                                    <stop offset="1" stop-color="#3C9CD7"/>
+                                <linearGradient
+                                    id="cssGradient"
+                                    x1="2.5"
+                                    y1="2"
+                                    x2="21.5"
+                                    y2="22"
+                                    gradientUnits="userSpaceOnUse"
+                                >
+                                    <stop stop-color="#2062AF"></stop>
+                                    <stop offset="1" stop-color="#3C9CD7"
+                                    ></stop>
                                 </linearGradient>
                             </defs>
                         </svg>
@@ -164,40 +276,68 @@ const renderedProjects = await Promise.all(
                     </div>
                 </div>
             </div>
-
-
         </div>
     </main>
 
     <section id="projekty">
-        <div class="projekty__heading" data-aos="fade-up" data-aos-duration="800">
+        <div
+            class="projekty__heading"
+            data-aos="fade-up"
+            data-aos-duration="800"
+        >
             <h2>Nasze <span class="gradient__text">realizacje</span></h2>
         </div>
-        <div class="c3d__scene" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div
+            class="c3d__scene"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+        >
             <div class="c3d__track" id="c3dTrack">
-                {renderedProjects.map((project) => (
-                    <ProjectCard
-                        slug={project.id}
-                        title={project.data.title}
-                        tag={project.data.tag}
-                        color={project.data.color}
-                        accent={project.data.accent}
-                        thumbnail={project.data.thumbnail}
-                        thumbnailAlt={project.data.thumbnailAlt}
-                    />
-                ))}
+                {
+                    renderedProjects.map((project) => (
+                        <ProjectCard
+                            slug={project.id}
+                            title={project.data.title}
+                            tag={project.data.tag}
+                            color={project.data.color}
+                            accent={project.data.accent}
+                            thumbnail={project.data.thumbnail}
+                            thumbnailAlt={project.data.thumbnailAlt}
+                        />
+                    ))
+                }
             </div>
-            <button class="c3d__nav c3d__nav--prev" id="c3dPrev" aria-label="Poprzedni"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="c3d__nav c3d__nav--next" id="c3dNext" aria-label="Następny"><i class="fa-solid fa-chevron-right"></i></button>
+            <button
+                class="c3d__nav c3d__nav--prev"
+                id="c3dPrev"
+                aria-label="Poprzedni"
+                ><i class="fa-solid fa-chevron-left"></i></button
+            >
+            <button
+                class="c3d__nav c3d__nav--next"
+                id="c3dNext"
+                aria-label="Następny"
+                ><i class="fa-solid fa-chevron-right"></i></button
+            >
         </div>
         <div class="c3d__dots" id="c3dDots"></div>
     </section>
 
-    <section id="cennik-teaser" class="cennik-teaser" data-aos="fade-up" data-aos-duration="1000">
+    <section
+        id="cennik-teaser"
+        class="cennik-teaser"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+    >
         <div class="cennik-teaser__box">
             <div class="cennik-teaser__content">
                 <h2>Chcesz poznać koszt swojej nowej strony?</h2>
-                <p>Sprawdź nasz przejrzysty cennik pakietów lub skontaktuj się z nami, aby otrzymać bezpłatną, indywidualną wycenę dopasowaną do Twoich potrzeb.</p>
+                <p>
+                    Sprawdź nasz przejrzysty cennik pakietów lub skontaktuj się
+                    z nami, aby otrzymać bezpłatną, indywidualną wycenę
+                    dopasowaną do Twoich potrzeb.
+                </p>
             </div>
             <div class="cennik-teaser__action">
                 <a href="/cennik" class="cennik-btn-glow">
@@ -210,16 +350,10 @@ const renderedProjects = await Promise.all(
     <ContactForm />
 
     <div class="google-map-embed" id="mapContainer">
-        <div class="map-placeholder" id="mapPlaceholder">
-            <div class="map-placeholder__glass">
-                <div class="map-placeholder__icon-wrapper">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                </div>
-                <h3>Interaktywna mapa Google</h3>
-                <p>Kliknij przycisk poniżej, aby załadować interaktywną mapę dojazdu do biura web2sell. Pozwoli to zaoszczędzić transfer danych na Twoim telefonie.</p>
-                <button class="btn-glass btn-primary" id="loadMapBtn">
-                    <span>Załaduj mapę</span>
-                </button>
+        <div class="map-skeleton" id="mapSkeleton">
+            <div class="map-skeleton__inner">
+                <i class="fa-solid fa-circle-notch fa-spin"></i>
+                <span>Ładowanie mapy google...</span>
             </div>
         </div>
     </div>
@@ -233,62 +367,34 @@ const renderedProjects = await Promise.all(
             border-top: 1px solid var(--glass-border);
             border-bottom: 1px solid var(--glass-border);
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .map-placeholder {
+        .map-skeleton {
             position: absolute;
             inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.04) 0%, rgba(0, 0, 0, 0) 80%), var(--bg-color);
-            transition: opacity 0.4s ease;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(139, 92, 246, 0.03) 0%,
+                    rgba(0, 0, 0, 0) 80%
+                ),
+                var(--bg-color);
+            transition: opacity 0.6s ease;
             z-index: 2;
         }
-        .map-placeholder__glass {
-            max-width: 480px;
-            width: 100%;
-            padding: 28px;
-            background: var(--card-grad-glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: var(--glass-shadow);
-            text-align: center;
+        .map-skeleton__inner {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 14px;
-        }
-        .map-placeholder__icon-wrapper {
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-blue);
-            font-size: 22px;
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.1);
-        }
-        .map-placeholder__glass h3 {
-            font-family: 'Figtree', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0;
-        }
-        .map-placeholder__glass p {
-            font-size: 0.85rem;
+            gap: 12px;
             color: var(--text-secondary);
-            line-height: 1.55;
-            margin: 0 0 4px;
+            font-size: 0.9rem;
+        }
+        .map-skeleton__inner i {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
         }
         .google-map-embed :global(iframe) {
             position: absolute;
@@ -297,56 +403,99 @@ const renderedProjects = await Promise.all(
             height: 100%;
             border: 0;
             z-index: 1;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .google-map-embed.loaded :global(iframe) {
+            opacity: 1;
         }
     </style>
 
     <script>
-        (function() {
-            const loadMapBtn = document.getElementById('loadMapBtn');
-            const mapContainer = document.getElementById('mapContainer');
-            const mapPlaceholder = document.getElementById('mapPlaceholder');
+        (function () {
+            const mapContainer = document.getElementById("mapContainer");
+            const mapSkeleton = document.getElementById("mapSkeleton");
+            let loaded = false;
 
-            if (loadMapBtn && mapContainer && mapPlaceholder) {
+            if (mapContainer && mapSkeleton) {
                 const loadMap = () => {
-                    const iframe = document.createElement('iframe');
-                    iframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164316.23301606337!2d19.874760544328527!3d49.947282428156846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell!5e0!3m2!1spl!2spl!4v1779291902227!5m2!1spl!2spl";
+                    if (loaded) return;
+                    loaded = true;
+
+                    // Warm up DNS / Preconnect
+                    const preconnect1 = document.createElement("link");
+                    preconnect1.rel = "preconnect";
+                    preconnect1.href = "https://maps.googleapis.com";
+                    const preconnect2 = document.createElement("link");
+                    preconnect2.rel = "preconnect";
+                    preconnect2.href = "https://maps.gstatic.com";
+                    document.head.appendChild(preconnect1);
+                    document.head.appendChild(preconnect2);
+
+                    // Create iframe
+                    const iframe = document.createElement("iframe");
+                    iframe.src =
+                        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164316.23301606337!2d19.874760544328527!3d49.947282428156846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell!5e0!3m2!1spl!2spl!4v1779291902227!5m2!1spl!2spl";
                     iframe.width = "100%";
                     iframe.height = "400";
                     iframe.style.border = "0";
                     iframe.style.display = "block";
                     iframe.title = "Lokalizacja web2sell na mapie Google";
-                    iframe.setAttribute('allowfullscreen', '');
-                    iframe.setAttribute('loading', 'lazy');
-                    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-                    
+                    iframe.setAttribute("allowfullscreen", "");
+                    iframe.setAttribute(
+                        "referrerpolicy",
+                        "no-referrer-when-downgrade",
+                    );
+
+                    // Once iframe loads, fade it in and fade out the skeleton
+                    iframe.addEventListener("load", () => {
+                        mapContainer.classList.add("loaded");
+                        mapSkeleton.style.opacity = "0";
+                        setTimeout(() => {
+                            mapSkeleton.style.display = "none";
+                        }, 600);
+                    });
+
                     mapContainer.appendChild(iframe);
-                    
-                    mapPlaceholder.style.opacity = '0';
-                    setTimeout(() => {
-                        mapPlaceholder.style.display = 'none';
-                    }, 400);
+
+                    // Clean up global listeners
+                    window.removeEventListener("scroll", checkScroll);
+                    window.removeEventListener("touchstart", checkScroll);
                 };
 
-                loadMapBtn.addEventListener('click', loadMap);
+                const checkScroll = () => {
+                    if (window.scrollY > 200) {
+                        loadMap();
+                    }
+                };
 
-                // Setup intersection observer to warm up DNS preconnects when user is near
-                if ('IntersectionObserver' in window) {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const preconnect1 = document.createElement('link');
-                                preconnect1.rel = 'preconnect';
-                                preconnect1.href = 'https://maps.googleapis.com';
-                                const preconnect2 = document.createElement('link');
-                                preconnect2.rel = 'preconnect';
-                                preconnect2.href = 'https://maps.gstatic.com';
-                                document.head.appendChild(preconnect1);
-                                document.head.appendChild(preconnect2);
-                                observer.disconnect();
-                            }
-                        });
-                    }, { rootMargin: '300px' });
+                // Listen to scroll and touchstart
+                window.addEventListener("scroll", checkScroll, {
+                    passive: true,
+                });
+                window.addEventListener("touchstart", checkScroll, {
+                    passive: true,
+                });
+
+                // Also use IntersectionObserver as a backup/proximity detector
+                if ("IntersectionObserver" in window) {
+                    const observer = new IntersectionObserver(
+                        (entries) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    loadMap();
+                                    observer.disconnect();
+                                }
+                            });
+                        },
+                        { rootMargin: "600px" },
+                    );
                     observer.observe(mapContainer);
+                }
+
+                // Fallback check in case page is already scrolled on load
+                if (window.scrollY > 200) {
+                    loadMap();
                 }
             }
         })();
@@ -355,372 +504,473 @@ const renderedProjects = await Promise.all(
     <Footer isHome={true} />
 
     <!-- Pre-rendered project modals (hidden, opened via JS) -->
-    {renderedProjects.map((project) => (
-        <ProjectModal
-            slug={project.id}
-            title={project.data.title}
-            tag={project.data.tag}
-            color={project.data.color}
-            url={project.data.url}
-            gallery={project.data.gallery}
-            Content={project.Content}
-        />
-    ))}
+    {
+        renderedProjects.map((project) => (
+            <ProjectModal
+                slug={project.id}
+                title={project.data.title}
+                tag={project.data.tag}
+                color={project.data.color}
+                url={project.data.url}
+                gallery={project.data.gallery}
+                Content={project.Content}
+            />
+        ))
+    }
 
     <!-- Typing animation -->
     <script>
-    (function () {
-        const titleGhost = document.getElementById('type-title-ghost');
-        const descGhost = document.getElementById('type-desc-ghost');
-        const titleElement = document.getElementById('type-title');
-        const descElement = document.getElementById('type-desc');
+        (function () {
+            const titleGhost = document.getElementById("type-title-ghost");
+            const descGhost = document.getElementById("type-desc-ghost");
+            const titleElement = document.getElementById("type-title");
+            const descElement = document.getElementById("type-desc");
 
-        const titleHTML = "Zaprojektujemy.<br><span class='gradient__text text-glow' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.";
-        const descHTML = "W web2sell porzucamy popularne, obciążające systemy zarządzania treścią na rzecz nowoczesnych rozwiązań programistycznych. Budujemy witryny od podstaw, wykorzystując autorski kod, który gwarantuje najwyższą szybkość działania, bezpieczeństwo oraz pełną optymalizację pod wyszukiwarki. Dzięki eliminacji zbędnych wtyczek i szablonów, Twoja lokalna firma zyska unikalne narzędzie, które zapewnia użytkownikom błyskawiczny dostęp do informacji i realnie wspiera Twój rozwój w sieci.";
+            const titleHTML =
+                "Zaprojektujemy.<br><span class='gradient__text text-glow' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.";
+            const descHTML =
+                "W web2sell porzucamy popularne, obciążające systemy zarządzania treścią na rzecz nowoczesnych rozwiązań programistycznych. Budujemy witryny od podstaw, wykorzystując autorski kod, który gwarantuje najwyższą szybkość działania, bezpieczeństwo oraz pełną optymalizację pod wyszukiwarki. Dzięki eliminacji zbędnych wtyczek i szablonów, Twoja lokalna firma zyska unikalne narzędzie, które zapewnia użytkownikom błyskawiczny dostęp do informacji i realnie wspiera Twój rozwój w sieci.";
 
-        if (titleGhost) titleGhost.innerHTML = titleHTML;
-        if (descGhost) descGhost.innerHTML = descHTML;
+            if (titleGhost) titleGhost.innerHTML = titleHTML;
+            if (descGhost) descGhost.innerHTML = descHTML;
 
-        function typeWriter(element, html, speed, callback) {
-            let i = 0;
-            let currentHTML = "";
-            function type() {
-                if (i < html.length) {
-                    if (html[i] === '<') {
-                        let endTag = html.indexOf('>', i);
-                        currentHTML += html.substring(i, endTag + 1);
-                        i = endTag + 1;
-                    } else {
-                        currentHTML += html[i];
-                        i++;
-                    }
-                    element.innerHTML = currentHTML;
-                    setTimeout(type, speed);
-                } else if (callback) {
-                    callback();
-                }
-            }
-            type();
-        }
-
-        setTimeout(() => {
-            if (titleElement) {
-                typeWriter(titleElement, titleHTML, 40, () => {
-                    setTimeout(() => {
-                        if (descElement) {
-                            descElement.innerHTML = descHTML;
-                            descElement.classList.add('animate-fade-in-left');
+            function typeWriter(element, html, speed, callback) {
+                let i = 0;
+                let currentHTML = "";
+                function type() {
+                    if (i < html.length) {
+                        if (html[i] === "<") {
+                            let endTag = html.indexOf(">", i);
+                            currentHTML += html.substring(i, endTag + 1);
+                            i = endTag + 1;
+                        } else {
+                            currentHTML += html[i];
+                            i++;
                         }
-                    }, 400);
-                });
+                        element.innerHTML = currentHTML;
+                        setTimeout(type, speed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                type();
             }
-        }, 600);
-    })();
+
+            setTimeout(() => {
+                if (titleElement) {
+                    typeWriter(titleElement, titleHTML, 40, () => {
+                        setTimeout(() => {
+                            if (descElement) {
+                                descElement.innerHTML = descHTML;
+                                descElement.classList.add(
+                                    "animate-fade-in-left",
+                                );
+                            }
+                        }, 400);
+                    });
+                }
+            }, 600);
+        })();
     </script>
 
     <!-- 3D Slider -->
     <script>
-    (function () {
-        var cards = Array.from(document.querySelectorAll('.c3d__card'));
-        var dotsEl = document.getElementById('c3dDots');
-        var prevBtn = document.getElementById('c3dPrev');
-        var nextBtn = document.getElementById('c3dNext');
-        var total = cards.length;
-        var current = 0;
-        var autoTimer = null;
-        var CARD_W = 320;
-        var GAP = 360;
+        (function () {
+            var cards = Array.from(document.querySelectorAll(".c3d__card"));
+            var dotsEl = document.getElementById("c3dDots");
+            var prevBtn = document.getElementById("c3dPrev");
+            var nextBtn = document.getElementById("c3dNext");
+            var total = cards.length;
+            var current = 0;
+            var autoTimer = null;
+            var CARD_W = 320;
+            var GAP = 360;
 
-        function updateDimensions() {
-            var w = window.innerWidth;
-            if (w <= 600) { CARD_W = 240; GAP = 260; }
-            else if (w <= 900) { CARD_W = 270; GAP = 300; }
-            else { CARD_W = 320; GAP = 360; }
-        }
-        updateDimensions();
-        window.addEventListener('resize', function () { updateDimensions(); applyLayout(false); });
-
-        // Build dots
-        cards.forEach(function (_, i) {
-            var d = document.createElement('button');
-            d.className = 'c3d__dot';
-            d.setAttribute('aria-label', 'Slajd ' + (i + 1));
-            d.addEventListener('click', function () { goTo(i); });
-            dotsEl.appendChild(d);
-        });
-
-        // Handle card clicks → open modal
-        var currentDragDelta = 0;
-        cards.forEach(function (card) {
-            card.addEventListener('click', function (e) {
-                if (Math.abs(currentDragDelta) > 5) { e.preventDefault(); return; }
-                var slug = card.dataset.slug;
-                if (slug) {
-                    var modal = document.getElementById('modal-' + slug);
-                    if (modal) openModal(modal);
+            function updateDimensions() {
+                var w = window.innerWidth;
+                if (w <= 600) {
+                    CARD_W = 240;
+                    GAP = 260;
+                } else if (w <= 900) {
+                    CARD_W = 270;
+                    GAP = 300;
+                } else {
+                    CARD_W = 320;
+                    GAP = 360;
                 }
-            });
-        });
-
-        function applyLayout(dragging, dragOffset) {
-            if (dragOffset === undefined) dragOffset = 0;
-            cards.forEach(function (card, i) {
-                var rel = i - current;
-                var abs = Math.abs(rel);
-                var tx = rel * GAP - CARD_W / 2 + dragOffset;
-                var ty = -50 + (abs === 0 ? -10 : 0);
-                var scale = abs === 0 ? 1 : (abs === 1 ? 0.78 : 0.62);
-                var opacity = abs === 0 ? 1 : (abs === 1 ? 0.55 : (abs === 2 ? 0.3 : 0.15));
-                var brightness = abs === 0 ? 1 : (abs === 1 ? 0.55 : 0.3);
-                var zIndex = abs === 0 ? 20 : (abs === 1 ? 15 : 5);
-                var shadow = abs === 0
-                    ? '0 50px 100px rgba(0,0,0,0.35), 0 20px 40px rgba(139,92,246,0.2)'
-                    : '0 15px 35px rgba(0,0,0,0.15)';
-
-                card.style.transform = 'translate(' + tx + 'px, ' + ty + '%) scale(' + scale + ')';
-                card.style.opacity = opacity;
-                card.style.filter = 'brightness(' + brightness + ')';
-                card.style.zIndex = zIndex;
-                card.style.boxShadow = shadow;
-
-                if (!dragging) card.classList.toggle('is-active', i === current);
-                card.style.transition = dragging
-                    ? 'transform 0.1s ease-out'
-                    : 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease';
-            });
-
-            if (!dragging) {
-                var dots = dotsEl.querySelectorAll('.c3d__dot');
-                dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
             }
-        }
+            updateDimensions();
+            window.addEventListener("resize", function () {
+                updateDimensions();
+                applyLayout(false);
+            });
 
-        function goTo(idx) {
-            if (idx < 0) idx = total - 1;
-            else if (idx >= total) idx = 0;
-            current = idx;
+            // Build dots
+            cards.forEach(function (_, i) {
+                var d = document.createElement("button");
+                d.className = "c3d__dot";
+                d.setAttribute("aria-label", "Slajd " + (i + 1));
+                d.addEventListener("click", function () {
+                    goTo(i);
+                });
+                dotsEl.appendChild(d);
+            });
+
+            // Handle card clicks → open modal
+            var currentDragDelta = 0;
+            cards.forEach(function (card) {
+                card.addEventListener("click", function (e) {
+                    if (Math.abs(currentDragDelta) > 5) {
+                        e.preventDefault();
+                        return;
+                    }
+                    var slug = card.dataset.slug;
+                    if (slug) {
+                        var modal = document.getElementById("modal-" + slug);
+                        if (modal) openModal(modal);
+                    }
+                });
+            });
+
+            function applyLayout(dragging, dragOffset) {
+                if (dragOffset === undefined) dragOffset = 0;
+                cards.forEach(function (card, i) {
+                    var rel = i - current;
+                    var abs = Math.abs(rel);
+                    var tx = rel * GAP - CARD_W / 2 + dragOffset;
+                    var ty = -50 + (abs === 0 ? -10 : 0);
+                    var scale = abs === 0 ? 1 : abs === 1 ? 0.78 : 0.62;
+                    var opacity =
+                        abs === 0
+                            ? 1
+                            : abs === 1
+                              ? 0.55
+                              : abs === 2
+                                ? 0.3
+                                : 0.15;
+                    var brightness = abs === 0 ? 1 : abs === 1 ? 0.55 : 0.3;
+                    var zIndex = abs === 0 ? 20 : abs === 1 ? 15 : 5;
+                    var shadow =
+                        abs === 0
+                            ? "0 50px 100px rgba(0,0,0,0.35), 0 20px 40px rgba(139,92,246,0.2)"
+                            : "0 15px 35px rgba(0,0,0,0.15)";
+
+                    card.style.transform =
+                        "translate(" +
+                        tx +
+                        "px, " +
+                        ty +
+                        "%) scale(" +
+                        scale +
+                        ")";
+                    card.style.opacity = opacity;
+                    card.style.filter = "brightness(" + brightness + ")";
+                    card.style.zIndex = zIndex;
+                    card.style.boxShadow = shadow;
+
+                    if (!dragging)
+                        card.classList.toggle("is-active", i === current);
+                    card.style.transition = dragging
+                        ? "transform 0.1s ease-out"
+                        : "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease";
+                });
+
+                if (!dragging) {
+                    var dots = dotsEl.querySelectorAll(".c3d__dot");
+                    dots.forEach(function (d, i) {
+                        d.classList.toggle("is-active", i === current);
+                    });
+                }
+            }
+
+            function goTo(idx) {
+                if (idx < 0) idx = total - 1;
+                else if (idx >= total) idx = 0;
+                current = idx;
+                applyLayout(false, 0);
+                resetAuto();
+            }
+
+            function resetAuto() {
+                if (autoTimer) clearInterval(autoTimer);
+                if (document.querySelector(".project-modal.is-open")) return;
+                autoTimer = setInterval(function () {
+                    goTo(current + 1);
+                }, 3500);
+            }
+            window.sliderResetAuto = resetAuto;
+            window.sliderStopAuto = function () {
+                if (autoTimer) clearInterval(autoTimer);
+            };
+
+            prevBtn.addEventListener("click", function () {
+                goTo(current - 1);
+            });
+            nextBtn.addEventListener("click", function () {
+                goTo(current + 1);
+            });
+
+            // Drag
+            var startX = 0;
+            var isDragging = false;
+            var scene = document.querySelector(".c3d__scene");
+
+            scene.addEventListener("mousedown", function (e) {
+                isDragging = true;
+                startX = e.clientX;
+                currentDragDelta = 0;
+                scene.classList.add("is-dragging");
+                if (autoTimer) clearInterval(autoTimer);
+            });
+            window.addEventListener("mousemove", function (e) {
+                if (!isDragging) return;
+                currentDragDelta = e.clientX - startX;
+                if (current === 0 && currentDragDelta > 0)
+                    currentDragDelta *= 0.3;
+                else if (current === total - 1 && currentDragDelta < 0)
+                    currentDragDelta *= 0.3;
+                applyLayout(true, currentDragDelta);
+            });
+            window.addEventListener("mouseup", function () {
+                if (!isDragging) return;
+                isDragging = false;
+                scene.classList.remove("is-dragging");
+                if (Math.abs(currentDragDelta) > 55)
+                    goTo(currentDragDelta < 0 ? current + 1 : current - 1);
+                else {
+                    applyLayout(false, 0);
+                    resetAuto();
+                }
+                setTimeout(function () {
+                    currentDragDelta = 0;
+                }, 0);
+            });
+
+            scene.addEventListener(
+                "touchstart",
+                function (e) {
+                    isDragging = true;
+                    startX = e.touches[0].clientX;
+                    currentDragDelta = 0;
+                    if (autoTimer) clearInterval(autoTimer);
+                    scene.classList.add("is-dragging");
+                },
+                { passive: true },
+            );
+            scene.addEventListener(
+                "touchmove",
+                function (e) {
+                    if (!isDragging) return;
+                    currentDragDelta = e.touches[0].clientX - startX;
+                    if (current === 0 && currentDragDelta > 0)
+                        currentDragDelta *= 0.3;
+                    else if (current === total - 1 && currentDragDelta < 0)
+                        currentDragDelta *= 0.3;
+                    applyLayout(true, currentDragDelta);
+                },
+                { passive: true },
+            );
+            scene.addEventListener("touchend", function () {
+                if (!isDragging) return;
+                isDragging = false;
+                scene.classList.remove("is-dragging");
+                if (Math.abs(currentDragDelta) > 50)
+                    goTo(currentDragDelta < 0 ? current + 1 : current - 1);
+                else {
+                    applyLayout(false, 0);
+                    resetAuto();
+                }
+                setTimeout(function () {
+                    currentDragDelta = 0;
+                }, 0);
+            });
+
             applyLayout(false, 0);
             resetAuto();
-        }
-
-        function resetAuto() {
-            if (autoTimer) clearInterval(autoTimer);
-            if (document.querySelector('.project-modal.is-open')) return;
-            autoTimer = setInterval(function () { goTo(current + 1); }, 3500);
-        }
-        window.sliderResetAuto = resetAuto;
-        window.sliderStopAuto = function() { if (autoTimer) clearInterval(autoTimer); };
-
-        prevBtn.addEventListener('click', function () { goTo(current - 1); });
-        nextBtn.addEventListener('click', function () { goTo(current + 1); });
-
-        // Drag
-        var startX = 0;
-        var isDragging = false;
-        var scene = document.querySelector('.c3d__scene');
-
-        scene.addEventListener('mousedown', function (e) {
-            isDragging = true; startX = e.clientX; currentDragDelta = 0;
-            scene.classList.add('is-dragging');
-            if (autoTimer) clearInterval(autoTimer);
-        });
-        window.addEventListener('mousemove', function (e) {
-            if (!isDragging) return;
-            currentDragDelta = e.clientX - startX;
-            if (current === 0 && currentDragDelta > 0) currentDragDelta *= 0.3;
-            else if (current === total - 1 && currentDragDelta < 0) currentDragDelta *= 0.3;
-            applyLayout(true, currentDragDelta);
-        });
-        window.addEventListener('mouseup', function () {
-            if (!isDragging) return;
-            isDragging = false;
-            scene.classList.remove('is-dragging');
-            if (Math.abs(currentDragDelta) > 55) goTo(currentDragDelta < 0 ? current + 1 : current - 1);
-            else { applyLayout(false, 0); resetAuto(); }
-            setTimeout(function () { currentDragDelta = 0; }, 0);
-        });
-
-        scene.addEventListener('touchstart', function (e) {
-            isDragging = true; startX = e.touches[0].clientX; currentDragDelta = 0;
-            if (autoTimer) clearInterval(autoTimer);
-            scene.classList.add('is-dragging');
-        }, { passive: true });
-        scene.addEventListener('touchmove', function (e) {
-            if (!isDragging) return;
-            currentDragDelta = e.touches[0].clientX - startX;
-            if (current === 0 && currentDragDelta > 0) currentDragDelta *= 0.3;
-            else if (current === total - 1 && currentDragDelta < 0) currentDragDelta *= 0.3;
-            applyLayout(true, currentDragDelta);
-        }, { passive: true });
-        scene.addEventListener('touchend', function () {
-            if (!isDragging) return;
-            isDragging = false;
-            scene.classList.remove('is-dragging');
-            if (Math.abs(currentDragDelta) > 50) goTo(currentDragDelta < 0 ? current + 1 : current - 1);
-            else { applyLayout(false, 0); resetAuto(); }
-            setTimeout(function () { currentDragDelta = 0; }, 0);
-        });
-
-        applyLayout(false, 0);
-        resetAuto();
-    })();
+        })();
     </script>
 
     <!-- Modal Manager (Bundled & Defer, with dynamic Swiper load on-demand) -->
     <script>
-    (function () {
-        var activeSwipers = [];
-        var swiperLoaded = false;
+        (function () {
+            var activeSwipers = [];
+            var swiperLoaded = false;
 
-        window.openModal = async function (modal) {
-            modal.setAttribute('aria-hidden', 'false');
-            modal.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-            if (window.sliderStopAuto) window.sliderStopAuto();
+            window.openModal = async function (modal) {
+                modal.setAttribute("aria-hidden", "false");
+                modal.classList.add("is-open");
+                document.body.style.overflow = "hidden";
+                if (window.sliderStopAuto) window.sliderStopAuto();
 
-            // Dynamic lazy loading for images in the opened modal
-            var lazyImgs = modal.querySelectorAll('.modal-lazy-img');
-            lazyImgs.forEach(function (img) {
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
+                // Dynamic lazy loading for images in the opened modal
+                var lazyImgs = modal.querySelectorAll(".modal-lazy-img");
+                lazyImgs.forEach(function (img) {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute("data-src");
 
-                    var handleLoad = function () {
-                        img.style.opacity = '1';
-                        var parentSlide = img.closest('.swiper-slide-shimmer');
-                        if (parentSlide) {
-                            parentSlide.classList.remove('swiper-slide-shimmer');
+                        var handleLoad = function () {
+                            img.style.opacity = "1";
+                            var parentSlide = img.closest(
+                                ".swiper-slide-shimmer",
+                            );
+                            if (parentSlide) {
+                                parentSlide.classList.remove(
+                                    "swiper-slide-shimmer",
+                                );
+                            }
+                        };
+
+                        img.addEventListener("load", handleLoad);
+
+                        // Check if already cached/completed by browser
+                        if (img.complete) {
+                            handleLoad();
                         }
-                    };
-
-                    img.addEventListener('load', handleLoad);
-
-                    // Check if already cached/completed by browser
-                    if (img.complete) {
-                        handleLoad();
                     }
-                }
-            });
-
-            // Init Swiper for gallery
-            var swiperEl = modal.querySelector('.project-gallery-swiper');
-            if (swiperEl) {
-                if (!swiperLoaded) {
-                    // Dynamically inject Swiper CSS
-                    var link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
-                    document.head.appendChild(link);
-
-                    // Dynamically inject Swiper JS
-                    await new Promise(function (resolve) {
-                        var script = document.createElement('script');
-                        script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-                        script.onload = resolve;
-                        document.body.appendChild(script);
-                    });
-                    swiperLoaded = true;
-                }
-
-                var swiper = new Swiper(swiperEl, {
-                    loop: swiperEl.querySelectorAll('.swiper-slide').length > 1,
-                    pagination: { el: swiperEl.querySelector('.swiper-pagination'), clickable: true },
-                    navigation: {
-                        nextEl: swiperEl.querySelector('.swiper-button-next'),
-                        prevEl: swiperEl.querySelector('.swiper-button-prev'),
-                    },
-                    keyboard: { enabled: true },
-                    grabCursor: true,
-                    observer: true,
-                    observeParents: true
                 });
-                activeSwipers.push(swiper);
-            }
-        };
 
-        window.closeModal = function (modal) {
-            modal.classList.remove('is-open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            if (window.sliderResetAuto) window.sliderResetAuto();
+                // Init Swiper for gallery
+                var swiperEl = modal.querySelector(".project-gallery-swiper");
+                if (swiperEl) {
+                    if (!swiperLoaded) {
+                        // Dynamically inject Swiper CSS
+                        var link = document.createElement("link");
+                        link.rel = "stylesheet";
+                        link.href =
+                            "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
+                        document.head.appendChild(link);
 
-            // Destroy Swiper instances
-            activeSwipers.forEach(function (s) { s.destroy(true, true); });
-            activeSwipers = [];
-        };
+                        // Dynamically inject Swiper JS
+                        await new Promise(function (resolve) {
+                            var script = document.createElement("script");
+                            script.src =
+                                "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js";
+                            script.onload = resolve;
+                            document.body.appendChild(script);
+                        });
+                        swiperLoaded = true;
+                    }
 
-        // Close button
-        document.querySelectorAll('.project-modal__close').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                closeModal(btn.closest('.project-modal'));
+                    var swiper = new Swiper(swiperEl, {
+                        loop:
+                            swiperEl.querySelectorAll(".swiper-slide").length >
+                            1,
+                        pagination: {
+                            el: swiperEl.querySelector(".swiper-pagination"),
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: swiperEl.querySelector(
+                                ".swiper-button-next",
+                            ),
+                            prevEl: swiperEl.querySelector(
+                                ".swiper-button-prev",
+                            ),
+                        },
+                        keyboard: { enabled: true },
+                        grabCursor: true,
+                        observer: true,
+                        observeParents: true,
+                    });
+                    activeSwipers.push(swiper);
+                }
+            };
+
+            window.closeModal = function (modal) {
+                modal.classList.remove("is-open");
+                modal.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+                if (window.sliderResetAuto) window.sliderResetAuto();
+
+                // Destroy Swiper instances
+                activeSwipers.forEach(function (s) {
+                    s.destroy(true, true);
+                });
+                activeSwipers = [];
+            };
+
+            // Close button
+            document
+                .querySelectorAll(".project-modal__close")
+                .forEach(function (btn) {
+                    btn.addEventListener("click", function () {
+                        closeModal(btn.closest(".project-modal"));
+                    });
+                });
+
+            // Backdrop click
+            document
+                .querySelectorAll(".project-modal__backdrop")
+                .forEach(function (backdrop) {
+                    backdrop.addEventListener("click", function () {
+                        closeModal(backdrop.closest(".project-modal"));
+                    });
+                });
+
+            // Escape key
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") {
+                    var openModal = document.querySelector(
+                        ".project-modal.is-open",
+                    );
+                    if (openModal) closeModal(openModal);
+                }
             });
-        });
-
-        // Backdrop click
-        document.querySelectorAll('.project-modal__backdrop').forEach(function (backdrop) {
-            backdrop.addEventListener('click', function () {
-                closeModal(backdrop.closest('.project-modal'));
-            });
-        });
-
-        // Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                var openModal = document.querySelector('.project-modal.is-open');
-                if (openModal) closeModal(openModal);
-            }
-        });
-    })();
+        })();
     </script>
-
-
-
 
     <!-- Technology Interactive Drag Controller -->
     <script>
-    (function () {
-        var glasses = document.querySelectorAll('.tech-icon-glass');
-        var isDragging = false;
-        var startX = 0, startY = 0;
-        var activeGlass = null;
+        (function () {
+            var glasses = document.querySelectorAll(".tech-icon-glass");
+            var isDragging = false;
+            var startX = 0,
+                startY = 0;
+            var activeGlass = null;
 
-        glasses.forEach(function (glass) {
-            glass.addEventListener('pointerdown', function (e) {
-                if (e.button !== 0) return;
-                e.preventDefault();
-                isDragging = true;
-                startX = e.clientX;
-                startY = e.clientY;
-                activeGlass = glass;
-                
-                glass.classList.add('is-dragging');
-                glass.setPointerCapture(e.pointerId);
+            glasses.forEach(function (glass) {
+                glass.addEventListener("pointerdown", function (e) {
+                    if (e.button !== 0) return;
+                    e.preventDefault();
+                    isDragging = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    activeGlass = glass;
+
+                    glass.classList.add("is-dragging");
+                    glass.setPointerCapture(e.pointerId);
+                });
+
+                glass.addEventListener("pointermove", function (e) {
+                    if (!isDragging || activeGlass !== glass) return;
+                    var dx = e.clientX - startX;
+                    var dy = e.clientY - startY;
+
+                    // Dynamic drag with 1.2x scale and visual Z displacement
+                    glass.style.transform =
+                        "translate(" +
+                        dx +
+                        "px, " +
+                        dy +
+                        "px) scale(1.2) translateZ(40px)";
+                });
+
+                var handleRelease = function (e) {
+                    if (!isDragging || activeGlass !== glass) return;
+                    glass.releasePointerCapture(e.pointerId);
+                    glass.classList.remove("is-dragging");
+
+                    // Reset transform; the CSS transition on .tech-icon-glass will smoothly animate it back to original place
+                    glass.style.transform = "";
+
+                    isDragging = false;
+                    activeGlass = null;
+                };
+
+                glass.addEventListener("pointerup", handleRelease);
+                glass.addEventListener("pointercancel", handleRelease);
             });
-
-            glass.addEventListener('pointermove', function (e) {
-                if (!isDragging || activeGlass !== glass) return;
-                var dx = e.clientX - startX;
-                var dy = e.clientY - startY;
-                
-                // Dynamic drag with 1.2x scale and visual Z displacement
-                glass.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) scale(1.2) translateZ(40px)';
-            });
-
-            var handleRelease = function (e) {
-                if (!isDragging || activeGlass !== glass) return;
-                glass.releasePointerCapture(e.pointerId);
-                glass.classList.remove('is-dragging');
-                
-                // Reset transform; the CSS transition on .tech-icon-glass will smoothly animate it back to original place
-                glass.style.transform = '';
-                
-                isDragging = false;
-                activeGlass = null;
-            };
-
-            glass.addEventListener('pointerup', handleRelease);
-            glass.addEventListener('pointercancel', handleRelease);
-        });
-    })();
+        })();
     </script>
 </Layout>
