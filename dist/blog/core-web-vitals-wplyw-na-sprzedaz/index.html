@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><script>
         (function() {
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            if (savedTheme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
             } else {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -29,7 +29,45 @@
         font-display: swap;
         src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2') format('woff2');
       }
-    </style><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript><!-- Styles --><!-- Google Analytics (Delayed non-blocking initialization to protect Main Thread & CPU metrics) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script type="module">(function(){var n=!1;function e(){if(!n){n=!0,window.removeEventListener("scroll",e),window.removeEventListener("mousemove",e),window.removeEventListener("touchstart",e),window.removeEventListener("keydown",e);var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP",document.head.appendChild(t),window.dataLayer=window.dataLayer||[],window.gtag=function(){window.dataLayer.push(arguments)},window.gtag("js",new Date),window.gtag("config","G-QZ55XLZEDP")}}setTimeout(e,3500),window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("mousemove",e,{passive:!0}),window.addEventListener("touchstart",e,{passive:!0}),window.addEventListener("keydown",e,{passive:!0})})();</script><!-- Structured Data --><script type="application/ld+json">
+    </style><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript><!-- Styles --><!-- Google Analytics (Conditional load based on user cookie consent) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script>
+        (function() {
+            window.initGA = function() {
+                if (window.gaInitialized) return;
+                window.gaInitialized = true;
+
+                // Inject gtag.js
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP';
+                document.head.appendChild(script);
+
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function() { window.dataLayer.push(arguments); };
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-QZ55XLZEDP');
+            };
+
+            const consent = localStorage.getItem('cookie-consent');
+            if (consent === 'accepted') {
+                // User has already given consent. Load GA non-blockingly with delayed strategy.
+                var gaTriggered = false;
+                function triggerGA() {
+                    if (gaTriggered) return;
+                    gaTriggered = true;
+                    window.removeEventListener('scroll', triggerGA);
+                    window.removeEventListener('mousemove', triggerGA);
+                    window.removeEventListener('touchstart', triggerGA);
+                    window.removeEventListener('keydown', triggerGA);
+                    window.initGA();
+                }
+                setTimeout(triggerGA, 3000);
+                window.addEventListener('scroll', triggerGA, { passive: true });
+                window.addEventListener('mousemove', triggerGA, { passive: true });
+                window.addEventListener('touchstart', triggerGA, { passive: true });
+                window.addEventListener('keydown', triggerGA, { passive: true });
+            }
+        })();
+    </script><!-- Structured Data --><script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
@@ -44,7 +82,7 @@
         },
         "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
     }
-    </script><link rel="stylesheet" href="/_astro/HeroBg.BTp8zC54.css">
+    </script><link rel="stylesheet" href="/_astro/HeroBg.BLubl99L.css">
 <link rel="stylesheet" href="/_astro/_slug_.BKkY1GKW.css"></head> <body class>  <header> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> <nav id="nav-menu"> <a href="/#onas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/blog" class="nav-link active">Blog</a> <a href="/zamow" class="nav-cta">Zamów</a> <button id="theme-toggle" class="theme-toggle-btn" aria-label="Zmień motyw"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </button> </nav> </header> <script type="module">(function(){var e=document.querySelector("header");if(e){var c=document.getElementById("theme-toggle");c&&c.addEventListener("click",function(){var t=document.documentElement.getAttribute("data-theme"),a=t==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a)}),window.addEventListener("scroll",function(){var t=window.scrollY;t<=50?e.classList.remove("scrolled","hidden-up"):t>300?(e.classList.add("scrolled"),e.classList.remove("hidden-up")):(e.classList.add("hidden-up"),e.classList.remove("scrolled"))},{passive:!0});var r=document.getElementById("hamburger"),i=document.getElementById("nav-menu");if(r){r.addEventListener("click",function(){r.classList.toggle("active"),i.classList.toggle("active"),e.classList.toggle("menu-open")}),document.querySelectorAll(".nav-link, .nav-cta").forEach(function(t){t.addEventListener("click",function(){r.classList.remove("active"),i.classList.remove("active"),e.classList.remove("menu-open")})});var s=function(){window.innerWidth<=850?i.parentElement!==document.body&&document.body.appendChild(i):i.parentElement!==e&&e.appendChild(i)};window.addEventListener("resize",s,{passive:!0}),document.readyState==="loading"?document.addEventListener("DOMContentLoaded",function(){requestAnimationFrame(s)},{once:!0}):requestAnimationFrame(s)}document.querySelectorAll("header a[href], #nav-menu a[href]").forEach(function(t){t.addEventListener("click",function(a){var n=t.getAttribute("href");if(!(!n||n.startsWith("#")||n.startsWith("mailto:")||n.startsWith("tel:")||n.startsWith("javascript:"))&&!(window.innerWidth<=995)){var d=window.location.pathname.replace(/\/$/,"")||"/",o=n.split("#")[0].split("?")[0].replace(/\/$/,"")||"/";d!==o&&e.classList.contains("scrolled")&&(a.preventDefault(),e.classList.add("nav-transitioning"),setTimeout(function(){window.location.href=n},167))}})})}})();</script> <main class="post-container" data-astro-cid-4sn4zg3r> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="grid-lines"></div> <div class="glow-overlay"></div> </div> <article class="post" data-astro-cid-4sn4zg3r> <div class="post__header" data-aos="fade-up" data-aos-duration="800" data-astro-cid-4sn4zg3r> <a href="/blog" class="post__back-btn" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-arrow-left-long" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Wróć do bloga</span> </a> <div class="post__meta" data-astro-cid-4sn4zg3r> <span class="post__author" data-astro-cid-4sn4zg3r> <i class="fa-regular fa-user" data-astro-cid-4sn4zg3r></i> Kacper Moskal </span> <span class="post__divider" data-astro-cid-4sn4zg3r>•</span> <time datetime="2026-05-19T00:00:00.000Z" class="post__date" data-astro-cid-4sn4zg3r> <i class="fa-regular fa-calendar-days" data-astro-cid-4sn4zg3r></i> 19 maja 2026 </time> </div> <h1 class="post__title" data-astro-cid-4sn4zg3r>Core Web Vitals – jak szybkość strony wpływa na Twoje zyski i pozycję w Google?</h1> </div> <div class="post__image-wrapper" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100" data-astro-cid-4sn4zg3r> <img src="/assets/blog/cwv/cwv.avif" alt="Optymalizacja Core Web Vitals i szybkości strony internetowej" data-astro-cid-4sn4zg3r="true" loading="lazy" decoding="async" width="1200" height="600" class="post__image"> </div> <section class="post__content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-astro-cid-4sn4zg3r> <p>Szybkość ładowania strony internetowej dawno przestała być jedynie technicznym detalem, którym przejmują się wyłącznie programiści. W dzisiejszym internecie czas to pieniądz – w dosłownym znaczeniu tego słowa. Google oficjalnie włączyło wskaźniki komfortu użytkownika do swoich algorytmów rankingowych pod nazwą <strong>Core Web Vitals (Podstawowe wskaźniki internetowe)</strong>. W tym artykule Kacper Moskal wyjaśnia, jak te metryki wpływają na Twoje zyski i pozycję w wyszukiwarce.</p>
 <h2 id="czym-są-wskaźniki-core-web-vitals">Czym są wskaźniki Core Web Vitals?</h2>
 <p>Google wyselekcjonowało trzy główne wskaźniki, które mierzą realne doświadczenia użytkowników podczas interakcji z witryną:</p>
@@ -79,4 +117,32 @@
 <p>Większość tradycyjnych systemów CMS (w tym klasyczny WordPress) cierpi na tzw. “przeładowanie kodu” (code bloat). Ładują one setki linii nieużywanego kodu CSS i JavaScript, co dramatycznie pogarsza wskaźniki LCP oraz INP.</p>
 <p>W web2sell budujemy strony w technologii <strong>Astro</strong>. Działa ona w oparciu o architekturę wysp (Astro Islands) – generuje całkowicie czysty i statyczny kod HTML na serwerze, eliminując zbędny JavaScript. Skutkuje to natychmiastowym wczytywaniem witryny i bezproblemowym osiąganiem wyników rzędu <strong>99-100 punktów</strong> w audytach Google Lighthouse.</p>
 <h2 id="podsumowanie">Podsumowanie</h2>
-<p>Optymalizacja wskaźników Core Web Vitals to nie jednorazowy zabieg, ale kluczowa część strategii rozwoju każdego biznesu online. Zapewniając użytkownikom błyskawiczną i stabilną stronę, nie tylko zyskujesz przychylność algorytmów Google i wyższe pozycje w wyszukiwarce, ale przede wszystkim poprawiasz komfort swoich klientów, co bezpośrednio przekłada się na wyższe przychody.</p> </section> <!-- Dolna nawigacja artykułu --> <div class="post__navigation" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-astro-cid-4sn4zg3r> <a href="/blog" class="post__nav-btn post__nav-btn--back" aria-label="Wróć do listy wszystkich artykułów" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-arrow-left-long" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Powrót na bloga</span> </a> <a href="/blog/dlaczego-porzucilismy-wordpressa" class="post__nav-btn post__nav-btn--next" aria-label="Przeczytaj kolejny artykuł: Dlaczego porzuciliśmy WordPressa dla nowoczesnego kodu?" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Pokaż dalej</span> <i class="fa-solid fa-arrow-right-long" data-astro-cid-4sn4zg3r></i> </a> </div> </article> </main> <footer> <div class="footer__content"> <div class="footer__info"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <p>Tworzymy z pasją.</p> </div> <div class="footer__links"> <a href="/#onas">O nas</a> <a href="/#projekty">Projekty</a> <a href="/cennik">Cennik</a> <a href="/zamow">Zamów</a> <a href="/blog">Blog</a> <a href="/#kontakt">Kontakt</a> <a href="/polityka">Polityka prywatności</a> </div> </div> <div class="footer__bottom"> <p>&copy; 2026 web2sell. Wszelkie prawa zastrzeżone.</p> <p>Design & Code with 💗 by zespół web2sell</p> </div> </footer>  <a href="/cennik" class="floating-cta" aria-label="Poznaj naszą ofertę cennikową" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Poznaj naszą ofertę</span> <i class="fa-solid fa-arrow-right-long" data-astro-cid-4sn4zg3r></i> </a>  <!-- AOS (Bundled and deferred natively by Astro) --> <script type="module" src="/_astro/Layout.astro_astro_type_script_index_1_lang.C6dKaTGC.js"></script> </body> </html> 
+<p>Optymalizacja wskaźników Core Web Vitals to nie jednorazowy zabieg, ale kluczowa część strategii rozwoju każdego biznesu online. Zapewniając użytkownikom błyskawiczną i stabilną stronę, nie tylko zyskujesz przychylność algorytmów Google i wyższe pozycje w wyszukiwarce, ale przede wszystkim poprawiasz komfort swoich klientów, co bezpośrednio przekłada się na wyższe przychody.</p> </section> <!-- Dolna nawigacja artykułu --> <div class="post__navigation" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-astro-cid-4sn4zg3r> <a href="/blog" class="post__nav-btn post__nav-btn--back" aria-label="Wróć do listy wszystkich artykułów" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-arrow-left-long" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Powrót na bloga</span> </a> <a href="/blog/dlaczego-porzucilismy-wordpressa" class="post__nav-btn post__nav-btn--next" aria-label="Przeczytaj kolejny artykuł: Dlaczego porzuciliśmy WordPressa dla nowoczesnego kodu?" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Pokaż dalej</span> <i class="fa-solid fa-arrow-right-long" data-astro-cid-4sn4zg3r></i> </a> </div> </article> </main> <footer class="site-footer"> <div class="footer__container"> <div class="footer__grid"> <!-- Column 1: Info & Contact details --> <div class="footer__info-col"> <a href="/" class="logo-text footer__logo">web2<span class="gradient__text">sell</span></a> <p class="footer__desc">
+Tworzymy szybkie, nowoczesne i bezpieczne strony internetowe
+                    od podstaw. Porzucamy obciążające systemy na rzecz
+                    autorskiego, zoptymalizowanego kodu.
+</p> <div class="footer__contact-info"> <a href="mailto:kontakt@web2sell.pl" class="footer__contact-item"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>kontakt@web2sell.pl</span> </a> <div class="footer__contact-item"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Kraków, Myślenice, Polska</span> </div> </div> </div> <!-- Column 2: Split links (Menu & Docs) --> <div class="footer__links-col"> <div class="footer__links-subgrid"> <!-- Subsection A: Menu --> <div class="footer__links-group"> <h3 class="footer__group-title">Menu</h3> <ul class="footer__group-list"> <li> <a href="/#onas">O nas</a> </li> <li> <a href="/#projekty">Realizacje</a> </li> <li><a href="/cennik">Cennik</a></li> <li><a href="/zamow">Zamów</a></li> <li><a href="/blog">Blog</a></li> <li> <a href="/#kontakt">Kontakt</a> </li> </ul> </div> <!-- Subsection B: Dokumenty --> <div class="footer__links-group"> <h3 class="footer__group-title">Dokumenty</h3> <ul class="footer__group-list"> <li> <a href="/polityka">Polityka prywatności</a> </li> <li><a href="/sitemap">Mapa witryny</a></li> </ul> </div> </div> </div> </div> <div class="footer__bottom"> <p class="footer__copyright">
+&copy; 2026 web2sell. Wszelkie prawa zastrzeżone.
+</p> <p class="footer__credits">
+Design & Code with 💗 by zespół web2sell
+</p> </div> </div> </footer>  <a href="/cennik" class="floating-cta" aria-label="Poznaj naszą ofertę cennikową" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Poznaj naszą ofertę</span> <i class="fa-solid fa-arrow-right-long" data-astro-cid-4sn4zg3r></i> </a>  <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) --> <div id="cookie-banner" class="cookie-banner hidden" role="dialog" aria-modal="true" aria-describedby="cookie-text"> <div class="cookie-banner__container"> <div class="cookie-banner__content"> <i class="fa-solid fa-cookie-bite cookie-banner__icon" aria-hidden="true"></i> <p id="cookie-text">
+Ta strona korzysta z ciasteczek analitycznych (Google Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
+</p> </div> <button id="cookie-accept" class="cookie-banner__btn">Akceptuję</button> </div> </div> <script>
+        (function() {
+            const consent = localStorage.getItem('cookie-consent');
+            if (consent !== 'accepted') {
+                const banner = document.getElementById('cookie-banner');
+                const acceptBtn = document.getElementById('cookie-accept');
+                if (banner && acceptBtn) {
+                    banner.classList.remove('hidden');
+                    acceptBtn.addEventListener('click', function() {
+                        localStorage.setItem('cookie-consent', 'accepted');
+                        banner.classList.add('hidden');
+                        if (typeof window.initGA === 'function') {
+                            window.initGA();
+                        }
+                    });
+                }
+            }
+        })();
+    </script> <!-- AOS (Bundled and deferred natively by Astro) --> <script type="module" src="/_astro/Layout.astro_astro_type_script_index_0_lang.C6dKaTGC.js"></script> </body> </html> 

@@ -4,9 +4,10 @@ interface Props {
   description: string;
   canonical?: string;
   bodyClass?: string;
+  robots?: string;
 }
 
-const { title, description, canonical, bodyClass = '' } = Astro.props;
+const { title, description, canonical, bodyClass = '', robots = 'index, follow' } = Astro.props;
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 
 import '@fontsource/figtree/300.css';
@@ -24,7 +25,7 @@ import '../styles/main.css';
     <script is:inline>
         (function() {
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            if (savedTheme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
             } else {
                 document.documentElement.setAttribute('data-theme', 'light');
@@ -35,7 +36,7 @@ import '../styles/main.css';
     <title>{title}</title>
     <meta name="description" content={description}>
     <link rel="canonical" href={canonicalURL}>
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content={robots}>
 
     <!-- Fonts -->
 
@@ -290,20 +291,13 @@ import '../styles/main.css';
       }
     </style>
 
-    <!-- Google Analytics (Delayed non-blocking initialization to protect Main Thread & CPU metrics) -->
+    <!-- Google Analytics (Conditional load based on user cookie consent) -->
     <meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0">
-    <script>
+    <script is:inline>
         (function() {
-            var gaInitialized = false;
-            function initGA() {
-                if (gaInitialized) return;
-                gaInitialized = true;
-
-                // Remove interaction listeners
-                window.removeEventListener('scroll', initGA);
-                window.removeEventListener('mousemove', initGA);
-                window.removeEventListener('touchstart', initGA);
-                window.removeEventListener('keydown', initGA);
+            window.initGA = function() {
+                if (window.gaInitialized) return;
+                window.gaInitialized = true;
 
                 // Inject gtag.js
                 var script = document.createElement('script');
@@ -315,14 +309,27 @@ import '../styles/main.css';
                 window.gtag = function() { window.dataLayer.push(arguments); };
                 window.gtag('js', new Date());
                 window.gtag('config', 'G-QZ55XLZEDP');
-            }
+            };
 
-            // Load after 3.5 seconds delay or on first real user interaction (scroll, move, touch, key)
-            var gaTimer = setTimeout(initGA, 3500);
-            window.addEventListener('scroll', initGA, { passive: true });
-            window.addEventListener('mousemove', initGA, { passive: true });
-            window.addEventListener('touchstart', initGA, { passive: true });
-            window.addEventListener('keydown', initGA, { passive: true });
+            const consent = localStorage.getItem('cookie-consent');
+            if (consent === 'accepted') {
+                // User has already given consent. Load GA non-blockingly with delayed strategy.
+                var gaTriggered = false;
+                function triggerGA() {
+                    if (gaTriggered) return;
+                    gaTriggered = true;
+                    window.removeEventListener('scroll', triggerGA);
+                    window.removeEventListener('mousemove', triggerGA);
+                    window.removeEventListener('touchstart', triggerGA);
+                    window.removeEventListener('keydown', triggerGA);
+                    window.initGA();
+                }
+                setTimeout(triggerGA, 3000);
+                window.addEventListener('scroll', triggerGA, { passive: true });
+                window.addEventListener('mousemove', triggerGA, { passive: true });
+                window.addEventListener('touchstart', triggerGA, { passive: true });
+                window.addEventListener('keydown', triggerGA, { passive: true });
+            }
         })();
     </script>
 
@@ -348,6 +355,39 @@ import '../styles/main.css';
 </head>
 <body class={bodyClass}>
     <slot />
+
+    <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) -->
+    <div id="cookie-banner" class="cookie-banner hidden" role="dialog" aria-modal="true" aria-describedby="cookie-text">
+        <div class="cookie-banner__container">
+            <div class="cookie-banner__content">
+                <i class="fa-solid fa-cookie-bite cookie-banner__icon" aria-hidden="true"></i>
+                <p id="cookie-text">
+                    Ta strona korzysta z ciasteczek analitycznych (Google Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
+                </p>
+            </div>
+            <button id="cookie-accept" class="cookie-banner__btn">Akceptuję</button>
+        </div>
+    </div>
+
+    <script is:inline>
+        (function() {
+            const consent = localStorage.getItem('cookie-consent');
+            if (consent !== 'accepted') {
+                const banner = document.getElementById('cookie-banner');
+                const acceptBtn = document.getElementById('cookie-accept');
+                if (banner && acceptBtn) {
+                    banner.classList.remove('hidden');
+                    acceptBtn.addEventListener('click', function() {
+                        localStorage.setItem('cookie-consent', 'accepted');
+                        banner.classList.add('hidden');
+                        if (typeof window.initGA === 'function') {
+                            window.initGA();
+                        }
+                    });
+                }
+            }
+        })();
+    </script>
 
     <!-- AOS (Bundled and deferred natively by Astro) -->
     <script>

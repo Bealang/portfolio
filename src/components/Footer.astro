@@ -2,31 +2,85 @@
 const currentYear = new Date().getFullYear();
 
 interface Props {
-  isHome?: boolean;
+    isHome?: boolean;
 }
 
 const { isHome = false } = Astro.props;
 ---
 
-<footer>
-    <div class="footer__content">
-        <div class="footer__info">
-            <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a>
-            <p>Tworzymy z pasją.</p>
+<footer class="site-footer">
+    <div class="footer__container">
+        <div class="footer__grid">
+            <!-- Column 1: Info & Contact details -->
+            <div class="footer__info-col">
+                <a href="/" class="logo-text footer__logo"
+                    >web2<span class="gradient__text">sell</span></a
+                >
+                <p class="footer__desc">
+                    Tworzymy szybkie, nowoczesne i bezpieczne strony internetowe
+                    od podstaw. Porzucamy obciążające systemy na rzecz
+                    autorskiego, zoptymalizowanego kodu.
+                </p>
+                <div class="footer__contact-info">
+                    <a
+                        href="mailto:kontakt@web2sell.pl"
+                        class="footer__contact-item"
+                    >
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <span>kontakt@web2sell.pl</span>
+                    </a>
+                    <div class="footer__contact-item">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"
+                        ></i>
+                        <span>Kraków, Myślenice, Polska</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Split links (Menu & Docs) -->
+            <div class="footer__links-col">
+                <div class="footer__links-subgrid">
+                    <!-- Subsection A: Menu -->
+                    <div class="footer__links-group">
+                        <h3 class="footer__group-title">Menu</h3>
+                        <ul class="footer__group-list">
+                            <li>
+                                <a href={isHome ? "#onas" : "/#onas"}>O nas</a>
+                            </li>
+                            <li>
+                                <a href={isHome ? "#projekty" : "/#projekty"}
+                                    >Realizacje</a>
+                            </li>
+                            <li><a href="/cennik">Cennik</a></li>
+                            <li><a href="/zamow">Zamów</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li>
+                                <a href={isHome ? "#kontakt" : "/#kontakt"}
+                                    >Kontakt</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Subsection B: Dokumenty -->
+                    <div class="footer__links-group">
+                        <h3 class="footer__group-title">Dokumenty</h3>
+                        <ul class="footer__group-list">
+                            <li>
+                                <a href="/polityka">Polityka prywatności</a>
+                            </li>
+                            <li><a href="/sitemap">Mapa witryny</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="footer__links">
-            <a href={isHome ? '#onas' : '/#onas'}>O nas</a>
-            <a href={isHome ? '#projekty' : '/#projekty'}>Projekty</a>
-            <a href="/cennik">Cennik</a>
-            <a href="/zamow">Zamów</a>
-            <a href="/blog">Blog</a>
-            <a href={isHome ? '#kontakt' : '/#kontakt'}>Kontakt</a>
-            <a href="/polityka">Polityka prywatności</a>
+        <div class="footer__bottom">
+            <p class="footer__copyright">
+                &copy; {currentYear} web2sell. Wszelkie prawa zastrzeżone.
+            </p>
+            <p class="footer__credits">
+                Design & Code with 💗 by zespół web2sell
+            </p>
         </div>
-    </div>
-    <div class="footer__bottom">
-        <p>&copy; {currentYear} web2sell. Wszelkie prawa zastrzeżone.</p>
-        <p>Design & Code with 💗 by zespół web2sell</p>
     </div>
 </footer>
