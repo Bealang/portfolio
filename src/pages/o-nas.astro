@@ -2,28 +2,508 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
 ---
 
 <Layout
-    title="O nas | web2sell - Tworzenie stron www Myślenice"
-    description="Poznaj web2sell. Strona w trakcie budowy."
+    title="O nas | web2sell - Nowoczesne strony internetowe Myślenice"
+    description="Poznaj web2sell. Jesteśmy trzyosobowym zespołem z powiatu myślenickiego. Tworzymy dedykowane, ultraszybkie strony internetowe od zera. Sprawdź naszą misję i proces!"
 >
     <Header activePage="o-nas" />
 
     <main class="o-nas-page">
-        <section
-            class="under-construction"
-            data-aos="fade-up"
-            data-aos-duration="800"
-        >
-            <div class="uc-icon">
-                <i class="fa-solid fa-screwdriver-wrench"></i>
+        <!-- HERO SECTION WITH ASYMMETRIC MANIFESTO -->
+        <section class="onas-hero">
+            <HeroBg />
+            <div class="onas-hero__container">
+                <h1
+                    class="onas-hero__title"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
+                    Tworzymy strony internetowe z <span
+                        class="gradient__text text-glow"
+                        data-text="pasji.">pasji.</span
+                    ><br />
+                    Dowozimy jakość drogiej agencji w uczciwej cenie.
+                </h1>
+                <p
+                    class="onas-hero__subtitle"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="200"
+                >
+                    Jesteśmy 3-osobowym zespołem pasjonatów technologii, który
+                    porzucił ciężkie szablony WordPress na rzecz czystego kodu.
+                    Tworzymy dedykowane witryny, które generują zyski i ładują
+                    się w mgnieniu oka.
+                </p>
+                <div
+                    class="onas-hero__actions"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="400"
+                >
+                    <a
+                        href="#trio"
+                        class="btn-arrow-down"
+                        aria-label="Przewiń do zespołu"
+                    >
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                </div>
             </div>
-            <h1>Strona w trakcie budowy</h1>
-            <div class="uc-actions">
-                <a href="/" class="btn-back">
-                    <i class="fa-solid fa-arrow-left"></i> Wróć do strony głównej
-                </a>
+        </section>
+
+        <!-- MISSION SECTION (WHY WE EXIST / LOCAL ANCHOR) -->
+        <section class="onas-mission">
+            <div class="onas-mission__container">
+                <div class="onas-mission__grid">
+                    <div
+                        class="onas-mission__visual"
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
+                        <div class="mission-geo-card">
+                            <div class="mission-geo-card__overlay"></div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164284.03881732273!2d19.81539296121519!3d49.95626210607544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell%20-%20Tworzenie%20stron%20internetowych!5e0!3m2!1spl!2spl!4v1779532948277!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mission-map-iframe"></iframe>
+                            <div class="mission-geo-card__content">
+                                <h3 class="geo-title">Powiat Myślenicki</h3>
+                                <div class="geo-coords">
+                                    <span>49.8333° N</span>
+                                    <span>•</span>
+                                    <span>19.9500° E</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="onas-mission__content"
+                        data-aos="fade-left"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                    >
+                        <span class="section-tag">Dlaczego powstaliśmy?</span>
+                        <h2>
+                            Lokalne zaufanie, <span class="gradient__text"
+                                >globalna jakość</span
+                            >
+                        </h2>
+                        <p class="accent-paragraph">
+                            Zauważyliśmy, że ogromna liczba świetnych firm w
+                            okolicach powiatu Myślenickiego i Małopolski nie
+                            posiada własnej strony internetowej albo opiera swój
+                            biznes na przestarzałych szablonach, które zamiast
+                            budować prestiż – zniechęcają klientów i wolno
+                            działają na smartfonach.
+                        </p>
+                        <p>
+                            Postanowiliśmy to zmienić. Dostarczamy dedykowane
+                            systemy tworzone w 100% od zera. Ponieważ nie
+                            posiadamy kosztownego biura w centrum metropolii ani
+                            zbędnego aparatu administracyjnego, oferujemy jakość
+                            premium zarezerwowaną dla dużych agencji w cenie
+                            dostępnej dla lokalnych przedsiębiorców.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM SECTION (TRIO) -->
+        <section id="trio" class="onas-trio">
+            <div class="onas-trio__container">
+                <div
+                    class="onas-trio__header"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
+                    <span class="section-tag">Nasze Trio</span>
+                    <h2>
+                        Trzy osoby, <span class="gradient__text"
+                            >jeden wspólny cel</span
+                        >
+                    </h2>
+                    <p class="section-subtitle">
+                        Każdy z nas specjalizuje się w innej dziedzinie, dzięki
+                        czemu Twoja strona jest dopracowana pod każdym kątem –
+                        od stabilnej architektury backendowej, przez
+                        niepowtarzalny design, aż po bezkompromisową szybkość.
+                    </p>
+                </div>
+
+                <div class="onas-trio__grid">
+                    <!-- Member 1: Łukasz -->
+                    <div
+                        class="team-card"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="100"
+                    >
+                        <div
+                            class="team-card__glow"
+                            style="background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);"
+                        >
+                        </div>
+                        <div class="team-card__avatar">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="team-card__meta">
+                            <span class="team-card__role"
+                                >Architekt Systemów & Backend</span
+                            >
+                            <h3 class="team-card__name">Łukasz</h3>
+                        </div>
+                        <p class="team-card__desc">
+                            Mózg operacyjny stojący za bazami danych,
+                            bezpieczeństwem i silnikami aplikacji. Projektuje
+                            architekturę w Node.js, Next.js i dba o to, by każda
+                            linijka kodu serwerowego działała stabilnie i
+                            bezawaryjnie pod największym obciążeniem.
+                        </p>
+                    </div>
+
+                    <!-- Member 2: Szymon -->
+                    <div
+                        class="team-card"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="200"
+                    >
+                        <div
+                            class="team-card__glow"
+                            style="background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);"
+                        >
+                        </div>
+                        <div class="team-card__avatar">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div class="team-card__meta">
+                            <span class="team-card__role"
+                                >UI/UX Designer & Frontend Developer</span
+                            >
+                            <h3 class="team-card__name">Szymon</h3>
+                        </div>
+                        <p class="team-card__desc">
+                            Wizjoner dbający o to, by każda strona zachwycała od
+                            pierwszego spojrzenia. Przekłada kreatywne koncepty
+                            na interaktywny i czysty kod frontendowy w Astro i
+                            React. Dba o pikselową precyzję, kompozycję barw i
+                            płynne animacje.
+                        </p>
+                    </div>
+
+                    <!-- Member 3: Kacper -->
+                    <div
+                        class="team-card"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="300"
+                    >
+                        <div
+                            class="team-card__glow"
+                            style="background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, transparent 70%);"
+                        >
+                        </div>
+                        <div class="team-card__avatar">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <div class="team-card__meta">
+                            <span class="team-card__role"
+                                >Performance Engineer & SEO Specialist</span
+                            >
+                            <h3 class="team-card__name">Kacper</h3>
+                        </div>
+                        <p class="team-card__desc">
+                            Strażnik szybkości i widoczności w sieci. Testuje,
+                            optymalizuje i eliminuje każde milisekundowe
+                            opóźnienie, aby Twoja witryna osiągała
+                            bezkompromisowe wyniki 100/100 w Lighthouse.
+                            Odpowiada za techniczną strukturę SEO.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNOLOGY COMPARISON SECTION -->
+        <section class="onas-tech">
+            <div class="onas-tech__container">
+                <div class="onas-tech__grid">
+                    <div
+                        class="onas-tech__content"
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
+                        <span class="section-tag"
+                            >Nasza Filozofia Technologiczna</span
+                        >
+                        <h2>
+                            Dlaczego porzuciliśmy <span class="gradient__text"
+                                >WordPressa i Elementora?</span
+                            >
+                        </h2>
+                        <p class="accent-paragraph">
+                            Większość tradycyjnych agencji reklamowych stawia
+                            strony na gotowych, ciężkich szablonach WordPress i
+                            edytorach wizualnych typu Elementor czy Divi. Wynik?
+                            Powolna strona, która zniechęca klientów na
+                            telefonach i generuje koszty utrzymania.
+                        </p>
+                        <p>
+                            My idziemy zupełnie inną drogą. Odrzucamy generatory
+                            stron i budujemy dedykowane witryny w oparciu o
+                            najnowocześniejsze frameworki i architektury. Dzięki
+                            wykorzystaniu technologii takich jak <strong
+                                >Node.js, Astro, Vite, Next.js, TypeScript i
+                                czysty JavaScript</strong
+                            >, nasze strony są bezpieczne, odporne na ataki,
+                            wolne od zbędnych wtyczek i gotowe na przyszłość.
+                        </p>
+                    </div>
+
+                    <div
+                        class="onas-tech__visual"
+                        data-aos="fade-left"
+                        data-aos-duration="1000"
+                        data-aos-delay="200"
+                    >
+                        <div class="performance-metric-box">
+                            <div class="lighthouse-mockup">
+                                <div class="lh-header">
+                                    <div class="lh-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <span class="lh-url"
+                                        >lighthouse-report: mobile</span
+                                    >
+                                </div>
+                                <div class="lh-stats-grid">
+                                    <div class="lh-stat">
+                                        <div
+                                            class="lh-gauge"
+                                            style="--percent: 99; --color: #00cc66;"
+                                        >
+                                            <svg
+                                                viewBox="0 0 36 36"
+                                                class="circular-chart"
+                                            >
+                                                <path
+                                                    class="circle-bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                                <path
+                                                    class="circle"
+                                                    stroke-dasharray="99, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                            </svg>
+                                            <span class="lh-num">99</span>
+                                        </div>
+                                        <span class="lh-label">Wydajność</span>
+                                    </div>
+                                    <div class="lh-stat">
+                                        <div
+                                            class="lh-gauge"
+                                            style="--percent: 100; --color: #00cc66;"
+                                        >
+                                            <svg
+                                                viewBox="0 0 36 36"
+                                                class="circular-chart"
+                                            >
+                                                <path
+                                                    class="circle-bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                                <path
+                                                    class="circle"
+                                                    stroke-dasharray="100, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                            </svg>
+                                            <span class="lh-num">100</span>
+                                        </div>
+                                        <span class="lh-label">Dostępność</span>
+                                    </div>
+                                    <div class="lh-stat">
+                                        <div
+                                            class="lh-gauge"
+                                            style="--percent: 100; --color: #00cc66;"
+                                        >
+                                            <svg
+                                                viewBox="0 0 36 36"
+                                                class="circular-chart"
+                                            >
+                                                <path
+                                                    class="circle-bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                                <path
+                                                    class="circle"
+                                                    stroke-dasharray="100, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                            </svg>
+                                            <span class="lh-num">100</span>
+                                        </div>
+                                        <span class="lh-label"
+                                            >Dobre praktyki</span
+                                        >
+                                    </div>
+                                    <div class="lh-stat">
+                                        <div
+                                            class="lh-gauge"
+                                            style="--percent: 100; --color: #00cc66;"
+                                        >
+                                            <svg
+                                                viewBox="0 0 36 36"
+                                                class="circular-chart"
+                                            >
+                                                <path
+                                                    class="circle-bg"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                                <path
+                                                    class="circle"
+                                                    stroke-dasharray="100, 100"
+                                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                ></path>
+                                            </svg>
+                                            <span class="lh-num">100</span>
+                                        </div>
+                                        <span class="lh-label">SEO</span>
+                                    </div>
+                                </div>
+                                <div class="lh-footer-badge">
+                                    <i class="fa-solid fa-bolt"></i> Nasze strony
+                                    osiągają wyniki 90+/100 na telefonach komórkowych
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE 4-STEP PROCESS PREVIEW -->
+        <section class="onas-process">
+            <div class="onas-process__container">
+                <div
+                    class="onas-process__header"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
+                    <span class="section-tag">Nasz Proces Tworzenia</span>
+                    <h2>
+                        Skupiamy się na <span class="gradient__text"
+                            >efekcie biznesowym</span
+                        >
+                    </h2>
+                    <p class="section-subtitle">
+                        Nie zaczynamy od ślepego pisania kodu. Każda współpraca
+                        to precyzyjnie zaplanowany proces, który gwarantuje
+                        stworzenie strony doskonale odpowiadającej na potrzeby
+                        Twoich klientów. Szczegóły znajdziesz na stronie <a
+                            href="/zamow">Współpraca</a
+                        >.
+                    </p>
+                </div>
+
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div
+                        class="process-step-card"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="100"
+                    >
+                        <div class="step-num">01</div>
+                        <h3 class="step-title">Analiza</h3>
+                        <p class="step-desc">
+                            „Nie zaczynamy od kodowania, tylko od zrozumienia,
+                            na czym Twoja firma zarabia”.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="process-step-card"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="200"
+                    >
+                        <div class="step-num">02</div>
+                        <h3 class="step-title">Projekt</h3>
+                        <p class="step-desc">
+                            „Tworzymy layout, który przyciąga uwagę i nie zamula
+                            przeglądarki”.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="process-step-card"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="300"
+                    >
+                        <div class="step-num">03</div>
+                        <h3 class="step-title">Budowa</h3>
+                        <p class="step-desc">
+                            „Stawiamy na nowoczesne technologie, które zostaną z
+                            Tobą na lata”.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="process-step-card"
+                        data-aos="fade-up"
+                        data-aos-duration="800"
+                        data-aos-delay="400"
+                    >
+                        <div class="step-num">04</div>
+                        <h3 class="step-title">Wdrożenie</h3>
+                        <p class="step-desc">
+                            „Podpinamy analitykę, optymalizujemy pod SEO i
+                            zostawiamy Cię z gotowym narzędziem”.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION (GO FORWARD) -->
+        <section class="onas-cta" data-aos="fade-up" data-aos-duration="1000">
+            <div class="onas-cta__box">
+                <div class="onas-cta__glow"></div>
+                <div class="onas-cta__content">
+                    <h2>
+                        Chcesz pracować z ludźmi, którzy <span
+                            class="gradient__text">kodują z pasji?</span
+                        >
+                    </h2>
+                    <p>
+                        Poznaj szczegółowy proces powstawania strony
+                        internetowej, zapoznaj się z naszym cennikiem lub po
+                        prostu zamów bezpłatną, niezobowiązującą wycenę swojego
+                        projektu.
+                    </p>
+                    <div class="onas-cta__buttons">
+                        <a href="/kontakt" class="btn-cta-manifesto primary"
+                            >Bezpłatna wycena</a
+                        >
+                        <a href="/zamow" class="btn-cta-manifesto secondary"
+                            >Jak wygląda współpraca?</a
+                        >
+                        <a href="/cennik" class="btn-cta-manifesto text"
+                            >Sprawdź cennik <i class="fa-solid fa-arrow-right"
+                            ></i></a
+                        >
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -32,114 +512,988 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <style>
+    /* ==========================================================================
+       BLACK TEXT OVERRIDES AS REQUESTED BY USER
+       ========================================================================== */
+    .section-tag,
+    .section-subtitle,
+    .onas-hero__title,
+    .onas-hero__subtitle,
+    .onas-mission__content h2,
+    .accent-paragraph,
+    .onas-mission__content p,
+    .onas-trio__header h2,
+    .team-card__role,
+    .team-card__name,
+    .team-card__desc,
+    .onas-tech__content h2,
+    .onas-tech__content p,
+    .onas-process__header h2,
+    .step-title,
+    .step-desc {
+        color: #000 !important;
+    }
+
+    /* ==========================================================================
+       COMMON STYLES & RESET ANCHOR
+       ========================================================================== */
     .o-nas-page {
-        min-height: calc(100vh - 100px);
+        position: relative;
+        overflow: hidden;
+        padding-top: 100px;
+        background-color: var(--bg-color);
+        color: var(--text-primary);
+    }
+
+    .section-tag {
+        display: inline-block;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+        max-width: 700px;
+        margin: 15px auto 0;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .onas-hero {
+        position: relative;
+        min-height: 75vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 160px 5% 100px;
+        padding: 80px 5% 100px;
+        text-align: center;
     }
 
-    .under-construction {
-        text-align: center;
-        max-width: 500px;
+    .onas-hero__container {
+        max-width: 900px;
+        position: relative;
+        z-index: 2;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 24px;
     }
 
-    .uc-icon {
-        font-size: 5rem;
-        background: linear-gradient(
-            135deg,
-            var(--accent-cyan),
-            var(--accent-blue)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        display: inline-block;
-        animation: float-wrench 4s infinite ease-in-out;
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .uc-icon:hover {
-        transform: scale(1.12) rotate(15deg);
-    }
-
-    .under-construction h1 {
-        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
-        font-weight: 800;
-        letter-spacing: -1px;
-        margin: 0;
-        line-height: 1.2;
-    }
-
-    .uc-actions {
-        margin-top: 10px;
-    }
-
-    .btn-back {
+    .onas-hero__badge {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        padding: 10px 22px;
+        padding: 6px 16px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 50px;
+        box-shadow: var(--glass-shadow);
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+    }
+
+    .badge-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        animation: pulse-dot 1.8s infinite;
+    }
+
+    .onas-hero__title {
+        font-size: clamp(2rem, 5.5vw, 3.8rem);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -1.5px;
+        margin: 0;
+    }
+
+    .onas-hero__subtitle {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        line-height: 1.6;
+        color: var(--text-secondary);
+        max-width: 760px;
+        margin: 0;
+    }
+
+    .onas-hero__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-top: 10px;
+    }
+
+    .btn-manifesto {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 36px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff !important;
+        background: linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.95),
+            rgba(236, 72, 153, 0.95)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50px;
+        box-shadow:
+            0 10px 30px rgba(139, 92, 246, 0.25),
+            var(--glass-shadow);
+        text-decoration: none !important;
+        transition: var(--transition-smooth);
+    }
+
+    html[data-theme="dark"] .btn-manifesto {
+        background: linear-gradient(
+            135deg,
+            rgba(167, 139, 250, 0.95),
+            rgba(251, 113, 133, 0.95)
+        );
+    }
+
+    .btn-manifesto:hover {
+        transform: translateY(-4px);
+        box-shadow:
+            0 15px 35px rgba(139, 92, 246, 0.4),
+            var(--glass-shadow);
+    }
+
+    .btn-manifesto i {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-manifesto:hover i {
+        transform: translateX(4px);
+    }
+
+    .btn-arrow-down {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        color: var(--text-secondary);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        box-shadow: var(--glass-shadow);
+        text-decoration: none !important;
+        animation: arrow-float 2.5s infinite ease-in-out;
+        transition: var(--transition-smooth);
+    }
+
+    .btn-arrow-down:hover {
+        color: var(--text-primary);
+        border-color: var(--card-hover-border);
+    }
+
+    /* ==========================================================================
+       MISSION SECTION
+       ========================================================================== */
+    .onas-mission {
+        padding: var(--section-spacing) 5%;
+        border-top: 1px solid var(--glass-border);
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(139, 92, 246, 0.02) 100%
+        );
+    }
+
+    .onas-mission__container {
+        max-width: var(--container-width);
+        margin: 0 auto;
+    }
+
+    .onas-mission__grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: clamp(40px, 8vw, 100px);
+        align-items: center;
+    }
+
+    .onas-mission__visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mission-geo-card {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 1 / 1;
+        background: #111;
+        border: 2px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        padding: 40px;
+        transition: var(--transition-smooth);
+    }
+
+    .mission-geo-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 40px 80px rgba(139, 92, 246, 0.25);
+        border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .mission-map-iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        z-index: 1;
+        opacity: 0.55;
+        transition: var(--transition-smooth);
+        filter: grayscale(1) invert(0.9) contrast(1.2);
+    }
+
+    html[data-theme="light"] .mission-map-iframe {
+        filter: grayscale(0.2) contrast(1.05);
+        opacity: 0.65;
+    }
+
+    .mission-geo-card:hover .mission-map-iframe {
+        opacity: 0.8;
+    }
+
+    /* Map grid line details inside geo card */
+    .mission-geo-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(16, 16, 24, 0.95) 0%, rgba(16, 16, 24, 0.2) 100%);
+        z-index: 2;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.02) 1px,
+                transparent 1px
+            ),
+            linear-gradient(to top, rgba(16, 16, 24, 0.95) 0%, rgba(16, 16, 24, 0.2) 100%);
+        background-size: 30px 30px;
+        mask-image: radial-gradient(circle at center, black, transparent 80%);
+        -webkit-mask-image: radial-gradient(
+            circle at center,
+            black,
+            transparent 80%
+        );
+    }
+
+    html[data-theme="light"] .mission-geo-card__overlay {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 100%);
+        background-image:
+            linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+            linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.02) 1px,
+                transparent 1px
+            ),
+            linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 100%);
+    }
+
+    .mission-geo-card__content {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .geo-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 800;
+        color: #fff;
+        margin: 0;
+    }
+
+    html[data-theme="light"] .geo-title {
+        color: #000 !important;
+    }
+
+    .geo-coords {
+        display: flex;
+        gap: 10px;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.65);
+        font-family: monospace;
+    }
+
+    html[data-theme="light"] .geo-coords {
+        color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .onas-mission__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .onas-mission__content h2 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .accent-paragraph {
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.6;
+        color: var(--text-primary);
+    }
+
+    .onas-mission__content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* ==========================================================================
+       TEAM SECTION (TRIO)
+       ========================================================================== */
+    .onas-trio {
+        padding: var(--section-spacing) 5%;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .onas-trio__container {
+        max-width: var(--container-width);
+        margin: 0 auto;
+    }
+
+    .onas-trio__header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .onas-trio__header h2 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .onas-trio__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .team-card {
+        position: relative;
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: var(--glass-shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transition: var(--transition-smooth);
+    }
+
+    .team-card:hover {
+        /* disabled hover as per user request */
+    }
+
+    .team-card__glow {
+        position: absolute;
+        top: -20%;
+        left: -20%;
+        width: 140%;
+        height: 140%;
+        pointer-events: none;
+        transition: var(--transition-smooth);
+    }
+
+    .team-card__avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: var(--process-card-num-gradient);
+        color: var(--accent-blue);
+        font-size: 1.5rem;
+    }
+
+    html[data-theme="dark"] .team-card__avatar {
+        color: var(--accent-cyan);
+    }
+
+    .team-card__meta {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .team-card__role {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        letter-spacing: 0.5px;
+    }
+
+    .team-card__name {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .team-card__desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* ==========================================================================
+       TECHNOLOGY COMPARISON SECTION
+       ========================================================================== */
+    .onas-tech {
+        padding: var(--section-spacing) 5%;
+        border-top: 1px solid var(--glass-border);
+        background: linear-gradient(
+            0deg,
+            transparent 0%,
+            rgba(139, 92, 246, 0.02) 100%
+        );
+    }
+
+    .onas-tech__container {
+        max-width: var(--container-width);
+        margin: 0 auto;
+    }
+
+    .onas-tech__grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: clamp(40px, 8vw, 80px);
+        align-items: center;
+    }
+
+    .onas-tech__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .onas-tech__content h2 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .onas-tech__content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    .onas-tech__content strong {
+        color: var(--text-primary);
+    }
+
+    .onas-tech__visual {
+        display: flex;
+        justify-content: center;
+    }
+
+    .performance-metric-box {
+        width: 100%;
+        max-width: 440px;
+    }
+
+    /* Chrome Lighthouse UI Mockup */
+    .lighthouse-mockup {
+        background: #111b21;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+    }
+
+    html[data-theme="light"] .lighthouse-mockup {
+        background: #ffffff;
+        border-color: #e2e8f0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .lh-header {
+        background: #1a2730;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    html[data-theme="light"] .lh-header {
+        background: #f8fafc;
+        border-color: #e2e8f0;
+    }
+
+    .lh-dots {
+        display: flex;
+        gap: 6px;
+    }
+
+    .lh-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ef4444;
+    }
+
+    .lh-dots span:nth-child(2) {
+        background: #fbbf24;
+    }
+    .lh-dots span:nth-child(3) {
+        background: #10b981;
+    }
+
+    .lh-url {
+        font-size: 0.75rem;
+        font-family: monospace;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    html[data-theme="light"] .lh-url {
+        color: #94a3b8;
+    }
+
+    .lh-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 30px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    html[data-theme="light"] .lh-stats-grid {
+        border-color: #f1f5f9;
+    }
+
+    .lh-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .lh-gauge {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .circular-chart {
+        width: 100%;
+        height: 100%;
+    }
+
+    .circle-bg {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.04);
+        stroke-width: 2.8;
+    }
+
+    html[data-theme="light"] .circle-bg {
+        stroke: #f1f5f9;
+    }
+
+    .circle {
+        fill: none;
+        stroke-width: 2.8;
+        stroke-linecap: round;
+        stroke: var(--color);
+        animation: progress 1.2s ease-out forwards;
+    }
+
+    .lh-num {
+        position: absolute;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #00cc66;
+    }
+
+    .lh-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    html[data-theme="light"] .lh-label {
+        color: #475569;
+    }
+
+    .lh-footer-badge {
+        padding: 16px 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #00cc66;
+        background: rgba(0, 204, 102, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* ==========================================================================
+       PROCESS SECTION
+       ========================================================================== */
+    .onas-process {
+        padding: var(--section-spacing) 5%;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .onas-process__container {
+        max-width: var(--container-width);
+        margin: 0 auto;
+    }
+
+    .onas-process__header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .onas-process__header h2 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .onas-process__header a {
+        color: var(--accent-blue);
+        text-decoration: underline;
+        font-weight: 600;
+    }
+
+    html[data-theme="dark"] .onas-process__header a {
+        color: var(--accent-cyan);
+    }
+
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .process-step-card {
+        position: relative;
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: var(--glass-shadow);
+        transition: var(--transition-smooth);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .process-step-card:hover {
+        /* disabled hover as per user request */
+    }
+
+    .step-num {
+        font-size: 0.9rem;
+        font-weight: 800;
+        color: var(--accent-blue);
+        background: var(--process-card-num-gradient);
+        align-self: flex-start;
+        padding: 4px 12px;
+        border-radius: 50px;
+    }
+
+    html[data-theme="dark"] .step-num {
+        color: var(--accent-cyan);
+    }
+
+    .step-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .step-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* ==========================================================================
+       CTA SECTION
+       ========================================================================== */
+    .onas-cta {
+        padding: 80px 5% 100px;
+        max-width: var(--container-width);
+        margin: 0 auto;
+    }
+
+    .onas-cta__box {
+        position: relative;
+        background: linear-gradient(135deg, #1e1b4b 0%, #0c0a0f 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 28px;
+        padding: clamp(40px, 8vw, 80px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+        text-align: center;
+    }
+
+    html[data-theme="light"] .onas-cta__box {
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        border-color: #e2e8f0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .onas-cta__glow {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.08) 0%,
+            transparent 60%
+        );
+        pointer-events: none;
+    }
+
+    .onas-cta__content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .onas-cta__content h2 {
+        font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+        font-weight: 800;
+        line-height: 1.25;
+        color: #fff;
+        margin: 0;
+    }
+
+    html[data-theme="light"] .onas-cta__content h2 {
+        color: var(--text-primary);
+    }
+
+    .onas-cta__content p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+    }
+
+    html[data-theme="light"] .onas-cta__content p {
+        color: var(--text-secondary);
+    }
+
+    .onas-cta__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .btn-cta-manifesto {
+        display: inline-flex;
+        align-items: center;
+        padding: 14px 28px;
         font-size: 0.95rem;
         font-weight: 600;
-        color: var(--text-secondary);
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(139, 92, 246, 0.15);
         border-radius: 50px;
         text-decoration: none !important;
         transition: var(--transition-smooth);
     }
 
-    html[data-theme="dark"] .btn-back {
-        background: rgba(255, 255, 255, 0.02);
-        border-color: rgba(255, 255, 255, 0.06);
+    .btn-cta-manifesto.primary {
+        background: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-blue)
+        );
+        color: #fff !important;
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    .btn-back:hover {
-        color: var(--text-primary);
-        background: rgba(139, 92, 246, 0.1);
-        border-color: rgba(139, 92, 246, 0.35);
+    .btn-cta-manifesto.primary:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.1);
+        box-shadow: 0 10px 25px rgba(139, 92, 246, 0.35);
     }
 
-    html[data-theme="dark"] .btn-back:hover {
-        background: rgba(167, 139, 250, 0.1);
-        border-color: rgba(167, 139, 250, 0.3);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    .btn-cta-manifesto.secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: #fff !important;
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .btn-back i {
-        font-size: 0.85rem;
+    html[data-theme="light"] .btn-cta-manifesto.secondary {
+        background: #ffffff;
+        color: var(--text-primary) !important;
+        border-color: #cbd5e1;
+    }
+
+    .btn-cta-manifesto.secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+    }
+
+    html[data-theme="light"] .btn-cta-manifesto.secondary:hover {
+        background: #f8fafc;
+        border-color: #94a3b8;
+    }
+
+    .btn-cta-manifesto.text {
+        color: var(--accent-blue) !important;
+    }
+
+    html[data-theme="dark"] .btn-cta-manifesto.text {
+        color: var(--accent-cyan) !important;
+    }
+
+    .btn-cta-manifesto.text i {
+        margin-left: 6px;
         transition: transform 0.3s ease;
     }
 
-    .btn-back:hover i {
-        transform: translateX(-4px);
+    .btn-cta-manifesto.text:hover i {
+        transform: translateX(4px);
     }
 
-    @keyframes float-wrench {
-        0%,
-        100% {
-            transform: translateY(0) rotate(0deg);
+    /* ==========================================================================
+       ANIMATIONS
+       ========================================================================== */
+    @keyframes pulse-dot {
+        0% {
+            transform: scale(1);
+            opacity: 1;
         }
         50% {
-            transform: translateY(-10px) rotate(8deg);
+            transform: scale(1.5);
+            opacity: 0.4;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
         }
     }
 
-    @media (max-width: 600px) {
-        .o-nas-page {
-            padding-top: 140px;
-            padding-bottom: 80px;
+    @keyframes arrow-float {
+        0%,
+        100% {
+            transform: translateY(0);
         }
-        .uc-icon {
-            font-size: 4rem;
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    @keyframes progress {
+        0% {
+            stroke-dasharray: 0 100;
+        }
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+        .onas-trio__grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .team-card:nth-child(3) {
+            grid-column: span 2;
+        }
+
+        .onas-tech__grid {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        .onas-tech__visual {
+            order: -1;
+        }
+
+        .process-steps {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .o-nas-page {
+            padding-top: 80px;
+        }
+
+        .onas-hero {
+            padding-bottom: 70px;
+        }
+
+        .onas-mission__grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .onas-trio__grid {
+            grid-template-columns: 1fr;
+        }
+
+        .team-card:nth-child(3) {
+            grid-column: span 1;
+        }
+
+        .process-steps {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .onas-cta__buttons {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .btn-cta-manifesto {
+            width: 100%;
+            justify-content: center;
         }
     }
 </style>
