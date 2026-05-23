@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroBg from "../components/HeroBg.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Layout
@@ -21,7 +22,7 @@ import HeroBg from "../components/HeroBg.astro";
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >
-                    Tworzymy strony internetowe z <span
+                    Tworzymy strony www z <span
                         class="gradient__text text-glow"
                         data-text="pasji.">pasji.</span
                     ><br />
@@ -65,16 +66,15 @@ import HeroBg from "../components/HeroBg.astro";
                         data-aos-duration="1000"
                     >
                         <div class="mission-geo-card">
-                            <div class="mission-geo-card__overlay"></div>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164284.03881732273!2d19.81539296121519!3d49.95626210607544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell%20-%20Tworzenie%20stron%20internetowych!5e0!3m2!1spl!2spl!4v1779532948277!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mission-map-iframe"></iframe>
-                            <div class="mission-geo-card__content">
-                                <h3 class="geo-title">Powiat Myślenicki</h3>
-                                <div class="geo-coords">
-                                    <span>49.8333° N</span>
-                                    <span>•</span>
-                                    <span>19.9500° E</span>
-                                </div>
-                            </div>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164284.03881732273!2d19.81539296121519!3d49.95626210607544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell%20-%20Tworzenie%20stron%20internetowych!5e0!3m2!1spl!2spl!4v1779532948277!5m2!1spl!2spl"
+                                width="100%"
+                                height="100%"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="mission-map-iframe"></iframe>
                         </div>
                     </div>
                     <div
@@ -475,37 +475,7 @@ import HeroBg from "../components/HeroBg.astro";
             </div>
         </section>
 
-        <!-- CTA SECTION (GO FORWARD) -->
-        <section class="onas-cta" data-aos="fade-up" data-aos-duration="1000">
-            <div class="onas-cta__box">
-                <div class="onas-cta__glow"></div>
-                <div class="onas-cta__content">
-                    <h2>
-                        Chcesz pracować z ludźmi, którzy <span
-                            class="gradient__text">kodują z pasji?</span
-                        >
-                    </h2>
-                    <p>
-                        Poznaj szczegółowy proces powstawania strony
-                        internetowej, zapoznaj się z naszym cennikiem lub po
-                        prostu zamów bezpłatną, niezobowiązującą wycenę swojego
-                        projektu.
-                    </p>
-                    <div class="onas-cta__buttons">
-                        <a href="/kontakt" class="btn-cta-manifesto primary"
-                            >Bezpłatna wycena</a
-                        >
-                        <a href="/zamow" class="btn-cta-manifesto secondary"
-                            >Jak wygląda współpraca?</a
-                        >
-                        <a href="/cennik" class="btn-cta-manifesto text"
-                            >Sprawdź cennik <i class="fa-solid fa-arrow-right"
-                            ></i></a
-                        >
-                    </div>
-                </div>
-            </div>
-        </section>
+        <ContactForm />
     </main>
 
     <Footer />
@@ -557,13 +527,13 @@ import HeroBg from "../components/HeroBg.astro";
     .section-subtitle {
         max-width: 700px;
         margin: 15px auto 0;
-        font-size: 1.05rem;
+        font-size: 1.25rem;
         line-height: 1.6;
     }
 
     /* ==========================================================================
        HERO SECTION
-       ========================================================================== */
+       ========================================================================= */
     .onas-hero {
         position: relative;
         min-height: 75vh;
@@ -617,7 +587,7 @@ import HeroBg from "../components/HeroBg.astro";
     }
 
     .onas-hero__subtitle {
-        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-size: clamp(1.15rem, 2.5vw, 1.45rem);
         line-height: 1.6;
         color: var(--text-secondary);
         max-width: 760px;
@@ -735,108 +705,26 @@ import HeroBg from "../components/HeroBg.astro";
         width: 100%;
         max-width: 400px;
         aspect-ratio: 1 / 1;
-        background: #111;
+        background: transparent;
         border: 2px solid rgba(255, 255, 255, 0.05);
         border-radius: 24px;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
         overflow: hidden;
-        display: flex;
-        align-items: flex-end;
-        padding: 40px;
         transition: var(--transition-smooth);
     }
 
-    .mission-geo-card:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 40px 80px rgba(139, 92, 246, 0.25);
-        border-color: rgba(139, 92, 246, 0.3);
+    html[data-theme="light"] .mission-geo-card {
+        border-color: #cbd5e1;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     }
 
     .mission-map-iframe {
-        position: absolute;
-        inset: 0;
         width: 100%;
         height: 100%;
         border: 0;
-        z-index: 1;
-        opacity: 0.55;
-        transition: var(--transition-smooth);
-        filter: grayscale(1) invert(0.9) contrast(1.2);
-    }
-
-    html[data-theme="light"] .mission-map-iframe {
-        filter: grayscale(0.2) contrast(1.05);
-        opacity: 0.65;
-    }
-
-    .mission-geo-card:hover .mission-map-iframe {
-        opacity: 0.8;
-    }
-
-    /* Map grid line details inside geo card */
-    .mission-geo-card__overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(16, 16, 24, 0.95) 0%, rgba(16, 16, 24, 0.2) 100%);
-        z-index: 2;
-        background-image:
-            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0.02) 1px,
-                transparent 1px
-            ),
-            linear-gradient(to top, rgba(16, 16, 24, 0.95) 0%, rgba(16, 16, 24, 0.2) 100%);
-        background-size: 30px 30px;
-        mask-image: radial-gradient(circle at center, black, transparent 80%);
-        -webkit-mask-image: radial-gradient(
-            circle at center,
-            black,
-            transparent 80%
-        );
-    }
-
-    html[data-theme="light"] .mission-geo-card__overlay {
-        background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 100%);
-        background-image:
-            linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-            linear-gradient(
-                90deg,
-                rgba(0, 0, 0, 0.02) 1px,
-                transparent 1px
-            ),
-            linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 100%);
-    }
-
-    .mission-geo-card__content {
-        position: relative;
-        z-index: 3;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .geo-title {
-        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-        font-weight: 800;
-        color: #fff;
-        margin: 0;
-    }
-
-    html[data-theme="light"] .geo-title {
-        color: #000 !important;
-    }
-
-    .geo-coords {
-        display: flex;
-        gap: 10px;
-        font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.65);
-        font-family: monospace;
-    }
-
-    html[data-theme="light"] .geo-coords {
-        color: rgba(0, 0, 0, 0.7) !important;
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .onas-mission__content {
@@ -853,14 +741,14 @@ import HeroBg from "../components/HeroBg.astro";
     }
 
     .accent-paragraph {
-        font-size: 1.15rem;
+        font-size: 1.25rem;
         font-weight: 600;
         line-height: 1.6;
         color: var(--text-primary);
     }
 
     .onas-mission__content p {
-        font-size: 1rem;
+        font-size: 1.15rem;
         line-height: 1.7;
         color: var(--text-secondary);
         margin: 0;
@@ -961,8 +849,8 @@ import HeroBg from "../components/HeroBg.astro";
     }
 
     .team-card__desc {
-        font-size: 0.95rem;
-        line-height: 1.6;
+        font-size: 1.1rem;
+        line-height: 1.65;
         color: var(--text-secondary);
         margin: 0;
     }
@@ -1006,7 +894,7 @@ import HeroBg from "../components/HeroBg.astro";
     }
 
     .onas-tech__content p {
-        font-size: 1rem;
+        font-size: 1.15rem;
         line-height: 1.7;
         color: var(--text-secondary);
         margin: 0;
@@ -1243,7 +1131,7 @@ import HeroBg from "../components/HeroBg.astro";
     }
 
     .step-desc {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
         line-height: 1.6;
         color: var(--text-secondary);
         margin: 0;
@@ -1312,7 +1200,7 @@ import HeroBg from "../components/HeroBg.astro";
     }
 
     .onas-cta__content p {
-        font-size: 1.05rem;
+        font-size: 1.2rem;
         line-height: 1.7;
         color: rgba(255, 255, 255, 0.7);
         margin: 0;
@@ -1449,10 +1337,6 @@ import HeroBg from "../components/HeroBg.astro";
             gap: 50px;
         }
 
-        .onas-tech__visual {
-            order: -1;
-        }
-
         .process-steps {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -1460,11 +1344,65 @@ import HeroBg from "../components/HeroBg.astro";
 
     @media (max-width: 768px) {
         .o-nas-page {
-            padding-top: 80px;
+            padding-top: 60px;
         }
 
         .onas-hero {
-            padding-bottom: 70px;
+            min-height: auto;
+            padding: 40px 5% 50px;
+            text-align: left;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .onas-hero__container {
+            align-items: flex-start;
+            text-align: left;
+            gap: 16px;
+        }
+
+        .onas-hero__title {
+            text-align: left;
+        }
+
+        .onas-hero__subtitle {
+            text-align: left;
+        }
+
+        .btn-arrow-down {
+            display: none !important;
+        }
+
+        .onas-trio__header,
+        .onas-process__header {
+            text-align: left;
+        }
+
+        .section-subtitle {
+            margin-left: 0;
+            text-align: left;
+        }
+
+        .onas-cta__box {
+            text-align: left;
+            padding: 30px 20px;
+        }
+
+        .onas-cta__buttons {
+            justify-content: flex-start;
+        }
+
+        .onas-mission__content,
+        .onas-mission__content h2,
+        .accent-paragraph,
+        .onas-mission__content p,
+        .team-card,
+        .team-card__desc,
+        .onas-tech__content,
+        .onas-tech__content h2,
+        .onas-tech__content p {
+            text-align: left !important;
+            align-items: flex-start !important;
         }
 
         .onas-mission__grid {
