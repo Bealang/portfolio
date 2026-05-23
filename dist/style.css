@@ -1442,7 +1442,8 @@ footer {
     text-decoration: none;
     font-family: 'Figtree', sans-serif;
     letter-spacing: -0.5px;
-    color: #2b1c60; /* Głęboki, elegancki ciemnofioletowy w motywie jasnym */
+    color: #111827;
+    /* Głęboki, elegancki ciemnofioletowy w motywie jasnym */
     transition: var(--transition-smooth);
 
 }
@@ -1459,7 +1460,8 @@ footer {
 
 html[data-theme="dark"] .logo-text {
 
-    color: #ffffff; /* Automatyczna zmiana na biały w trybie ciemnym */
+    color: #ffffff;
+    /* Automatyczna zmiana na biały w trybie ciemnym */
 
 }
 

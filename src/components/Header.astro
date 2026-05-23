@@ -1,140 +1,230 @@
 ---
 interface Props {
-  activePage?: string;
+    activePage?: string;
 }
 
-const { activePage = '' } = Astro.props;
-const isHome = activePage === 'home';
+const { activePage = "" } = Astro.props;
+const isHome = activePage === "home";
 ---
 
-<header>
-    <a href={isHome ? '#' : '/'} class="logo-text">web2<span class="gradient__text">sell</span></a>
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+<header id="main-header">
+    <!-- 1. DESKTOP NAGŁÓWEK: GÓRNA CZĘŚĆ (TOP TIER) -->
+    <div class="header-top">
+        <div class="header-top-container">
+            <a href={isHome ? "#" : "/"} class="logo-text"
+                >web2<span class="gradient__text">sell</span></a
+            >
+            <div class="header-top-right">
+                <a href="tel:+48530315860" class="header-phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+48 530 315 860</span>
+                </a>
+
+                <!-- PRESTIŻOWY PRZEŁĄCZNIK MOTYWU (PASTYLKA Z SUWAKIEM) -->
+                <button class="theme-switch-pill" aria-label="Zmień motyw">
+                    <span class="pill-track">
+                        <span class="pill-thumb">
+                            <i class="fa-solid fa-sun sun-icon"></i>
+                            <i class="fa-solid fa-moon moon-icon"></i>
+                        </span>
+                    </span>
+                </button>
+
+                <a href="/kontakt" class="header-cta">Zamów wycenę</a>
+            </div>
+        </div>
     </div>
-    <nav id="nav-menu">
-        <a href={isHome ? '#onas' : '/#onas'} class="nav-link">O nas</a>
-        <a href={isHome ? '#projekty' : '/#projekty'} class="nav-link">Realizacje</a>
-        <a href="/cennik" class:list={["nav-link", { active: activePage === 'cennik' }]}>Cennik</a>
-        <a href="/blog" class:list={["nav-link", { active: activePage === 'blog' }]}>Blog</a>
-        <a href="/zamow" class:list={["nav-cta", { active: activePage === 'zamow' }]}>Zamów</a>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Zmień motyw">
-            <i class="fa-solid fa-sun sun-icon"></i>
-            <i class="fa-solid fa-moon moon-icon"></i>
-        </button>
-    </nav>
+
+    <!-- 2. DESKTOP NAGŁÓWEK: DOLNA CZĘŚĆ (BOTTOM TIER) -->
+    <div class="header-bottom">
+        <div class="header-bottom-container">
+            <!-- Dynamiczne Logo po scrollu, domyślnie ukryte na samej górze -->
+            <a href={isHome ? "#" : "/"} class="logo-text-scrolled"
+                >web2<span class="gradient__text">sell</span></a
+            >
+
+            <nav id="nav-menu">
+                <a
+                    href="/o-nas"
+                    class:list={[
+                        "nav-link",
+                        { active: activePage === "o-nas" },
+                    ]}>O nas</a
+                >
+                <a href={isHome ? "#projekty" : "/#projekty"} class="nav-link"
+                    >Realizacje</a
+                >
+                <a
+                    href="/cennik"
+                    class:list={[
+                        "nav-link",
+                        { active: activePage === "cennik" },
+                    ]}>Cennik</a
+                >
+                <a
+                    href="/zamow"
+                    class:list={[
+                        "nav-link",
+                        { active: activePage === "zamow" },
+                    ]}>Współpraca z nami</a
+                >
+                <a href="/zamow#faq" class="nav-link">FAQ</a>
+                <a
+                    href="/blog"
+                    class:list={["nav-link", { active: activePage === "blog" }]}
+                    >Blog</a
+                >
+
+                <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile -->
+                <div class="mobile-menu-footer">
+                    <div class="mobile-menu-theme-row">
+                        <span class="theme-label">Motyw:</span>
+                        <button
+                            class="theme-switch-pill"
+                            aria-label="Zmień motyw"
+                        >
+                            <span class="pill-track">
+                                <span class="pill-thumb">
+                                    <i class="fa-solid fa-sun sun-icon"></i>
+                                    <i class="fa-solid fa-moon moon-icon"></i>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                    <a href="tel:+48530315860" class="mobile-menu-phone">
+                        <i class="fa-solid fa-phone"></i> +48 530 315 860
+                    </a>
+                    <a href="/kontakt" class="mobile-menu-cta">Zamów wycenę</a>
+                </div>
+            </nav>
+
+            <!-- Dynamiczna prawa sekcja po scrollu (telefon + CTA) -->
+            <div class="header-right-scrolled">
+                <a href="tel:+48530315860" class="header-phone-scrolled">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+48 530 315 860</span>
+                </a>
+                <a href="/kontakt" class="header-cta-scrolled">Zamów wycenę</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. MOBILNY NAGŁÓWEK (COMPACT SINGLE ROW) -->
+    <div class="header-mobile-row">
+        <a href={isHome ? "#" : "/"} class="logo-text"
+            >web2<span class="gradient__text">sell</span></a
+        >
+
+        <div class="header-mobile-actions">
+            <!-- Widoczny przycisk Zamów wycenę od razu na mobile (chowa się przy open menu) -->
+            <a href="/kontakt" class="mobile-visible-cta">Zamów wycenę</a>
+
+            <!-- Hamburger menu -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
 </header>
 
 <script>
-(function () {
-    var header = document.querySelector('header');
-    if (!header) return;
+    (function () {
+        var header = document.getElementById("main-header");
+        if (!header) return;
 
-    // ──────────────────────────────────────────────────
-    // Theme Toggle Handler
-    // ──────────────────────────────────────────────────
-    var themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function () {
-            var currentTheme = document.documentElement.getAttribute('data-theme');
-            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    }
-
-    // ──────────────────────────────────────────────────
-    // 1. Scroll handler — transparent ↔ hidden-up ↔ scrolled
-    // ──────────────────────────────────────────────────
-    window.addEventListener('scroll', function () {
-        var scrollY = window.scrollY;
-        if (scrollY <= 50) {
-            header.classList.remove('scrolled', 'hidden-up');
-        } else if (scrollY > 300) {
-            header.classList.add('scrolled');
-            header.classList.remove('hidden-up');
-        } else {
-            header.classList.add('hidden-up');
-            header.classList.remove('scrolled');
-        }
-    }, { passive: true });
-
-    // ──────────────────────────────────────────────────
-    // 2. Hamburger menu (mobile)
-    // ──────────────────────────────────────────────────
-    var hamburger = document.getElementById('hamburger');
-    var navMenu = document.getElementById('nav-menu');
-
-    if (hamburger) {
-        hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            header.classList.toggle('menu-open');
-        });
-        document.querySelectorAll('.nav-link, .nav-cta').forEach(function (link) {
-            link.addEventListener('click', function () {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                header.classList.remove('menu-open');
+        // ──────────────────────────────────────────────────
+        // Theme Toggle Handler (Syncing both Desktop & Mobile Toggles)
+        // ──────────────────────────────────────────────────
+        var themeToggles = document.querySelectorAll(".theme-switch-pill");
+        themeToggles.forEach(function (toggle) {
+            toggle.addEventListener("click", function () {
+                var currentTheme =
+                    document.documentElement.getAttribute("data-theme");
+                var newTheme = currentTheme === "dark" ? "light" : "dark";
+                document.documentElement.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
             });
         });
 
-        // Move nav to body on mobile for fullscreen overlay
-        var moveNav = function () {
-            if (window.innerWidth <= 850) {
-                if (navMenu.parentElement !== document.body) document.body.appendChild(navMenu);
+        // ──────────────────────────────────────────────────
+        // 1. Scroll Handler — Directional Smart Show/Hide Top Tier
+        // ──────────────────────────────────────────────────
+        var lastScrollY = window.scrollY;
+        function handleScroll() {
+            var currentScrollY = window.scrollY;
+
+            if (currentScrollY <= 50) {
+                header.classList.remove("scrolled", "hide-top-tier");
             } else {
-                if (navMenu.parentElement !== header) header.appendChild(navMenu);
+                header.classList.add("scrolled");
+
+                // Scroll down -> Hide top tier | Scroll up -> Reveal top tier instantly
+                if (currentScrollY > lastScrollY) {
+                    header.classList.add("hide-top-tier");
+                } else if (currentScrollY < lastScrollY) {
+                    header.classList.remove("hide-top-tier");
+                }
             }
-        };
-        window.addEventListener('resize', moveNav, { passive: true });
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                requestAnimationFrame(moveNav);
-            }, { once: true });
-        } else {
-            requestAnimationFrame(moveNav);
+            lastScrollY = currentScrollY;
         }
-    }
 
-    // ──────────────────────────────────────────────────
-    // 3. Nav transition animation (desktop only)
-    //    When header has background (scrolled), clicking a
-    //    navigation link first plays an expand + fade-bg
-    //    animation, THEN navigates to the new page.
-    // ──────────────────────────────────────────────────
-    document.querySelectorAll('header a[href], #nav-menu a[href]').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            var href = link.getAttribute('href');
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll(); // Wywołaj od razu przy ładowaniu, by zapobiec miganiu (FOUC) na 0.1s przy odświeżeniu
 
-            // Skip anchors, mailto, tel, javascript, empty
-            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+        // ──────────────────────────────────────────────────
+        // 2. Hamburger menu (mobile)
+        // ──────────────────────────────────────────────────
+        var hamburger = document.getElementById("hamburger");
+        var navMenu = document.getElementById("nav-menu");
 
-            // Skip if on mobile (header is flat, no animation needed)
-            if (window.innerWidth <= 995) return;
+        if (hamburger && navMenu) {
+            hamburger.addEventListener("click", function () {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+                header.classList.toggle("menu-open");
+            });
+            document
+                .querySelectorAll(".nav-link, .nav-cta-mobile")
+                .forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        hamburger.classList.remove("active");
+                        navMenu.classList.remove("active");
+                        header.classList.remove("menu-open");
+                    });
+                });
 
-            // Determine if navigating to a different page
-            var currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-            var targetPath = href.split('#')[0].split('?')[0].replace(/\/$/, '') || '/';
+            // Fullscreen mobile navigation DOM positioning
+            var headerBottomContainer = document.querySelector(
+                ".header-bottom-container",
+            );
+            var moveNav = function () {
+                if (window.innerWidth <= 850) {
+                    if (navMenu.parentElement !== document.body)
+                        document.body.appendChild(navMenu);
+                } else {
+                    if (
+                        headerBottomContainer &&
+                        navMenu.parentElement !== headerBottomContainer
+                    ) {
+                        headerBottomContainer.appendChild(navMenu);
+                    }
+                }
+            };
+            window.addEventListener("resize", moveNav, { passive: true });
 
-            // If same page (e.g. /#onas from home) — don't intercept
-            if (currentPath === targetPath) return;
-
-            // If header is NOT scrolled (transparent, at top) — navigate instantly
-            if (!header.classList.contains('scrolled')) return;
-
-            // ── ANIMATE: expand header width, then navigate ──
-            e.preventDefault();
-            header.classList.add('nav-transitioning');
-
-            // Navigate after animation completes
-            setTimeout(function () {
-                window.location.href = href;
-            }, 167);
-        });
-    });
-})();
+            if (document.readyState === "loading") {
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    function () {
+                        requestAnimationFrame(moveNav);
+                    },
+                    { once: true },
+                );
+            } else {
+                requestAnimationFrame(moveNav);
+            }
+        }
+    })();
 </script>
