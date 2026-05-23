@@ -483,7 +483,7 @@ import ContactForm from "../components/ContactForm.astro";
 
 <style>
     /* ==========================================================================
-       BLACK TEXT OVERRIDES AS REQUESTED BY USER
+       BLACK TEXT OVERRIDES AS REQUESTED BY USER (FOR LIGHT THEME)
        ========================================================================== */
     .section-tag,
     .section-subtitle,
@@ -502,6 +502,34 @@ import ContactForm from "../components/ContactForm.astro";
     .step-title,
     .step-desc {
         color: #000 !important;
+    }
+
+    /* ==========================================================================
+       DARK MODE ADJUSTMENTS TO KEEP TEXT LEGIBLE AND BEAUTIFUL
+       ========================================================================== */
+    html[data-theme="dark"] .onas-hero__title,
+    html[data-theme="dark"] .onas-mission__content h2,
+    html[data-theme="dark"] .onas-trio__header h2,
+    html[data-theme="dark"] .team-card__name,
+    html[data-theme="dark"] .onas-tech__content h2,
+    html[data-theme="dark"] .onas-process__header h2,
+    html[data-theme="dark"] .step-title {
+        color: #ffffff !important;
+    }
+
+    html[data-theme="dark"] .section-tag,
+    html[data-theme="dark"] .team-card__role {
+        color: var(--accent-cyan) !important;
+    }
+
+    html[data-theme="dark"] .section-subtitle,
+    html[data-theme="dark"] .onas-hero__subtitle,
+    html[data-theme="dark"] .accent-paragraph,
+    html[data-theme="dark"] .onas-mission__content p,
+    html[data-theme="dark"] .team-card__desc,
+    html[data-theme="dark"] .onas-tech__content p,
+    html[data-theme="dark"] .step-desc {
+        color: #e5e7eb !important;
     }
 
     /* ==========================================================================
