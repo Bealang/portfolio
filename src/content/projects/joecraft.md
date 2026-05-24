@@ -3,7 +3,7 @@ title: "Joecraft.pl"
 tag: "Serwer Minecraft • 2024"
 color: "#0a1628"
 accent: "rgba(59, 130, 246, 0.25)"
-url: "https://web2sell.pl/joecraft/"
+url: "https://joecraft.pl (nieaktywny)"
 thumbnail: "/assets/project-img/joecraft.avif"
 thumbnailAlt: "Joecraft.pl - strona serwera Minecraft"
 gallery:
@@ -16,7 +16,7 @@ order: 2
 
 ## O projekcie
 
-**Joecraft.pl** to strona serwera Minecraft stworzona w całości od zera. Projekt łączy estetykę z gry Minecraft. Niestety, serwer już nie istnieje (zakończył dzialalność w 2024 roku), ale archiwum strony internetowej zostało zachowane i nadal można ją przeglądać. Strona posiadała najważniejsze rzeczy: Ilość osób online, regulamin, link do serwerowego Discorda, link do rekrutacji i najczęściej zadawane pytania (FAQ).
+**Joecraft.pl** to strona serwera Minecraft stworzona w całości od zera. Projekt łączy estetykę z gry Minecraft. Niestety, serwer już nie istnieje (zakończył dzialalność w 2024 roku). Strona posiadała najważniejsze rzeczy: Ilość osób online, regulamin, link do serwerowego Discorda, link do rekrutacji i najczęściej zadawane pytania (FAQ).
 ### Co zrobiliśmy?
 
 - **Animowany hero z efektem cząsteczkowym** — przyciąga uwagę graczy od pierwszego wejścia

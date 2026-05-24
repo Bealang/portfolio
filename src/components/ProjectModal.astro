@@ -10,16 +10,39 @@ interface Props {
 }
 
 const { slug, title, tag, color, url, gallery, Content } = Astro.props;
+
+// Helper to determine text contrast color based on background luminance (YIQ)
+function getContrastColor(hexColor: string): string {
+  if (!hexColor || typeof hexColor !== 'string') return '#ffffff';
+  let cleanHex = hexColor.replace('#', '');
+  if (cleanHex.length === 3) {
+    cleanHex = cleanHex[0] + cleanHex[0] + cleanHex[1] + cleanHex[1] + cleanHex[2] + cleanHex[2];
+  }
+  if (cleanHex.length !== 6) return '#ffffff';
+  
+  const r = parseInt(cleanHex.substring(0, 2), 16);
+  const g = parseInt(cleanHex.substring(2, 4), 16);
+  const b = parseInt(cleanHex.substring(4, 6), 16);
+  
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 128 ? '#111827' : '#ffffff';
+}
+
+const textColor = getContrastColor(color);
+const isLightHeader = textColor === '#111827';
 ---
 
 <div class="project-modal" id={`modal-${slug}`} data-slug={slug} aria-hidden="true" role="dialog" aria-label={`Szczegóły projektu: ${title}`}>
     <div class="project-modal__backdrop"></div>
-    <div class="project-modal__container">
+    <div 
+        class="project-modal__container"
+        style={`--header-bg: ${color}; --header-text-color: ${textColor}; --header-tag-color: ${isLightHeader ? 'rgba(17, 24, 39, 0.65)' : 'rgba(255, 255, 255, 0.65)'}; --header-link-bg: ${isLightHeader ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.08)'}; --header-link-border: ${isLightHeader ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.15)'};`}
+    >
         <button class="project-modal__close" aria-label="Zamknij modal">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
-        <div class="project-modal__header" style={`background: ${color};`}>
+        <div class="project-modal__header" style="background: var(--header-bg);">
             <div class="project-modal__header-content">
                 <h2 class="project-modal__title">{title}</h2>
                 <span class="project-modal__tag">{tag}</span>
