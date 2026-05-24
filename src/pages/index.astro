@@ -250,6 +250,7 @@ const renderedProjects = await Promise.all(
                             slug={project.id}
                             title={project.data.title}
                             tag={project.data.tag}
+                            url={project.data.url}
                             color={project.data.color}
                             accent={project.data.accent}
                             thumbnail={project.data.thumbnail}
@@ -557,11 +558,6 @@ const renderedProjects = await Promise.all(
                                 : 0.15;
                     var brightness = abs === 0 ? 1 : abs === 1 ? 0.55 : 0.3;
                     var zIndex = abs === 0 ? 20 : abs === 1 ? 15 : 5;
-                    var shadow =
-                        abs === 0
-                            ? "0 50px 100px rgba(0,0,0,0.35), 0 20px 40px rgba(139,92,246,0.2)"
-                            : "0 15px 35px rgba(0,0,0,0.15)";
-
                     card.style.transform =
                         "translate(" +
                         tx +
@@ -573,7 +569,7 @@ const renderedProjects = await Promise.all(
                     card.style.opacity = opacity;
                     card.style.filter = "brightness(" + brightness + ")";
                     card.style.zIndex = zIndex;
-                    card.style.boxShadow = shadow;
+                    card.style.boxShadow = "none";
 
                     if (!dragging)
                         card.classList.toggle("is-active", i === current);

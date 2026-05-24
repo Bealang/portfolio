@@ -3,13 +3,28 @@ interface Props {
   slug: string;
   title: string;
   tag: string;
+  url?: string;
   color: string;
   accent: string;
   thumbnail: string;
   thumbnailAlt: string;
 }
 
-const { slug, title, tag, color, accent, thumbnail, thumbnailAlt } = Astro.props;
+const { slug, title, tag, url, color, accent, thumbnail, thumbnailAlt } = Astro.props;
+
+// Extract clean domain from url
+let domain = '';
+if (url) {
+  try {
+    const urlObj = new URL(url);
+    domain = urlObj.hostname;
+    if (domain.startsWith('www.')) {
+      domain = domain.substring(4);
+    }
+  } catch (e) {
+    domain = url;
+  }
+}
 ---
 
 <div
@@ -18,11 +33,15 @@ const { slug, title, tag, color, accent, thumbnail, thumbnailAlt } = Astro.props
   data-accent={accent}
   data-slug={slug}
 >
-    <div class="c3d__card-inner" style={`background: ${color}; --card-accent: ${accent}; cursor: pointer;`}>
+    <div class="c3d__card-inner" style={`--card-accent: ${accent}; cursor: pointer;`}>
         <div class="c3d__logo-wrap">
             <img src={thumbnail} alt={thumbnailAlt} loading="lazy" style="border-radius:10px;">
         </div>
         <p class="c3d__name">{title}</p>
-        <span class="c3d__tag">{tag}</span>
+        {domain ? (
+            <span class="c3d__domain">{domain}</span>
+        ) : (
+            <span class="c3d__tag">{tag}</span>
+        )}
     </div>
 </div>
