@@ -24,15 +24,15 @@ import HeroBg from '../components/HeroBg.astro';
                 <span class="toggle-label" id="label-brutto">Ceny Brutto <span class="vat-badge">(+23% VAT)</span></span>
             </div>
 
-            <!-- KONTENER NOWEGO CENNIKA 3+1 -->
+            <!-- KONTENER CENNIKA 3+1 -->
             <div class="full-pricing-grid-container">
                 <!-- Rząd 3 pakietów standardowych obok siebie -->
                 <div class="pricing-grid-standard">
                     <!-- Pakiet OnePage -->
                     <div class="pricing-card reveal-element" id="full-card-onepage" style="transition-delay: 0.1s;">
-                        <h3>OnePage <span class="subtitle">(Szybki start w sieci)</span></h3>
+                        <h3>OnePage <span class="subtitle">Jednostronicowa</span></h3>
                         <p class="card-summary">
-                            Szybka, magnetyczna i jednostronicowa wizytówka, która natychmiast zamienia odwiedzających w klientów. Stworzona dla lokalnych usługodawców oraz na start.
+                            Szybka i prosta jednostronicowa wizytówka. Doskonała dla jednoosobowych działalności, freelancerów czy małych firm. Znajduje się na niej wszystko, co niezbędne, by skutecznie zaprezentować ofertę i zdobyć pierwszych klientów z Google.
                         </p>
                         <div class="price">od <span class="price-value" data-net="1000" data-gross="1230">1000</span> <span class="currency">zł</span> <span class="price-suffix">/netto<sup>1</sup></span></div>
                         <a href="/zamow?pakiet=onepage" class="pricing-btn">Wybierz OnePage</a>
@@ -40,9 +40,9 @@ import HeroBg from '../components/HeroBg.astro';
 
                     <!-- Pakiet Wizytówka Multi-Page -->
                     <div class="pricing-card reveal-element" id="full-card-multipage" style="transition-delay: 0.25s;">
-                        <h3>Wizytówka Multi-Page <span class="subtitle">(Budowa autorytetu)</span></h3>
+                        <h3>Wizytówka Multi-Page <span class="subtitle">2-5 podstron</span></h3>
                         <p class="card-summary">
-                            Pełnoprawna strona podzielona na kilka dedykowanych podstron. Buduje silne zaufanie i pozwala precyzyjnie opisać poszczególne usługi.
+                            Pełnoprawna strona internetowa podzielona na kilka dedykowanych podstron (o nas, oferta, galeria, kontakt). Idealna dla firm, które chcą zbudować silniejszą pozycję w Google i zaoferować klientom bardziej rozbudowaną prezentację swojej oferty niż Onepage.
                         </p>
                         <div class="price">od <span class="price-value" data-net="1500" data-gross="1845">1500</span> <span class="currency">zł</span> <span class="price-suffix">/netto<sup>1</sup></span></div>
                         <a href="/zamow?pakiet=multipage" class="pricing-btn">Wybierz Multi-Page</a>
@@ -51,9 +51,9 @@ import HeroBg from '../components/HeroBg.astro';
                     <!-- Pakiet Wizytówka + CMS -->
                     <div class="pricing-card card--active reveal-element" id="full-card-cms" style="transition-delay: 0.4s;">
                         <div class="card-badge">Najpopularniejszy wybór</div>
-                        <h3>Wizytówka + CMS <span class="subtitle">(Dynamiczne treści)</span></h3>
+                        <h3>Wizytówka + CMS <span class="subtitle">2-5 podstron + panel administracyjny</span></h3>
                         <p class="card-summary">
-                            Strona z autorskim, banalnie prostym panelem administracyjnym. Samodzielnie i błyskawicznie edytujesz ofertę, portfolio czy bloga bez pisania kodu.
+                            Strona z autorskim, banalnie prostym panelem administracyjnym. Samodzielnie i błyskawicznie edytujesz ofertę, portfolio czy bloga bez pisania kodu. To doskonały wybór dla firm, które chcą mieć pełną kontrolę nad swoją stroną i regularnie aktualizować treści.
                         </p>
                         <div class="price">od <span class="price-value" data-net="2500" data-gross="3075">2500</span> <span class="currency">zł</span> <span class="price-suffix">/netto<sup>1</sup></span></div>
                         <a href="/zamow?pakiet=cms" class="pricing-btn primary">Wybierz CMS</a>
@@ -63,9 +63,9 @@ import HeroBg from '../components/HeroBg.astro';
                 <!-- Pakiet System Dedykowany pod spodem (szeroki baner) -->
                 <div class="pricing-card-dedicated reveal-element" id="full-card-dedicated" style="transition-delay: 0.15s;">
                     <div class="dedicated-content">
-                        <h3>System Dedykowany <span class="subtitle">(Rozwiązania "Full Custom")</span></h3>
+                        <h3>System Dedykowany <span class="subtitle">Zaawansowane rozwiązanie</span></h3>
                         <p class="card-summary">
-                            Zaawansowany panel zarządzania i dedykowane moduły zaprogramowane pod specyfikę Twojego biznesu. Maksymalna skalowalność i unikalne funkcje.
+                            Dedykowane rozwiązanie dla najbardziej wymagających klientów. Strona idealnie dopasowana do potrzeb Twojego biznesu, z rozbudowanymi funkcjonalnościami (rezerwacje, interaktywne cenniki, integracje z systemami zewnętrznymi). To inwestycja dla firm, które chcą mieć absolutnie unikalną i najwyższej jakości stronę, wybijającą się na tle konkurencji.
                         </p>
                     </div>
                     <div class="dedicated-cta-box">
@@ -96,8 +96,8 @@ import HeroBg from '../components/HeroBg.astro';
                         <tbody>
                             <tr>
                                 <td class="feature-name">Czas realizacji</td>
-                                <td>Kilka dni</td>
-                                <td>2 tygodnie</td>
+                                <td>do 1 tygodnia</td>
+                                <td>1 do 2 tygodni</td>
                                 <td class="highlight-cell">3-4 tygodnie</td>
                                 <td>od 5 tygodni</td>
                             </tr>
@@ -131,14 +131,21 @@ import HeroBg from '../components/HeroBg.astro';
                             </tr>
                             <tr>
                                 <td class="feature-name">Opieka w pakiecie</td>
-                                <td>1 msc</td>
-                                <td>1 msc</td>
-                                <td class="highlight-cell">6 msc</td>
-                                <td>6 msc</td>
+                                <td>1 mies.</td>
+                                <td>2 mies.</td>
+                                <td class="highlight-cell">6 mies.</td>
+                                <td>6 mies.</td>
                             </tr>
                             <tr>
-                                <td class="feature-name">Strona pisana od zera, na nowoczesnych, szybkich technologiach bez ociężałych wtyczek</td>
+                                <td class="feature-name">Strona pisana od zera, na nowoczesnych frameworkach</td>
                                 <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td class="highlight-cell"><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <td class="feature-name">Wizytówka Google Maps w cenie</td>
+                                <td>Opcjonalnie (+50 zł)</td>
                                 <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
                                 <td class="highlight-cell"><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
                                 <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
@@ -149,7 +156,7 @@ import HeroBg from '../components/HeroBg.astro';
             </div>
             <div class="cennik-cta reveal-element" style="transition-delay: 0.25s;">
                 <h3 class="cennik-cta__title">Jaki pakiet wybierasz?</h3>
-                <p class="cennik-cta__desc">Skonfiguruj swój projekt i uzyskaj bezpłatną, szybką wycenę w ciągu 24 godzin.</p>
+                <p class="cennik-cta__desc">Niezależnie, czy masz wybrany pakiet, czy nie, skontaktuj się z nami, aby uzyskać indywidualną wycenę.</p>
                 <a href="/zamow" class="pricing-btn primary">Skonfiguruj i wyceń projekt</a>
             </div>
             

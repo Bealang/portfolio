@@ -1,6 +1,6 @@
 ---
 title: "Zdrowe Stopy"
-tag: "Podolog • 2026"
+date: "2026"
 color: "#b7ff53"
 accent: "rgba(183, 255, 83, 0.25)"
 url: "https://podologiamyslenice.pl"

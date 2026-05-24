@@ -1,6 +1,6 @@
 ---
 title: "McFormatter"
-tag: "Formatowanie tekstu • 2026"
+date: "2026"
 color: "#0a200f"
 accent: "rgba(34, 197, 94, 0.2)"
 url: "https://bealang.github.io/minecraft/"

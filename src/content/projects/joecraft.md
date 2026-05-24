@@ -1,6 +1,6 @@
 ---
 title: "Joecraft.pl"
-tag: "Serwer Minecraft • 2024"
+date: "2024"
 color: "#0a1628"
 accent: "rgba(59, 130, 246, 0.25)"
 url: "https://joecraft.pl (nieaktywny)"

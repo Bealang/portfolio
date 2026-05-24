@@ -1,6 +1,6 @@
 ---
 title: "Apartamenty"
-tag: "Hotel rezerwacja• 2026"
+date: "2026"
 color: "#191e22"
 accent: "rgba(25, 30, 34, 0.2)"
 url: "https://web2sell.pl/apartamenty"

@@ -4,19 +4,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroBg from "../components/HeroBg.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import ProjectModal from "../components/ProjectModal.astro";
 import ContactForm from "../components/ContactForm.astro";
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 
 const projects = (await getCollection("projects")).sort(
     (a, b) => a.data.order - b.data.order,
-);
-
-const renderedProjects = await Promise.all(
-    projects.map(async (project) => {
-        const { Content } = await render(project);
-        return { ...project, Content };
-    }),
 );
 ---
 
@@ -40,10 +32,14 @@ const renderedProjects = await Promise.all(
                 </h1>
                 <h2 class="hero-title typing-stack">
                     <span id="type-title-ghost" class="ghost-layer"
-                        >Zaprojektujemy.<br /><span
+                        >Zaprojektujemy.
+                        <br /><span
                             class="gradient__text text-glow"
                             data-text="Zbudujemy">Zbudujemy.</span
-                        ><br />Od zera.<br />Dla Twojej firmy.</span
+                        >
+                        <br />Od zera.
+                        <br />Dla Twojej firmy.
+                        </span
                     >
                     <span id="type-title" class="visible-layer"></span>
                 </h2>
@@ -245,11 +241,11 @@ const renderedProjects = await Promise.all(
         >
             <div class="c3d__track" id="c3dTrack">
                 {
-                    renderedProjects.map((project) => (
+                    projects.map((project) => (
                         <ProjectCard
                             slug={project.id}
                             title={project.data.title}
-                            tag={project.data.tag}
+                            date={project.data.date}
                             url={project.data.url}
                             color={project.data.color}
                             accent={project.data.accent}
@@ -432,20 +428,7 @@ const renderedProjects = await Promise.all(
 
     <Footer isHome={true} />
 
-    <!-- Pre-rendered project modals (hidden, opened via JS) -->
-    {
-        renderedProjects.map((project) => (
-            <ProjectModal
-                slug={project.id}
-                title={project.data.title}
-                tag={project.data.tag}
-                color={project.data.color}
-                url={project.data.url}
-                gallery={project.data.gallery}
-                Content={project.Content}
-            />
-        ))
-    }
+
 
     <!-- Typing animation -->
     <script>
@@ -523,19 +506,12 @@ const renderedProjects = await Promise.all(
                 },
                 { passive: true },
             );
-
-            // Handle card clicks → open modal
+            // Handle card clicks → prevent navigation if dragging
             var currentDragDelta = 0;
             cards.forEach(function (card) {
                 card.addEventListener("click", function (e) {
                     if (Math.abs(currentDragDelta) > 5) {
                         e.preventDefault();
-                        return;
-                    }
-                    var slug = card.dataset.slug;
-                    if (slug) {
-                        var modal = document.getElementById("modal-" + slug);
-                        if (modal) openModal(modal);
                     }
                 });
             });
@@ -726,135 +702,7 @@ const renderedProjects = await Promise.all(
         })();
     </script>
 
-    <!-- Modal Manager (Bundled & Defer, with dynamic Swiper load on-demand) -->
-    <script>
-        (function () {
-            var activeSwipers = [];
-            var swiperLoaded = false;
 
-            window.openModal = async function (modal) {
-                modal.setAttribute("aria-hidden", "false");
-                modal.classList.add("is-open");
-                document.body.style.overflow = "hidden";
-                if (window.sliderStopAuto) window.sliderStopAuto();
-
-                // Dynamic lazy loading for images in the opened modal
-                var lazyImgs = modal.querySelectorAll(".modal-lazy-img");
-                lazyImgs.forEach(function (img) {
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute("data-src");
-
-                        var handleLoad = function () {
-                            img.style.opacity = "1";
-                            var parentSlide = img.closest(
-                                ".swiper-slide-shimmer",
-                            );
-                            if (parentSlide) {
-                                parentSlide.classList.remove(
-                                    "swiper-slide-shimmer",
-                                );
-                            }
-                        };
-
-                        img.addEventListener("load", handleLoad);
-
-                        // Check if already cached/completed by browser
-                        if (img.complete) {
-                            handleLoad();
-                        }
-                    }
-                });
-
-                // Init Swiper for gallery
-                var swiperEl = modal.querySelector(".project-gallery-swiper");
-                if (swiperEl) {
-                    if (!swiperLoaded) {
-                        // Dynamically inject Swiper CSS
-                        var link = document.createElement("link");
-                        link.rel = "stylesheet";
-                        link.href =
-                            "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css";
-                        document.head.appendChild(link);
-
-                        // Dynamically inject Swiper JS
-                        await new Promise(function (resolve) {
-                            var script = document.createElement("script");
-                            script.src =
-                                "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js";
-                            script.onload = resolve;
-                            document.body.appendChild(script);
-                        });
-                        swiperLoaded = true;
-                    }
-
-                    var swiper = new Swiper(swiperEl, {
-                        loop:
-                            swiperEl.querySelectorAll(".swiper-slide").length >
-                            1,
-                        pagination: {
-                            el: swiperEl.querySelector(".swiper-pagination"),
-                            clickable: true,
-                        },
-                        navigation: {
-                            nextEl: swiperEl.querySelector(
-                                ".swiper-button-next",
-                            ),
-                            prevEl: swiperEl.querySelector(
-                                ".swiper-button-prev",
-                            ),
-                        },
-                        keyboard: { enabled: true },
-                        grabCursor: true,
-                        observer: true,
-                        observeParents: true,
-                    });
-                    activeSwipers.push(swiper);
-                }
-            };
-
-            window.closeModal = function (modal) {
-                modal.classList.remove("is-open");
-                modal.setAttribute("aria-hidden", "true");
-                document.body.style.overflow = "";
-                if (window.sliderResetAuto) window.sliderResetAuto();
-
-                // Destroy Swiper instances
-                activeSwipers.forEach(function (s) {
-                    s.destroy(true, true);
-                });
-                activeSwipers = [];
-            };
-
-            // Close button
-            document
-                .querySelectorAll(".project-modal__close")
-                .forEach(function (btn) {
-                    btn.addEventListener("click", function () {
-                        closeModal(btn.closest(".project-modal"));
-                    });
-                });
-
-            // Backdrop click
-            document
-                .querySelectorAll(".project-modal__backdrop")
-                .forEach(function (backdrop) {
-                    backdrop.addEventListener("click", function () {
-                        closeModal(backdrop.closest(".project-modal"));
-                    });
-                });
-
-            // Escape key
-            document.addEventListener("keydown", function (e) {
-                if (e.key === "Escape") {
-                    var openModal = document.querySelector(
-                        ".project-modal.is-open",
-                    );
-                    if (openModal) closeModal(openModal);
-                }
-            });
-        })();
-    </script>
 
     <!-- Technology Interactive Drag Controller -->
     <script>

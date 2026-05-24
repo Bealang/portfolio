@@ -14,7 +14,6 @@
     --glass-shadow: 0 10px 30px rgba(31, 38, 135, 0.05);
 
     /* Dynamic values to abstract hardcoded ones */
-    --modal-bg: #ffffff;
     --card-bg: #ffffff;
     --input-bg: rgba(255, 255, 255, 0.95);
     --input-border: #cbd5e1;
@@ -131,8 +130,6 @@ html[data-theme="dark"] {
     --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 
     /* Layered depth variables (Z-axis depth) */
-    --modal-bg: #161616;
-    /* solid slightly lighter dark for modal containers */
     --card-bg: #161616;
     /* solid card background to stack nicely over #101010 */
     --input-bg: rgba(26, 26, 26, 0.85);
@@ -1626,7 +1623,7 @@ html[data-theme="dark"] #kontakt__form select {
 
 /* Stylizacja opcji select dla estetyki systemowej */
 #kontakt__form select option {
-    background: var(--modal-bg);
+    background: var(--card-bg);
     color: var(--text-primary);
 }
 
@@ -5016,11 +5013,42 @@ nav>a.active::after {
     line-height: 1.7;
     color: var(--text-secondary);
     margin: 0;
+    text-align: justify;
 }
 
 .htl-step__card--final {
     border-color: rgba(16, 185, 129, 0.3);
     background: var(--card-grad-145-green);
+}
+
+/* Beautiful custom list for timeline steps */
+.htl-step__list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0 0;
+    text-align: left;
+}
+
+.htl-step__list li {
+    font-size: 15px;
+    line-height: 1.35;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 6px;
+}
+
+.htl-step__list li:last-child {
+    margin-bottom: 0;
+}
+
+.htl-step__list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-blue);
+    font-weight: 700;
 }
 
 @media (max-width: 600px) {
@@ -5258,6 +5286,10 @@ nav>a.active::after {
 
     .htl-step__card {
         text-align: left !important;
+    }
+
+    .htl-step__card p {
+        text-align: left;
     }
 
     .faq-item__answer {

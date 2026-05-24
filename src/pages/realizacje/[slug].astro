@@ -1,0 +1,513 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroBg from '../../components/HeroBg.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+// Get all projects sorted to provide simple navigation to other projects
+const allProjects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const currentIndex = allProjects.findIndex((p) => p.id === project.id);
+const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : (allProjects.length > 1 ? allProjects[0] : null);
+---
+
+<Layout
+  title={`Projekt ${project.data.title} | web2sell`}
+  description={`Zobacz naszą realizację projektu ${project.data.title}. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta.`}
+  ogImage={project.data.thumbnail}
+>
+    <Header activePage="" />
+
+    <main class="project-container">
+        <HeroBg behindContent={true} />
+
+        <article class="project" data-aos="fade-up" data-aos-duration="800">
+            <div class="project__header">
+                <a href="/#projekty" class="project__back-btn">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                    <span>Wróć do realizacjii</span>
+                </a>
+
+                <div class="project__meta">
+                    <span class="project__date">
+                        <i class="fa-regular fa-calendar-days"></i> Rok realizacji: {project.data.date}
+                    </span>
+                    {project.data.url && (
+                        <>
+                            <span class="project__divider">•</span>
+                            <a href={project.data.url} target="_blank" rel="noopener noreferrer" class="project__preview-link" style={`--project-accent: ${project.data.color}`}>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Odwiedź stronę
+                            </a>
+                        </>
+                    )}
+                </div>
+
+                <h1 class="project__title">{project.data.title}</h1>
+            </div>
+
+            {project.data.gallery && project.data.gallery.length > 0 && (
+                <div class="project__gallery-container" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="swiper project-gallery-swiper" style={`--swiper-navigation-color: ${project.data.color}; --swiper-pagination-color: ${project.data.color};`}>
+                        <div class="swiper-wrapper">
+                            {project.data.gallery.map((img, i) => (
+                                <div class="swiper-slide">
+                                    <div class="swiper-img-wrapper">
+                                        <img src={img} alt={`${project.data.title} — zdjęcie ${i + 1}`} class="project__gallery-img" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        {project.data.gallery.length > 1 && (
+                            <>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            <section class="project__content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <Content />
+            </section>
+
+            <!-- Dolna nawigacja -->
+            <div class="project__navigation" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                <a href="/#projekty" class="project__nav-btn project__nav-btn--back" aria-label="Wróć do listy wszystkich realizacjii">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                    <span>Powrót do realizacjii</span>
+                </a>
+                
+                {nextProject && (
+                    <a href={`/realizacje/${nextProject.id}`} class="project__nav-btn project__nav-btn--next" aria-label={`Zobacz kolejny projekt: ${nextProject.data.title}`}>
+                        <span>Pokaż kolejny projekt</span>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                )}
+            </div>
+        </article>
+    </main>
+
+    <Footer />
+
+    <!-- Floating CTA -->
+    <a href="/zamow" class="floating-cta" aria-label="Zamów bezpłatną wycenę">
+        <span>Bezpłatna wycena</span>
+        <i class="fa-solid fa-arrow-right-long"></i>
+    </a>
+</Layout>
+
+<!-- Swiper CDN Links -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiperEl = document.querySelector(".project-gallery-swiper");
+        if (swiperEl) {
+            new Swiper(swiperEl, {
+                loop: swiperEl.querySelectorAll(".swiper-slide").length > 1,
+                pagination: {
+                    el: swiperEl.querySelector(".swiper-pagination"),
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: swiperEl.querySelector(".swiper-button-next"),
+                    prevEl: swiperEl.querySelector(".swiper-button-prev"),
+                },
+                autoplay: {
+                    delay: 4500,
+                    disableOnInteraction: false,
+                },
+                effect: 'slide',
+                grabCursor: true,
+            });
+        }
+    });
+</script>
+
+<style is:global>
+    /* Styling for rendered Markdown content */
+    .project__content {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        font-weight: 300;
+        margin-top: 40px;
+    }
+
+    .project__content p {
+        margin: 0 0 24px;
+    }
+
+    .project__content h1 {
+        font-family: 'Figtree', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 48px 0 24px;
+        line-height: 1.3;
+        letter-spacing: -0.5px;
+    }
+
+    .project__content h2 {
+        font-family: 'Figtree', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 40px 0 20px;
+        line-height: 1.3;
+        letter-spacing: -0.5px;
+    }
+
+    .project__content h3 {
+        font-family: 'Figtree', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 32px 0 16px;
+        line-height: 1.3;
+    }
+
+    .project__content ul, .project__content ol {
+        margin: 0 0 24px;
+        padding-left: 24px;
+    }
+
+    .project__content li {
+        margin-bottom: 10px;
+    }
+
+    .project__content strong {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+
+    .project__content a {
+        color: var(--accent-blue);
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 1px dashed var(--accent-blue);
+        transition: var(--transition-smooth);
+    }
+
+    .project__content a:hover {
+        color: var(--accent-cyan);
+        border-bottom-color: var(--accent-cyan);
+    }
+</style>
+
+<style>
+    .project-container {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 160px 5% 80px;
+        min-height: 85vh;
+    }
+
+    .project {
+        position: relative;
+        z-index: 2;
+    }
+
+    .project__header {
+        margin-bottom: 30px;
+    }
+
+    .project__back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        margin-bottom: 24px;
+        transition: var(--transition-smooth);
+    }
+
+    .project__back-btn i {
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        color: var(--accent-cyan);
+    }
+
+    .project__back-btn:hover {
+        color: var(--text-primary);
+    }
+
+    .project__back-btn:hover i {
+        transform: translateX(-6px);
+        color: var(--accent-blue);
+    }
+
+    .project__meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        margin-bottom: 16px;
+        font-weight: 300;
+        flex-wrap: wrap;
+    }
+
+    .project__meta i {
+        color: var(--accent-blue);
+        margin-right: 4px;
+    }
+
+    .project__divider {
+        color: var(--glass-border);
+    }
+
+    .project__preview-link {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: var(--transition-smooth);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--glass-border);
+        background: var(--card-bg);
+    }
+
+    .project__preview-link:hover {
+        border-color: var(--project-accent, var(--accent-cyan));
+        box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+    }
+
+    .project__preview-link i {
+        color: var(--project-accent, var(--accent-cyan)) !important;
+    }
+
+    .project__title {
+        font-family: 'Figtree', sans-serif;
+        font-size: clamp(32px, 5vw, 54px);
+        font-weight: 800;
+        color: var(--text-primary);
+        line-height: 1.15;
+        letter-spacing: -1.5px;
+        margin: 0;
+    }
+
+    /* Karuzela Swiper */
+    .project__gallery-container {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--glass-shadow);
+        margin-bottom: 40px;
+        background: var(--card-bg);
+    }
+
+    .project-gallery-swiper {
+        width: 100%;
+        height: 480px;
+    }
+
+    .swiper-slide {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+    }
+
+    .swiper-img-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .project__gallery-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        .project-container {
+            padding-top: 130px;
+        }
+
+        .project-gallery-swiper {
+            height: 300px;
+        }
+
+        .project__gallery-container {
+            border-radius: 12px;
+        }
+
+        .project__content {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+    }
+
+    /* Nawigacja dolna */
+    .project__navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid var(--glass-border);
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .project__nav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 26px;
+        border-radius: 50px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+        border: 1px solid var(--glass-border);
+        background: var(--card-bg);
+        color: var(--text-primary);
+        box-shadow: var(--glass-shadow);
+        cursor: pointer;
+    }
+
+    .project__nav-btn i {
+        font-size: 0.85rem;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Powrót na stronę główną */
+    .project__nav-btn--back i {
+        color: var(--accent-cyan);
+    }
+
+    .project__nav-btn--back:hover {
+        transform: translateY(-3px);
+        border-color: var(--card-hover-border);
+        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.06), var(--glass-shadow);
+    }
+
+    .project__nav-btn--back:hover i {
+        transform: translateX(-6px);
+        color: var(--accent-blue);
+    }
+
+    /* Następny projekt */
+    .project__nav-btn--next {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(59, 130, 246, 0.08));
+        border-color: rgba(6, 182, 212, 0.25);
+    }
+
+    .project__nav-btn--next i {
+        color: var(--accent-cyan);
+    }
+
+    .project__nav-btn--next:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        border-color: transparent;
+        color: #fff;
+        box-shadow: 0 12px 25px rgba(6, 182, 212, 0.25);
+    }
+
+    .project__nav-btn--next:hover i {
+        transform: translateX(6px);
+        color: #fff;
+    }
+
+    @media (max-width: 600px) {
+        .project__navigation {
+            flex-direction: column-reverse;
+            align-items: stretch;
+            gap: 14px;
+            margin-top: 45px;
+            padding-top: 30px;
+        }
+
+        .project__nav-btn {
+            justify-content: center;
+            width: 100%;
+            padding: 14px 20px;
+        }
+    }
+
+    /* Floating CTA */
+    .floating-cta {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #fff !important;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                    box-shadow 0.3s ease, 
+                    background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    .floating-cta i {
+        font-size: 0.9rem;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        color: #fff;
+    }
+
+    .floating-cta:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    }
+
+    .floating-cta:hover i {
+        transform: translateX(4px);
+    }
+
+    .floating-cta:active {
+        transform: translateY(-2px) scale(0.98);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+        .floating-cta {
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 22px;
+            font-size: 0.88rem;
+            gap: 8px;
+        }
+    }
+</style>

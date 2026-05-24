@@ -5,7 +5,7 @@
     "title": {
       "type": "string"
     },
-    "tag": {
+    "date": {
       "type": "string"
     },
     "color": {
@@ -39,7 +39,7 @@
   },
   "required": [
     "title",
-    "tag",
+    "date",
     "color",
     "accent",
     "thumbnail",

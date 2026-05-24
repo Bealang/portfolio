@@ -2,7 +2,7 @@
 interface Props {
   slug: string;
   title: string;
-  tag: string;
+  date: string;
   url?: string;
   color: string;
   accent: string;
@@ -10,7 +10,7 @@ interface Props {
   thumbnailAlt: string;
 }
 
-const { slug, title, tag, url, color, accent, thumbnail, thumbnailAlt } = Astro.props;
+const { slug, title, date, url, color, accent, thumbnail, thumbnailAlt } = Astro.props;
 
 // Extract clean domain from url
 let domain = '';
@@ -27,11 +27,13 @@ if (url) {
 }
 ---
 
-<div
+<a
+  href={`/realizacje/${slug}`}
   class="c3d__card"
   data-color={color}
   data-accent={accent}
   data-slug={slug}
+  style="text-decoration: none;"
 >
     <div class="c3d__card-inner" style={`--card-accent: ${accent}; cursor: pointer;`}>
         <div class="c3d__logo-wrap">
@@ -41,7 +43,7 @@ if (url) {
         {domain ? (
             <span class="c3d__domain">{domain}</span>
         ) : (
-            <span class="c3d__tag">{tag}</span>
+            <span class="c3d__date">{date}</span>
         )}
     </div>
-</div>
+</a>
