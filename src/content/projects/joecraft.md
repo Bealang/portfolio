@@ -16,7 +16,7 @@ order: 2
 
 ## O projekcie
 
-**Joecraft.pl** to strona serwera Minecraft stworzona w całości od zera. Projekt łączy estetykę z gry Minecraft. Niestety, serwer już nie istnieje (zakończył dzialalność w 2024 roku). Strona posiadała najważniejsze rzeczy: Ilość osób online, regulamin, link do serwerowego Discorda, link do rekrutacji i najczęściej zadawane pytania (FAQ).
+**Joecraft.pl** to strona serwera Minecraft stworzona w całości od zera. Projekt łączy estetykę z gry Minecraft. Niestety, serwer już nie istnieje (zakończył dzialalność w 2024 roku) . Strona posiadała najważniejsze rzeczy: Ilość osób online, regulamin, link do serwerowego Discorda, link do rekrutacji i najczęściej zadawane pytania (FAQ).
 ### Co zrobiliśmy?
 
 - **Animowany hero z efektem cząsteczkowym** — przyciąga uwagę graczy od pierwszego wejścia
