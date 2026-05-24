@@ -2823,12 +2823,18 @@ a.footer__contact-item:hover {
         flex: 1 1 100%;
     }
 
+    .contact__featured {
+        display: contents;
+    }
+
     .contact__container {
-        flex-direction: column-reverse;
-        gap: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
     }
 
     .featured__header {
+        order: 1;
         text-align: left !important;
         display: flex !important;
         flex-direction: column !important;
@@ -2845,6 +2851,22 @@ a.footer__contact-item:hover {
     .featured__header h2 {
         font-size: 35px;
         text-align: left !important;
+    }
+
+    #kontakt__formularz {
+        order: 2;
+        text-align: left;
+    }
+
+    .kontakt__formularz__label {
+        text-align: left !important;
+    }
+
+    .featured__cards {
+        order: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .featured__card {
@@ -2942,6 +2964,7 @@ a.footer__contact-item:hover {
         margin-bottom: 20px;
         padding: 24px 20px;
         border-radius: 20px;
+        text-align: left;
     }
 
     #kontakt__formularz>h2 {

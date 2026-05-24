@@ -147,21 +147,12 @@ import HeroBg from '../components/HeroBg.astro';
                     </table>
                 </div>
             </div>
-
-            <!-- Sekcja procesu realizacji i przekierowania do zamówienia -->
-            <div class="cennik-realizacja reveal-element">
-                <div class="cennik-realizacja__inner">
-                    <h2>Chcesz poznać <span class="gradient__text">proces realizacji?</span></h2>
-                    <p class="cennik-realizacja__subtitle">
-                        Przygotowaliśmy dla Ciebie szczegółowy opis etapów powstawania strony i odpowiedzi na najczęstsze pytania.
-                    </p>
-                    <div class="realizacja-cta">
-                        <a href="/zamow" class="pricing-btn primary realizacja-btn">
-                            Jak wygląda współpraca? <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="cennik-cta reveal-element" style="transition-delay: 0.25s;">
+                <h3 class="cennik-cta__title">Jaki pakiet wybierasz?</h3>
+                <p class="cennik-cta__desc">Skonfiguruj swój projekt i uzyskaj bezpłatną, szybką wycenę w ciągu 24 godzin.</p>
+                <a href="/zamow" class="pricing-btn primary">Skonfiguruj i wyceń projekt</a>
             </div>
+            
 
             <article class="seo-text reveal-element">
                 <h2>Cennik tworzenia stron w Myślenicach – inwestycja w rozwój Twojej firmy</h2>
@@ -288,3 +279,46 @@ import HeroBg from '../components/HeroBg.astro';
     })();
     </script>
 </Layout>
+
+<style>
+    .cennik-cta {
+        text-align: center;
+        max-width: 650px;
+        margin: 80px auto 40px;
+        padding: 50px 40px;
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        box-shadow: var(--glass-shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .cennik-cta__title {
+        font-family: 'Figtree', sans-serif;
+        font-size: clamp(24px, 4vw, 36px);
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .cennik-cta__desc {
+        color: var(--text-secondary);
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        line-height: 1.6;
+        margin: 0 0 10px;
+    }
+
+    @media (max-width: 500px) {
+        .cennik-cta {
+            padding: 35px 20px;
+            margin: 60px auto 30px;
+            border-radius: 16px;
+        }
+    }
+</style>

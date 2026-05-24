@@ -1,0 +1,577 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<Layout
+    title="Jak działamy | web2sell - Tworzenie stron www Myślenice"
+    description="Jak wygląda proces tworzenia strony internetowej w web2sell? Zobacz nasz proces współpracy krok po kroku od pierwszego kontaktu po wdrożenie oraz najczęściej zadawane pytania (FAQ)."
+>
+    <Header activePage="jak-dzialamy" />
+
+    <main class="zamow-page">
+        <HeroBg behindContent={true} />
+
+        <!-- SEKCJA 2: Proces budowania strony — Horizontal Timeline -->
+        <section id="zamow-proces" class="zamow-proces">
+            <div class="zamow-proces__header reveal-element">
+                <h2>
+                    Jak wygląda <span class="gradient__text">współpraca</span> z nami?
+                </h2>
+                <p>
+                    Poniżej znajdują się kroki powstawania twojej przyszłej
+                    strony internetowej od wysłania formularza, po publikację w
+                    sieci.
+                </p>
+            </div>
+
+            <div class="htl-wrapper">
+                <button
+                    class="htl-nav htl-nav--prev"
+                    id="htlPrev"
+                    aria-label="Poprzedni krok"
+                >
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="htl-viewport" id="htlViewport">
+                    <div class="htl-track" id="htlTrack">
+                        <!-- Krok 1 -->
+                        <div class="htl-step" data-step="1">
+                            <div class="htl-step__dot">
+                                <div class="htl-step__icon">
+                                    <i class="fa-solid fa-comments"></i>
+                                </div>
+                                <span class="htl-step__number">01</span>
+                            </div>
+                            <div class="htl-step__card">
+                                <h3>Kontakt & opis potrzeb</h3>
+                                <p>
+                                    Napisz do nas ogólnie czego potrzebujesz —
+                                    jaki charakter ma mieć strona, jakie sekcje,
+                                    co chcesz podkreślić. <strong>Przygotuj własne grafiki</strong>
+                                    (logo, zdjęcia) oraz teksty. Jeśli tekstów nie
+                                    masz — nie ma problemu, napiszemy je za Ciebie
+                                    za niewielką dopłatą.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Krok 2 -->
+                        <div class="htl-step" data-step="2">
+                            <div class="htl-step__dot">
+                                <div class="htl-step__icon">
+                                    <i class="fa-solid fa-calculator"></i>
+                                </div>
+                                <span class="htl-step__number">02</span>
+                            </div>
+                            <div class="htl-step__card">
+                                <h3>Bezpłatna wycena</h3>
+                                <p>
+                                    W ciągu <strong>maksymalnie 24 godzin</strong> odpowiadamy na Twoją wiadomość i przedstawiamy
+                                    bezpłatną, niczym niezobowiązującą wycenę dopasowaną
+                                    do Twoich potrzeb. Bez ukrytych kosztów — wszystko
+                                    jasne od początku.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Krok 3 -->
+                        <div class="htl-step" data-step="3">
+                            <div class="htl-step__dot">
+                                <div class="htl-step__icon">
+                                    <i class="fa-solid fa-palette"></i>
+                                </div>
+                                <span class="htl-step__number">03</span>
+                            </div>
+                            <div class="htl-step__card">
+                                <h3>Szczegóły & materiały</h3>
+                                <p>
+                                    Wysyłasz nam szczegółowe informacje:
+                                    preferowana kolorystyka, pomysł na układ
+                                    strony (jeśli masz), odpowiednie grafiki
+                                    (logo w dobrej jakości, zdjęcia
+                                    produktów/firmy) oraz opisy poszczególnych
+                                    sekcji.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Krok 4 -->
+                        <div class="htl-step" data-step="4">
+                            <div class="htl-step__dot">
+                                <div class="htl-step__icon">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <span class="htl-step__number">04</span>
+                            </div>
+                            <div class="htl-step__card">
+                                <h3>Start pracy & zaliczka</h3>
+                                <p>
+                                    Zaczynamy pracę nad Twoją stroną. W tym
+                                    momencie pobieramy zaliczkę w wysokości <strong>maksymalnie 20%</strong> wartości zamówienia. Reszta płatna po wykonaniu
+                                    i zatwierdzeniu strony.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Krok 5 -->
+                        <div class="htl-step" data-step="5">
+                            <div class="htl-step__dot">
+                                <div class="htl-step__icon">
+                                    <i class="fa-solid fa-desktop"></i>
+                                </div>
+                                <span class="htl-step__number">05</span>
+                            </div>
+                            <div class="htl-step__card">
+                                <h3>Prototyp strony</h3>
+                                <p>
+                                    Wykonujemy stronę zgodnie z Twoimi
+                                    wymaganiami i wysyłamy prototyp do wglądu.
+                                    Możesz zobaczyć jak Twoja strona prezentuje
+                                    się na żywo, zanim zostanie opublikowana.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Krok 6 -->
+                        <div class="htl-step" data-step="6">
+                            <div class="htl-step__dot">
+                                <div class="htl-step__icon">
+                                    <i class="fa-solid fa-pen-ruler"></i>
+                                </div>
+                                <span class="htl-step__number">06</span>
+                            </div>
+                            <div class="htl-step__card">
+                                <h3>Tura poprawek</h3>
+                                <p>
+                                    Składasz <strong>jedną turę poprawek</strong> — wypisujesz wszystkie rzeczy, które chcesz
+                                    zmienić, dokładnie i szczegółowo. Wykonujemy wszystkie
+                                    poprawki. Kolejne ewentualne poprawki wyceniamy
+                                    indywidualnie (od 50 zł za drobne korekty).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Krok 7 -->
+                        <div class="htl-step" data-step="7">
+                            <div class="htl-step__dot">
+                                <div class="htl-step__icon">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <span class="htl-step__number">07</span>
+                            </div>
+                            <div class="htl-step__card">
+                                <h3>Hosting & konfiguracja</h3>
+                                <p>
+                                    Po zatwierdzeniu strony przechodzimy do
+                                    postawienia jej na hostingu. Zakładasz konto
+                                    na dane swojej firmy i dajesz nam dostęp —
+                                    my konfigurujemy domenę, SSL, DNS i
+                                    wszystko, co potrzebne.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Krok 8 -->
+                        <div class="htl-step htl-step--final" data-step="8">
+                            <div class="htl-step__dot">
+                                <div
+                                    class="htl-step__icon htl-step__icon--final"
+                                >
+                                    <i class="fa-solid fa-rocket"></i>
+                                </div>
+                                <span class="htl-step__number">08</span>
+                            </div>
+                            <div class="htl-step__card htl-step__card--final">
+                                <h3>Gotowe!</h3>
+                                <p>
+                                    Twoja strona jest online i gotowa na podbój
+                                    internetu! Otrzymujesz pełny kod źródłowy,
+                                    krótką dokumentację techniczną i wsparcie,
+                                    gdyby cokolwiek było potrzebne.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button
+                    class="htl-nav htl-nav--next"
+                    id="htlNext"
+                    aria-label="Następny krok"
+                >
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SEKCJA 3: FAQ -->
+        <section id="faq" class="zamow-faq">
+            <div class="zamow-faq__header reveal-element">
+                <h2>
+                    Najczęściej zadawane <span class="gradient__text"
+                        >pytania</span
+                    >
+                </h2>
+            </div>
+
+            <div class="faq-list reveal-element">
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span
+                            >Czy muszę mieć kupioną domenę i hosting przed
+                            kontaktem?</span
+                        >
+                        <i class="fa-solid fa-chevron-down faq-item__chevron"
+                        ></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>
+                            <strong>Nie.</strong> Nie trzeba, gdyż wszystko konfigurujemy
+                            od zera. Jesteśmy w stanie także przenieść stronę na inny
+                            hosting. Jeśli masz starą stronę — nie ma problemu, zajmiemy
+                            się migracją.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>Ile trwa realizacja?</span>
+                        <i class="fa-solid fa-chevron-down faq-item__chevron"
+                        ></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>
+                            Realizacja prostej wizytówki trwa zazwyczaj około <strong>2 tygodnie</strong>. Profesjonalne systemy zarządzania treścią (blog,
+                            aktualności, łatwo edytowane galerie itd.) z pakietu <strong>System</strong> mają czas realizacji co najmniej <strong>od 1 miesiąca</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span>Czy stroną będę mógł zarządzać sam?</span>
+                        <i class="fa-solid fa-chevron-down faq-item__chevron"
+                        ></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>
+                            Po zakończonej pracy wysyłamy kod źródłowy strony i
+                            krótką dokumentację techniczną. Dla prostych
+                            wizytówek nie ma dedykowanego panelu do edytowania
+                            wartości na stronie. Natomiast dla pakietu <strong>System z własnym CMS</strong>
+                            — oczywiście, można zarządzać samemu stroną. Trzeba tylko
+                            dać znać przy składaniu zamówienia, co chcesz łatwo edytować.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span
+                            >Jakie są koszty utrzymania strony internetowej?</span
+                        >
+                        <i class="fa-solid fa-chevron-down faq-item__chevron"
+                        ></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>
+                            Koszt utrzymania strony zależy od wybranego pakietu.
+                            Najprostsze wizytówki i proste systemy CMS dla
+                            lokalnych firm wymagają hostingu w cenie od ~137zł
+                            netto rocznie. Jeśli strona zacznie się zacinać,
+                            wolno działać, można bez problemu przejść na droższy
+                            i wydajniejszy pakiet. Natomiast każda strona
+                            internetowa wymaga domeny .pl - dla przykładu
+                            twojanazwa.pl, której koszt to 99zł netto rocznie.
+                            <br /><br />
+                            Zarejestrowanie domeny na pierwszy rok: <b>~15zł netto</b><br />
+                            Zarejestrowanie hostingu na pierwszy rok: <b>~50zł netto</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA 5: CTA + Formularz kontaktowy -->
+        <section id="zamow-kontakt" class="zamow-kontakt">
+            <div class="zamow-kontakt__header reveal-element">
+                <h2>
+                    Gotowy na <span class="gradient__text">współpracę?</span>
+                </h2>
+            </div>
+            <div class="reveal-element">
+                <ContactForm />
+            </div>
+            <div class="google-map-embed">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d489350.3443682875!2d19.536384132661276!3d49.958665938616434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell!5e1!3m2!1spl!2spl!4v1779286812460!5m2!1spl!2spl"
+                    width="100%"
+                    height="400"
+                    style="border:0; display:block;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Lokalizacja web2sell na mapie Google"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+
+    <!-- Horizontal Timeline -->
+    <script is:inline>
+        (function () {
+            var viewport = document.getElementById("htlViewport");
+            var prevBtn = document.getElementById("htlPrev");
+            var nextBtn = document.getElementById("htlNext");
+
+            // Smooth inertia scroll interpolator (extremely responsive, zero stutter)
+            var targetLeft = viewport.scrollLeft;
+            var currentLeft = viewport.scrollLeft;
+            var isAnimating = false;
+
+            function smoothScrollUpdate() {
+                var diff = targetLeft - currentLeft;
+                if (Math.abs(diff) > 0.5) {
+                    currentLeft += diff * 0.12; // Easing factor for buttery smooth motion
+                    viewport.scrollLeft = currentLeft;
+                    requestAnimationFrame(smoothScrollUpdate);
+                } else {
+                    viewport.scrollLeft = targetLeft;
+                    currentLeft = targetLeft;
+                    isAnimating = false;
+                }
+            }
+
+            viewport.addEventListener(
+                "wheel",
+                function (e) {
+                    if (e.deltaY !== 0) {
+                        var maxScrollLeft =
+                            viewport.scrollWidth - viewport.clientWidth;
+                        var expectedTarget = targetLeft + e.deltaY * 1.3;
+
+                        // Only intercept vertical scroll if we are not at the boundaries
+                        if (
+                            (e.deltaY > 0 && targetLeft < maxScrollLeft - 2) ||
+                            (e.deltaY < 0 && targetLeft > 2)
+                        ) {
+                            e.preventDefault();
+
+                            targetLeft = Math.max(
+                                0,
+                                Math.min(expectedTarget, maxScrollLeft),
+                            );
+
+                            if (!isAnimating) {
+                                isAnimating = true;
+                                currentLeft = viewport.scrollLeft; // Sync to current scroll position
+                                requestAnimationFrame(smoothScrollUpdate);
+                            }
+                        }
+                    }
+                },
+                { passive: false },
+            );
+
+            // Synchronize targetLeft on other scroll interactions (native touch, drag, buttons)
+            viewport.addEventListener("scroll", function () {
+                if (!isAnimating) {
+                    targetLeft = viewport.scrollLeft;
+                }
+            });
+
+            // Drag-to-scroll functionality (1:1 responsive drag, zero lag)
+            var isDown = false;
+            var startX;
+            var scrollLeftVal;
+
+            viewport.addEventListener("mousedown", function (e) {
+                isDown = true;
+                viewport.classList.add("is-dragging");
+                startX = e.pageX - viewport.offsetLeft;
+                scrollLeftVal = viewport.scrollLeft;
+            });
+
+            viewport.addEventListener("mouseleave", function () {
+                isDown = false;
+                viewport.classList.remove("is-dragging");
+            });
+
+            viewport.addEventListener("mouseup", function () {
+                isDown = false;
+                viewport.classList.remove("is-dragging");
+            });
+
+            viewport.addEventListener("mousemove", function (e) {
+                if (!isDown) return;
+                e.preventDefault();
+                var x = e.pageX - viewport.offsetLeft;
+                var walk = (x - startX) * 1.5; // multiplier for fast scroll response
+                viewport.scrollLeft = scrollLeftVal - walk;
+            });
+
+            // Arrow navigation scrolling helper
+            function getScrollOffset() {
+                if (window.innerWidth <= 600) return 300;
+                if (window.innerWidth <= 900) return 364;
+                return 412; // 380px step + 32px gap
+            }
+
+            prevBtn.addEventListener("click", function () {
+                viewport.scrollBy({
+                    left: -getScrollOffset(),
+                    behavior: "smooth",
+                });
+            });
+
+            nextBtn.addEventListener("click", function () {
+                viewport.scrollBy({
+                    left: getScrollOffset(),
+                    behavior: "smooth",
+                });
+            });
+
+            // Arrow buttons visibility check
+            function updateArrows() {
+                var maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+
+                if (viewport.scrollLeft <= 5) {
+                    prevBtn.style.opacity = "0.3";
+                    prevBtn.style.pointerEvents = "none";
+                } else {
+                    prevBtn.style.opacity = "1";
+                    prevBtn.style.pointerEvents = "all";
+                }
+
+                if (viewport.scrollLeft >= maxScrollLeft - 5) {
+                    nextBtn.style.opacity = "0.3";
+                    nextBtn.style.pointerEvents = "none";
+                } else {
+                    nextBtn.style.opacity = "1";
+                    nextBtn.style.pointerEvents = "all";
+                }
+            }
+
+            viewport.addEventListener("scroll", updateArrows);
+            window.addEventListener("resize", updateArrows);
+
+            // Initial setup
+            setTimeout(updateArrows, 150);
+        })();
+    </script>
+
+    <!-- FAQ Accordion -->
+    <script is:inline>
+        (function () {
+            var questions = document.querySelectorAll(".faq-item__question");
+            questions.forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    var item = btn.closest(".faq-item");
+                    var isOpen = item.classList.contains("is-open");
+
+                    // Close all others
+                    document
+                        .querySelectorAll(".faq-item.is-open")
+                        .forEach(function (openItem) {
+                            openItem.classList.remove("is-open");
+                            openItem
+                                .querySelector(".faq-item__question")
+                                .setAttribute("aria-expanded", "false");
+                        });
+
+                    // Toggle current
+                    if (!isOpen) {
+                        item.classList.add("is-open");
+                        btn.setAttribute("aria-expanded", "true");
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <!-- Scroll Reveal Animations Script -->
+    <script is:inline>
+        (function () {
+            // 1. Activate Hero animation immediately
+            var hero = document.getElementById("zamow-hero");
+            if (hero) {
+                setTimeout(function () {
+                    hero.classList.add("zamow-hero--active");
+                }, 50);
+            }
+
+            // 2. Setup IntersectionObserver for vertical reveal elements
+            var revealElements = document.querySelectorAll(".reveal-element");
+            if ("IntersectionObserver" in window && revealElements.length > 0) {
+                var verticalObserver = new IntersectionObserver(
+                    function (entries, observer) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("reveal--visible");
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        rootMargin: "0px 0px -80px 0px", // triggers slightly before entering viewport fully
+                        threshold: 0.05,
+                    },
+                );
+
+                revealElements.forEach(function (el) {
+                    verticalObserver.observe(el);
+                });
+            } else {
+                // Fallback for older browsers
+                revealElements.forEach(function (el) {
+                    el.classList.add("reveal--visible");
+                });
+            }
+
+            // 3. Setup IntersectionObserver for Horizontal Timeline Steps (Option B)
+            var steps = document.querySelectorAll(".htl-step");
+            var htlViewport = document.getElementById("htlViewport");
+
+            if (
+                "IntersectionObserver" in window &&
+                steps.length > 0 &&
+                htlViewport
+            ) {
+                var timelineObserver = new IntersectionObserver(
+                    function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("htl-step--visible");
+                            } else {
+                                // Elements fade/scale back when scrolled out for visual dynamism
+                                entry.target.classList.remove(
+                                    "htl-step--visible",
+                                );
+                            }
+                        });
+                    },
+                    {
+                        root: htlViewport,
+                        rootMargin: "0px -40px 0px -40px", // shrink horizontal bound slightly so cards animate as they near edges
+                        threshold: 0.15,
+                    },
+                );
+
+                steps.forEach(function (step) {
+                    timelineObserver.observe(step);
+                });
+            } else {
+                // Fallback for older browsers
+                steps.forEach(function (step) {
+                    step.classList.add("htl-step--visible");
+                });
+            }
+        })();
+    </script>
+</Layout>

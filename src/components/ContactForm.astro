@@ -4,13 +4,13 @@
 
 <section id="kontakt" data-aos="fade-up" data-aos-duration="1000">
     <div class="contact__container">
-        <div
-            class="contact__featured"
-            data-aos="fade-right"
-            data-aos-duration="1000"
-            data-aos-delay="200"
-        >
-            <div class="featured__header">
+        <div class="contact__featured">
+            <div
+                class="featured__header"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+            >
                 <h2>
                     Zamów <span class="gradient__text">darmową</span> wycenę
                 </h2>
@@ -22,7 +22,12 @@
                 </p>
             </div>
 
-            <div class="featured__cards">
+            <div
+                class="featured__cards"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-delay="300"
+            >
                 <a
                     href="mailto:kontakt@web2sell.pl"
                     class="featured__card email"
@@ -31,7 +36,7 @@
                     <i class="fa-solid fa-envelope"></i>
                     <div class="card__content">
                         <span class="card__title"
-                            >Kontakt poprzez adres e-mail</span
+                            >Kontakt przez e-mail</span
                         >
                         <span class="card__value">kontakt@web2sell.pl</span>
                     </div>
@@ -213,6 +218,24 @@
     const notification = document.getElementById("form__notification") as HTMLElement | null;
     const notifIcon = notification?.querySelector(".notification__icon") as HTMLElement | null;
     const notifText = notification?.querySelector(".notification__text") as HTMLElement | null;
+
+    // Auto-wybór pakietu na podstawie parametru z URL (?pakiet=...)
+    (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pakiet = urlParams.get('pakiet');
+        const selectEl = document.getElementById("usluga") as HTMLSelectElement | null;
+        if (pakiet && selectEl) {
+            if (pakiet === 'onepage') {
+                selectEl.value = "OnePage (Szybki start w sieci)";
+            } else if (pakiet === 'multipage') {
+                selectEl.value = "Wizytówka Multi-Page (Budowa autorytetu)";
+            } else if (pakiet === 'cms') {
+                selectEl.value = "Wizytówka + CMS (Dynamiczne treści)";
+            } else if (pakiet === 'system') {
+                selectEl.value = 'System Dedykowany (Rozwiązania "Full Custom")';
+            }
+        }
+    })();
 
     // Load EmailJS dynamically when user interacts with the form
     if (form) {

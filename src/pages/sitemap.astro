@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import HeroBg from "../components/HeroBg.astro";
 import { getCollection } from "astro:content";
 
-// Pobieranie i sortowanie dynamicznych kolekcji
+// Pobieranie dynamicznych kolekcji
 const projects = (await getCollection("projects")).sort(
     (a, b) => a.data.order - b.data.order,
 );
@@ -13,19 +13,11 @@ const projects = (await getCollection("projects")).sort(
 const blogPosts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-const formatDate = (date: Date) => {
-    return date.toLocaleDateString("pl-PL", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-    });
-};
 ---
 
 <Layout
     title="Mapa Witryny | web2sell"
-    description="Przejrzysty spis treści serwisu web2sell. Znajdź wszystkie strony główne, realizacje oraz artykuły z bloga w jednym miejscu."
+    description="Przejrzysty spis treści serwisu web2sell. Znajdź wszystkie strony główne, realizacje oraz artykuły z bloga w jednym prostym miejscu."
     robots="noindex, follow"
 >
     <Header activePage="sitemap" />
@@ -37,146 +29,47 @@ const formatDate = (date: Date) => {
             <h1>Mapa <span class="gradient__text">Witryny</span></h1>
         </div>
 
-        <div class="sitemap__grid">
-            <!-- Karta 1: Strony Główne -->
-            <section
-                class="sitemap__card"
-                data-aos="fade-up"
-                data-aos-duration="600"
-            >
-                <h2 class="sitemap__card-title">
-                    <i class="fa-solid fa-compass" aria-hidden="true"></i>
-                    <span>Strony główne</span>
-                </h2>
-                <ul class="sitemap__list">
-                    <li class="sitemap__item">
-                        <a href="/" class="sitemap__link">
-                            <i
-                                class="fa-solid fa-chevron-right"
-                                aria-hidden="true"></i>
-                            <span>Strona główna</span>
-                        </a>
-                        <ul class="sitemap__sublist">
-                            <li>
-                                <a href="/#onas" class="sitemap__sublink"
-                                    >O nas</a>
-                            </li>
-                            <li>
-                                <a href="/#projekty" class="sitemap__sublink"
-                                    >Nasze realizacje</a>
-                            </li>
-                            <li>
-                                <a href="/#kontakt" class="sitemap__sublink"
-                                    >Kontakt z nami</a>
-                            </li>
+        <div class="sitemap__simple-list reveal-element">
+            <ul class="sitemap-root">
+                <li>
+                    <a href="/" class="sitemap-main-link">Strona główna</a>
+                    <ul>
+                        <li><a href="/o-nas">O nas</a></li>
+                        <li><a href="/#projekty">Nasze realizacje</a></li>
+                        <li><a href="/jak-dzialamy">Jak działamy (Proces współpracy)</a></li>
+                        <li><a href="/jak-dzialamy#faq">Najczęściej zadawane pytania (FAQ)</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/cennik" class="sitemap-main-link">Cennik usług</a>
+                </li>
+                <li>
+                    <a href="/zamow" class="sitemap-main-link">Zamów bezpłatną wycenę</a>
+                </li>
+                <li>
+                    <a href="/#projekty" class="sitemap-main-link">Nasze realizacje</a>
+                    {projects.length > 0 && (
+                        <ul>
+                            {projects.map((project) => (
+                                <li><a href="/#projekty">{project.data.title}</a></li>
+                            ))}
                         </ul>
-                    </li>
-                    <li class="sitemap__item">
-                        <a href="/cennik" class="sitemap__link">
-                            <i
-                                class="fa-solid fa-chevron-right"
-                                aria-hidden="true"></i>
-                            <span>Cennik usług</span>
-                        </a>
-                    </li>
-                    <li class="sitemap__item">
-                        <a href="/zamow" class="sitemap__link">
-                            <i
-                                class="fa-solid fa-chevron-right"
-                                aria-hidden="true"></i>
-                            <span>Zamów darmową wycenę</span>
-                        </a>
-                    </li>
-                    <li class="sitemap__item">
-                        <a href="/blog" class="sitemap__link">
-                            <i
-                                class="fa-solid fa-chevron-right"
-                                aria-hidden="true"></i>
-                            <span>Nasz Blog</span>
-                        </a>
-                    </li>
-                    <li class="sitemap__item">
-                        <a href="/polityka" class="sitemap__link">
-                            <i
-                                class="fa-solid fa-chevron-right"
-                                aria-hidden="true"></i>
-                            <span>Polityka prywatności i Cookies</span>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-
-            <!-- Karta 2: Nasze Realizacje -->
-            <section
-                class="sitemap__card"
-                data-aos="fade-up"
-                data-aos-duration="600"
-                data-aos-delay="100"
-            >
-                <h2 class="sitemap__card-title">
-                    <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-                    <span>Nasze realizacje</span>
-                </h2>
-                <ul class="sitemap__list">
-                    {
-                        projects.map((project) => (
-                            <li class="sitemap__item">
-                                <a
-                                    href={`/#projekty`}
-                                    class="sitemap__link"
-                                    title={`Otwórz projekt: ${project.data.title}`}
-                                >
-                                    <i
-                                        class="fa-solid fa-chevron-right"
-                                        aria-hidden="true"
-                                    />
-                                    <span>{project.data.title}</span>
-                                </a>
-                                <span class="sitemap__tag">
-                                    {project.data.tag}
-                                </span>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-
-            <!-- Karta 3: Artykuły na Blogu -->
-            <section
-                class="sitemap__card"
-                data-aos="fade-up"
-                data-aos-duration="600"
-                data-aos-delay="200"
-            >
-                <h2 class="sitemap__card-title">
-                    <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-                    <span>Artykuły na blogu</span>
-                </h2>
-                <ul class="sitemap__list">
-                    {
-                        blogPosts.map((post) => (
-                            <li class="sitemap__item">
-                                <a
-                                    href={`/blog/${post.id}`}
-                                    class="sitemap__link"
-                                >
-                                    <i
-                                        class="fa-solid fa-chevron-right"
-                                        aria-hidden="true"
-                                    />
-                                    <span>{post.data.title}</span>
-                                </a>
-                                <time
-                                    datetime={post.data.pubDate.toISOString()}
-                                    class="sitemap__date"
-                                >
-                                    {formatDate(post.data.pubDate)}
-                                </time>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
+                    )}
+                </li>
+                <li>
+                    <a href="/blog" class="sitemap-main-link">Nasz Blog</a>
+                    {blogPosts.length > 0 && (
+                        <ul>
+                            {blogPosts.map((post) => (
+                                <li><a href={`/blog/${post.id}`}>{post.data.title}</a></li>
+                            ))}
+                        </ul>
+                    )}
+                </li>
+                <li>
+                    <a href="/polityka" class="sitemap-main-link">Polityka prywatności i Cookies</a>
+                </li>
+            </ul>
         </div>
     </main>
 
@@ -186,7 +79,7 @@ const formatDate = (date: Date) => {
 <style>
     .sitemap-container {
         position: relative;
-        max-width: var(--container-width);
+        max-width: 800px;
         margin: 0 auto;
         padding: 160px 20px 80px;
         min-height: 85vh;
@@ -195,7 +88,7 @@ const formatDate = (date: Date) => {
 
     .sitemap__header {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 50px;
     }
 
     .sitemap__header h1 {
@@ -205,164 +98,101 @@ const formatDate = (date: Date) => {
         color: var(--text-primary);
         line-height: 1.2;
         letter-spacing: -1px;
-        margin: 0 0 15px;
+        margin: 0;
     }
 
-    .sitemap__header p {
-        color: var(--text-secondary);
-        font-size: 1.1rem;
-        max-width: 600px;
-        margin: 0 auto;
-        line-height: 1.6;
-    }
-
-    .sitemap__grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        align-items: stretch;
-    }
-
-    .sitemap__card {
+    .sitemap__simple-list {
         background: var(--card-bg);
         border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 35px 30px;
+        border-radius: 24px;
+        padding: 50px;
         backdrop-filter: blur(var(--glass-blur));
         -webkit-backdrop-filter: blur(var(--glass-blur));
         box-shadow: var(--glass-shadow);
-        transition:
-            transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-            border-color 0.3s ease,
-            box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
     }
 
-    .sitemap__card-title {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-family: "Figtree", sans-serif;
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--text-primary);
-        margin: 0;
-        border-bottom: 1px solid var(--glass-border);
-        padding-bottom: 15px;
-    }
-
-    .sitemap__card-title i {
-        color: var(--accent-blue);
-        font-size: 20px;
-    }
-
-    .sitemap__list {
+    /* Simple ul li styling */
+    .sitemap-root {
         list-style: none;
         padding: 0;
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
     }
 
-    .sitemap__item {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+    .sitemap-root li {
+        position: relative;
     }
 
-    .sitemap__link {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
+    .sitemap-root a {
         color: var(--text-secondary);
         text-decoration: none;
-        font-size: 0.98rem;
+        font-size: 1.05rem;
         font-weight: 500;
         transition: var(--transition-smooth);
-        width: fit-content;
+        display: inline-block;
+        padding: 2px 0;
     }
 
-    .sitemap__link i {
-        font-size: 12px;
-        color: var(--accent-cyan);
-        transition:
-            transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
-            color 0.3s ease;
-    }
-
-    .sitemap__link:hover {
+    .sitemap-root a:hover {
         color: var(--text-primary);
         transform: translateX(4px);
     }
 
-    .sitemap__link:hover i {
-        transform: translateX(3px);
-        color: var(--accent-blue);
+    /* Main links style */
+    .sitemap-main-link {
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        color: var(--text-primary) !important;
+        border-bottom: 2px solid transparent;
     }
 
-    /* Sublinks for anchors */
-    .sitemap__sublist {
+    .sitemap-main-link:hover {
+        color: var(--accent-blue) !important;
+    }
+
+    /* Nested ul li */
+    .sitemap-root ul {
         list-style: none;
-        padding-left: 22px;
-        margin-top: 8px;
+        padding-left: 24px;
+        margin-top: 10px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         border-left: 1px solid var(--glass-border);
     }
 
-    .sitemap__sublink {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--text-muted);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: var(--transition-smooth);
+    .sitemap-root ul li {
+        position: relative;
     }
 
-    .sitemap__sublink:hover {
+    .sitemap-root ul li::before {
+        content: "";
+        position: absolute;
+        left: -24px;
+        top: 14px;
+        width: 12px;
+        height: 1px;
+        background: var(--glass-border);
+    }
+
+    .sitemap-root ul a {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+    }
+
+    .sitemap-root ul a:hover {
         color: var(--text-primary);
-        transform: translateX(3px);
-    }
-
-    .sitemap__date {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        display: block;
-        margin-left: 22px;
-    }
-
-    .sitemap__tag {
-        font-size: 0.78rem;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-weight: 600;
-        background: rgba(167, 139, 250, 0.08);
-        color: var(--accent-blue);
-        border: 1px solid rgba(167, 139, 250, 0.15);
-        margin-left: 22px;
-        width: fit-content;
-    }
-
-    @media (max-width: 992px) {
-        .sitemap__grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
     }
 
     @media (max-width: 768px) {
         .sitemap-container {
             padding-top: 130px;
         }
-        .sitemap__grid {
-            grid-template-columns: 1fr;
-        }
-        .sitemap__card {
-            padding: 30px 24px;
+        .sitemap__simple-list {
+            padding: 30px 20px;
+            border-radius: 16px;
         }
     }
 </style>
