@@ -39,6 +39,8 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
 <Layout
   title={`${post.data.title} | web2sell`}
   description={post.data.description}
+  ogImage={post.data.image}
+  ogType="article"
 >
     <Header activePage="blog" />
 
