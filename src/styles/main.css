@@ -4599,7 +4599,7 @@ nav>a.active::after {
     }
 
     /* Menu mobilne rozwijane z lewej (drawer) zaczyna się dokładnie poniżej górnego paska */
-    nav {
+    #nav-menu {
         position: fixed !important;
         top: 70px !important; /* Wygodnie pod 100% szerokości top bar */
         left: 0;
@@ -4622,11 +4622,11 @@ nav>a.active::after {
         clip-path: none !important;
     }
 
-    nav.active {
+    #nav-menu.active {
         transform: translateX(0) !important;
     }
 
-    nav>a {
+    #nav-menu>a {
         margin: 10px 0 !important;
         font-size: 20px !important;
         text-align: left !important;
@@ -4637,23 +4637,23 @@ nav>a.active::after {
         transition: opacity 0.45s ease, transform 0.45s ease;
     }
 
-    nav>a.desktop-only-link,
-    nav>.nav-cta.desktop-only-link {
+    #nav-menu>a.desktop-only-link,
+    #nav-menu>.nav-cta.desktop-only-link {
         display: none !important;
     }
 
-    nav.active>a {
+    #nav-menu.active>a {
         opacity: 1;
         transform: translateX(0);
     }
 
     /* Stopniowe pojawianie się linków na liście */
-    nav.active>a:nth-child(1) { transition-delay: 0.05s; }
-    nav.active>a:nth-child(2) { transition-delay: 0.10s; }
-    nav.active>a:nth-child(3) { transition-delay: 0.15s; }
-    nav.active>a:nth-child(4) { transition-delay: 0.20s; }
-    nav.active>a:nth-child(5) { transition-delay: 0.25s; }
-    nav.active>a:nth-child(6) { transition-delay: 0.30s; }
+    #nav-menu.active>a:nth-child(1) { transition-delay: 0.05s; }
+    #nav-menu.active>a:nth-child(2) { transition-delay: 0.10s; }
+    #nav-menu.active>a:nth-child(3) { transition-delay: 0.15s; }
+    #nav-menu.active>a:nth-child(4) { transition-delay: 0.20s; }
+    #nav-menu.active>a:nth-child(5) { transition-delay: 0.25s; }
+    #nav-menu.active>a:nth-child(6) { transition-delay: 0.30s; }
 
     /* Ukrywamy stary mobilny przycisk CTA */
     .nav-cta-mobile {
@@ -4673,7 +4673,7 @@ nav>a.active::after {
         transition: all 0.45s ease 0.35s;
     }
 
-    nav.active .mobile-menu-footer {
+    #nav-menu.active .mobile-menu-footer {
         opacity: 1;
         transform: translateY(0);
     }

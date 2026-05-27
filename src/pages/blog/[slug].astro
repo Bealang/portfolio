@@ -194,6 +194,40 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
     html[data-theme="light"] .post__content code {
         background: rgba(0, 0, 0, 0.04);
     }
+
+    /* Przycisk CTA dla linkowania wewnętrznego w artykułach */
+    .post__content .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 14px 28px;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        color: #fff !important;
+        font-family: 'Figtree', sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-decoration: none !important;
+        border-radius: 50px;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+        transition: var(--transition-smooth);
+        margin: 30px 0;
+        cursor: pointer;
+    }
+    .post__content .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    }
+    @media (max-width: 600px) {
+        .post__content .cta-button {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+        }
+    }
 </style>
 
 <style>
@@ -288,6 +322,10 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
     @media (max-width: 768px) {
         .post-container {
             padding-top: 130px;
+        }
+
+        .post__title {
+            text-align: left !important;
         }
 
         .post__image-wrapper {
