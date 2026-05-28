@@ -11,7 +11,7 @@ gallery:
   - "/assets/project-img/zdrowe_stopy_2.avif"
   - "/assets/project-img/zdrowe_stopy_3.avif"
   - "/assets/project-img/zdrowe_stopy_4.avif"
-order: 1
+order: 3
 ---
 
 # O projekcie

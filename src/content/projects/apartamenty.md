@@ -13,7 +13,7 @@ gallery:
   - "/assets/project-img/apartamenty_4.avif"
   - "/assets/project-img/apartamenty_5.avif"
   - "/assets/project-img/apartamenty_6.avif"
-order: 3
+order: 2
 ---
 
 ## O projekcie
