@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof title !=='undefined' ? title : 'Testbus' %>
+    </title>
+    <!-- Instant Cookie Theme & Font Applier -->
+    <script>
+        (function () {
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                }
+                return null;
+            }
+            const savedFont = getCookie('testbus_font');
+            const savedThemeJson = getCookie('testbus_theme');
+            if (savedFont && savedFont !== 'default' && savedFont !== 'Plus Jakarta Sans') {
+                const fontId = 'gfont-' + savedFont.toLowerCase().replace(/\s+/g, '-');
+                if (!document.getElementById(fontId)) {
+                    const link = document.createElement('link');
+                    link.id = fontId;
+                    link.rel = 'stylesheet';
+                    link.href = 'https://fonts.googleapis.com/css2?family=' + encodeURIComponent(savedFont) + ':ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap';
+                    document.head.appendChild(link);
+                }
+                document.documentElement.style.setProperty('--font-family-custom', "'" + savedFont + "', sans-serif");
+            }
+            if (savedThemeJson) {
+                try {
+                    const colors = JSON.parse(savedThemeJson);
+                    document.documentElement.style.setProperty('--primary-color', colors.primary);
+                    document.documentElement.style.setProperty('--primary-hover', colors.primaryHover);
+                    document.documentElement.style.setProperty('--accent-color', colors.accent);
+                    document.documentElement.style.setProperty('--accent-hover', colors.accentHover);
+                    document.documentElement.style.setProperty('--bg-color', colors.bg);
+                    document.documentElement.style.setProperty('--surface-color', colors.surface);
+                    document.documentElement.style.setProperty('--text-primary', colors.textPrimary);
+                    document.documentElement.style.setProperty('--text-secondary', colors.textSecondary);
+                    document.documentElement.style.setProperty('--accent-text', colors.accentText);
+                    document.documentElement.style.setProperty('--border-color', colors.border);
+                } catch (e) { }
+            }
+        })();
+    </script>
+    <% if (typeof description !=='undefined' && description) { %>
+        <meta name="description" content="<%= description %>">
+        <% } %>
+            <% if (typeof keywords !=='undefined' && keywords) { %>
+                <meta name="keywords" content="<%= keywords %>">
+                <% } %>
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+                        rel="stylesheet" media="print" onload="this.media='all'">
+                    <link rel="preload" href="/style.css" as="style">
+                    <% if (typeof isHome !=='undefined' && isHome) { %>
+                        <link rel="preload" href="/bus.webp" as="image" fetchpriority="high">
+                        <% } %>
+                            <link rel="stylesheet" href="/style.css">
+                            <script src="/main.js" defer></script>
+
+                            <% if (typeof isHome !=='undefined' && isHome) { %>
+                                <!-- Schema.org JSON-LD for Local Business and Bus Service -->
+                                <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BusReservationService",
+      "name": "Testbus",
+      "url": "https://testbus.pl",
+      "logo": "https://testbus.pl/bus.png",
+      "description": "Przewozy osób na trasie [miejscowości]",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Testbus",
+        "telephone": "+48999999999",
+        "priceRange": "$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "miejscowosc",
+          "addressRegion": "malopolskie",
+          "addressCountry": "PL"
+        }
+      },
+      "areaServed": [
+        "miejscowosc 1",
+        "miejscowosc 2",
+        "miejscowosc 3",
+        "miejscowosc 4",
+        "miejscowosc 5"
+      ]
+    }
+    </script>
+                                <% } %>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar <%= (typeof isHome !== 'undefined' && isHome) ? 'navbar-home' : '' %>" id="main-nav">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="/" style="text-decoration: none;">
+                    <div class="logo-text">TEST<span>BUS</span></div>
+                </a>
+            </div>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <a href="<%= (typeof isHome !== 'undefined' && isHome) ? '#rozklad' : '/#rozklad' %>"
+                    class="<%= (typeof activePage !== 'undefined' && activePage === 'home') ? 'active' : '' %>">Rozkład</a>
+                <a href="/cennik"
+                    class="<%= (typeof activePage !== 'undefined' && activePage === 'cennik') ? 'active' : '' %>">Cennik</a>
+                <a
+                    href="<%= (typeof isHome !== 'undefined' && isHome) ? '#aktualnosci' : '/#aktualnosci' %>">Aktualności</a>
+                <a href="/regulamin.pdf" target="_blank">Regulamin</a>
+                <a href="/kontakt"
+                    class="<%= (typeof activePage !== 'undefined' && activePage === 'kontakt') ? 'active' : '' %>">Kontakt</a>
+                <a href="https://www.facebook.com/BUS.MLECZEK" target="_blank" aria-label="Facebook"
+                    style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>

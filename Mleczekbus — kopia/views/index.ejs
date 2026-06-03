@@ -1,0 +1,145 @@
+<%- include('partials/header') %>
+
+    <!-- Header / Hero section -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="hero-title reveal reveal-up stagger-1">Nazwa twojej<br>Firmy</h1>
+            <p class="reveal reveal-up stagger-2">Krótki opis firmy, jakie miejscowości obsługuje etc <br>Zdjęcie w tle
+                do zmiany
+            </p>
+            <div class="reveal reveal-up stagger-3">
+                <button class="btn-primary" id="btn-show-modal">Zobacz Pełny Rozkład</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" id="rozklad">
+        <!-- Departures -->
+        <section class="departures-section">
+            <div class="container">
+                <div class="section-header reveal reveal-up">
+                    <h2 class="section-title">Najbliższe odjazdy</h2>
+                    <div class="title-underline"></div>
+                    <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">Obsługujemy
+                        miejscowości:
+                        Twoje obsługiwane miejscowości</p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Myślenice -->
+                    <div class="departure-card reveal reveal-left stagger-1">
+                        <div class="card-header">
+                            <div class="route-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="10" r="3" />
+                                    <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>z [Miejscowość]</h3>
+                                <span class="destination-subtext">Kierunek: [Miejscowości]</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="time-display" id="next-myslenice-time">
+                                <span class="loader"></span>
+                            </div>
+                            <div class="time-notes" id="next-myslenice-notes">Wczytywanie...</div>
+                        </div>
+                        <div class="card-footer" id="following-myslenice-info">
+                            Następny: 67:67
+                        </div>
+                    </div>
+
+                    <!-- Sułkowice -->
+                    <div class="departure-card reveal reveal-right stagger-2">
+                        <div class="card-header">
+                            <div class="route-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="10" r="3" />
+                                    <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>z [Miejscowość]</h3>
+                                <span class="destination-subtext">Kierunek: [Miejscowości]</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="time-display" id="next-sulkowice-time">
+                                <span class="loader"></span>
+                            </div>
+                            <div class="time-notes" id="next-sulkowice-notes">Wczytywanie...</div>
+                        </div>
+                        <div class="card-footer" id="following-sulkowice-info">
+                            Następny: 67:67
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legend Section -->
+        <section class="legend-section">
+            <div class="container">
+                <h4>Legenda oznaczeń:</h4>
+                <ul class="legend-list" id="legend-dynamic-list">
+                    <!-- Dynamicznie wczytywane z API -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section" id="aktualnosci">
+            <div class="container">
+                <div class="section-header reveal reveal-up">
+                    <h2 class="section-title">Aktualności</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="news-container" id="news-container">
+                    <p class="text-center">Wczytywanie komunikatów...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section (GEO Optimization) -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-header reveal reveal-up">
+                    <h2 class="section-title">Często zadawane pytania (FAQ)</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="faq-container" id="faq-dynamic-container">
+                    <!-- Dynamicznie ładowane z API -->
+                    <p class="text-center">Wczytywanie pytań...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Schedule Modal -->
+    <div class="modal-overlay" id="schedule-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Zamknij">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h3 class="modal-title">Pełny Rozkład Jazdy</h3>
+            <img src="/rozklad-current" alt="Rozkład jazdy busów" class="modal-image" loading="lazy">
+        </div>
+    </div>
+
+    <script src="/schedule.js" defer></script>
+    <script src="/news.js" defer></script>
+    <script src="/faq.js" defer></script>
+
+    <%- include('partials/footer') %>

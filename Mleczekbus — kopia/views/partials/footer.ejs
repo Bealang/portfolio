@@ -1,0 +1,171 @@
+<!-- Professional Footer -->
+<footer class="footer" id="kontakt">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>TEST<span>BUS</span></h2>
+                <p>Krótki opis twojej firmy do stopki</p>
+            </div>
+            <div class="footer-links">
+                <h3>Na skróty</h3>
+                <ul>
+                    <li><a href="<%= (typeof isHome !== 'undefined' && isHome) ? '#rozklad' : '/#rozklad' %>">Rozkład
+                            Jazdy</a></li>
+                    <li><a href="/cennik">Cennik</a></li>
+                    <li><a
+                            href="<%= (typeof isHome !== 'undefined' && isHome) ? '#aktualnosci' : '/#aktualnosci' %>">Aktualności</a>
+                    </li>
+                    <li><a href="<%= (typeof isHome !== 'undefined' && isHome) ? '#faq' : '/#faq' %>">FAQ</a></li>
+                    <li><a href="/regulamin.pdf" target="_blank">Regulamin</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                    <li><a href="/prywatnosc">Polityka Prywatności</a></li>
+                    <li><a href="/admin">Panel Administratora</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Kontakt</h3>
+                <p>Masz pytania? Skontaktuj się z nami po więcej informacji.</p>
+                <p><strong>Telefon:</strong> <a href="tel:+48999999999"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: 700; font-size: 1.2rem;">999
+                        999 999</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; <span id="current-year"></span> web2sell</p>
+            <p style="text-transform: uppercase;">DESIGN BY <a href="https://web2sell.pl" target="_blank"
+                    style="color: var(--accent-color); text-decoration: none;">WEB2SELL.PL</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Font & Color Customizer Panel -->
+<button class="customizer-trigger" id="customizer-trigger" aria-label="Dostosuj Wygląd">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z">
+        </path>
+    </svg>
+</button>
+
+<div class="customizer-panel" id="customizer-panel">
+    <h3>Dostosuj Wygląd</h3>
+
+    <!-- Czcionka -->
+    <div class="customizer-section">
+        <h4>Czcionka strony</h4>
+        <select id="custom-font-select" class="custom-font-select">
+            <option value="Plus Jakarta Sans">Plus Jakarta Sans (Domyślna)</option>
+            <option value="Poppins">Poppins</option>
+            <option value="Roboto">Roboto</option>
+            <option value="Montserrat">Montserrat</option>
+            <option value="Inter">Inter</option>
+            <option value="Playfair Display">Playfair Display</option>
+            <option value="Oswald">Oswald</option>
+            <option value="Lora">Lora</option>
+            <option value="Outfit">Outfit</option>
+            <option value="Kanit">Kanit</option>
+        </select>
+    </div>
+
+    <!-- Gotowe Motywy -->
+    <div class="customizer-section">
+        <h4>Gotowe motywy</h4>
+        <div class="custom-theme-grid">
+            <button type="button" class="theme-btn" data-theme="classic">Granat</button>
+            <button type="button" class="theme-btn" data-theme="emerald">Szmaragd</button>
+            <button type="button" class="theme-btn" data-theme="bronze">Bursztyn</button>
+            <button type="button" class="theme-btn" data-theme="darkred">Czerwień</button>
+        </div>
+    </div>
+
+    <!-- Własne Kolory -->
+    <div class="customizer-section">
+        <h4>Edytuj Kolory</h4>
+        <div class="custom-color-grid">
+            <div class="color-picker-item">
+                <label>Główny</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-primary">
+                    <input type="text" id="cpt-primary" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Główny Hover</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-primaryHover">
+                    <input type="text" id="cpt-primaryHover" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Akcent (Złoty)</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-accent">
+                    <input type="text" id="cpt-accent" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Akcent Hover</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-accentHover">
+                    <input type="text" id="cpt-accentHover" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Tło strony</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-bg">
+                    <input type="text" id="cpt-bg" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Karty/Pudełka</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-surface">
+                    <input type="text" id="cpt-surface" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Tekst główny</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-textPrimary">
+                    <input type="text" id="cpt-textPrimary" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Tekst pomocny</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-textSecondary">
+                    <input type="text" id="cpt-textSecondary" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Tekst akcentu</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-accentText">
+                    <input type="text" id="cpt-accentText" maxlength="7">
+                </div>
+            </div>
+            <div class="color-picker-item">
+                <label>Ramki</label>
+                <div class="color-picker-wrap">
+                    <input type="color" id="cp-border">
+                    <input type="text" id="cpt-border" maxlength="7">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Akcje -->
+    <div class="customizer-actions">
+        <button type="button" id="customizer-save" class="btn-customizer-save">Zapisz</button>
+        <button type="button" id="customizer-reset" class="btn-customizer-reset">Resetuj</button>
+    </div>
+</div>
+
+<!-- Script loading -->
+<script src="/customizer.js"></script>
+</body>
+
+</html>
