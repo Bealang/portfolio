@@ -14,8 +14,6 @@ gallery:
   - "/assets/project-img/bus_5.avif"
   - "/assets/project-img/bus_6.avif"
   - "/assets/project-img/bus_7.avif"
-  - "/assets/project-img/bus_8.avif"
-  - "/assets/project-img/bus_9.avif"
 order: 0
 ---
 
