@@ -180,11 +180,13 @@ const isHome = activePage === "home";
         var navMenu = document.getElementById("nav-menu");
 
         if (hamburger && navMenu) {
-            hamburger.addEventListener("click", function () {
+            hamburger.addEventListener("click", function (e) {
+                e.stopPropagation();
                 hamburger.classList.toggle("active");
                 navMenu.classList.toggle("active");
                 header.classList.toggle("menu-open");
             });
+
             document
                 .querySelectorAll(".nav-link, .nav-cta-mobile")
                 .forEach(function (link) {
@@ -195,12 +197,24 @@ const isHome = activePage === "home";
                     });
                 });
 
-            // Fullscreen mobile navigation DOM positioning
+            // Close menu when clicking outside the menu panel or hamburger
+            document.addEventListener("click", function (event) {
+                var isClickInsideMenu = navMenu.contains(event.target);
+                var isClickOnHamburger = hamburger.contains(event.target);
+
+                if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains("active")) {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                    header.classList.remove("menu-open");
+                }
+            });
+
+            // Fullscreen mobile navigation DOM positioning (synchronized with CSS media query at 995px)
             var headerBottomContainer = document.querySelector(
                 ".header-bottom-container",
             );
             var moveNav = function () {
-                if (window.innerWidth <= 850) {
+                if (window.innerWidth <= 995) {
                     if (navMenu.parentElement !== document.body)
                         document.body.appendChild(navMenu);
                 } else {

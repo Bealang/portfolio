@@ -281,6 +281,7 @@ html[data-theme="light"] .theme-toggle-btn .sun-icon {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
