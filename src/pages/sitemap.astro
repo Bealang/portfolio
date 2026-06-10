@@ -30,46 +30,38 @@ const blogPosts = (await getCollection("blog")).sort(
         </div>
 
         <div class="sitemap__simple-list reveal-element">
-            <ul class="sitemap-root">
-                <li>
-                    <a href="/" class="sitemap-main-link">Strona główna</a>
-                    <ul>
+            <ol>
+                <li><a href="/">Strona główna</a>
+                    <ol>
                         <li><a href="/o-nas">O nas</a></li>
                         <li><a href="/#projekty">Nasze realizacje</a></li>
                         <li><a href="/jak-dzialamy">Jak działamy (Proces współpracy)</a></li>
                         <li><a href="/jak-dzialamy#faq">Najczęściej zadawane pytania (FAQ)</a></li>
-                    </ul>
+                    </ol>
                 </li>
-                <li>
-                    <a href="/cennik" class="sitemap-main-link">Cennik usług</a>
-                </li>
-                <li>
-                    <a href="/zamow" class="sitemap-main-link">Zamów bezpłatną wycenę</a>
-                </li>
-                <li>
-                    <a href="/#projekty" class="sitemap-main-link">Nasze realizacje</a>
+                <li><a href="/cennik">Cennik usług</a></li>
+                <li><a href="/zamow">Zamów bezpłatną wycenę</a></li>
+                <li><a href="/#projekty">Nasze realizacje</a>
                     {projects.length > 0 && (
-                        <ul>
+                        <ol>
                             {projects.map((project) => (
                                 <li><a href="/#projekty">{project.data.title}</a></li>
                             ))}
-                        </ul>
+                        </ol>
                     )}
                 </li>
-                <li>
-                    <a href="/blog" class="sitemap-main-link">Nasz Blog</a>
+                <li><a href="/blog">Nasz Blog</a>
                     {blogPosts.length > 0 && (
-                        <ul>
+                        <ol>
                             {blogPosts.map((post) => (
                                 <li><a href={`/blog/${post.id}`}>{post.data.title}</a></li>
                             ))}
-                        </ul>
+                        </ol>
                     )}
                 </li>
-                <li>
-                    <a href="/polityka" class="sitemap-main-link">Polityka prywatności i Cookies</a>
-                </li>
-            </ul>
+                <li><a href="/polityka">Polityka prywatności i Cookies</a></li>
+                <li><a href="/sitemap">Mapa witryny</a></li>
+            </ol>
         </div>
     </main>
 
@@ -111,79 +103,32 @@ const blogPosts = (await getCollection("blog")).sort(
         box-shadow: var(--glass-shadow);
     }
 
-    /* Simple ul li styling */
-    .sitemap-root {
-        list-style: none;
-        padding: 0;
+    /* Prosta lista ol/li bez customowych styli */
+    .sitemap__simple-list ol {
+        padding-left: 24px;
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
     }
 
-    .sitemap-root li {
-        position: relative;
+    .sitemap__simple-list li {
+        margin-bottom: 8px;
+        color: var(--text-primary);
+        font-size: 1.05rem;
+        line-height: 1.6;
     }
 
-    .sitemap-root a {
+    .sitemap__simple-list a {
         color: var(--text-secondary);
         text-decoration: none;
-        font-size: 1.05rem;
-        font-weight: 500;
         transition: var(--transition-smooth);
-        display: inline-block;
-        padding: 2px 0;
     }
 
-    .sitemap-root a:hover {
+    .sitemap__simple-list a:hover {
         color: var(--text-primary);
-        transform: translateX(4px);
+        text-decoration: underline;
     }
 
-    /* Main links style */
-    .sitemap-main-link {
-        font-size: 1.2rem !important;
-        font-weight: 700 !important;
-        color: var(--text-primary) !important;
-        border-bottom: 2px solid transparent;
-    }
-
-    .sitemap-main-link:hover {
-        color: var(--accent-blue) !important;
-    }
-
-    /* Nested ul li */
-    .sitemap-root ul {
-        list-style: none;
-        padding-left: 24px;
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        border-left: 1px solid var(--glass-border);
-    }
-
-    .sitemap-root ul li {
-        position: relative;
-    }
-
-    .sitemap-root ul li::before {
-        content: "";
-        position: absolute;
-        left: -24px;
-        top: 14px;
-        width: 12px;
-        height: 1px;
-        background: var(--glass-border);
-    }
-
-    .sitemap-root ul a {
-        font-size: 0.98rem;
-        color: var(--text-muted);
-    }
-
-    .sitemap-root ul a:hover {
-        color: var(--text-primary);
+    .sitemap__simple-list ol ol {
+        margin-top: 6px;
     }
 
     @media (max-width: 768px) {

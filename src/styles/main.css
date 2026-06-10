@@ -308,6 +308,14 @@ body {
     overflow: hidden;
 }
 
+/* Blog post: ambient blobs extend full viewport width */
+.post-container>.hero-bg {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+
 /* Hero Section Container */
 .hero-section {
     position: relative;
@@ -380,6 +388,11 @@ body {
     opacity: 0.5;
     mask-image: radial-gradient(circle at center, black, transparent 80%);
     -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Ukryj siatkę na stronie głównej (hero section) */
+.hero-section .grid-lines {
+    display: none;
 }
 
 @keyframes blob-float {
@@ -4918,18 +4931,9 @@ nav>a.active::after {
     padding-right: calc(50% - 190px);
 }
 
-/* Line connecting steps */
+/* Line connecting steps removed */
 .htl-track::before {
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: calc(50vw - 70px);
-    right: calc(50vw - 70px);
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
-    opacity: 0.35;
-    border-radius: 2px;
-    z-index: 0;
+    display: none;
 }
 
 /* Individual step */
@@ -4945,7 +4949,7 @@ nav>a.active::after {
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Step dot (icon circle) */
+/* Step dot */
 .htl-step__dot {
     display: flex;
     flex-direction: column;
@@ -4953,40 +4957,23 @@ nav>a.active::after {
     margin-bottom: 20px;
 }
 
-.htl-step__icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
-    position: relative;
-    z-index: 2;
-}
-
-.htl-step__icon i {
-    color: #fff;
-    font-size: 20px;
-}
-
-.htl-step__icon--final {
-    background: linear-gradient(135deg, #10b981, #059669);
-    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.45);
-}
-
 .htl-step__number {
-    margin-top: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent-blue);
-    letter-spacing: 1px;
-    opacity: 0.6;
+    font-size: 3.5rem;
+    font-weight: 850;
+    letter-spacing: -1px;
+    line-height: 1;
+    display: block;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.85;
+    transition: var(--transition-smooth);
 }
 
 .htl-step--final .htl-step__number {
-    color: #10b981;
+    background: linear-gradient(135deg, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Step card */
@@ -5577,6 +5564,22 @@ nav>a.active::after {
     margin-top: 0;
     line-height: 0;
     overflow: hidden;
+}
+
+/* Na desktopie mapa nie na 100% — ograniczona szerokość z zaokrąglonymi rogami */
+@media (min-width: 769px) {
+    .google-map-embed {
+        max-width: 1200px;
+        width: 90%;
+        left: auto;
+        right: auto;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+        border: 1px solid var(--glass-border);
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
 }
 
 .google-map-embed iframe {

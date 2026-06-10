@@ -233,12 +233,12 @@ const readTime = calculateReadTime(description);
         display: inline-block;
     }
 
-    /* Płynne podświetlenie tytułu z gradientem podczas hoveru całej karty */
+    /* Podkreślenie tytułu przy hoverze całej karty */
     .blog-card:hover .blog-card__title a {
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--text-primary);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
     }
 
     .blog-card__desc {
