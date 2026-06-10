@@ -39,8 +39,7 @@ const projects = (await getCollection("projects")).sort(
                         >
                         <br />Od zera.
                         <br />Dla Twojej firmy.
-                        </span
-                    >
+                    </span>
                     <span id="type-title" class="visible-layer"></span>
                 </h2>
                 <div
@@ -54,8 +53,12 @@ const projects = (await getCollection("projects")).sort(
                         <span>Poznaj nas</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="tel:+48530315860" class="btn-glass btn-secondary btn-call">
-                        <i class="fa-solid fa-phone" style="margin-right: 8px;"></i>
+                    <a
+                        href="tel:+48530315860"
+                        class="btn-glass btn-secondary btn-call"
+                    >
+                        <i class="fa-solid fa-phone" style="margin-right: 8px;"
+                        ></i>
                         <span>Zadzwoń: +48 530 315 860</span>
                     </a>
                 </div>
@@ -223,6 +226,10 @@ const projects = (await getCollection("projects")).sort(
                 </div>
             </div>
         </div>
+        <h1>
+            Chwilowo prosimy dzwonić pod numer <a href="tel:+48796760814"
+                >+48 796 760 814</a>
+        </h1>
     </main>
 
     <section id="projekty">
@@ -270,7 +277,6 @@ const projects = (await getCollection("projects")).sort(
         </div>
         <div class="c3d__dots" id="c3dDots"></div>
     </section>
-
 
     <ContactForm />
 
@@ -427,8 +433,6 @@ const projects = (await getCollection("projects")).sort(
     </script>
 
     <Footer isHome={true} />
-
-
 
     <!-- Typing animation -->
     <script>
@@ -595,7 +599,11 @@ const projects = (await getCollection("projects")).sort(
             var scene = document.querySelector(".c3d__scene");
 
             scene.addEventListener("mousedown", function (e) {
-                if (e.target.closest('.c3d__nav') || e.target.closest('.c3d__dots') || e.target.closest('.c3d__cta')) {
+                if (
+                    e.target.closest(".c3d__nav") ||
+                    e.target.closest(".c3d__dots") ||
+                    e.target.closest(".c3d__cta")
+                ) {
                     return;
                 }
                 isDragging = true;
@@ -631,7 +639,11 @@ const projects = (await getCollection("projects")).sort(
             scene.addEventListener(
                 "touchstart",
                 function (e) {
-                    if (e.target.closest('.c3d__nav') || e.target.closest('.c3d__dots') || e.target.closest('.c3d__cta')) {
+                    if (
+                        e.target.closest(".c3d__nav") ||
+                        e.target.closest(".c3d__dots") ||
+                        e.target.closest(".c3d__cta")
+                    ) {
                         return;
                     }
                     isDragging = true;
@@ -701,8 +713,6 @@ const projects = (await getCollection("projects")).sort(
             }
         })();
     </script>
-
-
 
     <!-- Technology Interactive Drag Controller -->
     <script>
