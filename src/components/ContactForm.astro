@@ -2,7 +2,7 @@
 // ContactForm component - EmailJS integration
 ---
 
-<section id="kontakt" data-aos="fade-up" data-aos-duration="1000">
+<section id="kontakt">
     <div class="contact__container">
         <div class="contact__featured">
             <div
@@ -55,12 +55,7 @@
             </div>
         </div>
 
-        <div
-            id="kontakt__formularz"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay="400"
-        >
+        <div id="kontakt__formularz">
             <form id="kontakt__form" novalidate>
                 <div id="kontakt__formularz__lewy">
                     <div class="form__group">
@@ -451,4 +446,27 @@
             );
         }
     });
+
+    // Lightweight IntersectionObserver fade-in animation for the form block
+    // to prevent lag on less-performant laptops (no GPU-heavy transform 3D transitions)
+    (function() {
+        const formBlock = document.getElementById("kontakt__formularz");
+        if (formBlock && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            formBlock.style.opacity = "0";
+            formBlock.style.transition = "opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1)";
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        formBlock.style.opacity = "1";
+                        observer.unobserve(formBlock);
+                    }
+                });
+            }, { 
+                rootMargin: "0px 0px -50px 0px",
+                threshold: 0.05 
+            });
+            observer.observe(formBlock);
+        }
+    })();
 </script>

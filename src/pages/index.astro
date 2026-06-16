@@ -332,9 +332,15 @@ const projects = (await getCollection("projects")).sort(
             z-index: 1;
             opacity: 0;
             transition: opacity 0.8s ease;
+            transform: translateZ(0); /* Hardware acceleration */
+            pointer-events: none; /* Zapobiega przejmowaniu scrolla */
         }
         .google-map-embed.loaded :global(iframe) {
             opacity: 1;
+        }
+        .google-map-embed.loaded:hover :global(iframe),
+        .google-map-embed.loaded:active :global(iframe) {
+            pointer-events: auto;
         }
     </style>
 
@@ -604,6 +610,7 @@ const projects = (await getCollection("projects")).sort(
             // Drag
             var startX = 0;
             var isDragging = false;
+            var rafPending = false;
             var scene = document.querySelector(".c3d__scene");
 
             scene.addEventListener("mousedown", function (e) {
@@ -627,8 +634,16 @@ const projects = (await getCollection("projects")).sort(
                     currentDragDelta *= 0.3;
                 else if (current === total - 1 && currentDragDelta < 0)
                     currentDragDelta *= 0.3;
-                applyLayout(true, currentDragDelta);
-            });
+                
+                if (!rafPending) {
+                    rafPending = true;
+                    requestAnimationFrame(function () {
+                        rafPending = false;
+                        if (!isDragging) return;
+                        applyLayout(true, currentDragDelta);
+                    });
+                }
+            }, { passive: true });
             window.addEventListener("mouseup", function () {
                 if (!isDragging) return;
                 isDragging = false;
@@ -671,7 +686,15 @@ const projects = (await getCollection("projects")).sort(
                         currentDragDelta *= 0.3;
                     else if (current === total - 1 && currentDragDelta < 0)
                         currentDragDelta *= 0.3;
-                    applyLayout(true, currentDragDelta);
+                    
+                    if (!rafPending) {
+                        rafPending = true;
+                        requestAnimationFrame(function () {
+                            rafPending = false;
+                            if (!isDragging) return;
+                            applyLayout(true, currentDragDelta);
+                        });
+                    }
                 },
                 { passive: true },
             );
@@ -722,57 +745,5 @@ const projects = (await getCollection("projects")).sort(
         })();
     </script>
 
-    <!-- Technology Interactive Drag Controller -->
-    <script>
-        (function () {
-            var glasses = document.querySelectorAll(".tech-icon-glass");
-            var isDragging = false;
-            var startX = 0,
-                startY = 0;
-            var activeGlass = null;
 
-            glasses.forEach(function (glass) {
-                glass.addEventListener("pointerdown", function (e) {
-                    if (e.button !== 0) return;
-                    e.preventDefault();
-                    isDragging = true;
-                    startX = e.clientX;
-                    startY = e.clientY;
-                    activeGlass = glass;
-
-                    glass.classList.add("is-dragging");
-                    glass.setPointerCapture(e.pointerId);
-                });
-
-                glass.addEventListener("pointermove", function (e) {
-                    if (!isDragging || activeGlass !== glass) return;
-                    var dx = e.clientX - startX;
-                    var dy = e.clientY - startY;
-
-                    // Dynamic drag with 1.2x scale and visual Z displacement
-                    glass.style.transform =
-                        "translate(" +
-                        dx +
-                        "px, " +
-                        dy +
-                        "px) scale(1.2) translateZ(40px)";
-                });
-
-                var handleRelease = function (e) {
-                    if (!isDragging || activeGlass !== glass) return;
-                    glass.releasePointerCapture(e.pointerId);
-                    glass.classList.remove("is-dragging");
-
-                    // Reset transform; the CSS transition on .tech-icon-glass will smoothly animate it back to original place
-                    glass.style.transform = "";
-
-                    isDragging = false;
-                    activeGlass = null;
-                };
-
-                glass.addEventListener("pointerup", handleRelease);
-                glass.addEventListener("pointercancel", handleRelease);
-            });
-        })();
-    </script>
 </Layout>

@@ -48,7 +48,7 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
         <HeroBg behindContent={true} />
 
         <article class="post">
-            <div class="post__header" data-aos="fade-up" data-aos-duration="800">
+            <div class="post__header">
                 <a href="/blog" class="post__back-btn">
                     <i class="fa-solid fa-arrow-left-long"></i>
                     <span>Wróć do bloga</span>
@@ -67,16 +67,16 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
                 <h1 class="post__title">{post.data.title}</h1>
             </div>
 
-            <div class="post__image-wrapper" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+            <div class="post__image-wrapper">
                 <Image src={post.data.image} alt={post.data.imageAlt || post.data.title} width={1200} height={600} class="post__image" />
             </div>
 
-            <section class="post__content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <section class="post__content">
                 <Content />
             </section>
 
             <!-- Dolna nawigacja artykułu -->
-            <div class="post__navigation" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div class="post__navigation">
                 <a href="/blog" class="post__nav-btn post__nav-btn--back" aria-label="Wróć do listy wszystkich artykułów">
                     <i class="fa-solid fa-arrow-left-long"></i>
                     <span>Powrót na bloga</span>

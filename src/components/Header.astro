@@ -99,14 +99,17 @@ const isHome = activePage === "home";
                 </div>
             </nav>
 
-            <!-- Dynamiczna prawa sekcja po scrollu (telefon + CTA) -->
+            <!-- Dynamiczna prawa sekcja po scrollu (theme + CTA) -->
             <div class="header-right-scrolled">
-                <a href="tel:+48530315860" class="header-phone-scrolled">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+48 530 315 860</span>
-                </a>
-                <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a
-                >
+                <button class="theme-switch-pill" aria-label="Zmień motyw">
+                    <span class="pill-track">
+                        <span class="pill-thumb">
+                            <i class="fa-solid fa-sun sun-icon"></i>
+                            <i class="fa-solid fa-moon moon-icon"></i>
+                        </span>
+                    </span>
+                </button>
+                <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a>
             </div>
         </div>
     </div>
@@ -157,57 +160,29 @@ const isHome = activePage === "home";
         var lastScrollY = window.scrollY;
         var scrollAnchor = window.scrollY; // punkt, w którym użytkownik zmienił kierunek
         var lastDirection = 0; // 1 = down, -1 = up
+        var isTicking = false;
 
-        function handleScroll() {
+        function updateScroll() {
             var currentScrollY = window.scrollY;
 
-            if (currentScrollY <= 50) {
-                header.classList.remove("scrolled", "hide-top-tier");
-                scrollAnchor = currentScrollY;
-                lastDirection = 0;
+            if (currentScrollY <= 200) {
+                header.classList.remove("is-sticky");
             } else {
-                header.classList.add("scrolled");
-
-                // Nie chowaj górnej części, dopóki nie przewiniemy co najmniej 200px
-                if (currentScrollY < 200) {
-                    header.classList.remove("hide-top-tier");
-                    scrollAnchor = currentScrollY;
-                    lastDirection = 0;
-                } else {
-                    var direction =
-                        currentScrollY > lastScrollY
-                            ? 1
-                            : currentScrollY < lastScrollY
-                              ? -1
-                              : 0;
-
-                    // Jeśli kierunek się zmienił, resetujemy anchor
-                    if (direction !== 0 && direction !== lastDirection) {
-                        scrollAnchor = lastScrollY;
-                        lastDirection = direction;
-                    }
-
-                    var delta = Math.abs(currentScrollY - scrollAnchor);
-
-                    // Mniej czułe chowanie w dół (150px), responsywniejsze pokazywanie w górę (80px)
-                    var requiredDelta = direction === 1 ? 150 : 80;
-
-                    if (delta >= requiredDelta) {
-                        if (direction === 1) {
-                            // Scroll w dół → ukryj górną warstwę
-                            header.classList.add("hide-top-tier");
-                        } else if (direction === -1) {
-                            // Scroll w górę → pokaż górną warstwę
-                            header.classList.remove("hide-top-tier");
-                        }
-                    }
-                }
+                header.classList.add("is-sticky");
             }
-            lastScrollY = currentScrollY;
+            
+            isTicking = false;
+        }
+
+        function handleScroll() {
+            if (!isTicking) {
+                window.requestAnimationFrame(updateScroll);
+                isTicking = true;
+            }
         }
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll(); // Wywołaj od razu przy ładowaniu, by zapobiec miganiu (FOUC) na 0.1s przy odświeżeniu
+        updateScroll(); // Wywołaj od razu przy ładowaniu, by zapobiec miganiu (FOUC) na 0.1s przy odświeżeniu
 
         // ──────────────────────────────────────────────────
         // 2. Hamburger menu (mobile)

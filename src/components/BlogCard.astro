@@ -31,7 +31,7 @@ const calculateReadTime = (descText: string) => {
 const readTime = calculateReadTime(description);
 ---
 
-<article class="blog-card" data-aos="fade-up" data-aos-duration="800">
+<article class="blog-card">
     <!-- Górny pasek dekoracyjny świecący przy hoverze -->
     <div class="blog-card__accent-bar"></div>
 
@@ -157,9 +157,7 @@ const readTime = calculateReadTime(description);
         position: absolute;
         top: 16px;
         right: 16px;
-        background: rgba(16, 16, 16, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: rgba(16, 16, 16, 0.95);
         border: 1px solid rgba(255, 255, 255, 0.08);
         color: var(--text-primary);
         font-size: 0.72rem;
@@ -174,7 +172,7 @@ const readTime = calculateReadTime(description);
     }
 
     html[data-theme="light"] .blog-card__badge {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.95);
         border-color: rgba(0, 0, 0, 0.06);
     }
 

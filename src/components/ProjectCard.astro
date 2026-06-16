@@ -36,7 +36,6 @@ if (url) {
   style="text-decoration: none;"
 >
     <div class="c3d__card-inner" style={`--card-accent: ${accent}; cursor: pointer;`}>
-        <div class="c3d__card-overlay"></div>
         <div class="c3d__logo-wrap">
             <img src={thumbnail} alt={thumbnailAlt} loading="lazy" style="border-radius:10px;">
         </div>
@@ -46,5 +45,6 @@ if (url) {
         ) : (
             <span class="c3d__date">{date}</span>
         )}
+        <div class="c3d__card-overlay"></div>
     </div>
 </a>
