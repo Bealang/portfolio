@@ -229,11 +229,6 @@ const projects = (await getCollection("projects")).sort(
     </main>
 
     <section id="projekty">
-        <h2>
-            Chwilowo prosimy dzwonić pod numer <a href="tel:+48796760814"
-                >+48 796 760 814</a
-            >
-        </h2>
         <div
             class="projekty__heading"
             data-aos="fade-up"
@@ -548,15 +543,27 @@ const projects = (await getCollection("projects")).sort(
                         scale +
                         ")";
                     card.style.opacity = opacity;
-                    card.style.filter = "brightness(" + brightness + ")";
+
+                    // GPU-optimized overlay opacity instead of expensive CSS filter: brightness
+                    var overlay = card.querySelector(".c3d__card-overlay");
+                    if (overlay) {
+                        overlay.style.opacity = 1 - brightness;
+                    }
+
                     card.style.zIndex = zIndex;
                     card.style.boxShadow = "none";
 
                     if (!dragging)
                         card.classList.toggle("is-active", i === current);
                     card.style.transition = dragging
-                        ? "transform 0.1s ease-out"
-                        : "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease";
+                        ? "none"
+                        : "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, box-shadow 0.6s ease";
+
+                    if (overlay) {
+                        overlay.style.transition = dragging
+                            ? "none"
+                            : "opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
+                    }
                 });
 
                 if (!dragging) {

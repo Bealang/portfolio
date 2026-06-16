@@ -199,10 +199,58 @@ import '../styles/main.css';
         })();
     </script>
 
-    <!-- AOS (Bundled and deferred natively by Astro) -->
+    <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver -->
     <script>
-        import AOS from 'aos';
-        AOS.init({ once: true, mirror: false, offset: 100 });
+        document.addEventListener("DOMContentLoaded", () => {
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                document.querySelectorAll("[data-aos]").forEach((el) => {
+                    el.classList.add("aos-animate");
+                });
+                return;
+            }
+
+            // Batch DOM writes to prevent layout thrashing
+            let elementsToAnimate: HTMLElement[] = [];
+            let rAFId: number | null = null;
+
+            const processAnimations = () => {
+                elementsToAnimate.forEach((el) => {
+                    el.classList.add("aos-animate");
+                });
+                elementsToAnimate = [];
+                rAFId = null;
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                let hasIntersecting = false;
+                
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target as HTMLElement;
+                        const duration = el.getAttribute("data-aos-duration");
+                        const delay = el.getAttribute("data-aos-delay");
+                        
+                        if (duration) el.style.transitionDuration = `${duration}ms`;
+                        if (delay) el.style.transitionDelay = `${delay}ms`;
+                        
+                        elementsToAnimate.push(el);
+                        hasIntersecting = true;
+                        obs.unobserve(el);
+                    }
+                });
+
+                if (hasIntersecting && rAFId === null) {
+                    rAFId = requestAnimationFrame(processAnimations);
+                }
+            }, {
+                rootMargin: "0px 0px -60px 0px",
+                threshold: 0.05
+            });
+
+            document.querySelectorAll("[data-aos]").forEach((el) => {
+                observer.observe(el);
+            });
+        });
     </script>
 </body>
 </html>
