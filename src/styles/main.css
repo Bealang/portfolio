@@ -51,13 +51,17 @@
     --pricing-toggle-bg: rgba(255, 255, 255, 0.45);
 
     /* Pricing Toggle Switch (Light theme) */
-    --pricing-switch-bg: rgba(139, 92, 246, 0.15);
-    --pricing-switch-border: 1.5px solid rgba(139, 92, 246, 0.3);
-    --pricing-switch-active-bg: rgba(236, 72, 153, 0.15);
-    --pricing-switch-active-border: rgba(236, 72, 153, 0.4);
-    --pricing-switch-focus: 0 0 0 3px rgba(139, 92, 246, 0.4);
-    --pricing-switch-slider-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
-    --pricing-switch-slider-active-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+    --pricing-switch-bg: rgba(17, 24, 39, 0.06);
+    --pricing-switch-border: 1.5px solid rgba(17, 24, 39, 0.1);
+    --pricing-switch-active-bg: rgba(17, 24, 39, 0.1);
+    --pricing-switch-active-border: rgba(17, 24, 39, 0.18);
+    --pricing-switch-focus: 0 0 0 3px rgba(17, 24, 39, 0.08);
+    --pricing-switch-slider-bg: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    --pricing-switch-slider-active-bg: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    --pricing-switch-slider-shadow: 0 2px 6px rgba(139, 92, 246, 0.25);
+    --pricing-switch-slider-active-shadow: 0 2px 6px rgba(236, 72, 153, 0.25);
+    --vat-badge-bg: rgba(17, 24, 39, 0.06);
+    --vat-badge-color: var(--text-secondary);
 
     /* Card and Component Hover Borders & Shadows (Light theme) */
     --card-hover-border: rgba(139, 92, 246, 0.3);
@@ -175,13 +179,17 @@ html[data-theme="dark"] {
     --pricing-toggle-bg: rgba(22, 22, 22, 0.7);
 
     /* Pricing Toggle Switch (Dark theme - mega dark/grey, no fiolet) */
-    --pricing-switch-bg: rgba(255, 255, 255, 0.05);
+    --pricing-switch-bg: rgba(255, 255, 255, 0.06);
     --pricing-switch-border: 1.5px solid rgba(255, 255, 255, 0.08);
-    --pricing-switch-active-bg: rgba(255, 255, 255, 0.1);
-    --pricing-switch-active-border: rgba(255, 255, 255, 0.15);
-    --pricing-switch-focus: 0 0 0 3px rgba(255, 255, 255, 0.15);
-    --pricing-switch-slider-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    --pricing-switch-slider-active-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --pricing-switch-active-bg: rgba(255, 255, 255, 0.12);
+    --pricing-switch-active-border: rgba(255, 255, 255, 0.18);
+    --pricing-switch-focus: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    --pricing-switch-slider-bg: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    --pricing-switch-slider-active-bg: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    --pricing-switch-slider-shadow: 0 2px 6px rgba(139, 92, 246, 0.35);
+    --pricing-switch-slider-active-shadow: 0 2px 6px rgba(236, 72, 153, 0.35);
+    --vat-badge-bg: rgba(255, 255, 255, 0.08);
+    --vat-badge-color: var(--text-secondary);
 
     /* Card and Component Hover Borders & Shadows (Dark theme - mega dark, płaski hover) */
     --card-hover-border: rgba(255, 255, 255, 0.04);
@@ -3230,26 +3238,27 @@ a.footer__contact-item:hover {
 }
 
 .toggle-label.active {
-    color: var(--accent-blue);
+    color: var(--text-primary);
     font-weight: 700;
 }
 
 .vat-badge {
     font-size: 11px;
-    background: rgba(236, 72, 153, 0.1);
-    color: var(--accent-cyan);
+    background: var(--vat-badge-bg);
+    color: var(--vat-badge-color);
     padding: 2px 8px;
     border-radius: 10px;
     margin-left: 4px;
     font-weight: 600;
+    transition: var(--transition-smooth);
 }
 
 .pricing-toggle-switch {
     position: relative;
     width: 60px;
     height: 32px;
-    background: rgba(139, 92, 246, 0.15);
-    border: 1.5px solid rgba(139, 92, 246, 0.3);
+    background: var(--pricing-switch-bg);
+    border: var(--pricing-switch-border);
     border-radius: 100px;
     cursor: pointer;
     transition: var(--transition-smooth);
@@ -3258,7 +3267,7 @@ a.footer__contact-item:hover {
 }
 
 .pricing-toggle-switch:focus-visible {
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.4);
+    box-shadow: var(--pricing-switch-focus);
 }
 
 .toggle-slider {
@@ -3267,21 +3276,21 @@ a.footer__contact-item:hover {
     left: 3px;
     width: 24px;
     height: 24px;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    background: var(--pricing-switch-slider-bg);
     border-radius: 50%;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    box-shadow: var(--pricing-switch-slider-shadow);
 }
 
 .pricing-toggle-switch.active {
-    background: rgba(236, 72, 153, 0.15);
-    border-color: rgba(236, 72, 153, 0.4);
+    background: var(--pricing-switch-active-bg);
+    border-color: var(--pricing-switch-active-border);
 }
 
 .pricing-toggle-switch.active .toggle-slider {
     transform: translateX(28px);
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+    background: var(--pricing-switch-slider-active-bg);
+    box-shadow: var(--pricing-switch-slider-active-shadow);
 }
 
 /* --- Pricing Card Base --- */

@@ -419,15 +419,11 @@
                 .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
                 .then(() => {
                     setLoading(false);
-                    showNotification(
-                        "success",
-                        "✅ Wiadomość wysłana! Odpiszemy najszybciej jak możemy.",
-                    );
-                    form.reset();
                     localStorage.setItem(
                         "lastEmailSentTime",
                         Date.now().toString(),
                     );
+                    window.location.href = '/dziekujemy';
                 })
                 .catch((error: any) => {
                     setLoading(false);

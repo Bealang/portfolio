@@ -1,0 +1,238 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+---
+
+<Layout
+    title="Wiadomość wysłana | web2sell"
+    description="Dziękujemy za kontakt! Wiadomość została wysłana pomyślnie. Odpiszemy najszybciej, jak damy radę."
+    robots="noindex, nofollow"
+>
+    <Header activePage="kontakt-sukces" />
+    
+    <main class="thank-you-page">
+        <HeroBg behindContent={true} />
+        
+        <section class="thank-you-section">
+            <div class="thank-you-card reveal-element">
+                <div class="success-icon-wrapper">
+                    <svg
+                        class="check-icon"
+                        width="36"
+                        height="36"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                
+                <h1 class="thank-you-title">Wiadomość <span class="gradient__text">wysłana!</span></h1>
+                <p class="thank-you-desc">
+                    Dziękujemy za kontakt. Odpiszemy najszybciej, jak damy radę.
+                </p>
+                
+                <a href="/" class="thank-you-btn">
+                    <span class="btn__text">Wróć do strony głównej</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+        (function () {
+            var revealElements = document.querySelectorAll(".reveal-element");
+            if ("IntersectionObserver" in window && revealElements.length > 0) {
+                var observer = new IntersectionObserver(
+                    function (entries, obs) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("reveal--visible");
+                                obs.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        rootMargin: "0px 0px -80px 0px",
+                        threshold: 0.05,
+                    }
+                );
+                revealElements.forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                revealElements.forEach(function (el) {
+                    el.classList.add("reveal--visible");
+                });
+            }
+        })();
+    </script>
+</Layout>
+
+<style>
+    .thank-you-page {
+        position: relative;
+        padding-top: 140px; /* To prevent overlapping with header */
+        padding-bottom: 80px;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .thank-you-section {
+        width: 100%;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .thank-you-card {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 40px 20px;
+        max-width: 550px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Reveal animations */
+    .thank-you-card.reveal--visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .success-icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background: rgba(16, 185, 129, 0.1);
+        border: 2px solid rgba(16, 185, 129, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        color: #10B981;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        animation: spring-scale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        animation-delay: 0.2s;
+    }
+
+    .success-icon-wrapper .check-icon {
+        color: #10B981;
+        stroke: #10B981;
+        display: block;
+        margin: 0;
+    }
+
+    @keyframes spring-scale {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        70% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .thank-you-title {
+        font-family: "Figtree", sans-serif;
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0 0 16px 0;
+        line-height: 1.2;
+    }
+
+    .thank-you-desc {
+        color: var(--text-secondary);
+        font-size: clamp(16px, 2vw, 18px);
+        line-height: 1.6;
+        margin: 0 0 40px 0;
+        max-width: 420px;
+    }
+
+    .thank-you-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 35px;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+        color: #ffffff;
+        border: none;
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .thank-you-btn::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+    }
+
+    .thank-you-btn:hover {
+        box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .thank-you-btn:hover::after {
+        opacity: 1;
+    }
+
+    .thank-you-btn i {
+        font-size: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    .thank-you-btn:hover i {
+        transform: translateX(4px);
+    }
+
+    @media (max-width: 768px) {
+        .thank-you-page {
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+    }
+</style>

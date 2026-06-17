@@ -1,27 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import HeroBg from '../components/HeroBg.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
 ---
 
 <Layout
-  title="Cennik | web2sell - Tworzenie stron www Myślenice"
-  description="Poznaj cennik usług od web2sell. Niedrogie i ultrawydajne wizytówki www, profesjonalne tworzenie stron www i pozycjonowanie lokalne dla firm w Myślenicach."
+    title="Cennik | web2sell - Tworzenie stron www Myślenice"
+    description="Poznaj cennik usług od web2sell. Niedrogie i ultrawydajne wizytówki www, profesjonalne tworzenie stron www i pozycjonowanie lokalne dla firm w Myślenicach."
 >
-    <Header activePage="cennik" />    <main class="cennik-page">
+    <Header activePage="cennik" />
+    <main class="cennik-page">
         <HeroBg behindContent={true} />
 
         <section id="cennik">
-            <h2 class="cennik__title reveal-element">Cennik <span class="gradient__text">naszych</span> usług</h2>
+            <h2 class="cennik__title reveal-element">
+                Cennik <span class="gradient__text">naszych</span> usług
+            </h2>
 
             <!-- PRZEŁĄCZNIK NETTO / BRUTTO -->
-            <div class="pricing-toggle-wrapper reveal-element" style="transition-delay: 0.2s;">
+            <div
+                class="pricing-toggle-wrapper reveal-element"
+                style="transition-delay: 0.2s;"
+            >
                 <span class="toggle-label" id="label-netto">Ceny Netto</span>
-                <button class="pricing-toggle-switch active" id="price-toggle" aria-label="Przełącz ceny netto/brutto" role="switch" aria-checked="true">
+                <button
+                    class="pricing-toggle-switch active"
+                    id="price-toggle"
+                    aria-label="Przełącz ceny netto/brutto"
+                    role="switch"
+                    aria-checked="true"
+                >
                     <span class="toggle-slider"></span>
                 </button>
-                <span class="toggle-label active" id="label-brutto">Ceny Brutto <span class="vat-badge">(+23% VAT)</span></span>
+                <span class="toggle-label active" id="label-brutto"
+                    >Ceny Brutto <span class="vat-badge">(+23% VAT)</span></span
+                >
             </div>
 
             <!-- KONTENER CENNIKA 3+1 -->
@@ -29,53 +43,150 @@ import HeroBg from '../components/HeroBg.astro';
                 <!-- Rząd 3 pakietów standardowych obok siebie -->
                 <div class="pricing-grid-standard">
                     <!-- Pakiet OnePage -->
-                    <div class="pricing-card reveal-element" id="full-card-onepage" style="transition-delay: 0.1s;">
-                        <h3>OnePage <span class="subtitle">Jednostronicowa</span></h3>
+                    <div
+                        class="pricing-card reveal-element"
+                        id="full-card-onepage"
+                        style="transition-delay: 0.1s;"
+                    >
+                        <h3>
+                            OnePage <span class="subtitle">Jednostronicowa</span
+                            >
+                        </h3>
                         <p class="card-summary">
-                            Szybka i prosta jednostronicowa wizytówka. Doskonała dla jednoosobowych działalności, freelancerów czy małych firm. Znajduje się na niej wszystko, co niezbędne, by skutecznie zaprezentować ofertę i zdobyć pierwszych klientów z Google.
+                            Szybka i prosta jednostronicowa wizytówka. Doskonała
+                            dla jednoosobowych działalności, freelancerów czy
+                            małych firm. Znajduje się na niej wszystko, co
+                            niezbędne, by skutecznie zaprezentować ofertę i
+                            zdobyć pierwszych klientów z Google.
                         </p>
-                        <div class="price">od <span class="price-value" data-net="1000" data-gross="1230">1230</span> <span class="currency">zł</span> <span class="price-suffix">/brutto<sup>1</sup></span></div>
-                        <a href="/zamow?pakiet=onepage" class="pricing-btn">Wybierz OnePage</a>
+                        <div class="price">
+                            od <span
+                                class="price-value"
+                                data-net="1000"
+                                data-gross="1230">1230</span
+                            >
+                            <span class="currency">zł</span>
+                            <span class="price-suffix">/brutto<sup>1</sup></span
+                            >
+                        </div>
+                        <a href="/zamow?pakiet=onepage" class="pricing-btn"
+                            >Wybierz OnePage</a
+                        >
                     </div>
 
                     <!-- Pakiet Wizytówka Multi-Page -->
-                    <div class="pricing-card reveal-element" id="full-card-multipage" style="transition-delay: 0.25s;">
-                        <h3>Wizytówka Multi-Page <span class="subtitle">2-5 podstron</span></h3>
+                    <div
+                        class="pricing-card reveal-element"
+                        id="full-card-multipage"
+                        style="transition-delay: 0.25s;"
+                    >
+                        <h3>
+                            Wizytówka Multi-Page <span class="subtitle"
+                                >2-5 podstron</span
+                            >
+                        </h3>
                         <p class="card-summary">
-                            Pełnoprawna strona internetowa podzielona na kilka dedykowanych podstron (o nas, oferta, galeria, kontakt). Idealna dla firm, które chcą zbudować silniejszą pozycję w Google i zaoferować klientom bardziej rozbudowaną prezentację swojej oferty niż Onepage.
+                            Pełnoprawna strona internetowa podzielona na kilka
+                            dedykowanych podstron (o nas, oferta, galeria,
+                            kontakt). Idealna dla firm, które chcą zbudować
+                            silniejszą pozycję w Google i zaoferować klientom
+                            bardziej rozbudowaną prezentację swojej oferty niż
+                            Onepage.
                         </p>
-                        <div class="price">od <span class="price-value" data-net="1500" data-gross="1845">1845</span> <span class="currency">zł</span> <span class="price-suffix">/brutto<sup>1</sup></span></div>
-                        <a href="/zamow?pakiet=multipage" class="pricing-btn">Wybierz Multi-Page</a>
+                        <div class="price">
+                            od <span
+                                class="price-value"
+                                data-net="1500"
+                                data-gross="1845">1845</span
+                            >
+                            <span class="currency">zł</span>
+                            <span class="price-suffix">/brutto<sup>1</sup></span
+                            >
+                        </div>
+                        <a href="/zamow?pakiet=multipage" class="pricing-btn"
+                            >Wybierz Multi-Page</a
+                        >
                     </div>
 
                     <!-- Pakiet Wizytówka + CMS -->
-                    <div class="pricing-card card--active reveal-element" id="full-card-cms" style="transition-delay: 0.4s;">
+                    <div
+                        class="pricing-card card--active reveal-element"
+                        id="full-card-cms"
+                        style="transition-delay: 0.4s;"
+                    >
                         <div class="card-badge">Najpopularniejszy wybór</div>
-                        <h3>Wizytówka + CMS <span class="subtitle">2-5 podstron + panel administracyjny</span></h3>
+                        <h3>
+                            Wizytówka + CMS <span class="subtitle"
+                                >2-5 podstron + panel administracyjny</span
+                            >
+                        </h3>
                         <p class="card-summary">
-                            Strona z autorskim, banalnie prostym panelem administracyjnym. Samodzielnie i błyskawicznie edytujesz ofertę, portfolio czy bloga bez pisania kodu. To doskonały wybór dla firm, które chcą mieć pełną kontrolę nad swoją stroną i regularnie aktualizować treści.
+                            Strona z autorskim, banalnie prostym panelem
+                            administracyjnym. Samodzielnie i błyskawicznie
+                            edytujesz ofertę, portfolio czy bloga bez pisania
+                            kodu. To doskonały wybór dla firm, które chcą mieć
+                            pełną kontrolę nad swoją stroną i regularnie
+                            aktualizować treści.
                         </p>
-                        <div class="price">od <span class="price-value" data-net="2500" data-gross="3075">3075</span> <span class="currency">zł</span> <span class="price-suffix">/brutto<sup>1</sup></span></div>
-                        <a href="/zamow?pakiet=cms" class="pricing-btn primary">Wybierz CMS</a>
+                        <div class="price">
+                            od <span
+                                class="price-value"
+                                data-net="2500"
+                                data-gross="3075">3075</span
+                            >
+                            <span class="currency">zł</span>
+                            <span class="price-suffix">/brutto<sup>1</sup></span
+                            >
+                        </div>
+                        <a href="/zamow?pakiet=cms" class="pricing-btn primary"
+                            >Wybierz CMS</a
+                        >
                     </div>
                 </div>
 
                 <!-- Pakiet System Dedykowany pod spodem (szeroki baner) -->
-                <div class="pricing-card-dedicated reveal-element" id="full-card-dedicated" style="transition-delay: 0.15s;">
+                <div
+                    class="pricing-card-dedicated reveal-element"
+                    id="full-card-dedicated"
+                    style="transition-delay: 0.15s;"
+                >
                     <div class="dedicated-content">
-                        <h3>System Dedykowany <span class="subtitle">Zaawansowane rozwiązanie</span></h3>
+                        <h3>
+                            System Dedykowany <span class="subtitle"
+                                >Zaawansowane rozwiązanie</span
+                            >
+                        </h3>
                         <p class="card-summary">
-                            Dedykowane rozwiązanie dla najbardziej wymagających klientów. Strona idealnie dopasowana do potrzeb Twojego biznesu, z rozbudowanymi funkcjonalnościami (rezerwacje, interaktywne cenniki, integracje z systemami zewnętrznymi). To inwestycja dla firm, które chcą mieć absolutnie unikalną i najwyższej jakości stronę, wybijającą się na tle konkurencji.
+                            Dedykowane rozwiązanie dla najbardziej wymagających
+                            klientów. Strona idealnie dopasowana do potrzeb
+                            Twojego biznesu, z rozbudowanymi funkcjonalnościami
+                            (rezerwacje, interaktywne cenniki, integracje z
+                            systemami zewnętrznymi). To inwestycja dla firm,
+                            które chcą mieć absolutnie unikalną i najwyższej
+                            jakości stronę, wybijającą się na tle konkurencji.
                         </p>
                     </div>
                     <div class="dedicated-cta-box">
-                        <div class="price">od <span class="price-value" data-net="4000" data-gross="4920">4920</span> <span class="currency">zł</span> <span class="price-suffix">/brutto<sup>1</sup></span></div>
-                        <a href="/zamow?pakiet=system" class="pricing-btn">Wybierz System Dedykowany</a>
+                        <div class="price">
+                            od <span
+                                class="price-value"
+                                data-net="4000"
+                                data-gross="4920">4920</span
+                            >
+                            <span class="currency">zł</span>
+                            <span class="price-suffix">/brutto<sup>1</sup></span
+                            >
+                        </div>
+                        <a href="/zamow?pakiet=system" class="pricing-btn"
+                            >Wybierz System Dedykowany</a
+                        >
                     </div>
                 </div>
 
-                <p class="pricing-note"><sup>1</sup> Wszystkie podane ceny są kwotami orientacyjnymi. Cennik ma charakter poglądowy i nie stanowi oferty handlowej w rozumieniu Art. 66 par. 1 Kodeksu Cywilnego.<br/>
-
+                <p class="pricing-note">
+                    <sup>1</sup> Wszystkie podane ceny są kwotami orientacyjnymi.
+                    Cennik ma charakter poglądowy i nie stanowi oferty handlowej w
+                    rozumieniu Art. 66 par. 1 Kodeksu Cywilnego.<br />
                 </p>
             </div>
 
@@ -89,7 +200,9 @@ import HeroBg from '../components/HeroBg.astro';
                                 <th class="feature-col">Zakres usług</th>
                                 <th class="package-col">OnePage</th>
                                 <th class="package-col">Multi-Page</th>
-                                <th class="package-col highlight-col">Wizytówka + CMS</th>
+                                <th class="package-col highlight-col"
+                                    >Wizytówka + CMS</th
+                                >
                                 <th class="package-col">System Dedykowany</th>
                             </tr>
                         </thead>
@@ -102,32 +215,82 @@ import HeroBg from '../components/HeroBg.astro';
                                 <td>od 5 tygodni</td>
                             </tr>
                             <tr>
-                                <td class="feature-name">Optymalizacja SEO</td>
+                                <td class="feature-name"
+                                    >Optymalizacja pod wyszukiwarki Google</td
+                                >
                                 <td>Podstawowa pod Google</td>
                                 <td>Rozszerzona pod regionalne wyszukiwania</td>
                                 <td class="highlight-cell">Rozszerzone</td>
                                 <td>Najwyższe, najbardziej staranne</td>
                             </tr>
                             <tr>
-                                <td class="feature-name">Zarządzanie treścią [CMS]</td>
-                                <td class="muted-value"><span class="dash-icon">✕</span></td>
-                                <td class="muted-value"><span class="dash-icon">✕</span></td>
-                                <td class="highlight-cell">Aktualności, Blog, Galeria</td>
-                                <td>Aktualności, Blog, Galeria i indywidualne systemy (rezerwacje, interaktywne cenniki)</td>
+                                <td class="feature-name"
+                                    >Zarządzanie treścią [CMS]</td
+                                >
+                                <td class="muted-value"
+                                    ><span class="dash-icon">✕</span></td
+                                >
+                                <td class="muted-value"
+                                    ><span class="dash-icon">✕</span></td
+                                >
+                                <td class="highlight-cell"
+                                    >Aktualności, Blog, Galeria</td
+                                >
+                                <td
+                                    >Indywidualnie dostosowane do Twoich
+                                    potrzeb.</td
+                                >
                             </tr>
                             <tr>
-                                <td class="feature-name">Analityka Google</td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="highlight-cell"><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Wdrożenie hostingu i konfiguracja domeny .pl w cenie</td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="highlight-cell"><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td class="feature-name"
+                                    >Darmowy hosting+domena .pl na pierwszy rok</td
+                                >
+                                <td><span class="dash-icon">✕</span></td>
+                                <td
+                                    ><svg
+                                        class="check-icon"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    ></td
+                                >
+                                <td class="highlight-cell"
+                                    ><svg
+                                        class="check-icon"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    ></td
+                                >
+                                <td
+                                    ><svg
+                                        class="check-icon"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    ></td
+                                >
                             </tr>
                             <tr>
                                 <td class="feature-name">Opieka w pakiecie</td>
@@ -137,55 +300,128 @@ import HeroBg from '../components/HeroBg.astro';
                                 <td>6 mies.</td>
                             </tr>
                             <tr>
-                                <td class="feature-name">Strona pisana od zera, na nowoczesnych frameworkach</td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="highlight-cell"><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Wizytówka Google Maps w cenie</td>
-                                <td>Opcjonalnie (+50 zł)</td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="highlight-cell"><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td><svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td class="feature-name"
+                                    >Wizytówka Google Maps w cenie</td
+                                >
+                                <td
+                                    ><svg
+                                        class="check-icon"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    ></td
+                                >
+                                <td
+                                    ><svg
+                                        class="check-icon"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    ></td
+                                >
+                                <td class="highlight-cell"
+                                    ><svg
+                                        class="check-icon"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    ></td
+                                >
+                                <td
+                                    ><svg
+                                        class="check-icon"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    ></td
+                                >
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="cennik-cta reveal-element" style="transition-delay: 0.25s;">
+            <div
+                class="cennik-cta reveal-element"
+                style="transition-delay: 0.25s;"
+            >
                 <h3 class="cennik-cta__title">Jaki pakiet wybierasz?</h3>
-                <p class="cennik-cta__desc">Niezależnie, czy masz wybrany pakiet, czy nie, skontaktuj się z nami, aby uzyskać indywidualną wycenę.</p>
-                <a href="/zamow" class="pricing-btn primary">Skonfiguruj i wyceń projekt</a>
+                <p class="cennik-cta__desc">
+                    Niezależnie, czy masz wybrany pakiet, czy nie, skontaktuj
+                    się z nami, aby uzyskać indywidualną wycenę.
+                </p>
+                <a href="/zamow" class="pricing-btn primary"
+                    >Skonfiguruj i wyceń projekt</a
+                >
             </div>
-            
 
             <article class="seo-text reveal-element">
-                <h2>Cennik tworzenia stron w Myślenicach – inwestycja w rozwój Twojej firmy</h2>
+                <h2>
+                    Cennik tworzenia stron w Myślenicach – inwestycja w rozwój
+                    Twojej firmy
+                </h2>
                 <p>
-                    W dzisiejszych czasach każda rozwijająca się firma potrzebuje profesjonalnego miejsca w sieci.
-                    Lokalne biznesy mogą zyskać ogromną przewagę dzięki nowoczesnej, świetnie prezentującej się ofercie.
-                    <strong>Profesjonalne tworzenie stron www Myślenice</strong> to nie tylko zrobienie ładnej
-                    wizytówki, ale przede wszystkim budowa silnego zaufania wśród klientów, którzy każdego dnia szukają
-                    Twoich usług w Google. Dobrze wykonana witryna staje się Twoim najlepszym handlowcem czynnym całą
-                    dobę.
+                    W dzisiejszych czasach każda rozwijająca się firma
+                    potrzebuje profesjonalnego miejsca w sieci. Lokalne biznesy
+                    mogą zyskać ogromną przewagę dzięki nowoczesnej, świetnie
+                    prezentującej się ofercie.
+                    <strong>Profesjonalne tworzenie stron www Myślenice</strong> to
+                    nie tylko zrobienie ładnej wizytówki, ale przede wszystkim budowa
+                    silnego zaufania wśród klientów, którzy każdego dnia szukają Twoich
+                    usług w Google. Dobrze wykonana witryna staje się Twoim najlepszym
+                    handlowcem czynnym całą dobę.
                 </p>
                 <p>
-                    Zamiast korzystać z ciężkich, powolnych i skomplikowanych szablonów, oferujemy tylko sprawdzone i
-                    zoptymalizowane, dedykowane rozwiązania. Dzięki temu zapewniamy <strong>tanie strony internetowe
-                        Myślenice</strong>, bez ukrytych kosztów abonamentowych, powolnych serwerów czy wadliwego kodu.
-                    Twoja strona będzie działać błyskawicznie, bezawaryjnie na każdym komputerze czy urządzeniu
-                    mobilnym. Wybierając nasze usługi, masz pewność, że kod strony jest ultra lekki, nowoczesny i
-                    dostosowany do aktualnych, wymagających standardów webowych.
+                    Zamiast korzystać z ciężkich, powolnych i skomplikowanych
+                    szablonów, oferujemy tylko sprawdzone i zoptymalizowane,
+                    dedykowane rozwiązania. Dzięki temu zapewniamy <strong
+                        >tanie strony internetowe Myślenice</strong
+                    >, bez ukrytych kosztów abonamentowych, powolnych serwerów
+                    czy wadliwego kodu. Twoja strona będzie działać
+                    błyskawicznie, bezawaryjnie na każdym komputerze czy
+                    urządzeniu mobilnym. Wybierając nasze usługi, masz pewność,
+                    że kod strony jest ultra lekki, nowoczesny i dostosowany do
+                    aktualnych, wymagających standardów webowych.
                 </p>
                 <p>
-                    Podstawą dzisiejszego sukcesu w internecie jest oczywiście widoczność w wyszukiwarkach. Kluczowym
-                    krokiem na drodze do tego jest odpowiednie <strong>pozycjonowanie lokalne dla firm</strong>.
-                    Tworzone przez nas strony od początku posiadają zaplanowaną odpowiednią strukturę, przemyślane
-                    nagłówki oraz podstawową optymalizację SEO, co znacznie ułatwia indeksowanie ich przez algorytmy
-                    Google i naturalnie przyciąga więcej klientów z Myślenic, jak i z okolicznych miejscowości. To
-                    doskonała inwestycja z przejrzystą ofertą i jasnymi zasadami współpracy.
+                    Podstawą dzisiejszego sukcesu w internecie jest oczywiście
+                    widoczność w wyszukiwarkach. Kluczowym krokiem na drodze do
+                    tego jest odpowiednie <strong
+                        >pozycjonowanie lokalne dla firm</strong
+                    >. Tworzone przez nas strony od początku posiadają
+                    zaplanowaną odpowiednią strukturę, przemyślane nagłówki oraz
+                    podstawową optymalizację SEO, co znacznie ułatwia
+                    indeksowanie ich przez algorytmy Google i naturalnie
+                    przyciąga więcej klientów z Myślenic, jak i z okolicznych
+                    miejscowości. To doskonała inwestycja z przejrzystą ofertą i
+                    jasnymi zasadami współpracy.
                 </p>
             </article>
         </section>
@@ -194,96 +430,99 @@ import HeroBg from '../components/HeroBg.astro';
     <Footer />
 
     <script is:inline>
-    (function () {
+        (function () {
+            // PRZEŁĄCZNIK CEN NETTO / BRUTTO
+            var priceToggle = document.getElementById("price-toggle");
+            var labelNetto = document.getElementById("label-netto");
+            var labelBrutto = document.getElementById("label-brutto");
+            var priceValues = document.querySelectorAll(".price-value");
+            var priceSuffixes = document.querySelectorAll(".price-suffix");
 
-        // PRZEŁĄCZNIK CEN NETTO / BRUTTO
-        var priceToggle = document.getElementById('price-toggle');
-        var labelNetto = document.getElementById('label-netto');
-        var labelBrutto = document.getElementById('label-brutto');
-        var priceValues = document.querySelectorAll('.price-value');
-        var priceSuffixes = document.querySelectorAll('.price-suffix');
+            if (priceToggle) {
+                priceToggle.addEventListener("click", function () {
+                    var isGross =
+                        priceToggle.getAttribute("aria-checked") === "true";
+                    var nextState = !isGross;
 
-        if (priceToggle) {
-            priceToggle.addEventListener('click', function () {
-                var isGross = priceToggle.getAttribute('aria-checked') === 'true';
-                var nextState = !isGross;
-                
-                priceToggle.setAttribute('aria-checked', nextState ? 'true' : 'false');
-                priceToggle.classList.toggle('active', nextState);
-                
-                if (nextState) {
-                    labelNetto.classList.remove('active');
-                    labelBrutto.classList.add('active');
-                    priceValues.forEach(function (el) {
-                        var gross = el.getAttribute('data-gross');
-                        animatePrice(el, gross);
-                    });
-                    priceSuffixes.forEach(function (el) {
-                        el.textContent = '/brutto';
-                    });
-                } else {
-                    labelNetto.classList.add('active');
-                    labelBrutto.classList.remove('active');
-                    priceValues.forEach(function (el) {
-                        var net = el.getAttribute('data-net');
-                        animatePrice(el, net);
-                    });
-                    priceSuffixes.forEach(function (el) {
-                        el.textContent = '/netto';
-                    });
-                }
-            });
+                    priceToggle.setAttribute(
+                        "aria-checked",
+                        nextState ? "true" : "false",
+                    );
+                    priceToggle.classList.toggle("active", nextState);
 
-            labelNetto.addEventListener('click', function() {
-                if (priceToggle.getAttribute('aria-checked') === 'true') {
-                    priceToggle.click();
-                }
-            });
-            labelBrutto.addEventListener('click', function() {
-                if (priceToggle.getAttribute('aria-checked') === 'false') {
-                    priceToggle.click();
-                }
-            });
-        }
+                    if (nextState) {
+                        labelNetto.classList.remove("active");
+                        labelBrutto.classList.add("active");
+                        priceValues.forEach(function (el) {
+                            var gross = el.getAttribute("data-gross");
+                            animatePrice(el, gross);
+                        });
+                        priceSuffixes.forEach(function (el) {
+                            el.textContent = "/brutto";
+                        });
+                    } else {
+                        labelNetto.classList.add("active");
+                        labelBrutto.classList.remove("active");
+                        priceValues.forEach(function (el) {
+                            var net = el.getAttribute("data-net");
+                            animatePrice(el, net);
+                        });
+                        priceSuffixes.forEach(function (el) {
+                            el.textContent = "/netto";
+                        });
+                    }
+                });
 
-        function animatePrice(element, targetValue) {
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(-3px)';
-            
-            setTimeout(function() {
-                element.textContent = targetValue;
-                element.style.opacity = 1;
-                element.style.transform = 'translateY(0)';
-            }, 120);
-        }
+                labelNetto.addEventListener("click", function () {
+                    if (priceToggle.getAttribute("aria-checked") === "true") {
+                        priceToggle.click();
+                    }
+                });
+                labelBrutto.addEventListener("click", function () {
+                    if (priceToggle.getAttribute("aria-checked") === "false") {
+                        priceToggle.click();
+                    }
+                });
+            }
 
-        // SCROLL REVEAL ANIMATIONS
-        var revealElements = document.querySelectorAll(".reveal-element");
-        if ("IntersectionObserver" in window && revealElements.length > 0) {
-            var verticalObserver = new IntersectionObserver(
-                function (entries, observer) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("reveal--visible");
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                {
-                    rootMargin: "0px 0px -80px 0px",
-                    threshold: 0.05,
-                }
-            );
+            function animatePrice(element, targetValue) {
+                element.style.opacity = 0;
+                element.style.transform = "translateY(-3px)";
 
-            revealElements.forEach(function (el) {
-                verticalObserver.observe(el);
-            });
-        } else {
-            revealElements.forEach(function (el) {
-                el.classList.add("reveal--visible");
-            });
-        }
-    })();
+                setTimeout(function () {
+                    element.textContent = targetValue;
+                    element.style.opacity = 1;
+                    element.style.transform = "translateY(0)";
+                }, 120);
+            }
+
+            // SCROLL REVEAL ANIMATIONS
+            var revealElements = document.querySelectorAll(".reveal-element");
+            if ("IntersectionObserver" in window && revealElements.length > 0) {
+                var verticalObserver = new IntersectionObserver(
+                    function (entries, observer) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("reveal--visible");
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        rootMargin: "0px 0px -80px 0px",
+                        threshold: 0.05,
+                    },
+                );
+
+                revealElements.forEach(function (el) {
+                    verticalObserver.observe(el);
+                });
+            } else {
+                revealElements.forEach(function (el) {
+                    el.classList.add("reveal--visible");
+                });
+            }
+        })();
     </script>
 </Layout>
 
@@ -304,7 +543,7 @@ import HeroBg from '../components/HeroBg.astro';
     }
 
     .cennik-cta__title {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: clamp(24px, 4vw, 36px);
         font-weight: 800;
         color: var(--text-primary);
