@@ -190,7 +190,7 @@
             script.onload = () => {
                 emailjsLoaded = true;
                 if ((window as any).emailjs) {
-                    (window as any).emailjs.init(EMAILJS_PUBLIC_KEY);
+                    (window as any).emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
                 }
                 resolve();
             };
@@ -416,7 +416,9 @@
             };
 
             (window as any).emailjs
-                .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, {
+                    publicKey: EMAILJS_PUBLIC_KEY
+                })
                 .then(() => {
                     setLoading(false);
                     localStorage.setItem(
