@@ -355,9 +355,10 @@ body {
     position: absolute;
     opacity: 0.6;
     border-radius: 50%;
-    animation: blob-float 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+    animation: blob-float 45s infinite alternate ease-in-out;
     will-change: transform;
     backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
 }
 
 .blob-1 {
@@ -380,7 +381,7 @@ body {
 .blob-3 {
     top: 20%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translate3d(0, 0, 0);
     width: 800px;
     height: 800px;
     background: radial-gradient(circle, rgba(30, 58, 138, 0.2) 0%, rgba(30, 58, 138, 0) 70%);
@@ -393,19 +394,15 @@ body {
 
 @keyframes blob-float {
     0% {
-        transform: translateY(0) scale(1);
+        transform: translate3d(0, 0, 0);
     }
 
-    33% {
-        transform: translateY(-50px) scale(1.1);
-    }
-
-    66% {
-        transform: translateY(20px) scale(0.9);
+    50% {
+        transform: translate3d(-30px, 40px, 0);
     }
 
     100% {
-        transform: translateY(0) scale(1);
+        transform: translate3d(30px, -30px, 0);
     }
 }
 
@@ -2765,7 +2762,7 @@ a.footer__contact-item:hover {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-top: 20vh;
+        padding-top: 20vh;
     }
 
     #main__text {
@@ -5748,7 +5745,7 @@ nav>a.active::after {
     }
 }
 
-/* Global Mobile Backdrop Filter Disabler for maximum FPS performance */
+/* Global Mobile Backdrop Filter & Animation Disabler for maximum FPS performance */
 @media (max-width: 995px) {
 
     .btn-about,
@@ -5767,12 +5764,51 @@ nav>a.active::after {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
     }
+
+    .blob {
+        animation: none !important;
+    }
 }
 
+/* Custom Lightweight GPU-Accelerated Scroll Reveal */
 [data-aos] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform, opacity;
     backface-visibility: hidden;
     transform: translateZ(0);
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: none !important;
+}
+
+/* fade-up: vertical shift reduced from 100px to 24px for smoother compositor rendering */
+[data-aos="fade-up"] {
+    transform: translateY(24px);
+}
+
+/* fade-down: vertical shift reduced to -24px */
+[data-aos="fade-down"] {
+    transform: translateY(-24px);
+}
+
+/* fade-left: horizontal shift reduced from 100px to 24px */
+[data-aos="fade-left"] {
+    transform: translateX(24px);
+}
+
+/* fade-right: horizontal shift reduced from -100px to -24px */
+[data-aos="fade-right"] {
+    transform: translateX(-24px);
+}
+
+/* zoom-in: scale factor increased from 0.6 to 0.96 for minimal layout repaint */
+[data-aos="zoom-in"] {
+    transform: scale(0.96);
 }
 
 /* ──────────────────────────────────────────────────
@@ -5792,7 +5828,7 @@ nav>a.active::after {
         justify-content: space-around;
         width: calc(100% - 24px);
         max-width: 320px;
-        background: rgba(255, 255, 255, 0.80);
+        background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(0, 0, 0, 0.08);
         border-radius: 100px;
         padding: 10px 16px;
