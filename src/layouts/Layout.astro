@@ -1,256 +1,312 @@
 ---
 interface Props {
-  title: string;
-  description: string;
-  canonical?: string;
-  bodyClass?: string;
-  robots?: string;
-  ogImage?: string;
-  ogType?: string;
+    title: string;
+    description: string;
+    canonical?: string;
+    bodyClass?: string;
+    robots?: string;
+    ogImage?: string;
+    ogType?: string;
 }
 
-const { 
-  title, 
-  description, 
-  canonical, 
-  bodyClass = '', 
-  robots = 'index, follow',
-  ogImage = '/assets/og-image.png',
-  ogType = 'website'
+const {
+    title,
+    description,
+    canonical,
+    bodyClass = "",
+    robots = "index, follow",
+    ogImage = "/assets/og-image.png",
+    ogType = "website",
 } = Astro.props;
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
 const ogImageURL = new URL(ogImage, Astro.site).href;
 
-import '@fontsource/figtree/300.css';
-import '@fontsource/figtree/400.css';
-import '@fontsource/figtree/600.css';
-import '@fontsource/figtree/800.css';
-import 'aos/dist/aos.css';
-import '../styles/main.css';
+import "@fontsource/figtree/300.css";
+import "@fontsource/figtree/400.css";
+import "@fontsource/figtree/600.css";
+import "@fontsource/figtree/800.css";
+import "aos/dist/aos.css";
+import "../styles/main.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <script is:inline>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content={description}>
-    <link rel="canonical" href={canonicalURL}>
-    <meta name="robots" content={robots}>
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content="web2sell" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageURL} />
-
-    <!-- Fonts -->
-
-    <!-- Preconnect to CDNs -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-    <!-- FontAwesome Font-Display Swap Override -->
-    <style is:inline>
-      @font-face {
-        font-family: 'Font Awesome 6 Free';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Font Awesome 6 Free';
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Font Awesome 6 Brands';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2') format('woff2');
-      }
-    </style>
-
-    <!-- Icons (Asynchronous non-blocking load) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-
-
-
-    <!-- Google Analytics (Conditional load based on user cookie consent) -->
-    <meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0">
-    <script is:inline>
-        (function() {
-            window.initGA = function() {
-                if (window.gaInitialized) return;
-                window.gaInitialized = true;
-
-                // Inject gtag.js
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP';
-                document.head.appendChild(script);
-
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = function() { window.dataLayer.push(arguments); };
-                window.gtag('js', new Date());
-                window.gtag('config', 'G-QZ55XLZEDP');
-            };
-
-            const consent = localStorage.getItem('cookie-consent');
-            if (consent === 'accepted') {
-                // User has already given consent. Load GA non-blockingly with delayed strategy.
-                var gaTriggered = false;
-                function triggerGA() {
-                    if (gaTriggered) return;
-                    gaTriggered = true;
-                    window.removeEventListener('scroll', triggerGA);
-                    window.removeEventListener('mousemove', triggerGA);
-                    window.removeEventListener('touchstart', triggerGA);
-                    window.removeEventListener('keydown', triggerGA);
-                    window.initGA();
+    <head>
+        <meta charset="UTF-8" />
+        <script is:inline>
+            (function () {
+                const savedTheme = localStorage.getItem("theme");
+                if (savedTheme === "dark") {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
                 }
-                setTimeout(triggerGA, 3000);
-                window.addEventListener('scroll', triggerGA, { passive: true });
-                window.addEventListener('mousemove', triggerGA, { passive: true });
-                window.addEventListener('touchstart', triggerGA, { passive: true });
-                window.addEventListener('keydown', triggerGA, { passive: true });
+            })();
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.png" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
+        <meta name="robots" content={robots} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content={ogType} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta property="og:site_name" content="web2sell" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={ogImageURL} />
+
+        <!-- Fonts -->
+
+        <!-- Preconnect to CDNs -->
+        <link
+            rel="preconnect"
+            href="https://cdnjs.cloudflare.com"
+            crossorigin
+        />
+
+        <!-- FontAwesome Font-Display Swap Override -->
+        <style is:inline>
+            @font-face {
+                font-family: "Font Awesome 6 Free";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2")
+                    format("woff2");
             }
-        })();
-    </script>
+            @font-face {
+                font-family: "Font Awesome 6 Free";
+                font-style: normal;
+                font-weight: 900;
+                font-display: swap;
+                src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2")
+                    format("woff2");
+            }
+            @font-face {
+                font-family: "Font Awesome 6 Brands";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2")
+                    format("woff2");
+            }
+        </style>
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "web2sell - Tworzenie stron www",
-        "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
-        "url": "https://web2sell.pl/",
-        "telephone": "",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Myślenice",
-            "addressCountry": "PL"
-        },
-        "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
-    }
-    </script>
+        <!-- Icons (Asynchronous non-blocking load) -->
+        <link
+            rel="preload"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript
+            ><link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            /></noscript
+        >
 
-    <slot name="head" />
-</head>
-<body class={bodyClass}>
-    <slot />
+        <!-- Google Analytics (Conditional load based on user cookie consent) -->
+        <meta
+            name="google-site-verification"
+            content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"
+        />
+        <script is:inline>
+            (function () {
+                window.initGA = function () {
+                    if (window.gaInitialized) return;
+                    window.gaInitialized = true;
 
-    <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) -->
-    <div id="cookie-banner" class="cookie-banner hidden" role="dialog" aria-modal="true" aria-describedby="cookie-text">
-        <div class="cookie-banner__container">
-            <div class="cookie-banner__content">
-                <i class="fa-solid fa-cookie-bite cookie-banner__icon" aria-hidden="true"></i>
-                <p id="cookie-text">
-                    Ta strona korzysta z ciasteczek analitycznych (Google Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
-                </p>
-            </div>
-            <button id="cookie-accept" class="cookie-banner__btn">Akceptuję</button>
-        </div>
-    </div>
+                    // Inject gtag.js
+                    var script = document.createElement("script");
+                    script.async = true;
+                    script.src =
+                        "https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP";
+                    document.head.appendChild(script);
 
-    <script is:inline>
-        (function() {
-            const consent = localStorage.getItem('cookie-consent');
-            if (consent !== 'accepted') {
-                const banner = document.getElementById('cookie-banner');
-                const acceptBtn = document.getElementById('cookie-accept');
-                if (banner && acceptBtn) {
-                    banner.classList.remove('hidden');
-                    acceptBtn.addEventListener('click', function() {
-                        localStorage.setItem('cookie-consent', 'accepted');
-                        banner.classList.add('hidden');
-                        if (typeof window.initGA === 'function') {
-                            window.initGA();
-                        }
+                    window.dataLayer = window.dataLayer || [];
+                    window.gtag = function () {
+                        window.dataLayer.push(arguments);
+                    };
+                    window.gtag("js", new Date());
+                    window.gtag("config", "G-QZ55XLZEDP");
+                };
+
+                const consent = localStorage.getItem("cookie-consent");
+                if (consent === "accepted") {
+                    // User has already given consent. Load GA non-blockingly with delayed strategy.
+                    var gaTriggered = false;
+                    function triggerGA() {
+                        if (gaTriggered) return;
+                        gaTriggered = true;
+                        window.removeEventListener("scroll", triggerGA);
+                        window.removeEventListener("mousemove", triggerGA);
+                        window.removeEventListener("touchstart", triggerGA);
+                        window.removeEventListener("keydown", triggerGA);
+                        window.initGA();
+                    }
+                    setTimeout(triggerGA, 3000);
+                    window.addEventListener("scroll", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("mousemove", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("touchstart", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("keydown", triggerGA, {
+                        passive: true,
                     });
                 }
+            })();
+        </script>
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "web2sell - Tworzenie stron www",
+                "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
+                "url": "https://web2sell.pl/",
+                "telephone": "",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Myślenice",
+                    "addressCountry": "PL"
+                },
+                "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
             }
-        })();
-    </script>
+        </script>
 
-    <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-                document.querySelectorAll("[data-aos]").forEach((el) => {
-                    el.classList.add("aos-animate");
-                });
-                return;
-            }
+        <slot name="head" />
+    </head>
+    <body class={bodyClass}>
+        <slot />
 
-            // Batch DOM writes to prevent layout thrashing
-            let elementsToAnimate: HTMLElement[] = [];
-            let rAFId: number | null = null;
+        <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) -->
+        <div
+            id="cookie-banner"
+            class="cookie-banner hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-describedby="cookie-text"
+        >
+            <div class="cookie-banner__container">
+                <div class="cookie-banner__content">
+                    <i
+                        class="fa-solid fa-cookie-bite cookie-banner__icon"
+                        aria-hidden="true"></i>
+                    <p id="cookie-text">
+                        Ta strona korzysta z ciasteczek analitycznych (Google
+                        Analytics). Szczegóły znajdziesz w <a
+                            href="/polityka"
+                            class="cookie-banner__link">Polityce Prywatności</a
+                        >.
+                    </p>
+                </div>
+                <button id="cookie-accept" class="cookie-banner__btn"
+                    >Akceptuję</button
+                >
+            </div>
+        </div>
 
-            const processAnimations = () => {
-                elementsToAnimate.forEach((el) => {
-                    el.classList.add("aos-animate");
-                });
-                elementsToAnimate = [];
-                rAFId = null;
-            };
-
-            const observer = new IntersectionObserver((entries, obs) => {
-                let hasIntersecting = false;
-                
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const el = entry.target as HTMLElement;
-                        const duration = el.getAttribute("data-aos-duration");
-                        const delay = el.getAttribute("data-aos-delay");
-                        
-                        if (duration) el.style.transitionDuration = `${duration}ms`;
-                        if (delay) el.style.transitionDelay = `${delay}ms`;
-                        
-                        elementsToAnimate.push(el);
-                        hasIntersecting = true;
-                        obs.unobserve(el);
+        <script is:inline>
+            (function () {
+                const consent = localStorage.getItem("cookie-consent");
+                if (consent !== "accepted") {
+                    const banner = document.getElementById("cookie-banner");
+                    const acceptBtn = document.getElementById("cookie-accept");
+                    if (banner && acceptBtn) {
+                        banner.classList.remove("hidden");
+                        acceptBtn.addEventListener("click", function () {
+                            localStorage.setItem("cookie-consent", "accepted");
+                            banner.classList.add("hidden");
+                            if (typeof window.initGA === "function") {
+                                window.initGA();
+                            }
+                        });
                     }
-                });
-
-                if (hasIntersecting && rAFId === null) {
-                    rAFId = requestAnimationFrame(processAnimations);
                 }
-            }, {
-                rootMargin: "0px 0px -60px 0px",
-                threshold: 0.05
-            });
+            })();
+        </script>
 
-            document.querySelectorAll("[data-aos]").forEach((el) => {
-                observer.observe(el);
+        <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                if (
+                    window.matchMedia("(prefers-reduced-motion: reduce)")
+                        .matches
+                ) {
+                    document.querySelectorAll("[data-aos]").forEach((el) => {
+                        el.classList.add("aos-animate");
+                    });
+                    return;
+                }
+
+                // Batch DOM writes to prevent layout thrashing
+                let elementsToAnimate: HTMLElement[] = [];
+                let rAFId: number | null = null;
+
+                const processAnimations = () => {
+                    elementsToAnimate.forEach((el) => {
+                        el.classList.add("aos-animate");
+                    });
+                    elementsToAnimate = [];
+                    rAFId = null;
+                };
+
+                const observer = new IntersectionObserver(
+                    (entries, obs) => {
+                        let hasIntersecting = false;
+
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const el = entry.target as HTMLElement;
+                                const duration =
+                                    el.getAttribute("data-aos-duration");
+                                const delay = el.getAttribute("data-aos-delay");
+
+                                if (duration)
+                                    el.style.transitionDuration = `${duration}ms`;
+                                if (delay)
+                                    el.style.transitionDelay = `${delay}ms`;
+
+                                elementsToAnimate.push(el);
+                                hasIntersecting = true;
+                                obs.unobserve(el);
+                            }
+                        });
+
+                        if (hasIntersecting && rAFId === null) {
+                            rAFId = requestAnimationFrame(processAnimations);
+                        }
+                    },
+                    {
+                        rootMargin: "0px 0px -60px 0px",
+                        threshold: 0.05,
+                    },
+                );
+
+                document.querySelectorAll("[data-aos]").forEach((el) => {
+                    observer.observe(el);
+                });
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>

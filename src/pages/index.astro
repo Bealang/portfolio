@@ -273,7 +273,6 @@ const projects = (await getCollection("projects")).sort(
         </div>
         <div class="c3d__dots" id="c3dDots"></div>
     </section>
-
     <ContactForm />
 
     <div class="google-map-embed" id="mapContainer">
@@ -627,23 +626,27 @@ const projects = (await getCollection("projects")).sort(
                 scene.classList.add("is-dragging");
                 if (autoTimer) clearInterval(autoTimer);
             });
-            window.addEventListener("mousemove", function (e) {
-                if (!isDragging) return;
-                currentDragDelta = e.clientX - startX;
-                if (current === 0 && currentDragDelta > 0)
-                    currentDragDelta *= 0.3;
-                else if (current === total - 1 && currentDragDelta < 0)
-                    currentDragDelta *= 0.3;
-                
-                if (!rafPending) {
-                    rafPending = true;
-                    requestAnimationFrame(function () {
-                        rafPending = false;
-                        if (!isDragging) return;
-                        applyLayout(true, currentDragDelta);
-                    });
-                }
-            }, { passive: true });
+            window.addEventListener(
+                "mousemove",
+                function (e) {
+                    if (!isDragging) return;
+                    currentDragDelta = e.clientX - startX;
+                    if (current === 0 && currentDragDelta > 0)
+                        currentDragDelta *= 0.3;
+                    else if (current === total - 1 && currentDragDelta < 0)
+                        currentDragDelta *= 0.3;
+
+                    if (!rafPending) {
+                        rafPending = true;
+                        requestAnimationFrame(function () {
+                            rafPending = false;
+                            if (!isDragging) return;
+                            applyLayout(true, currentDragDelta);
+                        });
+                    }
+                },
+                { passive: true },
+            );
             window.addEventListener("mouseup", function () {
                 if (!isDragging) return;
                 isDragging = false;
@@ -686,7 +689,7 @@ const projects = (await getCollection("projects")).sort(
                         currentDragDelta *= 0.3;
                     else if (current === total - 1 && currentDragDelta < 0)
                         currentDragDelta *= 0.3;
-                    
+
                     if (!rafPending) {
                         rafPending = true;
                         requestAnimationFrame(function () {
@@ -744,6 +747,4 @@ const projects = (await getCollection("projects")).sort(
             }
         })();
     </script>
-
-
 </Layout>

@@ -669,7 +669,7 @@ html[data-theme="dark"] .btn-call i {
 .tech-icon-wrapper {
     position: absolute;
     transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease, opacity 0.5s;
+    transition: filter 0.5s ease, opacity 0.5s;
     will-change: transform;
 }
 
@@ -778,30 +778,7 @@ html[data-theme="dark"] .btn-call i {
     transform: scale(0.7);
 }
 
-/* Interactive Focus effect on hover */
-.tech-icon-wrapper:hover {
-    opacity: 1 !important;
-    z-index: 100 !important;
-    transform: scale(1.1) !important;
-}
-
-.tech-icon-wrapper:hover .tech-icon-glass {
-    transform: scale(1.15) translateZ(30px) rotateX(0deg) rotateY(0deg);
-    background: var(--tech-icon-hover-bg);
-    border-color: var(--tech-icon-hover-border);
-    box-shadow:
-        0 25px 50px rgba(139, 92, 246, 0.18),
-        var(--tech-icon-hover-inset);
-}
-
-.tech-icon-wrapper:hover .tech-svg {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.tech-icon-wrapper:hover .tech-name {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Interactive Focus effect on hover disabled to prevent stuttering/jumping with kframe animations */
 
 /* Organic floating animations */
 .float-1 {
@@ -1021,10 +998,7 @@ html[data-theme="dark"] .btn-call i {
     box-shadow: none;
 
     z-index: 9999;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        background-color 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* STICKY HEADER VERSION (After 200px scroll) */
@@ -1036,6 +1010,27 @@ html[data-theme="dark"] .btn-call i {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05), var(--header-inset-shadow);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    transition: background-color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+#main-header.is-sticky.unsticky-animating {
+    animation: stickySlideUp 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+#main-header.top-header-entrance {
+    animation: topHeaderSlideDown 0.2s linear forwards;
+}
+
+@keyframes topHeaderSlideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes stickySlideDown {
@@ -1045,6 +1040,16 @@ html[data-theme="dark"] .btn-call i {
 
     100% {
         transform: translateY(0);
+    }
+}
+
+@keyframes stickySlideUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
     }
 }
 
@@ -1145,7 +1150,7 @@ html[data-theme="dark"] .header-top {
     left: 0;
     opacity: 0;
     transform: translateX(-15px);
-    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: none;
     pointer-events: none;
     font-size: 24px;
     font-weight: 800;
@@ -1185,7 +1190,7 @@ html[data-theme="dark"] .header-top {
     gap: 15px;
     opacity: 0;
     transform: translateX(15px);
-    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: none;
     pointer-events: none;
 }
 
@@ -1216,6 +1221,7 @@ html[data-theme="dark"] .header-top {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
+    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* --- Mobile Header Row (Compact & Modern) --- */
@@ -5011,7 +5017,7 @@ nav>a.active::after {
     line-height: 1.7;
     color: var(--text-secondary);
     margin: 0;
-    text-align: justify;
+    text-align: left;
 }
 
 .htl-step__card--final {

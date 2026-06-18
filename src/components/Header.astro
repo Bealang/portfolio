@@ -109,7 +109,8 @@ const isHome = activePage === "home";
                         </span>
                     </span>
                 </button>
-                <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a>
+                <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a
+                >
             </div>
         </div>
     </div>
@@ -158,17 +159,61 @@ const isHome = activePage === "home";
         //    Uses a delta threshold so navbar doesn't react to 1px changes
         // ──────────────────────────────────────────────────
         var lastScrollY = window.scrollY;
-        var scrollAnchor = window.scrollY; // punkt, w którym użytkownik zmienił kierunek
-        var lastDirection = 0; // 1 = down, -1 = up
         var isTicking = false;
+        var unstickyTimeout = null;
+        var entranceTimeout = null;
 
         function updateScroll() {
             var currentScrollY = window.scrollY;
 
-            if (currentScrollY <= 200) {
-                header.classList.remove("is-sticky");
+            if (window.innerWidth > 995) {
+                if (currentScrollY <= 200) {
+                    if (header.classList.contains("is-sticky") && !header.classList.contains("unsticky-animating")) {
+                        header.classList.add("unsticky-animating");
+                        
+                        if (unstickyTimeout) clearTimeout(unstickyTimeout);
+                        unstickyTimeout = setTimeout(function () {
+                            header.classList.remove("is-sticky");
+                            header.classList.remove("unsticky-animating");
+                            unstickyTimeout = null;
+                            
+                            header.classList.add("top-header-entrance");
+                            if (entranceTimeout) clearTimeout(entranceTimeout);
+                            entranceTimeout = setTimeout(function () {
+                                header.classList.remove("top-header-entrance");
+                                entranceTimeout = null;
+                            }, 200);
+                        }, 200);
+                    }
+                } else {
+                    if (unstickyTimeout) {
+                        clearTimeout(unstickyTimeout);
+                        unstickyTimeout = null;
+                    }
+                    if (entranceTimeout) {
+                        clearTimeout(entranceTimeout);
+                        entranceTimeout = null;
+                    }
+                    header.classList.remove("top-header-entrance");
+                    header.classList.remove("unsticky-animating");
+                    header.classList.add("is-sticky");
+                }
             } else {
-                header.classList.add("is-sticky");
+                if (currentScrollY <= 200) {
+                    header.classList.remove("is-sticky");
+                } else {
+                    header.classList.add("is-sticky");
+                }
+                header.classList.remove("unsticky-animating");
+                header.classList.remove("top-header-entrance");
+                if (unstickyTimeout) {
+                    clearTimeout(unstickyTimeout);
+                    unstickyTimeout = null;
+                }
+                if (entranceTimeout) {
+                    clearTimeout(entranceTimeout);
+                    entranceTimeout = null;
+                }
             }
             
             isTicking = false;
@@ -182,7 +227,7 @@ const isHome = activePage === "home";
         }
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        updateScroll(); // Wywołaj od razu przy ładowaniu, by zapobiec miganiu (FOUC) na 0.1s przy odświeżeniu
+        updateScroll();
 
         // ──────────────────────────────────────────────────
         // 2. Hamburger menu (mobile)

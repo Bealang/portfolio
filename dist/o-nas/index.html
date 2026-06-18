@@ -1,97 +1,114 @@
 <!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>O nas | web2sell - Nowoczesne strony internetowe Myślenice</title><meta name="description" content="Poznaj web2sell. Jesteśmy trzyosobowym zespołem z powiatu myślenickiego. Tworzymy dedykowane, ultraszybkie strony internetowe od zera. Sprawdź naszą misję i proces!"><link rel="canonical" href="https://web2sell.pl/o-nas/"><meta name="robots" content="index, follow"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://web2sell.pl/o-nas/"><meta property="og:title" content="O nas | web2sell - Nowoczesne strony internetowe Myślenice"><meta property="og:description" content="Poznaj web2sell. Jesteśmy trzyosobowym zespołem z powiatu myślenickiego. Tworzymy dedykowane, ultraszybkie strony internetowe od zera. Sprawdź naszą misję i proces!"><meta property="og:image" content="https://web2sell.pl/assets/og-image.png"><meta property="og:site_name" content="web2sell"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://web2sell.pl/o-nas/"><meta property="twitter:title" content="O nas | web2sell - Nowoczesne strony internetowe Myślenice"><meta property="twitter:description" content="Poznaj web2sell. Jesteśmy trzyosobowym zespołem z powiatu myślenickiego. Tworzymy dedykowane, ultraszybkie strony internetowe od zera. Sprawdź naszą misję i proces!"><meta property="twitter:image" content="https://web2sell.pl/assets/og-image.png"><!-- Fonts --><!-- Preconnect to CDNs --><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><!-- FontAwesome Font-Display Swap Override --><style>
-      @font-face {
-        font-family: 'Font Awesome 6 Free';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Font Awesome 6 Free';
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Font Awesome 6 Brands';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2') format('woff2');
-      }
-    </style><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript><!-- Google Analytics (Conditional load based on user cookie consent) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script>
-        (function() {
-            window.initGA = function() {
-                if (window.gaInitialized) return;
-                window.gaInitialized = true;
-
-                // Inject gtag.js
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP';
-                document.head.appendChild(script);
-
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = function() { window.dataLayer.push(arguments); };
-                window.gtag('js', new Date());
-                window.gtag('config', 'G-QZ55XLZEDP');
-            };
-
-            const consent = localStorage.getItem('cookie-consent');
-            if (consent === 'accepted') {
-                // User has already given consent. Load GA non-blockingly with delayed strategy.
-                var gaTriggered = false;
-                function triggerGA() {
-                    if (gaTriggered) return;
-                    gaTriggered = true;
-                    window.removeEventListener('scroll', triggerGA);
-                    window.removeEventListener('mousemove', triggerGA);
-                    window.removeEventListener('touchstart', triggerGA);
-                    window.removeEventListener('keydown', triggerGA);
-                    window.initGA();
+            (function () {
+                const savedTheme = localStorage.getItem("theme");
+                if (savedTheme === "dark") {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
                 }
-                setTimeout(triggerGA, 3000);
-                window.addEventListener('scroll', triggerGA, { passive: true });
-                window.addEventListener('mousemove', triggerGA, { passive: true });
-                window.addEventListener('touchstart', triggerGA, { passive: true });
-                window.addEventListener('keydown', triggerGA, { passive: true });
+            })();
+        </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/assets/favicon.png"><title>O nas | web2sell - Nowoczesne strony internetowe Myślenice</title><meta name="description" content="Poznaj web2sell. Jesteśmy trzyosobowym zespołem z powiatu myślenickiego. Tworzymy dedykowane, ultraszybkie strony internetowe od zera. Sprawdź naszą misję i proces!"><link rel="canonical" href="https://web2sell.pl/o-nas/"><meta name="robots" content="index, follow"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://web2sell.pl/o-nas/"><meta property="og:title" content="O nas | web2sell - Nowoczesne strony internetowe Myślenice"><meta property="og:description" content="Poznaj web2sell. Jesteśmy trzyosobowym zespołem z powiatu myślenickiego. Tworzymy dedykowane, ultraszybkie strony internetowe od zera. Sprawdź naszą misję i proces!"><meta property="og:image" content="https://web2sell.pl/assets/og-image.png"><meta property="og:site_name" content="web2sell"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://web2sell.pl/o-nas/"><meta property="twitter:title" content="O nas | web2sell - Nowoczesne strony internetowe Myślenice"><meta property="twitter:description" content="Poznaj web2sell. Jesteśmy trzyosobowym zespołem z powiatu myślenickiego. Tworzymy dedykowane, ultraszybkie strony internetowe od zera. Sprawdź naszą misję i proces!"><meta property="twitter:image" content="https://web2sell.pl/assets/og-image.png"><!-- Fonts --><!-- Preconnect to CDNs --><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><!-- FontAwesome Font-Display Swap Override --><style>
+            @font-face {
+                font-family: "Font Awesome 6 Free";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-regular-400.woff2")
+                    format("woff2");
             }
-        })();
-    </script><!-- Structured Data --><script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "web2sell - Tworzenie stron www",
-        "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
-        "url": "https://web2sell.pl/",
-        "telephone": "",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Myślenice",
-            "addressCountry": "PL"
-        },
-        "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
-    }
-    </script><link rel="stylesheet" href="/_astro/HeroBg.6X2JWrwN.css">
-<link rel="stylesheet" href="/_astro/o-nas.DFrUrOX-.css"></head> <body class>  <header id="main-header"> <!-- 1. DESKTOP NAGŁÓWEK: GÓRNA CZĘŚĆ (TOP TIER) --> <div class="header-top"> <div class="header-top-container"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-top-right"> <a href="tel:+48530315860" class="header-phone"> <i class="fa-solid fa-phone"></i> <span>+48 530 315 860</span> </a> <!-- PRESTIŻOWY PRZEŁĄCZNIK MOTYWU (PASTYLKA Z SUWAKIEM) --> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> <a href="/zamow" class="header-cta">Bezpłatna wycena</a> </div> </div> </div> <!-- 2. DESKTOP NAGŁÓWEK: DOLNA CZĘŚĆ (BOTTOM TIER) --> <div class="header-bottom"> <div class="header-bottom-container"> <!-- Dynamiczne Logo po scrollu, domyślnie ukryte na samej górze --> <a href="/" class="logo-text-scrolled">web2<span class="gradient__text">sell</span></a> <nav id="nav-menu"> <a href="/o-nas" class="nav-link active">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/jak-dzialamy" class="nav-link">Jak działamy?</a> <a href="/jak-dzialamy#faq" class="nav-link">FAQ</a> <a href="/blog" class="nav-link">Blog</a> <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile --> <div class="mobile-menu-footer"> <div class="mobile-menu-theme-row"> <span class="theme-label">Motyw:</span> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> </div> <a href="tel:+48530315860" class="mobile-menu-phone"> <i class="fa-solid fa-phone"></i> +48 530 315 860
-</a> <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a> </div> </nav> <!-- Dynamiczna prawa sekcja po scrollu (theme + CTA) --> <div class="header-right-scrolled"> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a> </div> </div> </div> <!-- 3. MOBILNY NAGŁÓWEK (COMPACT SINGLE ROW) --> <div class="header-mobile-row"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-mobile-actions"> <!-- Widoczny przycisk Zamów wycenę od razu na mobile (chowa się przy open menu) --> <a href="/zamow" class="mobile-visible-cta">Bezpłatna wycena</a> <!-- Hamburger menu --> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </div> </div> </header> <script type="module">(function(){var n=document.getElementById("main-header");if(!n)return;var d=document.querySelectorAll(".theme-switch-pill");d.forEach(function(t){t.addEventListener("click",function(){var o=document.documentElement.getAttribute("data-theme"),a=o==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",a),localStorage.setItem("theme",a)})});var c=!1;function l(){var t=window.scrollY;t<=200?n.classList.remove("is-sticky"):n.classList.add("is-sticky"),c=!1}function u(){c||(window.requestAnimationFrame(l),c=!0)}window.addEventListener("scroll",u,{passive:!0}),l();var i=document.getElementById("hamburger"),e=document.getElementById("nav-menu");if(i&&e){i.addEventListener("click",function(t){t.stopPropagation(),i.classList.toggle("active"),e.classList.toggle("active"),n.classList.toggle("menu-open")}),document.querySelectorAll(".nav-link, .nav-cta-mobile").forEach(function(t){t.addEventListener("click",function(){i.classList.remove("active"),e.classList.remove("active"),n.classList.remove("menu-open")})}),document.addEventListener("click",function(t){var o=e.contains(t.target),a=i.contains(t.target);!o&&!a&&e.classList.contains("active")&&(i.classList.remove("active"),e.classList.remove("active"),n.classList.remove("menu-open"))});var r=document.querySelector(".header-bottom-container"),s=function(){window.innerWidth<=995?e.parentElement!==document.body&&document.body.appendChild(e):r&&e.parentElement!==r&&r.appendChild(e)};window.addEventListener("resize",s,{passive:!0}),document.readyState==="loading"?document.addEventListener("DOMContentLoaded",function(){requestAnimationFrame(s)},{once:!0}):requestAnimationFrame(s)}})();</script> <main class="o-nas-page" data-astro-cid-zhe6yam7> <!-- HERO SECTION WITH ASYMMETRIC MANIFESTO --> <section class="onas-hero" data-astro-cid-zhe6yam7> <div class="hero-bg" style> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="glow-overlay"></div> </div> <div class="onas-hero__container" data-astro-cid-zhe6yam7> <h1 class="onas-hero__title" data-aos="fade-up" data-aos-duration="800" data-astro-cid-zhe6yam7>
+            @font-face {
+                font-family: "Font Awesome 6 Free";
+                font-style: normal;
+                font-weight: 900;
+                font-display: swap;
+                src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2")
+                    format("woff2");
+            }
+            @font-face {
+                font-family: "Font Awesome 6 Brands";
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2")
+                    format("woff2");
+            }
+        </style><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript><!-- Google Analytics (Conditional load based on user cookie consent) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script>
+            (function () {
+                window.initGA = function () {
+                    if (window.gaInitialized) return;
+                    window.gaInitialized = true;
+
+                    // Inject gtag.js
+                    var script = document.createElement("script");
+                    script.async = true;
+                    script.src =
+                        "https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP";
+                    document.head.appendChild(script);
+
+                    window.dataLayer = window.dataLayer || [];
+                    window.gtag = function () {
+                        window.dataLayer.push(arguments);
+                    };
+                    window.gtag("js", new Date());
+                    window.gtag("config", "G-QZ55XLZEDP");
+                };
+
+                const consent = localStorage.getItem("cookie-consent");
+                if (consent === "accepted") {
+                    // User has already given consent. Load GA non-blockingly with delayed strategy.
+                    var gaTriggered = false;
+                    function triggerGA() {
+                        if (gaTriggered) return;
+                        gaTriggered = true;
+                        window.removeEventListener("scroll", triggerGA);
+                        window.removeEventListener("mousemove", triggerGA);
+                        window.removeEventListener("touchstart", triggerGA);
+                        window.removeEventListener("keydown", triggerGA);
+                        window.initGA();
+                    }
+                    setTimeout(triggerGA, 3000);
+                    window.addEventListener("scroll", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("mousemove", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("touchstart", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("keydown", triggerGA, {
+                        passive: true,
+                    });
+                }
+            })();
+        </script><!-- Structured Data --><script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "web2sell - Tworzenie stron www",
+                "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
+                "url": "https://web2sell.pl/",
+                "telephone": "",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Myślenice",
+                    "addressCountry": "PL"
+                },
+                "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+            }
+        </script><link rel="stylesheet" href="/_astro/HeroBg.750e77c0.css">
+<link rel="stylesheet" href="/_astro/o-nas.cc96d5ca.css"></head> <body class>  <header id="main-header"> <!-- 1. DESKTOP NAGŁÓWEK: GÓRNA CZĘŚĆ (TOP TIER) --> <div class="header-top"> <div class="header-top-container"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-top-right"> <a href="tel:+48530315860" class="header-phone"> <i class="fa-solid fa-phone"></i> <span>+48 530 315 860</span> </a> <!-- PRESTIŻOWY PRZEŁĄCZNIK MOTYWU (PASTYLKA Z SUWAKIEM) --> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> <a href="/zamow" class="header-cta">Bezpłatna wycena</a> </div> </div> </div> <!-- 2. DESKTOP NAGŁÓWEK: DOLNA CZĘŚĆ (BOTTOM TIER) --> <div class="header-bottom"> <div class="header-bottom-container"> <!-- Dynamiczne Logo po scrollu, domyślnie ukryte na samej górze --> <a href="/" class="logo-text-scrolled">web2<span class="gradient__text">sell</span></a> <nav id="nav-menu"> <a href="/o-nas" class="nav-link active">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/jak-dzialamy" class="nav-link">Jak działamy?</a> <a href="/jak-dzialamy#faq" class="nav-link">FAQ</a> <a href="/blog" class="nav-link">Blog</a> <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile --> <div class="mobile-menu-footer"> <div class="mobile-menu-theme-row"> <span class="theme-label">Motyw:</span> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> </div> <a href="tel:+48530315860" class="mobile-menu-phone"> <i class="fa-solid fa-phone"></i> +48 530 315 860
+</a> <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a> </div> </nav> <!-- Dynamiczna prawa sekcja po scrollu (theme + CTA) --> <div class="header-right-scrolled"> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a> </div> </div> </div> <!-- 3. MOBILNY NAGŁÓWEK (COMPACT SINGLE ROW) --> <div class="header-mobile-row"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-mobile-actions"> <!-- Widoczny przycisk Zamów wycenę od razu na mobile (chowa się przy open menu) --> <a href="/zamow" class="mobile-visible-cta">Bezpłatna wycena</a> <!-- Hamburger menu --> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </div> </div> </header> <script type="module">(function(){var e=document.getElementById("main-header");if(!e)return;var d=document.querySelectorAll(".theme-switch-pill");d.forEach(function(t){t.addEventListener("click",function(){var u=document.documentElement.getAttribute("data-theme"),c=u==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",c),localStorage.setItem("theme",c)})});var r=!1,i=null,n=null;function m(){var t=window.scrollY;window.innerWidth>995?t<=200?e.classList.contains("is-sticky")&&!e.classList.contains("unsticky-animating")&&(e.classList.add("unsticky-animating"),i&&clearTimeout(i),i=setTimeout(function(){e.classList.remove("is-sticky"),e.classList.remove("unsticky-animating"),i=null,e.classList.add("top-header-entrance"),n&&clearTimeout(n),n=setTimeout(function(){e.classList.remove("top-header-entrance"),n=null},200)},200)):(i&&(clearTimeout(i),i=null),n&&(clearTimeout(n),n=null),e.classList.remove("top-header-entrance"),e.classList.remove("unsticky-animating"),e.classList.add("is-sticky")):(t<=200?e.classList.remove("is-sticky"):e.classList.add("is-sticky"),e.classList.remove("unsticky-animating"),e.classList.remove("top-header-entrance"),i&&(clearTimeout(i),i=null),n&&(clearTimeout(n),n=null)),r=!1}function v(){r||(window.requestAnimationFrame(m),r=!0)}window.addEventListener("scroll",v,{passive:!0}),m();var a=document.getElementById("hamburger"),s=document.getElementById("nav-menu");if(a&&s){a.addEventListener("click",function(t){t.stopPropagation(),a.classList.toggle("active"),s.classList.toggle("active"),e.classList.toggle("menu-open")}),document.querySelectorAll(".nav-link, .nav-cta-mobile").forEach(function(t){t.addEventListener("click",function(){a.classList.remove("active"),s.classList.remove("active"),e.classList.remove("menu-open")})}),document.addEventListener("click",function(t){var u=s.contains(t.target),c=a.contains(t.target);!u&&!c&&s.classList.contains("active")&&(a.classList.remove("active"),s.classList.remove("active"),e.classList.remove("menu-open"))});var l=document.querySelector(".header-bottom-container"),o=function(){window.innerWidth<=995?s.parentElement!==document.body&&document.body.appendChild(s):l&&s.parentElement!==l&&l.appendChild(s)};window.addEventListener("resize",o,{passive:!0}),document.readyState==="loading"?document.addEventListener("DOMContentLoaded",function(){requestAnimationFrame(o)},{once:!0}):requestAnimationFrame(o)}})();</script> <main class="o-nas-page" data-astro-cid-zhe6yam7> <!-- HERO SECTION WITH ASYMMETRIC MANIFESTO --> <section class="onas-hero" data-astro-cid-zhe6yam7> <div class="hero-bg" style> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="glow-overlay"></div> </div> <div class="onas-hero__container" data-astro-cid-zhe6yam7> <h1 class="onas-hero__title" data-aos="fade-up" data-aos-duration="800" data-astro-cid-zhe6yam7>
 Tworzymy strony www z <span class="gradient__text text-glow" data-text="pasji." data-astro-cid-zhe6yam7>pasji.</span><br data-astro-cid-zhe6yam7>
 Dowozimy jakość drogiej agencji w uczciwej cenie.
 </h1> <p class="onas-hero__subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-astro-cid-zhe6yam7>
-Jesteśmy 3-osobowym zespołem pasjonatów technologii, który
-                    porzucił ciężkie szablony WordPress na rzecz czystego kodu.
+Jesteśmy 3-osobowym zespołem pasjonatów programowania, który
+                    porzucił ciężkie szablony WordPress na rzecz czystego i szybkiego kodu.
                     Tworzymy dedykowane witryny, które generują zyski i ładują
-                    się w mgnieniu oka.
+                    się w mgnieniu oka, co lepiej pozycjonuje je w google.
 </p> <div class="onas-hero__actions" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-astro-cid-zhe6yam7> <a href="#trio" class="btn-arrow-down" aria-label="Przewiń do zespołu" data-astro-cid-zhe6yam7> <i class="fa-solid fa-chevron-down" data-astro-cid-zhe6yam7></i> </a> </div> </div> </section> <!-- MISSION SECTION (WHY WE EXIST / LOCAL ANCHOR) --> <section class="onas-mission" data-astro-cid-zhe6yam7> <div class="onas-mission__container" data-astro-cid-zhe6yam7> <div class="onas-mission__grid" data-astro-cid-zhe6yam7> <div class="onas-mission__visual" data-aos="fade-right" data-aos-duration="1000" data-astro-cid-zhe6yam7> <div class="mission-geo-card" data-astro-cid-zhe6yam7> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164284.03881732273!2d19.81539296121519!3d49.95626210607544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell%20-%20Tworzenie%20stron%20internetowych!5e0!3m2!1spl!2spl!4v1779532948277!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mission-map-iframe" data-astro-cid-zhe6yam7></iframe> </div> </div> <div class="onas-mission__content" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" data-astro-cid-zhe6yam7> <h2 data-astro-cid-zhe6yam7>
 Lokalne zaufanie, <span class="gradient__text" data-astro-cid-zhe6yam7>globalna jakość</span> </h2> <p class="accent-paragraph" data-astro-cid-zhe6yam7>
 Zauważyliśmy, że ogromna liczba świetnych firm w
@@ -103,48 +120,26 @@ Zauważyliśmy, że ogromna liczba świetnych firm w
 </p> <p data-astro-cid-zhe6yam7>
 Postanowiliśmy to zmienić. Dostarczamy dedykowane
                             systemy tworzone w 100% od zera. Ponieważ nie
-                            posiadamy kosztownego biura w centrum metropolii ani
-                            zbędnego aparatu administracyjnego, oferujemy jakość
-                            premium zarezerwowaną dla dużych agencji w cenie
-                            dostępnej dla lokalnych przedsiębiorców.
+                            posiadamy kosztownego biura i działamy w trójkę, oferujemy jakość
+                            premium agencji interaktywnej w dużo atrakcyjniejszych cenach, 
+                            dostępnych dla lokalnych przedsiębiorców.
 </p> </div> </div> </div> </section> <!-- TEAM SECTION (TRIO) --> <section id="trio" class="onas-trio" data-astro-cid-zhe6yam7> <div class="onas-trio__container" data-astro-cid-zhe6yam7> <div class="onas-trio__header" data-aos="fade-up" data-aos-duration="800" data-astro-cid-zhe6yam7> <h2 data-astro-cid-zhe6yam7>
 Trzy osoby, <span class="gradient__text" data-astro-cid-zhe6yam7>jeden wspólny cel</span> </h2> <p class="section-subtitle" data-astro-cid-zhe6yam7>
 Każdy z nas specjalizuje się w innej dziedzinie, dzięki
                         czemu Twoja strona jest dopracowana pod każdym kątem –
                         od stabilnej architektury backendowej, przez
                         niepowtarzalny design, aż po bezkompromisową szybkość.
-</p> </div> <div class="onas-trio__grid" data-astro-cid-zhe6yam7> <!-- Member 1: Łukasz --> <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-astro-cid-zhe6yam7> <div class="team-card__glow" style="background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);" data-astro-cid-zhe6yam7></div> <div class="team-card__avatar" data-astro-cid-zhe6yam7> <i class="fa-solid fa-code" data-astro-cid-zhe6yam7></i> </div> <div class="team-card__meta" data-astro-cid-zhe6yam7> <span class="team-card__role" data-astro-cid-zhe6yam7>Architekt Systemów & Backend</span> <h3 class="team-card__name" data-astro-cid-zhe6yam7>Łukasz</h3> </div> <p class="team-card__desc" data-astro-cid-zhe6yam7>
-Mózg operacyjny stojący za bazami danych,
-                            bezpieczeństwem i silnikami aplikacji. Projektuje
-                            architekturę w Node.js, Next.js i dba o to, by każda
-                            linijka kodu serwerowego działała stabilnie i
-                            bezawaryjnie pod największym obciążeniem.
+</p> </div> <div class="onas-trio__grid" data-astro-cid-zhe6yam7> <!-- Member 1: Łukasz --> <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-astro-cid-zhe6yam7> <div class="team-card__glow" style="background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);" data-astro-cid-zhe6yam7></div> <div class="team-card__avatar" data-astro-cid-zhe6yam7> <i class="fa-solid fa-code" data-astro-cid-zhe6yam7></i> </div> <div class="team-card__meta" data-astro-cid-zhe6yam7> <span class="team-card__role" data-astro-cid-zhe6yam7>Backend developer</span> <h3 class="team-card__name" data-astro-cid-zhe6yam7>Łukasz</h3> </div> <p class="team-card__desc" data-astro-cid-zhe6yam7>
+Łukasz to ekspert od zaawansowanej struktury stron, baz danych oraz ochrony sieciowej. Projektuje stabilne zaplecze techniczne witryn, dbając o to, by Twoje dane oraz dane Twoich klientów były w 100% bezpieczne. Tworzy rozwiązania gwarantujące płynne działanie strony nawet przy bardzo dużym ruchu, skutecznie chroniąc ją przed awariami oraz atakami hakerskimi.
 </p> </div> <!-- Member 2: Szymon --> <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-astro-cid-zhe6yam7> <div class="team-card__glow" style="background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);" data-astro-cid-zhe6yam7></div> <div class="team-card__avatar" data-astro-cid-zhe6yam7> <i class="fa-solid fa-wand-magic-sparkles" data-astro-cid-zhe6yam7></i> </div> <div class="team-card__meta" data-astro-cid-zhe6yam7> <span class="team-card__role" data-astro-cid-zhe6yam7>UI/UX Designer & Frontend Developer</span> <h3 class="team-card__name" data-astro-cid-zhe6yam7>Szymon</h3> </div> <p class="team-card__desc" data-astro-cid-zhe6yam7>
-Wizjoner dbający o to, by każda strona zachwycała od
-                            pierwszego spojrzenia. Przekłada kreatywne koncepty
-                            na interaktywny i czysty kod frontendowy w Astro i
-                            React. Dba o pikselową precyzję, kompozycję barw i
-                            płynne animacje.
-</p> </div> <!-- Member 3: Kacper --> <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" data-astro-cid-zhe6yam7> <div class="team-card__glow" style="background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, transparent 70%);" data-astro-cid-zhe6yam7></div> <div class="team-card__avatar" data-astro-cid-zhe6yam7> <i class="fa-solid fa-gauge-high" data-astro-cid-zhe6yam7></i> </div> <div class="team-card__meta" data-astro-cid-zhe6yam7> <span class="team-card__role" data-astro-cid-zhe6yam7>Performance Engineer & SEO Specialist</span> <h3 class="team-card__name" data-astro-cid-zhe6yam7>Kacper</h3> </div> <p class="team-card__desc" data-astro-cid-zhe6yam7>
-Strażnik szybkości i widoczności w sieci. Testuje,
-                            optymalizuje i eliminuje każde milisekundowe
-                            opóźnienie, aby Twoja witryna osiągała
-                            bezkompromisowe wyniki 100/100 w Lighthouse.
-                            Odpowiada za techniczną strukturę SEO.
+Szymon zajmuje się projektowaniem nowoczesnego wyglądu stron i dba o ich pełną intuicyjność. Przekłada Twoją wizję biznesu na atrakcyjny interfejs, który przyciąga uwagę klientów i wzbudza zaufanie od pierwszego kliknięcia. Tworzy responsywne strony internetowe, które działają bezbłędnie i wyglądają perfekcyjnie na wszystkich urządzeniach.
+</p> </div> <!-- Member 3: Kacper --> <div class="team-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" data-astro-cid-zhe6yam7> <div class="team-card__glow" style="background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, transparent 70%);" data-astro-cid-zhe6yam7></div> <div class="team-card__avatar" data-astro-cid-zhe6yam7> <i class="fa-solid fa-gauge-high" data-astro-cid-zhe6yam7></i> </div> <div class="team-card__meta" data-astro-cid-zhe6yam7> <span class="team-card__role" data-astro-cid-zhe6yam7>Specjalista ds. Optymalizacji i SEO</span> <h3 class="team-card__name" data-astro-cid-zhe6yam7>Kacper</h3> </div> <p class="team-card__desc" data-astro-cid-zhe6yam7>
+Kacper odpowiada za to, aby Twoja strona była widoczna w internecie i działała bez jakichkolwiek opóźnień. Optymalizuje kod źródłowy tak, by witryna ładowała się błyskawicznie, co zapobiega ucieczce potencjalnych klientów i znacznie podnosi skuteczność sprzedaży. Dba o zaawansowane SEO, dzięki czemu Twoja firma zdobywa wysokie pozycje w wyszukiwarce Google.
 </p> </div> </div> </div> </section> <!-- TECHNOLOGY COMPARISON SECTION --> <section class="onas-tech" data-astro-cid-zhe6yam7> <div class="onas-tech__container" data-astro-cid-zhe6yam7> <div class="onas-tech__grid" data-astro-cid-zhe6yam7> <div class="onas-tech__content" data-aos="fade-right" data-aos-duration="1000" data-astro-cid-zhe6yam7> <h2 data-astro-cid-zhe6yam7>
 Dlaczego porzuciliśmy <span class="gradient__text" data-astro-cid-zhe6yam7>WordPressa i Elementora?</span> </h2> <p class="accent-paragraph" data-astro-cid-zhe6yam7>
-Większość tradycyjnych agencji reklamowych stawia
-                            strony na gotowych, ciężkich szablonach WordPress i
-                            edytorach wizualnych typu Elementor czy Divi. Wynik?
-                            Powolna strona, która zniechęca klientów na
-                            telefonach i generuje koszty utrzymania.
+Większość tradycyjnych agencji reklamowych stawia strony na gotowych, ciężkich szablonach WordPress i edytorach wizualnych typu Elementor czy Divi. Wynik? Powolna strona, która zniechęca klientów na telefonach i generuje wysokie koszty utrzymania.
 </p> <p data-astro-cid-zhe6yam7>
-My idziemy zupełnie inną drogą. Odrzucamy generatory
-                            stron i budujemy dedykowane witryny w oparciu o
-                            najnowocześniejsze frameworki i architektury. Dzięki
-                            wykorzystaniu technologii takich jak <strong data-astro-cid-zhe6yam7>Node.js, Astro, Vite, Next.js, TypeScript i
-                                czysty JavaScript</strong>, nasze strony są bezpieczne, odporne na ataki,
-                            wolne od zbędnych wtyczek i gotowe na przyszłość.
+My idziemy zupełnie inną drogą. Odrzucamy generatory stron i budujemy dedykowane witryny w oparciu o najnowocześniejsze frameworki i architektury. Dzięki wykorzystaniu nowoczesnych i szybkich technologii nasze strony są bezpieczne, odporne na ataki oraz wolne od zbędnych wtyczek. Brak ciężkiego systemu sprawia, że w przyszłości witryna generuje znacznie mniejsze koszty utrzymania — stabilny i bezpieczny hosting kosztuje u nas zaledwie 140 zł rocznie, a nie 400-500 zł, jak w przypadku tradycyjnych rozwiązań. Nasze projekty są ultra szybkie i gotowe na przyszłość.
 </p> </div> <div class="onas-tech__visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" data-astro-cid-zhe6yam7> <div class="performance-metric-box" data-astro-cid-zhe6yam7> <div class="lighthouse-mockup" data-astro-cid-zhe6yam7> <div class="lh-header" data-astro-cid-zhe6yam7> <div class="lh-dots" data-astro-cid-zhe6yam7> <span data-astro-cid-zhe6yam7></span> <span data-astro-cid-zhe6yam7></span> <span data-astro-cid-zhe6yam7></span> </div> <span class="lh-url" data-astro-cid-zhe6yam7>lighthouse-report: mobile</span> </div> <div class="lh-stats-grid" data-astro-cid-zhe6yam7> <div class="lh-stat" data-astro-cid-zhe6yam7> <div class="lh-gauge" style="--percent: 99; --color: #00cc66;" data-astro-cid-zhe6yam7> <svg viewBox="0 0 36 36" class="circular-chart" data-astro-cid-zhe6yam7> <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> <path class="circle" stroke-dasharray="99, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> </svg> <span class="lh-num" data-astro-cid-zhe6yam7>99</span> </div> <span class="lh-label" data-astro-cid-zhe6yam7>Wydajność</span> </div> <div class="lh-stat" data-astro-cid-zhe6yam7> <div class="lh-gauge" style="--percent: 100; --color: #00cc66;" data-astro-cid-zhe6yam7> <svg viewBox="0 0 36 36" class="circular-chart" data-astro-cid-zhe6yam7> <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> </svg> <span class="lh-num" data-astro-cid-zhe6yam7>100</span> </div> <span class="lh-label" data-astro-cid-zhe6yam7>Dostępność</span> </div> <div class="lh-stat" data-astro-cid-zhe6yam7> <div class="lh-gauge" style="--percent: 100; --color: #00cc66;" data-astro-cid-zhe6yam7> <svg viewBox="0 0 36 36" class="circular-chart" data-astro-cid-zhe6yam7> <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> </svg> <span class="lh-num" data-astro-cid-zhe6yam7>100</span> </div> <span class="lh-label" data-astro-cid-zhe6yam7>Dobre praktyki</span> </div> <div class="lh-stat" data-astro-cid-zhe6yam7> <div class="lh-gauge" style="--percent: 100; --color: #00cc66;" data-astro-cid-zhe6yam7> <svg viewBox="0 0 36 36" class="circular-chart" data-astro-cid-zhe6yam7> <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" data-astro-cid-zhe6yam7></path> </svg> <span class="lh-num" data-astro-cid-zhe6yam7>100</span> </div> <span class="lh-label" data-astro-cid-zhe6yam7>SEO</span> </div> </div> <div class="lh-footer-badge" data-astro-cid-zhe6yam7> <i class="fa-solid fa-bolt" data-astro-cid-zhe6yam7></i> Nasze strony
                                     osiągają wyniki 90+/100 na telefonach komórkowych
 </div> </div> </div> </div> </div> </div> </section> <!-- THE 4-STEP PROCESS PREVIEW --> <section class="onas-process" data-astro-cid-zhe6yam7> <div class="onas-process__container" data-astro-cid-zhe6yam7> <div class="onas-process__header" data-aos="fade-up" data-aos-duration="800" data-astro-cid-zhe6yam7> <h2 data-astro-cid-zhe6yam7>
@@ -154,17 +149,13 @@ Nie zaczynamy od ślepego pisania kodu. Każda współpraca
                         stworzenie strony doskonale odpowiadającej na potrzeby
                         Twoich klientów. Szczegóły znajdziesz na stronie <a href="/jak-dzialamy" data-astro-cid-zhe6yam7>jak działamy</a>.
 </p> </div> <div class="process-steps" data-astro-cid-zhe6yam7> <!-- Step 1 --> <div class="process-step-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-astro-cid-zhe6yam7> <div class="step-num" data-astro-cid-zhe6yam7>01</div> <h3 class="step-title" data-astro-cid-zhe6yam7>Analiza</h3> <p class="step-desc" data-astro-cid-zhe6yam7>
-Nie zaczynamy od kodowania, tylko od zrozumienia,
-                            na czym Twoja firma zarabia.
+Nie piszemy kodu w ciemno. Najpierw poznajemy Twój biznes i konkurencję, aby strona skutecznie zdobywała dla Ciebie klientów.
 </p> </div> <!-- Step 2 --> <div class="process-step-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-astro-cid-zhe6yam7> <div class="step-num" data-astro-cid-zhe6yam7>02</div> <h3 class="step-title" data-astro-cid-zhe6yam7>Projekt</h3> <p class="step-desc" data-astro-cid-zhe6yam7>
-Tworzymy layout, który przyciąga uwagę i nie zamula
-                            przeglądarki.
+Tworzymy nowoczesną oprawę wizualną, która wyróżni Twoją firmę i będzie idealnie działać na każdym smartfonie.
 </p> </div> <!-- Step 3 --> <div class="process-step-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" data-astro-cid-zhe6yam7> <div class="step-num" data-astro-cid-zhe6yam7>03</div> <h3 class="step-title" data-astro-cid-zhe6yam7>Budowa</h3> <p class="step-desc" data-astro-cid-zhe6yam7>
-Stawiamy na nowoczesne technologie, które zostaną z
-                            Tobą na lata.
+Piszemy czysty, lekki kod bez zbędnych wtyczek. Gwarantuje to błyskawiczne ładowanie strony i bezawaryjność na lata.
 </p> </div> <!-- Step 4 --> <div class="process-step-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-astro-cid-zhe6yam7> <div class="step-num" data-astro-cid-zhe6yam7>04</div> <h3 class="step-title" data-astro-cid-zhe6yam7>Wdrożenie</h3> <p class="step-desc" data-astro-cid-zhe6yam7>
-Podpinamy analitykę, optymalizujemy pod SEO i
-                            zostawiamy Cię z gotowym narzędziem.
+Uruchamiamy stronę, podpinamy statystyki i konfigurujemy Google. Dostajesz gotowe narzędzie, które od razu dla Ciebie zarabia.
 </p> </div> </div> </div> </section> <section id="kontakt"> <div class="contact__container"> <div class="contact__featured"> <div class="featured__header" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"> <h2>
 Zamów <span class="gradient__text">darmową</span> wycenę
 </h2> <p>
@@ -184,23 +175,24 @@ Tworzymy szybkie, nowoczesne i bezpieczne strony internetowe
 </p> <p class="footer__credits">
 Design by web2sell team
 </p> </div> </div> </footer>  <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) --> <div id="cookie-banner" class="cookie-banner hidden" role="dialog" aria-modal="true" aria-describedby="cookie-text"> <div class="cookie-banner__container"> <div class="cookie-banner__content"> <i class="fa-solid fa-cookie-bite cookie-banner__icon" aria-hidden="true"></i> <p id="cookie-text">
-Ta strona korzysta z ciasteczek analitycznych (Google Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
+Ta strona korzysta z ciasteczek analitycznych (Google
+                        Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
 </p> </div> <button id="cookie-accept" class="cookie-banner__btn">Akceptuję</button> </div> </div> <script>
-        (function() {
-            const consent = localStorage.getItem('cookie-consent');
-            if (consent !== 'accepted') {
-                const banner = document.getElementById('cookie-banner');
-                const acceptBtn = document.getElementById('cookie-accept');
-                if (banner && acceptBtn) {
-                    banner.classList.remove('hidden');
-                    acceptBtn.addEventListener('click', function() {
-                        localStorage.setItem('cookie-consent', 'accepted');
-                        banner.classList.add('hidden');
-                        if (typeof window.initGA === 'function') {
-                            window.initGA();
-                        }
-                    });
+            (function () {
+                const consent = localStorage.getItem("cookie-consent");
+                if (consent !== "accepted") {
+                    const banner = document.getElementById("cookie-banner");
+                    const acceptBtn = document.getElementById("cookie-accept");
+                    if (banner && acceptBtn) {
+                        banner.classList.remove("hidden");
+                        acceptBtn.addEventListener("click", function () {
+                            localStorage.setItem("cookie-consent", "accepted");
+                            banner.classList.add("hidden");
+                            if (typeof window.initGA === "function") {
+                                window.initGA();
+                            }
+                        });
+                    }
                 }
-            }
-        })();
-    </script> <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("[data-aos]").forEach(e=>{e.classList.add("aos-animate")});return}let a=[],s=null;const d=()=>{a.forEach(e=>{e.classList.add("aos-animate")}),a=[],s=null},l=new IntersectionObserver((e,c)=>{let n=!1;e.forEach(o=>{if(o.isIntersecting){const t=o.target,r=t.getAttribute("data-aos-duration"),i=t.getAttribute("data-aos-delay");r&&(t.style.transitionDuration=`${r}ms`),i&&(t.style.transitionDelay=`${i}ms`),a.push(t),n=!0,c.unobserve(t)}}),n&&s===null&&(s=requestAnimationFrame(d))},{rootMargin:"0px 0px -60px 0px",threshold:.05});document.querySelectorAll("[data-aos]").forEach(e=>{l.observe(e)})});</script> </body> </html>
+            })();
+        </script> <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("[data-aos]").forEach(e=>{e.classList.add("aos-animate")});return}let a=[],s=null;const d=()=>{a.forEach(e=>{e.classList.add("aos-animate")}),a=[],s=null},l=new IntersectionObserver((e,c)=>{let n=!1;e.forEach(o=>{if(o.isIntersecting){const t=o.target,r=t.getAttribute("data-aos-duration"),i=t.getAttribute("data-aos-delay");r&&(t.style.transitionDuration=`${r}ms`),i&&(t.style.transitionDelay=`${i}ms`),a.push(t),n=!0,c.unobserve(t)}}),n&&s===null&&(s=requestAnimationFrame(d))},{rootMargin:"0px 0px -60px 0px",threshold:.05});document.querySelectorAll("[data-aos]").forEach(e=>{l.observe(e)})});</script> </body> </html>
