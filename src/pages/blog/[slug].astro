@@ -91,6 +91,83 @@ const nextPost =
                 <Content />
             </section>
 
+            <!-- Sekcja udostępniania -->
+            <div class="post__share">
+                <span class="share__title">Udostępnij artykuł:</span>
+                <div class="share__buttons">
+                    <a
+                        href="#"
+                        class="share-btn share-btn--facebook"
+                        id="shareFacebook"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Udostępnij na Facebooku"
+                    >
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="share-btn share-btn--x"
+                        id="shareX"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Udostępnij na X"
+                    >
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a
+                        href="#"
+                        class="share-btn share-btn--linkedin"
+                        id="shareLinkedIn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Udostępnij na LinkedIn"
+                    >
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <button
+                        class="share-btn share-btn--copy"
+                        id="shareCopy"
+                        aria-label="Kopiuj link do schowka"
+                    >
+                        <i class="fa-solid fa-link"></i>
+                        <span class="tooltip" id="copyTooltip">Skopiuj link</span>
+                    </button>
+                </div>
+            </div>
+
+            <script is:inline>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var pageUrl = encodeURIComponent(window.location.href);
+                    var pageTitle = encodeURIComponent(document.title);
+
+                    var fbBtn = document.getElementById("shareFacebook");
+                    var xBtn = document.getElementById("shareX");
+                    var liBtn = document.getElementById("shareLinkedIn");
+                    var copyBtn = document.getElementById("shareCopy");
+                    var tooltip = document.getElementById("copyTooltip");
+
+                    if (fbBtn) fbBtn.href = "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl;
+                    if (xBtn) xBtn.href = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + pageTitle;
+                    if (liBtn) liBtn.href = "https://www.linkedin.com/sharing/share-offsite/?url=" + pageUrl;
+
+                    if (copyBtn && tooltip) {
+                        copyBtn.addEventListener("click", function () {
+                            navigator.clipboard.writeText(window.location.href).then(function () {
+                                tooltip.textContent = "Skopiowano!";
+                                tooltip.classList.add("tooltip--visible");
+                                setTimeout(function () {
+                                    tooltip.textContent = "Skopiuj link";
+                                    tooltip.classList.remove("tooltip--visible");
+                                }, 2000);
+                            }).catch(function (err) {
+                                console.error("Błąd kopiowania: ", err);
+                            });
+                        });
+                    }
+                });
+            </script>
+
             <!-- Dolna nawigacja artykułu -->
             <div class="post__navigation">
                 <a
@@ -486,6 +563,129 @@ const nextPost =
         .post__nav-btn span {
             display: inline-block;
             line-height: 1.2;
+        }
+    }
+
+    /* Sekcja udostępniania */
+    .post__share {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding: 20px 24px;
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        box-shadow: var(--glass-shadow);
+        gap: 20px;
+    }
+
+    .share__title {
+        font-family: "Figtree", sans-serif;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-size: 1rem;
+    }
+
+    .share__buttons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .share-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        background: var(--bg-color);
+        color: var(--text-secondary);
+        transition: var(--transition-smooth);
+        text-decoration: none !important;
+        cursor: pointer;
+        position: relative;
+        padding: 0;
+    }
+
+    .share-btn i {
+        font-size: 1.1rem;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .share-btn--facebook:hover {
+        background: #1877f2;
+        color: #fff;
+        border-color: #1877f2;
+        box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+    }
+
+    .share-btn--x:hover {
+        background: #000000;
+        color: #fff;
+        border-color: #333;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    html[data-theme="light"] .share-btn--x:hover {
+        background: #0f1419;
+    }
+
+    .share-btn--linkedin:hover {
+        background: #0077b5;
+        color: #fff;
+        border-color: #0077b5;
+        box-shadow: 0 0 15px rgba(0, 119, 181, 0.4);
+    }
+
+    .share-btn--copy:hover {
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .share-btn:hover i {
+        transform: scale(1.12);
+    }
+
+    .share-btn .tooltip {
+        position: absolute;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%) translateY(5px);
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary);
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        box-shadow: var(--glass-shadow);
+        z-index: 10;
+    }
+
+    .share-btn:hover .tooltip,
+    .share-btn .tooltip.tooltip--visible {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 600px) {
+        .post__share {
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+            gap: 12px;
         }
     }
 </style>

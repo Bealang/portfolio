@@ -5,7 +5,7 @@
 ## O nas i przewagi konkurencyjne
 
 - **Lokalizacja i obszar działania**: Myślenice, Kraków i cała Małopolska (pozycjonowanie lokalne dla firm).
-- **Zalety**: Brak zbędnych kosztów biurowych, własny autorski lekki kod (brak wolnego WordPressa), nieskazitelna optymalizacja pod PageSpeed Insights (Core Web Vitals), darmowy hosting w chmurze Cloudflare na pierwszy rok.
+- **Zalety**: Brak zbędnych kosztów biurowych, własny autorski lekki kod (brak wolnego WordPressa), nieskazitelna optymalizacja pod PageSpeed Insights (Core Web Vitals), darmowy hosting na pierwszy rok.
 - **Płatności i rozliczenia**: Wystawiamy w 100% legalne faktury VAT na całą kwotę za pośrednictwem serwisu useme.pl. Wymagana zaliczka wynosi 20%.
 
 ## Pakiety i cennik
