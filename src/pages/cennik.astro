@@ -23,17 +23,17 @@ import HeroBg from "../components/HeroBg.astro";
                 class="pricing-toggle-wrapper reveal-element"
                 style="transition-delay: 0.2s;"
             >
-                <span class="toggle-label" id="label-netto">Ceny Netto</span>
+                <span class="toggle-label active" id="label-netto">Ceny Netto</span>
                 <button
-                    class="pricing-toggle-switch active"
+                    class="pricing-toggle-switch"
                     id="price-toggle"
                     aria-label="Przełącz ceny netto/brutto"
                     role="switch"
-                    aria-checked="true"
+                    aria-checked="false"
                 >
                     <span class="toggle-slider"></span>
                 </button>
-                <span class="toggle-label active" id="label-brutto"
+                <span class="toggle-label" id="label-brutto"
                     >Ceny Brutto <span class="vat-badge">(+23% VAT)</span></span
                 >
             </div>
@@ -63,11 +63,10 @@ import HeroBg from "../components/HeroBg.astro";
                             od <span
                                 class="price-value"
                                 data-net="1000"
-                                data-gross="1230">1230</span
+                                data-gross="1230">1000</span
                             >
                             <span class="currency">zł</span>
-                            <span class="price-suffix">/brutto<sup>1</sup></span
-                            >
+                            <span class="price-suffix">/netto<sup>1</sup></span>
                         </div>
                         <a href="/zamow?pakiet=onepage" class="pricing-btn"
                             >Wybierz OnePage</a
@@ -97,11 +96,10 @@ import HeroBg from "../components/HeroBg.astro";
                             od <span
                                 class="price-value"
                                 data-net="1500"
-                                data-gross="1845">1845</span
+                                data-gross="1845">1500</span
                             >
                             <span class="currency">zł</span>
-                            <span class="price-suffix">/brutto<sup>1</sup></span
-                            >
+                            <span class="price-suffix">/netto<sup>1</sup></span>
                         </div>
                         <a href="/zamow?pakiet=multipage" class="pricing-btn"
                             >Wybierz Multi-Page</a
@@ -132,11 +130,10 @@ import HeroBg from "../components/HeroBg.astro";
                             od <span
                                 class="price-value"
                                 data-net="2500"
-                                data-gross="3075">3075</span
+                                data-gross="3075">2500</span
                             >
                             <span class="currency">zł</span>
-                            <span class="price-suffix">/brutto<sup>1</sup></span
-                            >
+                            <span class="price-suffix">/netto<sup>1</sup></span>
                         </div>
                         <a href="/zamow?pakiet=cms" class="pricing-btn primary"
                             >Wybierz CMS</a
@@ -171,11 +168,10 @@ import HeroBg from "../components/HeroBg.astro";
                             od <span
                                 class="price-value"
                                 data-net="4000"
-                                data-gross="4920">4920</span
+                                data-gross="4920">4000</span
                             >
                             <span class="currency">zł</span>
-                            <span class="price-suffix">/brutto<sup>1</sup></span
-                            >
+                            <span class="price-suffix">/netto<sup>1</sup></span>
                         </div>
                         <a href="/zamow?pakiet=system" class="pricing-btn"
                             >Wybierz System Dedykowany</a
@@ -439,6 +435,21 @@ import HeroBg from "../components/HeroBg.astro";
             var priceSuffixes = document.querySelectorAll(".price-suffix");
 
             if (priceToggle) {
+                // Check localStorage on load and apply saved preference
+                var savedPricing = localStorage.getItem("pricing-type");
+                if (savedPricing === "brutto") {
+                    priceToggle.setAttribute("aria-checked", "true");
+                    priceToggle.classList.add("active");
+                    if (labelNetto) labelNetto.classList.remove("active");
+                    if (labelBrutto) labelBrutto.classList.add("active");
+                    priceValues.forEach(function (el) {
+                        el.textContent = el.getAttribute("data-gross");
+                    });
+                    priceSuffixes.forEach(function (el) {
+                        el.textContent = "/brutto";
+                    });
+                }
+
                 priceToggle.addEventListener("click", function () {
                     var isGross =
                         priceToggle.getAttribute("aria-checked") === "true";
@@ -451,6 +462,7 @@ import HeroBg from "../components/HeroBg.astro";
                     priceToggle.classList.toggle("active", nextState);
 
                     if (nextState) {
+                        localStorage.setItem("pricing-type", "brutto");
                         labelNetto.classList.remove("active");
                         labelBrutto.classList.add("active");
                         priceValues.forEach(function (el) {
@@ -461,6 +473,7 @@ import HeroBg from "../components/HeroBg.astro";
                             el.textContent = "/brutto";
                         });
                     } else {
+                        localStorage.setItem("pricing-type", "netto");
                         labelNetto.classList.add("active");
                         labelBrutto.classList.remove("active");
                         priceValues.forEach(function (el) {

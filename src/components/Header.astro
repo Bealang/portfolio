@@ -45,11 +45,9 @@ const isHome = activePage === "home";
 
             <nav id="nav-menu">
                 <a
-                    href="/o-nas"
-                    class:list={[
-                        "nav-link",
-                        { active: activePage === "o-nas" },
-                    ]}>O nas</a
+                    href={isHome ? "#o-nas" : "/#o-nas"}
+                    class="nav-link"
+                    >O nas</a
                 >
                 <a href={isHome ? "#projekty" : "/#projekty"} class="nav-link"
                     >Realizacje</a

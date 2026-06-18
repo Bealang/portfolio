@@ -6,6 +6,7 @@ import HeroBg from "../components/HeroBg.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { getCollection } from "astro:content";
+import ONasTxt from "../components/o-nas-txt.astro";
 
 const projects = (await getCollection("projects")).sort(
     (a, b) => a.data.order - b.data.order,
@@ -49,7 +50,7 @@ const projects = (await getCollection("projects")).sort(
                     data-aos-duration="1000"
                     data-aos-delay="1800"
                 >
-                    <a href="/o-nas" class="btn-about">
+                    <a href="#o-nas" class="btn-about">
                         <span>Poznaj nas</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -227,6 +228,8 @@ const projects = (await getCollection("projects")).sort(
             </div>
         </div>
     </main>
+
+    <ONasTxt />
 
     <section id="projekty">
         <div
