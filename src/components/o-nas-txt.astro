@@ -50,16 +50,17 @@ import HeroBg from "./HeroBg.astro";
                 data-aos="fade-right"
                 data-aos-duration="1000"
             >
-                <div class="mission-geo-card">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164284.03881732273!2d19.81539296121519!3d49.95626210607544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell%20-%20Tworzenie%20stron%20internetowych!5e0!3m2!1spl!2spl!4v1779532948277!5m2!1spl!2spl"
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="mission-map-iframe"></iframe>
+                <div class="mission-geo-card" id="mission-map-container">
+                    <div class="map-placeholder" id="mission-map-placeholder">
+                        <div class="map-placeholder__bg"></div>
+                        <div class="map-placeholder__content">
+                            <h3>Wczytywanie mapy...</h3>
+                            <button
+                                class="map-placeholder__btn"
+                                aria-label="Załaduj mapę Google">Załaduj</button
+                            >
+                        </div>
+                    </div>
                 </div>
             </div>
             <div
@@ -455,6 +456,101 @@ import HeroBg from "./HeroBg.astro";
     </div>
 </section>
 
+<script>
+    (function () {
+        const mapContainer = document.getElementById("mission-map-container");
+        const mapPlaceholder = document.getElementById(
+            "mission-map-placeholder",
+        );
+        let loaded = false;
+
+        if (mapContainer && mapPlaceholder) {
+            const loadMap = () => {
+                if (loaded) return;
+                loaded = true;
+
+                // Preconnect Google Maps domains
+                const preconnect1 = document.createElement("link");
+                preconnect1.rel = "preconnect";
+                preconnect1.href = "https://maps.googleapis.com";
+                const preconnect2 = document.createElement("link");
+                preconnect2.rel = "preconnect";
+                preconnect2.href = "https://maps.gstatic.com";
+                document.head.appendChild(preconnect1);
+                document.head.appendChild(preconnect2);
+
+                // Create map iframe
+                const iframe = document.createElement("iframe");
+                iframe.src =
+                    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164284.03881732273!2d19.81539296121519!3d49.95626210607544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell%20-%20Tworzenie%20stron%20internetowych!5e0!3m2!1spl!2spl!4v1779532948277!5m2!1spl!2spl";
+                iframe.width = "100%";
+                iframe.height = "100%";
+                iframe.style.border = "0";
+                iframe.style.display = "block";
+                iframe.title = "Lokalizacja web2sell na mapie Google";
+                iframe.setAttribute("allowfullscreen", "");
+                iframe.setAttribute(
+                    "referrerpolicy",
+                    "no-referrer-when-downgrade",
+                );
+                iframe.className = "mission-map-iframe";
+
+                // Fade out placeholder and inject iframe
+                iframe.addEventListener("load", () => {
+                    mapPlaceholder.style.opacity = "0";
+                    setTimeout(() => {
+                        mapPlaceholder.style.display = "none";
+                    }, 500);
+                });
+
+                mapContainer.appendChild(iframe);
+
+                // Clean up event listeners
+                mapContainer.removeEventListener("mouseenter", loadMap);
+                mapContainer.removeEventListener("click", loadMap);
+                mapContainer.removeEventListener("touchstart", loadMap);
+                window.removeEventListener("scroll", checkScroll);
+            };
+
+            const checkScroll = () => {
+                const rect = mapContainer.getBoundingClientRect();
+                if (rect.top < window.innerHeight + 300 && rect.bottom > -300) {
+                    loadMap();
+                }
+            };
+
+            // Event listeners for lazy loading
+            mapContainer.addEventListener("mouseenter", loadMap, {
+                passive: true,
+            });
+            mapContainer.addEventListener("click", loadMap, { passive: true });
+            mapContainer.addEventListener("touchstart", loadMap, {
+                passive: true,
+            });
+            window.addEventListener("scroll", checkScroll, { passive: true });
+
+            // Proximity detection using IntersectionObserver
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                loadMap();
+                                observer.disconnect();
+                            }
+                        });
+                    },
+                    { rootMargin: "300px" },
+                );
+                observer.observe(mapContainer);
+            }
+
+            // Initial check
+            checkScroll();
+        }
+    })();
+</script>
+
 <style>
     /* ==========================================================================
        BLACK TEXT OVERRIDES AS REQUESTED BY USER (FOR LIGHT THEME)
@@ -719,6 +815,136 @@ import HeroBg from "./HeroBg.astro";
         display: block;
         opacity: 1;
         pointer-events: auto;
+    }
+
+    /* Map Placeholder Premium Styling */
+    .map-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--card-bg);
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 2;
+        transition: opacity 0.5s ease;
+    }
+
+    .map-placeholder__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-color);
+        background-image:
+            radial-gradient(var(--accent-blue) 0.5px, transparent 0.5px),
+            radial-gradient(var(--accent-blue) 0.5px, var(--bg-color) 0.5px);
+        background-size: 20px 20px;
+        background-position:
+            0 0,
+            10px 10px;
+        opacity: 0.12;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html[data-theme="dark"] .map-placeholder__bg {
+        opacity: 0.08;
+    }
+
+    .map-placeholder:hover .map-placeholder__bg {
+        transform: scale(1.06);
+    }
+
+    .map-placeholder__content {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .map-placeholder__icon-pulse {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(139, 92, 246, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-blue);
+        font-size: 24px;
+        margin-bottom: 6px;
+        position: relative;
+    }
+
+    .map-placeholder__icon-pulse::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid var(--accent-blue);
+        opacity: 0.4;
+        animation: mapPulse 2s infinite ease-out;
+    }
+
+    @keyframes mapPulse {
+        0% {
+            transform: scale(1);
+            opacity: 0.4;
+        }
+        100% {
+            transform: scale(1.6);
+            opacity: 0;
+        }
+    }
+
+    .map-placeholder h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .map-placeholder p {
+        font-size: 0.85rem !important;
+        color: var(--text-secondary) !important;
+        max-width: 260px;
+        margin: 0 !important;
+        line-height: 1.45;
+    }
+
+    .map-placeholder__btn {
+        margin-top: 8px;
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
+        color: #fff;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 10px;
+        font-size: 13.5px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(167, 139, 250, 0.25);
+        transition:
+            transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+            box-shadow 0.25s ease;
+    }
+
+    .map-placeholder:hover .map-placeholder__btn {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(167, 139, 250, 0.35);
     }
 
     .onas-mission__content {

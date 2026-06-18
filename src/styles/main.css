@@ -5816,27 +5816,53 @@ nav>a.active::after {
         justify-content: center;
         gap: 3px;
         text-decoration: none;
-        color: var(--text-primary);
+        color: var(--accent-blue);
         font-size: 11px;
         font-weight: 700;
-        transition: transform 0.2s ease, color 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         flex: 1;
         text-align: center;
+        padding: 6px 10px;
+        border-radius: 100px;
+        background: transparent;
     }
 
     .floating-nav-item i {
         font-size: 18px;
-        transition: transform 0.2s ease;
+        transition: transform 0.3s ease, color 0.3s ease;
         color: var(--accent-blue);
     }
 
+    /* Active State (Selected Page) - Light Theme */
+    .floating-nav-item.active {
+        background: rgba(139, 92, 246, 0.12);
+        color: #6d28d9;
+    }
+
+    .floating-nav-item.active i {
+        color: #6d28d9;
+        transform: scale(1.05);
+    }
+
+    /* Active State (Selected Page) - Dark Theme */
+    html[data-theme="dark"] .floating-nav-item.active {
+        background: rgba(139, 92, 246, 0.20);
+        color: #a78bfa;
+    }
+
+    html[data-theme="dark"] .floating-nav-item.active i {
+        color: #a78bfa;
+        transform: scale(1.05);
+    }
+
+    /* Hover & Focus State (Interactive Feedback) */
     .floating-nav-item:hover,
-    .floating-nav-item:active {
+    .floating-nav-item:focus {
         color: var(--accent-cyan);
     }
 
     .floating-nav-item:hover i,
-    .floating-nav-item:active i {
+    .floating-nav-item:focus i {
         color: var(--accent-cyan);
         transform: scale(1.1);
     }

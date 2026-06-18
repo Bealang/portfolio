@@ -135,11 +135,25 @@ const isHome = activePage === "home";
 
 <!-- 4. MOBILNE PŁYWAJĄCE MENU (FLOATING BOTTOM NAV) -->
 <div class="mobile-floating-nav" id="mobileFloatingNav">
-    <a href="/cennik" class="floating-nav-item" aria-label="Cennik">
+    <a
+        href="/cennik"
+        class:list={[
+            "floating-nav-item",
+            { active: activePage === "cennik" },
+        ]}
+        aria-label="Cennik"
+    >
         <i class="fa-solid fa-dollar-sign"></i>
         <span>Cennik</span>
     </a>
-    <a href="/zamow" class="floating-nav-item" aria-label="Wycena">
+    <a
+        href="/zamow"
+        class:list={[
+            "floating-nav-item",
+            { active: activePage === "zamow" },
+        ]}
+        aria-label="Wycena"
+    >
         <i class="fa-solid fa-file-invoice-dollar"></i>
         <span>Wycena</span>
     </a>

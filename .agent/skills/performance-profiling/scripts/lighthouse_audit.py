@@ -19,9 +19,9 @@ def run_lighthouse(url: str) -> dict:
         with tempfile.NamedTemporaryFile(suffix='.json', delete=False) as f:
             output_path = f.name
         
+        lighthouse_cmd = ["npx.cmd", "-y", "lighthouse"] if os.name == "nt" else ["npx", "-y", "lighthouse"]
         result = subprocess.run(
-            [
-                "lighthouse",
+            lighthouse_cmd + [
                 url,
                 "--output=json",
                 f"--output-path={output_path}",
@@ -55,7 +55,7 @@ def run_lighthouse(url: str) -> dict:
     except subprocess.TimeoutExpired:
         return {"error": "Lighthouse audit timed out"}
     except FileNotFoundError:
-        return {"error": "Lighthouse CLI not found. Install with: npm install -g lighthouse"}
+        return {"error": "npx/lighthouse CLI not found. Try installing with: npm install -g lighthouse"}
 
 def get_summary(categories: dict) -> str:
     """Generate summary based on scores."""

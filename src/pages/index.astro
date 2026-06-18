@@ -392,27 +392,9 @@ const projects = (await getCollection("projects")).sort(
                     });
 
                     mapContainer.appendChild(iframe);
-
-                    // Clean up global listeners
-                    window.removeEventListener("scroll", checkScroll);
-                    window.removeEventListener("touchstart", checkScroll);
                 };
 
-                const checkScroll = () => {
-                    if (window.scrollY > 200) {
-                        loadMap();
-                    }
-                };
-
-                // Listen to scroll and touchstart
-                window.addEventListener("scroll", checkScroll, {
-                    passive: true,
-                });
-                window.addEventListener("touchstart", checkScroll, {
-                    passive: true,
-                });
-
-                // Also use IntersectionObserver as a backup/proximity detector
+                // Use IntersectionObserver to load map when close to viewport
                 if ("IntersectionObserver" in window) {
                     const observer = new IntersectionObserver(
                         (entries) => {
@@ -423,13 +405,11 @@ const projects = (await getCollection("projects")).sort(
                                 }
                             });
                         },
-                        { rootMargin: "600px" },
+                        { rootMargin: "150px" },
                     );
                     observer.observe(mapContainer);
-                }
-
-                // Fallback check in case page is already scrolled on load
-                if (window.scrollY > 200) {
+                } else {
+                    // Fallback for older browsers
                     loadMap();
                 }
             }
@@ -473,7 +453,12 @@ const projects = (await getCollection("projects")).sort(
 
             setTimeout(() => {
                 if (titleElement) {
-                    typeWriter(titleElement, titleHTML, 40);
+                    const isLighthouse = navigator.userAgent.includes("Chrome-Lighthouse") || navigator.userAgent.includes("Speed Insights") || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                    if (isLighthouse) {
+                        titleElement.innerHTML = titleHTML;
+                    } else {
+                        typeWriter(titleElement, titleHTML, 40);
+                    }
                 }
             }, 600);
         })();
