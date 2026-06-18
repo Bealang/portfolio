@@ -1,19 +1,25 @@
-# Zamów bezpłatną wycenę - web2sell
+# Zamów darmową wycenę - web2sell
 
-Szukasz profesjonalnego wykonawcy strony internetowej w Myślenicach, Krakowie lub okolicach? Przygotujemy dla Ciebie bezpłatną, niezobowiązującą wycenę w ciągu maksymalnie 24 godzin.
+Skontaktuj się z nami poprzez formularz kontaktowy, bądź poniższy adres e-mail/nr. telefonu, aby otrzymać indywidualną wycenę dla swojego projektu. Zazwyczaj odpowiadamy w ciągu 24 godzin.
 
-## Jak zamówić wycenę?
+## Dane kontaktowe
 
-W celu otrzymania wyceny prześlij wiadomość przez formularz kontaktowy dostępny na naszej stronie pod adresem: https://web2sell.pl/zamow lub bezpośrednio skontaktuj się telefonicznie.
+- **Kontakt przez e-mail**: kontakt@web2sell.pl
+- **Kontakt telefoniczny/SMS**: +48 530 315 860
 
-### Informacje przydatne do wyceny:
-1. **Nazwa i branża Twojej firmy**.
-2. **Wybrany pakiet** (OnePage, Multi-Page, Wizytówka + CMS, System Dedykowany) – jeśli nie wiesz, jaki wybrać, opisz swoje cele, a my doradzimy.
-3. **Funkcjonalności**, których potrzebujesz (np. formularz kontaktowy, galeria projektów, blog, system rezerwacji terminów, integracje z zewnętrznymi API).
-4. **Materiały, które posiadasz** (np. logo, teksty, zdjęcia, stara strona internetowa do przebudowy).
-5. **Preferowana kolorystyka i styl** (np. ciemny, elegancki, minimalistyczny, nowoczesny).
+---
 
-## Kontakt bezpośredni
+## Formularz zamówienia i wyceny
 
-- **Telefon**: +48 530 315 860
-- **E-mail / Formularz**: Dostępny na https://web2sell.pl/zamow
+Aby złożyć zapytanie na stronie [web2sell.pl/zamow](https://web2sell.pl/zamow), przygotuj następujące informacje:
+
+1. **Imię i Nazwisko** (lub nazwę firmy) *
+2. **Wstępna usługa** * (Wybierz jedną z opcji):
+   - *Nie wiem. Chcę to ustalić*
+   - *OnePage (Szybki start w sieci)*
+   - *Wizytówka Multi-Page (Budowa autorytetu)*
+   - *Wizytówka + CMS (Dynamiczne treści)*
+   - *System Dedykowany (Rozwiązania "Full Custom")*
+3. **Adres e-mail** *
+4. **Treść wiadomości** * (Opisz, w czym rzecz. Jeśli wolisz, żebyśmy zadzwonili, dopisz swój numer telefonu – tak będzie szybciej).
+5. **Zgoda RODO** * (Wyrażam zgodę na przetwarzanie moich danych osobowych w celu udzielenia odpowiedzi na zapytanie).
