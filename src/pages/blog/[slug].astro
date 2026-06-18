@@ -93,8 +93,19 @@ const nextPost =
 
             <!-- Sekcja udostępniania -->
             <div class="post__share">
-                <span class="share__title">Udostępnij artykuł:</span>
+                <span class="share__title"
+                    >Spodobał ci się artykuł? Udostępnij go innym!</span
+                >
                 <div class="share__buttons">
+                    <button
+                        class="share-btn share-btn--native"
+                        id="shareNative"
+                        style="display: none;"
+                        aria-label="Udostępnij artykuł"
+                    >
+                        <i class="fa-solid fa-share-nodes"></i>
+                        <span class="tooltip">Udostępnij</span>
+                    </button>
                     <a
                         href="#"
                         class="share-btn share-btn--facebook"
@@ -131,38 +142,87 @@ const nextPost =
                         aria-label="Kopiuj link do schowka"
                     >
                         <i class="fa-solid fa-link"></i>
-                        <span class="tooltip" id="copyTooltip">Skopiuj link</span>
+                        <span class="tooltip" id="copyTooltip"
+                            >Skopiuj link</span
+                        >
                     </button>
                 </div>
             </div>
 
             <script is:inline>
                 document.addEventListener("DOMContentLoaded", function () {
-                    var pageUrl = encodeURIComponent(window.location.href);
-                    var pageTitle = encodeURIComponent(document.title);
+                    var pageUrl = window.location.href;
+                    var pageTitle = document.title;
 
+                    var shareNativeBtn = document.getElementById("shareNative");
                     var fbBtn = document.getElementById("shareFacebook");
                     var xBtn = document.getElementById("shareX");
                     var liBtn = document.getElementById("shareLinkedIn");
                     var copyBtn = document.getElementById("shareCopy");
                     var tooltip = document.getElementById("copyTooltip");
 
-                    if (fbBtn) fbBtn.href = "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl;
-                    if (xBtn) xBtn.href = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + pageTitle;
-                    if (liBtn) liBtn.href = "https://www.linkedin.com/sharing/share-offsite/?url=" + pageUrl;
+                    if (navigator.share) {
+                        // Jeśli przeglądarka wspiera Web Share API (głównie urządzenia mobilne)
+                        if (shareNativeBtn) {
+                            shareNativeBtn.style.display = "flex";
+                            shareNativeBtn.addEventListener(
+                                "click",
+                                function () {
+                                    navigator
+                                        .share({
+                                            title: document.title,
+                                            url: pageUrl,
+                                        })
+                                        .catch(function (err) {
+                                            console.log(
+                                                "Anulowano udostępnianie lub błąd: ",
+                                                err,
+                                            );
+                                        });
+                                },
+                            );
+                        }
+                        // Ukrywamy poszczególne przyciski społecznościowe, bo natywny panel systemowy obsługuje je znacznie lepiej
+                        if (fbBtn) fbBtn.style.display = "none";
+                        if (xBtn) xBtn.style.display = "none";
+                        if (liBtn) liBtn.style.display = "none";
+                    } else {
+                        // Tradycyjne linki społecznościowe dla komputerów stacjonarnych
+                        var encodedUrl = encodeURIComponent(pageUrl);
+                        var encodedTitle = encodeURIComponent(pageTitle);
+                        if (fbBtn)
+                            fbBtn.href =
+                                "https://www.facebook.com/sharer/sharer.php?u=" +
+                                encodedUrl;
+                        if (xBtn)
+                            xBtn.href =
+                                "https://twitter.com/intent/tweet?url=" +
+                                encodedUrl +
+                                "&text=" +
+                                encodedTitle;
+                        if (liBtn)
+                            liBtn.href =
+                                "https://www.linkedin.com/sharing/share-offsite/?url=" +
+                                encodedUrl;
+                    }
 
                     if (copyBtn && tooltip) {
                         copyBtn.addEventListener("click", function () {
-                            navigator.clipboard.writeText(window.location.href).then(function () {
-                                tooltip.textContent = "Skopiowano!";
-                                tooltip.classList.add("tooltip--visible");
-                                setTimeout(function () {
-                                    tooltip.textContent = "Skopiuj link";
-                                    tooltip.classList.remove("tooltip--visible");
-                                }, 2000);
-                            }).catch(function (err) {
-                                console.error("Błąd kopiowania: ", err);
-                            });
+                            navigator.clipboard
+                                .writeText(pageUrl)
+                                .then(function () {
+                                    tooltip.textContent = "Skopiowano!";
+                                    tooltip.classList.add("tooltip--visible");
+                                    setTimeout(function () {
+                                        tooltip.textContent = "Skopiuj link";
+                                        tooltip.classList.remove(
+                                            "tooltip--visible",
+                                        );
+                                    }, 2000);
+                                })
+                                .catch(function (err) {
+                                    console.error("Błąd kopiowania: ", err);
+                                });
                         });
                     }
                 });
@@ -642,8 +702,23 @@ const nextPost =
         box-shadow: 0 0 15px rgba(0, 119, 181, 0.4);
     }
 
+    .share-btn--native:hover {
+        background: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-blue)
+        );
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
     .share-btn--copy:hover {
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        background: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-blue)
+        );
         color: #fff;
         border-color: transparent;
         box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
@@ -661,7 +736,7 @@ const nextPost =
         background: var(--card-bg);
         border: 1px solid var(--glass-border);
         color: var(--text-primary);
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 0.78rem;
         font-weight: 600;
         padding: 6px 12px;
@@ -669,7 +744,9 @@ const nextPost =
         white-space: nowrap;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
         box-shadow: var(--glass-shadow);
         z-index: 10;
     }
