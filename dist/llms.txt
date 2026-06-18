@@ -1,0 +1,48 @@
+# web2sell
+
+> web2sell to zespół doświadczonych freelancerów tworzących nowoczesne, ultra-szybkie i responsywne strony internetowe klasy premium w Myślenicach, Krakowie i okolicach. Oferujemy jakość agencji interaktywnej w cenie freelancera, obniżając koszty nawet o 50-60%.
+
+## O nas i przewagi konkurencyjne
+
+- **Lokalizacja i obszar działania**: Myślenice, Kraków i cała Małopolska (pozycjonowanie lokalne dla firm).
+- **Zalety**: Brak zbędnych kosztów biurowych, własny autorski lekki kod (brak wolnego WordPressa), nieskazitelna optymalizacja pod PageSpeed Insights (Core Web Vitals), darmowy hosting w chmurze Cloudflare na pierwszy rok.
+- **Płatności i rozliczenia**: Wystawiamy w 100% legalne faktury VAT na całą kwotę za pośrednictwem serwisu useme.pl. Wymagana zaliczka wynosi 20%.
+
+## Pakiety i cennik
+
+Oferujemy 4 główne pakiety tworzenia stron internetowych (ceny netto):
+1. **OnePage** (od 1000 zł): Jednostronicowa wizytówka firmy. Idealna dla małych firm i freelancerów szukających taniej strony WWW.
+2. **Multi-Page** (od 1500 zł): Strona o strukturze 2-5 podstron (np. O nas, Oferta, Galeria, Kontakt).
+3. **Wizytówka + CMS** (od 2500 zł): Strona 2-5 podstron z autorskim, prostym panelem administracyjnym (CMS) do zarządzania aktualnościami, blogiem i ofertą.
+4. **System Dedykowany** (od 4000 zł): Zaawansowane systemy webowe, aplikacje dedykowane (np. systemy rezerwacji, interaktywne cenniki i integracje z API zewnętrznymi).
+
+## Oferta i Informacje
+
+- [Cennik usług](https://web2sell.pl/cennik.md): Szczegółowy cennik pakietów OnePage, Multi-Page, CMS oraz Systemu Dedykowanego.
+- [Jak działamy i FAQ](https://web2sell.pl/jak-dzialamy.md): Opis 8-krokowego procesu współpracy oraz odpowiedzi na najczęstsze pytania o hosting, domeny i koszty utrzymania.
+- [Zamów wycenę](https://web2sell.pl/zamow.md): Formularz kontaktowy i konfigurator projektu dla firm.
+- [Strona główna](https://web2sell.pl/index.html.md): Przegląd technologii, usług i głównych założeń firmy.
+
+## Nasze Realizacje
+
+Dedykowane realizacje dla klientów:
+- [Zdrowe Stopy](https://web2sell.pl/realizacje/zdrowe-stopy.md): Nowoczesna strona gabinetu podologicznego w Myślenicach zintegrowana z API ProAssist.
+- [System dla busów](https://web2sell.pl/realizacje/bus-szablon.md): Dedykowana aplikacja z rozkładem jazdy online i panelem admina [NA SPRZEDAŻ].
+
+## Blog
+
+Artykuły i poradniki na temat tworzenia stron i marketingu:
+- [Wpływ Core Web Vitals na sprzedaż](https://web2sell.pl/blog/core-web-vitals-wplyw-na-sprzedaz.md): Analiza szybkości ładowania witryn.
+- [Dlaczego porzuciliśmy WordPressa](https://web2sell.pl/blog/dlaczego-porzucilismy-wordpressa.md): Korzyści z przejścia na Astro i Node.js.
+- [Dlaczego Twoja strona www nie zarabia (Myślenice)](https://web2sell.pl/blog/dlaczego-twoja-strona-www-nie-zarabia-3-bledy-myslenice.md): Główne błędy lokalnych stron.
+- [Facebook vs własna strona dla biznesu](https://web2sell.pl/blog/fb-vs-wlasna-strona-www-lokalny-biznes-2026.md): Porównanie platform.
+- [Ile kosztuje strona internetowa w 2026 roku](https://web2sell.pl/blog/ile-kosztuje-strona-internetowa-w-2026-roku.md): Dokładny opis kosztów wykonania i utrzymania.
+- [Jak zdobyć klientów lokalnie](https://web2sell.pl/blog/jak-zdobyc-klientow-lokalnie-pozycjonowanie-stron.md): Rola pozycjonowania stron.
+- [Jak zoptymalizować stronę dla lokalnej firmy](https://web2sell.pl/blog/jak-zoptymalizowac-strone-dla-lokalnej-firmy.md): Wskazówki techniczne.
+- [Kreatory stron internetowych - wady i zalety](https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety.md): Wix, Webflow vs dedykowany kod.
+- [Node.js - serce nowoczesnego backendu](https://web2sell.pl/blog/nodejs-serce-nowoczesnego-backendu.md): Dlaczego warto wybrać Node.js.
+- [Różnica między Astro a Reactem](https://web2sell.pl/blog/roznica-miedzy-astro-a-reactem.md): Porównanie wydajności bibliotek.
+
+## Optional
+
+- [Polityka prywatności i Cookies](https://web2sell.pl/polityka.md): Ochrona danych osobowych i polityka cookies serwisu.
