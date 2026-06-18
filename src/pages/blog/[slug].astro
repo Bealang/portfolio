@@ -1,46 +1,51 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import HeroBg from '../../components/HeroBg.astro';
-import { getCollection, render } from 'astro:content';
-import { Image } from 'astro:assets';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import HeroBg from "../../components/HeroBg.astro";
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.id },
+        props: { post },
+    }));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
 
 const formatDate = (date: Date) => {
-  return date.toLocaleDateString('pl-PL', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
+    return date.toLocaleDateString("pl-PL", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    });
 };
 
 // Pobieramy wszystkie posty posortowane chronologicznie
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const currentIndex = posts.findIndex((p) => p.id === post.id);
 
-// Pokaż dalej: następny post chronologicznie (starszy). 
+// Pokaż dalej: następny post chronologicznie (starszy).
 // Jeśli nie ma starszego (jesteśmy na końcu), wracamy do najnowszego (pierwszego na liście).
-const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (posts.length > 1 ? posts[0] : null);
+const nextPost =
+    currentIndex < posts.length - 1
+        ? posts[currentIndex + 1]
+        : posts.length > 1
+          ? posts[0]
+          : null;
 ---
 
 <Layout
-  title={`${post.data.title} | web2sell`}
-  description={post.data.description}
-  ogImage={post.data.image}
-  ogType="article"
+    title={`${post.data.title} | web2sell`}
+    description={post.data.description}
+    ogImage={post.data.image}
+    ogType="article"
 >
     <Header activePage="blog" />
 
@@ -56,11 +61,16 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
 
                 <div class="post__meta">
                     <span class="post__author">
-                        <i class="fa-regular fa-user"></i> {post.data.author || 'web2sell'}
+                        <i class="fa-regular fa-user"></i>
+                        {post.data.author || "web2sell"}
                     </span>
                     <span class="post__divider">•</span>
-                    <time datetime={post.data.pubDate.toISOString()} class="post__date">
-                        <i class="fa-regular fa-calendar-days"></i> {formatDate(post.data.pubDate)}
+                    <time
+                        datetime={post.data.pubDate.toISOString()}
+                        class="post__date"
+                    >
+                        <i class="fa-regular fa-calendar-days"></i>
+                        {formatDate(post.data.pubDate)}
                     </time>
                 </div>
 
@@ -68,7 +78,13 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
             </div>
 
             <div class="post__image-wrapper">
-                <Image src={post.data.image} alt={post.data.imageAlt || post.data.title} width={1200} height={600} class="post__image" />
+                <Image
+                    src={post.data.image}
+                    alt={post.data.imageAlt || post.data.title}
+                    width={1200}
+                    height={600}
+                    class="post__image"
+                />
             </div>
 
             <section class="post__content">
@@ -77,28 +93,32 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
 
             <!-- Dolna nawigacja artykułu -->
             <div class="post__navigation">
-                <a href="/blog" class="post__nav-btn post__nav-btn--back" aria-label="Wróć do listy wszystkich artykułów">
+                <a
+                    href="/blog"
+                    class="post__nav-btn post__nav-btn--back"
+                    aria-label="Wróć do listy wszystkich artykułów"
+                >
                     <i class="fa-solid fa-arrow-left-long"></i>
                     <span>Powrót na bloga</span>
                 </a>
-                
-                {nextPost && (
-                    <a href={`/blog/${nextPost.id}`} class="post__nav-btn post__nav-btn--next" aria-label={`Przeczytaj kolejny artykuł: ${nextPost.data.title}`}>
-                        <span>Pokaż dalej</span>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                )}
+
+                {
+                    nextPost && (
+                        <a
+                            href={`/blog/${nextPost.id}`}
+                            class="post__nav-btn post__nav-btn--next"
+                            aria-label={`Przeczytaj kolejny artykuł: ${nextPost.data.title}`}
+                        >
+                            <span>Pokaż dalej</span>
+                            <i class="fa-solid fa-arrow-right-long" />
+                        </a>
+                    )
+                }
             </div>
         </article>
     </main>
 
     <Footer />
-
-    <!-- Floating CTA (Poznaj naszą ofertę cennikową) -->
-    <a href="/cennik" class="floating-cta" aria-label="Poznaj naszą ofertę cennikową">
-        <span>Poznaj naszą ofertę</span>
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
 </Layout>
 
 <style is:global>
@@ -123,7 +143,7 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
     }
 
     .post__content h2 {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 1.8rem;
         font-weight: 800;
         color: var(--text-primary);
@@ -133,7 +153,7 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
     }
 
     .post__content h3 {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 1.4rem;
         font-weight: 700;
         color: var(--text-primary);
@@ -141,7 +161,8 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
         line-height: 1.3;
     }
 
-    .post__content ul, .post__content ol {
+    .post__content ul,
+    .post__content ol {
         margin: 0 0 24px;
         padding-left: 24px;
     }
@@ -202,9 +223,13 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
         justify-content: center;
         text-align: center;
         padding: 14px 28px;
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        background: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-blue)
+        );
         color: #fff !important;
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 1.05rem;
         font-weight: 700;
         text-decoration: none !important;
@@ -218,7 +243,11 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
     .post__content .cta-button:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
-        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
     }
     @media (max-width: 600px) {
         .post__content .cta-button {
@@ -294,7 +323,7 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
     }
 
     .post__title {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: clamp(28px, 4.5vw, 48px);
         font-weight: 800;
         color: var(--text-primary);
@@ -363,11 +392,12 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
         font-weight: 700;
         text-decoration: none;
         box-sizing: border-box;
-        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
-                    box-shadow 0.3s ease,
-                    background 0.3s ease,
-                    border-color 0.3s ease,
-                    color 0.3s ease;
+        transition:
+            transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+            box-shadow 0.3s ease,
+            background 0.3s ease,
+            border-color 0.3s ease,
+            color 0.3s ease;
         cursor: pointer;
     }
 
@@ -404,7 +434,11 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
 
     /* Pokaż dalej — pełny gradient CTA */
     .post__nav-btn--next {
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        background: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-blue)
+        );
         border: 1.5px solid transparent;
         color: #fff;
         box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
@@ -417,7 +451,11 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
     .post__nav-btn--next:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 30px rgba(6, 182, 212, 0.3);
-        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
     }
 
     .post__nav-btn--next:hover i {
@@ -448,60 +486,6 @@ const nextPost = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : (po
         .post__nav-btn span {
             display: inline-block;
             line-height: 1.2;
-        }
-    }
-
-    /* ==========================================================================
-       FLOATING CTA STYLES (ALWAYS VISIBLE EN ROUTE TO /CENNIK)
-       ========================================================================== */
-    .floating-cta {
-        position: fixed;
-        bottom: 32px;
-        right: 32px;
-        z-index: 999;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 28px;
-        border-radius: 50px;
-        font-family: 'Figtree', sans-serif;
-        font-size: 0.95rem;
-        font-weight: 700;
-        text-decoration: none;
-        color: #fff !important;
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                    box-shadow 0.3s ease, 
-                    background-color 0.3s ease;
-        cursor: pointer;
-    }
-    .floating-cta i {
-        font-size: 0.9rem;
-        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        color: #fff;
-    }
-    .floating-cta:hover {
-        transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-    }
-    .floating-cta:hover i {
-        transform: translateX(4px);
-    }
-    .floating-cta:active {
-        transform: translateY(-2px) scale(0.98);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 600px) {
-        .floating-cta {
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 22px;
-            font-size: 0.88rem;
-            gap: 8px;
         }
     }
 </style>

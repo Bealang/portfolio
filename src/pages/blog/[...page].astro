@@ -1,25 +1,25 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import HeroBg from '../../components/HeroBg.astro';
-import BlogCard from '../../components/BlogCard.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import HeroBg from "../../components/HeroBg.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
-  const posts = (await getCollection('blog')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-  );
-  // Pokazujemy po 6 wpisów na stronę dla idealnego rozkładu siatki 3x2 na dużych ekranach
-  return paginate(posts, { pageSize: 6 });
+    const posts = (await getCollection("blog")).sort(
+        (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    );
+    // Pokazujemy po 6 wpisów na stronę dla idealnego rozkładu siatki 3x2 na dużych ekranach
+    return paginate(posts, { pageSize: 6 });
 }
 
 const { page } = Astro.props;
 ---
 
 <Layout
-  title={`Blog (${page.currentPage} str.) | web2sell`}
-  description="Nasz blog to baza wiedzy o tworzeniu super szybkich stron www, lokalnym SEO i nowoczesnych technologiach takich jak Astro czy React."
+    title={`Blog (${page.currentPage} str.) | web2sell`}
+    description="Nasz blog to baza wiedzy o tworzeniu super szybkich stron www, lokalnym SEO i nowoczesnych technologiach takich jak Astro czy React."
 >
     <Header activePage="blog" />
 
@@ -34,71 +34,99 @@ const { page } = Astro.props;
 
         <section class="blog__content">
             <div class="blog__grid">
-                {page.data.map((post) => (
-                    <BlogCard
-                        slug={post.id}
-                        title={post.data.title}
-                        description={post.data.description}
-                        pubDate={post.data.pubDate}
-                        image={post.data.image}
-                        imageAlt={post.data.imageAlt}
-                        author={post.data.author}
-                    />
-                ))}
+                {
+                    page.data.map((post) => (
+                        <BlogCard
+                            slug={post.id}
+                            title={post.data.title}
+                            description={post.data.description}
+                            pubDate={post.data.pubDate}
+                            image={post.data.image}
+                            imageAlt={post.data.imageAlt}
+                            author={post.data.author}
+                        />
+                    ))
+                }
             </div>
 
-            {page.lastPage > 1 && (
-                <nav class="pagination" aria-label="Nawigacja po stronach bloga">
-                    {page.url.prev ? (
-                        <a href={page.url.prev} class="pagination__btn pagination__btn--prev" aria-label="Poprzednia strona">
-                            <i class="fa-solid fa-chevron-left"></i> Poprzednia
-                        </a>
-                    ) : (
-                        <span class="pagination__btn pagination__btn--disabled">
-                            <i class="fa-solid fa-chevron-left"></i> Poprzednia
-                        </span>
-                    )}
+            {
+                page.lastPage > 1 && (
+                    <nav
+                        class="pagination"
+                        aria-label="Nawigacja po stronach bloga"
+                    >
+                        {page.url.prev ? (
+                            <a
+                                href={page.url.prev}
+                                class="pagination__btn pagination__btn--prev"
+                                aria-label="Poprzednia strona"
+                            >
+                                <i class="fa-solid fa-chevron-left" />{" "}
+                                Poprzednia
+                            </a>
+                        ) : (
+                            <span class="pagination__btn pagination__btn--disabled">
+                                <i class="fa-solid fa-chevron-left" />{" "}
+                                Poprzednia
+                            </span>
+                        )}
 
-                    <div class="pagination__selector">
-                        <span class="pagination__label">Strona:</span>
-                        <div class="pagination__select-wrapper">
-                            <select onchange="window.location.href = this.value" class="pagination__select">
-                                {Array.from({ length: page.lastPage }, (_, i) => {
-                                    const pageNum = i + 1;
-                                    const href = pageNum === 1 ? '/blog' : `/blog/${pageNum}`;
-                                    return (
-                                        <option value={href} selected={page.currentPage === pageNum}>
-                                            {pageNum}
-                                        </option>
-                                    );
-                                })}
-                            </select>
-                            <i class="fa-solid fa-chevron-down pagination__select-icon"></i>
+                        <div class="pagination__selector">
+                            <span class="pagination__label">Strona:</span>
+                            <div class="pagination__select-wrapper">
+                                <select
+                                    onchange="window.location.href = this.value"
+                                    class="pagination__select"
+                                >
+                                    {Array.from(
+                                        { length: page.lastPage },
+                                        (_, i) => {
+                                            const pageNum = i + 1;
+                                            const href =
+                                                pageNum === 1
+                                                    ? "/blog"
+                                                    : `/blog/${pageNum}`;
+                                            return (
+                                                <option
+                                                    value={href}
+                                                    selected={
+                                                        page.currentPage ===
+                                                        pageNum
+                                                    }
+                                                >
+                                                    {pageNum}
+                                                </option>
+                                            );
+                                        },
+                                    )}
+                                </select>
+                                <i class="fa-solid fa-chevron-down pagination__select-icon" />
+                            </div>
+                            <span class="pagination__total">
+                                z {page.lastPage}
+                            </span>
                         </div>
-                        <span class="pagination__total">z {page.lastPage}</span>
-                    </div>
 
-                    {page.url.next ? (
-                        <a href={page.url.next} class="pagination__btn pagination__btn--next" aria-label="Następna strona">
-                            Następna <i class="fa-solid fa-chevron-right"></i>
-                        </a>
-                    ) : (
-                        <span class="pagination__btn pagination__btn--disabled">
-                            Następna <i class="fa-solid fa-chevron-right"></i>
-                        </span>
-                    )}
-                </nav>
-            )}
+                        {page.url.next ? (
+                            <a
+                                href={page.url.next}
+                                class="pagination__btn pagination__btn--next"
+                                aria-label="Następna strona"
+                            >
+                                Następna <i class="fa-solid fa-chevron-right" />
+                            </a>
+                        ) : (
+                            <span class="pagination__btn pagination__btn--disabled">
+                                Następna <i class="fa-solid fa-chevron-right" />
+                            </span>
+                        )}
+                    </nav>
+                )
+            }
         </section>
     </main>
 
     <Footer />
-
-    <!-- Floating CTA (Poznaj naszą ofertę cennikową) -->
-    <a href="/cennik" class="floating-cta" aria-label="Poznaj naszą ofertę cennikową">
-        <span>Poznaj naszą ofertę</span>
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
 </Layout>
 
 <style>
@@ -132,7 +160,7 @@ const { page } = Astro.props;
     }
 
     .blog__header h1 {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: clamp(32px, 4.5vw, 54px);
         font-weight: 800;
         color: var(--text-primary);
@@ -230,7 +258,7 @@ const { page } = Astro.props;
         align-items: center;
         gap: 10px;
         color: var(--text-primary);
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-weight: 600;
         font-size: 1rem;
     }
@@ -255,7 +283,7 @@ const { page } = Astro.props;
         border-radius: 10px;
         padding: 8px 36px 8px 16px;
         color: var(--text-primary);
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-weight: 700;
         font-size: 1rem;
         cursor: pointer;
@@ -266,7 +294,8 @@ const { page } = Astro.props;
         min-width: 70px;
     }
 
-    .pagination__select:hover, .pagination__select:focus {
+    .pagination__select:hover,
+    .pagination__select:focus {
         border-color: var(--card-hover-border);
         box-shadow: 0 4px 12px rgba(139, 92, 246, 0.08);
     }
@@ -315,60 +344,6 @@ const { page } = Astro.props;
             justify-content: center;
             padding: 10px 18px;
             font-size: 0.9rem;
-        }
-    }
-
-    /* ==========================================================================
-       FLOATING CTA STYLES (ALWAYS VISIBLE EN ROUTE TO /CENNIK)
-       ========================================================================== */
-    .floating-cta {
-        position: fixed;
-        bottom: 32px;
-        right: 32px;
-        z-index: 999;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 28px;
-        border-radius: 50px;
-        font-family: 'Figtree', sans-serif;
-        font-size: 0.95rem;
-        font-weight: 700;
-        text-decoration: none;
-        color: #fff !important;
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                    box-shadow 0.3s ease, 
-                    background-color 0.3s ease;
-        cursor: pointer;
-    }
-    .floating-cta i {
-        font-size: 0.9rem;
-        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        color: #fff;
-    }
-    .floating-cta:hover {
-        transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-    }
-    .floating-cta:hover i {
-        transform: translateX(4px);
-    }
-    .floating-cta:active {
-        transform: translateY(-2px) scale(0.98);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 600px) {
-        .floating-cta {
-            bottom: 20px;
-            right: 20px;
-            padding: 12px 22px;
-            font-size: 0.88rem;
-            gap: 8px;
         }
     }
 </style>

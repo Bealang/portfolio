@@ -445,18 +445,28 @@
         }
     });
 
-    // Lightweight IntersectionObserver fade-in animation for the form block
-    // to prevent lag on less-performant laptops (no GPU-heavy transform 3D transitions)
+    // Lightweight IntersectionObserver slide-in from right animation for the form block
+    // to prevent lag on less-performant laptops (uses GPU-accelerated transition)
     (function() {
         const formBlock = document.getElementById("kontakt__formularz");
         if (formBlock && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             formBlock.style.opacity = "0";
-            formBlock.style.transition = "opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1)";
+            formBlock.style.transform = "translateX(50px)";
+            formBlock.style.willChange = "transform, opacity";
+            formBlock.style.transition = "opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1)";
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         formBlock.style.opacity = "1";
+                        formBlock.style.transform = "translateX(0)";
+                        // Clean up inline styles once transition is done to free GPU memory and prevent scroll lag
+                        setTimeout(() => {
+                            formBlock.style.opacity = "";
+                            formBlock.style.transform = "";
+                            formBlock.style.transition = "";
+                            formBlock.style.willChange = "";
+                        }, 1200);
                         observer.unobserve(formBlock);
                     }
                 });
