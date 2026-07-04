@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   }));
 }
 
-export async function GET({ props }) {
+export async function GET({ props }: any) {
   const { post } = props;
   
   const markdown = `---

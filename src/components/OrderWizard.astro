@@ -1,0 +1,2435 @@
+---
+// OrderWizard component - Multi-step interactive ordering survey (ankieta)
+---
+
+<section id="order-wizard" class="wizard-section">
+    <!-- PASEK POSTĘPU NA URZĄDZENIACH MOBILNYCH (STICKY) ORAZ DESKTOP -->
+    <div class="wizard-header-progress" id="wizard-progress-bar">
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="global-progress-fill"></div>
+            </div>
+            <div class="progress-bar-info">
+                <span class="progress-step-text" id="global-progress-step-text"
+                    >Przedstaw się nam</span
+                >
+                <span class="progress-percent" id="global-progress-percent"
+                    >Krok 1 z 4</span
+                >
+            </div>
+        </div>
+    </div>
+
+    <div class="wizard-container">
+        <!-- LEWY PANEL: ETAPY (DESKTOP ONLY) -->
+        <aside class="wizard-sidebar">
+            <div class="wizard-steps-list">
+                <!-- KROK 1 -->
+                <button
+                    class="wizard-step-item active"
+                    data-step="1"
+                    type="button"
+                    aria-label="Krok 1: O Tobie"
+                >
+                    <span class="step-num">
+                        <span class="num-text">01</span>
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <div class="step-details">
+                        <span class="step-title">Przedstaw się</span>
+                        <span class="step-desc">Dane podstawowe</span>
+                    </div>
+                </button>
+
+                <!-- KROK 2 -->
+                <button
+                    class="wizard-step-item"
+                    data-step="2"
+                    type="button"
+                    aria-label="Krok 2: Twój projekt"
+                    disabled
+                >
+                    <span class="step-num">
+                        <span class="num-text">02</span>
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <div class="step-details">
+                        <span class="step-title">Twój projekt</span>
+                        <span class="step-desc">Usługa i budżet</span>
+                    </div>
+                </button>
+
+                <!-- KROK 3 -->
+                <button
+                    class="wizard-step-item"
+                    data-step="3"
+                    type="button"
+                    aria-label="Krok 3: O firmie"
+                    disabled
+                >
+                    <span class="step-num">
+                        <span class="num-text">03</span>
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <div class="step-details">
+                        <span class="step-title">Twój biznes</span>
+                        <span class="step-desc">Branża i zakres</span>
+                    </div>
+                </button>
+
+                <!-- KROK 4 -->
+                <button
+                    class="wizard-step-item"
+                    data-step="4"
+                    type="button"
+                    aria-label="Krok 4: Kontakt"
+                    disabled
+                >
+                    <span class="step-num">
+                        <span class="num-text">04</span>
+                        <i class="fa-solid fa-check check-icon"></i>
+                    </span>
+                    <div class="step-details">
+                        <span class="step-title">Kontakt</span>
+                        <span class="step-desc">Finalizacja</span>
+                    </div>
+                </button>
+            </div>
+        </aside>
+
+        <!-- PRAWY PANEL: FORMULARZ Z KARTAMI -->
+        <div class="wizard-form-wrapper">
+            <form id="wizard-form" novalidate>
+                <!-- KROK 1 PANEL -->
+                <div class="wizard-panel active" data-panel="1">
+                    <div class="panel-header">
+                        <h2>
+                            Przedstaw się <span class="gradient__text">nam</span
+                            >
+                        </h2>
+                        <p>
+                            Zaczynamy! Powiedz nam, jak się nazywasz i dla kogo
+                            będziemy tworzyć projekt.
+                        </p>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form__group">
+                            <label for="imie" class="wizard-label">
+                                Imię i Nazwisko <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input
+                                    type="text"
+                                    id="imie"
+                                    name="imie"
+                                    placeholder="np. Jan Kowalski"
+                                    autocomplete="name"
+                                />
+                            </div>
+                            <span class="form__error" id="imie__error"></span>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="firma" class="wizard-label">
+                                Pełna nazwa firmy (KRS/CEIDG) <span
+                                    class="optional">(opcjonalnie)</span
+                                >
+                            </label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-building input-icon"></i>
+                                <input
+                                    type="text"
+                                    id="firma"
+                                    name="firma"
+                                    placeholder="Nazwa firmy lub NIP"
+                                />
+                            </div>
+                            <span class="form__error" id="firma__error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KROK 2 PANEL -->
+                <div class="wizard-panel" data-panel="2">
+                    <div class="panel-header">
+                        <h2>
+                            Szczegóły <span class="gradient__text">usługi</span>
+                        </h2>
+                        <p>
+                            Wybierz najbardziej odpowiadający Ci pakiet oraz
+                            określ swój budżet.
+                        </p>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form__group">
+                            <label class="wizard-label">
+                                Wybierz wstępną usługę <span class="required"
+                                    >*</span
+                                >
+                            </label>
+
+                            <!-- UKRYTY SELECT DLA ZGODNOŚCI Z PRZESYŁANIEM -->
+                            <select
+                                id="usluga"
+                                name="usluga"
+                                style="display: none;"
+                            >
+                                <option
+                                    value="Nie wiem. Chcę to ustalić"
+                                    selected>Nie wiem. Chcę to ustalić</option
+                                >
+                                <option value="OnePage (Szybki start w sieci)"
+                                    >OnePage (Szybki start w sieci)</option
+                                >
+                                <option
+                                    value="Wizytówka Multi-Page (Budowa autorytetu)"
+                                    >Wizytówka Multi-Page (Budowa autorytetu)</option
+                                >
+                                <option
+                                    value="Wizytówka + CMS (Dynamiczne treści)"
+                                    >Wizytówka + CMS (Dynamiczne treści)</option
+                                >
+                                <option
+                                    value='System Dedykowany (Rozwiązania "Full Custom")'
+                                    >System Dedykowany (Rozwiązania "Full
+                                    Custom")</option
+                                >
+                                <option value="Potrzebuję pomocy doradcy"
+                                    >Potrzebuję pomocy doradcy</option
+                                >
+                            </select>
+
+                            <!-- WIZUALNE KAFELKI -->
+                            <div class="service-tiles-grid">
+                                <!-- OnePage -->
+                                <div
+                                    class="service-tile"
+                                    data-value="OnePage (Szybki start w sieci)"
+                                >
+                                    <div class="tile-header">
+                                        <span class="tile-title">OnePage</span>
+                                        <span class="tile-badge"
+                                            >od 1000 zł</span
+                                        >
+                                    </div>
+                                    <p class="tile-desc">
+                                        Szybka i prosta jednostronicowa
+                                        wizytówka. Doskonała dla jednoosobowych
+                                        działalności, freelancerów czy małych
+                                        firm. Znajduje się na niej wszystko, co
+                                        niezbędne, by skutecznie zaprezentować
+                                        ofertę i zdobyć pierwszych klientów z
+                                        Google.
+                                    </p>
+                                    <div class="tile-select-indicator">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+
+                                <!-- MultiPage -->
+                                <div
+                                    class="service-tile"
+                                    data-value="Wizytówka Multi-Page (Budowa autorytetu)"
+                                >
+                                    <div class="tile-header">
+                                        <span class="tile-title"
+                                            >Multi-Page</span
+                                        >
+                                        <span class="tile-badge"
+                                            >od 1500 zł</span
+                                        >
+                                    </div>
+                                    <p class="tile-desc">
+                                        Pełnoprawna strona internetowa
+                                        podzielona na kilka dedykowanych
+                                        podstron (o nas, oferta, galeria,
+                                        kontakt). Idealna dla firm, które chcą
+                                        zbudować silniejszą pozycję w Google i
+                                        zaoferować klientom bardziej rozbudowaną
+                                        prezentację swojej oferty niż Onepage.
+                                    </p>
+                                    <div class="tile-select-indicator">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Wizytówka + CMS -->
+                                <div
+                                    class="service-tile"
+                                    data-value="Wizytówka + CMS (Dynamiczne treści)"
+                                >
+                                    <div class="tile-header">
+                                        <span class="tile-title"
+                                            >Wizytówka + CMS</span
+                                        >
+                                        <span class="tile-badge"
+                                            >od 2500 zł</span
+                                        >
+                                    </div>
+                                    <p class="tile-desc">
+                                        Strona z autorskim, panel
+                                        administracyjnym. Samodzielnie i
+                                        błyskawicznie edytujesz ofertę,
+                                        portfolio czy bloga bez pisania kodu. To
+                                        doskonały wybór dla firm, które chcą
+                                        mieć pełną kontrolę nad swoją stroną i
+                                        regularnie aktualizować treści.
+                                    </p>
+                                    <div class="tile-select-indicator">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+
+                                <!-- System Dedykowany -->
+                                <div
+                                    class="service-tile"
+                                    data-value='System Dedykowany (Rozwiązania "Full Custom")'
+                                >
+                                    <div class="tile-header">
+                                        <span class="tile-title"
+                                            >System Dedykowany</span
+                                        >
+                                        <span class="tile-badge"
+                                            >od 4000 zł</span
+                                        >
+                                    </div>
+                                    <p class="tile-desc">
+                                        Dedykowane rozwiązanie dla najbardziej
+                                        wymagających klientów. Strona idealnie
+                                        dopasowana do potrzeb Twojego biznesu, z
+                                        rozbudowanymi funkcjonalnościami
+                                        (rezerwacje, interaktywne cenniki,
+                                        integracje z systemami zewnętrznymi).
+                                    </p>
+                                    <div class="tile-select-indicator">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Pomoc doradcy -->
+                                <div
+                                    class="service-tile"
+                                    data-value="Potrzebuję pomocy doradcy"
+                                >
+                                    <div class="tile-header">
+                                        <span class="tile-title"
+                                            >Potrzebuję pomocy doradcy</span
+                                        >
+                                        <span class="tile-badge font-normal"
+                                            >Konsultacja</span
+                                        >
+                                    </div>
+                                    <p class="tile-desc">
+                                        Wybierz tę opcję, jeśli nie jesteś
+                                        pewien, który pakiet będzie najlepszy
+                                        dla Twojej firmy. Jesteśmy w stanie po
+                                        krótkiej rozmowie wspólnie dobrać
+                                        optymalne i dopasowane dla Ciebie
+                                        rozwiązanie.
+                                    </p>
+                                    <div class="tile-select-indicator">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="form__error" id="usluga__error"></span>
+                        </div>
+
+                        <!-- BUDŻET Z WYBOREM WALUTY -->
+                        <div class="form__group">
+                            <label for="budzet_kwota" class="wizard-label">
+                                Twój budżet <span class="required">*</span>
+                            </label>
+
+                            <!-- Ukryte pole na ostateczną wartość przesyłaną -->
+                            <input
+                                type="hidden"
+                                id="budzet"
+                                name="budzet"
+                                value=""
+                            />
+
+                            <div class="budget-input-group">
+                                <div class="number-input-wrapper">
+                                    <i class="fa-solid fa-wallet input-icon"
+                                    ></i>
+                                    <input
+                                        type="number"
+                                        id="budzet_kwota"
+                                        name="budzet_kwota"
+                                        placeholder="np. 2500"
+                                        min="1000"
+                                    />
+                                </div>
+                                <select
+                                    id="waluta"
+                                    name="waluta"
+                                    class="currency-select"
+                                    aria-label="Waluta"
+                                >
+                                    <option value="zł">zł (PLN)</option>
+                                    <option value="EUR">EUR (€)</option>
+                                </select>
+                            </div>
+                            <p class="budget-tip">
+                                Minimalny budżet projektu to 1000 zł / EUR.
+                            </p>
+                            <span class="form__error" id="budzet_kwota__error"
+                            ></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KROK 3 PANEL -->
+                <div class="wizard-panel" data-panel="3">
+                    <div class="panel-header">
+                        <h2>
+                            O Twoim <span class="gradient__text">biznesie</span>
+                        </h2>
+                        <p>
+                            Przybliż nam specyfikę swojej działalności, co
+                            pozwoli nam lepiej dopasować ofertę.
+                        </p>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form__group">
+                            <label for="branza" class="wizard-label">
+                                Branża Twojej firmy <span class="required"
+                                    >*</span
+                                >
+                            </label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-tags input-icon"></i>
+                                <input
+                                    type="text"
+                                    id="branza"
+                                    name="branza"
+                                    placeholder="np. Budownictwo, Kosmetyka, Gastronomia, Prawo"
+                                />
+                            </div>
+                            <span class="form__error" id="branza__error"></span>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="opis_firmy" class="wizard-label">
+                                Krótki opis czym zajmuje się firma <span
+                                    class="required">*</span
+                                >
+                            </label>
+                            <textarea
+                                id="opis_firmy"
+                                name="opis_firmy"
+                                placeholder="Napisz krótko czym zajmuje się Twoja firma, jakie usługi świadczysz i kto jest Twoim głównym klientem..."
+                            ></textarea>
+                            <span class="form__error" id="opis_firmy__error"
+                            ></span>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="zakres_strony" class="wizard-label">
+                                Co chcesz aby znalazło się na stronie
+                                internetowej? <span class="required">*</span>
+                            </label>
+                            <textarea
+                                id="zakres_strony"
+                                name="zakres_strony"
+                                placeholder="np. podstrona z galerią, formularz kontaktowy, integracja z mapą Google, cennik usług, blog..."
+                            ></textarea>
+                            <span class="form__error" id="zakres_strony__error"
+                            ></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KROK 4 PANEL -->
+                <div class="wizard-panel" data-panel="4">
+                    <div class="panel-header">
+                        <h2>
+                            Dane <span class="gradient__text">kontaktowe</span>
+                        </h2>
+                        <p>
+                            To już ostatni krok! Podaj nam kontakt do siebie,
+                            abyśmy mogli przesłać gotową wycenę.
+                        </p>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="contact-validation-notice">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span
+                                >Wymagane jest podanie przynajmniej jednej z
+                                poniższych form kontaktu (Telefon lub E-mail).</span
+                            >
+                        </div>
+
+                        <div class="form__grid-2">
+                            <div class="form__group">
+                                <label for="telefon" class="wizard-label"
+                                    >Telefon</label
+                                >
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input
+                                        type="tel"
+                                        id="telefon"
+                                        name="telefon"
+                                        placeholder="np. +48 123 456 789"
+                                        autocomplete="tel"
+                                    />
+                                </div>
+                                <span class="form__error" id="telefon__error"
+                                ></span>
+                            </div>
+
+                            <div class="form__group">
+                                <label for="email" class="wizard-label"
+                                    >Adres e-mail</label
+                                >
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-envelope input-icon"
+                                    ></i>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="np. twoj@email.com"
+                                        autocomplete="email"
+                                    />
+                                </div>
+                                <span class="form__error" id="email__error"
+                                ></span>
+                            </div>
+                        </div>
+
+                        <div class="form__group rodo__group">
+                            <label class="rodo__label">
+                                <input
+                                    type="checkbox"
+                                    id="rodo"
+                                    name="rodo"
+                                    required
+                                />
+                                <span class="rodo__checkmark"></span>
+                                <span class="rodo__text">
+                                    Wyrażam zgodę na przetwarzanie moich danych
+                                    osobowych w celu udzielenia odpowiedzi na
+                                    zapytanie.
+                                    <a href="/polityka" target="_blank"
+                                        >Polityka prywatności</a
+                                    >
+                                </span>
+                            </label>
+                            <span class="form__error" id="rodo__error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STOPKA WIZARDA - NAWIGACJA -->
+                <div class="wizard-footer">
+                    <button
+                        type="button"
+                        id="prev-btn"
+                        class="wizard-btn btn-secondary"
+                        style="display: none;"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i> Powrót
+                    </button>
+
+                    <button
+                        type="button"
+                        id="next-btn"
+                        class="wizard-btn btn-primary"
+                    >
+                        Dalej <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="submit-btn"
+                        class="wizard-btn btn-submit"
+                        style="display: none;"
+                    >
+                        <span class="btn__text">Wyślij zapytanie</span>
+                        <i class="fa-solid fa-paper-plane btn__icon"></i>
+                        <span class="btn__loading" style="display:none;">
+                            <i class="fa-solid fa-spinner fa-spin"></i> Wysyłanie...
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- POWIADOMIENIE (SUCCESS / ERROR) -->
+    <div
+        id="form__notification"
+        class="form__notification"
+        style="display:none;"
+    >
+        <i class="notification__icon"></i>
+        <span class="notification__text"></span>
+    </div>
+
+    <!-- ERROR EMAIL POPUP -->
+    <div id="email-error-popup" class="email-error-popup">
+        <div class="email-error-content">
+            <button
+                class="email-error-close"
+                id="email-error-close"
+                aria-label="Zamknij popup"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="email-error-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3>Wystąpił błąd!</h3>
+            <p>
+                Niestety wystąpił błąd przy wysyłaniu maila. Wyślij do nas maila
+                klikając przycisk niżej. Wszystkie dane zostaną automatycznie
+                uzupełnione.
+            </p>
+            <a
+                href="#"
+                id="email-error-mailto-btn"
+                class="wizard-btn btn-primary"
+                >Otwórz email <i class="fa-solid fa-envelope"></i></a
+            >
+        </div>
+    </div>
+</section>
+
+<style>
+    /* ==========================================================================
+       GŁÓWNE STYLE STRUKTURALNE WIZARDA
+       ========================================================================== */
+    .wizard-section {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        box-sizing: border-box;
+    }
+
+    .wizard-container {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 48px;
+        align-items: start;
+        width: 100%;
+    }
+
+    /* ==========================================================================
+       GLOBALNY PASEK POSTĘPU (WIDOCZNY ZAWSZE NA GÓRZE)
+       ========================================================================== */
+    .wizard-header-progress {
+        width: 100%;
+        margin-bottom: 32px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 18px 24px;
+        box-sizing: border-box;
+        box-shadow: var(--glass-shadow);
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+    }
+
+    .progress-bar-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .progress-bar-container {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    html[data-theme="light"] .progress-bar-container {
+        background: rgba(0, 0, 0, 0.06);
+    }
+
+    .progress-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(
+            90deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
+        transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.35);
+    }
+
+    .progress-bar-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .progress-step-text {
+        color: var(--text-primary);
+    }
+
+    .progress-percent {
+        color: var(--accent-blue);
+    }
+
+    /* ==========================================================================
+       LEWY PANEL - ETAPY (DESKTOP)
+       ========================================================================== */
+    .wizard-sidebar {
+        position: sticky;
+        top: 100px;
+        display: flex;
+        gap: 20px;
+        padding-left: 0;
+        user-select: none;
+    }
+
+    .wizard-progress-track {
+        display: none !important;
+    }
+
+    .progress-track-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background: linear-gradient(
+            to bottom,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
+        transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+    }
+
+    .wizard-steps-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
+    }
+
+    .wizard-step-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        cursor: pointer;
+        width: 100%;
+        color: inherit;
+        font-family: inherit;
+        transition: var(--transition-smooth);
+    }
+
+    .wizard-step-item:disabled {
+        cursor: not-allowed;
+    }
+
+    .step-num {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 14px;
+        position: relative;
+        background: var(--bg-color);
+        transition: var(--transition-smooth);
+        z-index: 2;
+        color: var(--text-secondary);
+    }
+
+    html[data-theme="light"] .step-num {
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .step-num .check-icon {
+        display: none;
+        font-size: 12px;
+        color: #ffffff;
+    }
+
+    .step-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .step-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        transition: var(--transition-smooth);
+    }
+
+    .step-desc {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        transition: var(--transition-smooth);
+    }
+
+    html[data-theme="light"] .step-desc {
+        color: rgba(0, 0, 0, 0.45);
+    }
+
+    /* Stany etapów */
+    .wizard-step-item.active .step-num {
+        border-color: transparent;
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
+        color: #ffffff;
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.35);
+    }
+
+    .wizard-step-item.active .step-title {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+
+    .wizard-step-item.active .step-desc {
+        color: var(--accent-blue);
+    }
+
+    .wizard-step-item.completed .step-num {
+        background: #10b981;
+        border-color: #10b981;
+        color: #ffffff;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+    }
+
+    .wizard-step-item.completed .num-text {
+        display: none;
+    }
+
+    .wizard-step-item.completed .check-icon {
+        display: block;
+    }
+
+    .wizard-step-item.completed .step-title {
+        color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       PRAWY PANEL - KARTA FORMULARZA
+       ========================================================================== */
+    .wizard-form-wrapper {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: var(--glass-shadow);
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        position: relative;
+        overflow: hidden;
+    }
+
+    html[data-theme="light"] .wizard-form-wrapper {
+        background: rgba(255, 255, 255, 0.846) !important;
+    }
+
+    .wizard-panel {
+        display: none;
+        opacity: 0;
+        transform: translateX(20px);
+        transition:
+            opacity 0.4s ease,
+            transform 0.4s ease;
+    }
+
+    .wizard-panel.active {
+        display: block;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Nagłówek panelu */
+    .panel-header {
+        margin-bottom: 32px;
+    }
+
+    .panel-header h2 {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+    }
+
+    .panel-header p {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    .wizard-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .wizard-label .required {
+        color: #ef4444;
+        margin-left: 2px;
+    }
+
+    .wizard-label .optional {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.4);
+        margin-left: 4px;
+    }
+
+    html[data-theme="light"] .wizard-label .optional {
+        color: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Pola wprowadzania danych */
+    .input-wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    .input-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 15px;
+        pointer-events: none;
+        transition: var(--transition-smooth);
+    }
+
+    html[data-theme="light"] .input-icon {
+        color: rgba(0, 0, 0, 0.35);
+    }
+
+    .input-wrapper input {
+        width: 100%;
+        padding: 14px 16px 14px 44px;
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 15px;
+        box-sizing: border-box;
+        transition: var(--transition-smooth);
+    }
+
+    .input-wrapper input:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+    }
+
+    .input-wrapper input:focus + .input-icon {
+        color: var(--accent-blue);
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 120px;
+        padding: 14px 16px;
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 15px;
+        resize: vertical;
+        box-sizing: border-box;
+        transition: var(--transition-smooth);
+    }
+
+    textarea:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+    }
+
+    /* Kafelki usług */
+    .service-tiles-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 12px;
+        margin-bottom: 24px;
+        max-height: 380px;
+        overflow-y: auto;
+        padding-right: 8px;
+    }
+
+    /* Custom Scrollbar */
+    .service-tiles-grid::-webkit-scrollbar {
+        width: 6px;
+    }
+    .service-tiles-grid::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+    }
+    html[data-theme="light"] .service-tiles-grid::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.02);
+    }
+    .service-tiles-grid::-webkit-scrollbar-thumb {
+        background: rgba(139, 92, 246, 0.3);
+        border-radius: 10px;
+    }
+    .service-tiles-grid::-webkit-scrollbar-thumb:hover {
+        background: rgba(139, 92, 246, 0.5);
+    }
+
+    .service-tile {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: var(--transition-smooth);
+    }
+
+    html[data-theme="light"] .service-tile {
+        background: rgba(0, 0, 0, 0.01);
+    }
+
+    .service-tile:hover {
+        border-color: var(--card-hover-border);
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    html[data-theme="light"] .service-tile:hover {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    .service-tile.selected {
+        border-color: var(--accent-blue);
+        background: rgba(139, 92, 246, 0.05);
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.1);
+    }
+
+    .tile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .tile-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .tile-badge {
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 10px;
+        background: rgba(139, 92, 246, 0.15);
+        color: var(--accent-blue);
+        border-radius: 40px;
+    }
+
+    .tile-desc {
+        font-size: 13.5px;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        margin: 0;
+        padding-right: 24px;
+        text-align: left;
+    }
+
+    .tile-select-indicator {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+    }
+
+    html[data-theme="light"] .tile-select-indicator {
+        border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .tile-select-indicator i {
+        font-size: 10px;
+        color: #ffffff;
+        opacity: 0;
+        transition: var(--transition-smooth);
+    }
+
+    .service-tile.selected .tile-select-indicator {
+        background: var(--accent-blue);
+        border-color: var(--accent-blue);
+    }
+
+    .service-tile.selected .tile-select-indicator i {
+        opacity: 1;
+    }
+
+    /* Budżet - Stylizacja pola z walutą */
+    .budget-input-group {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin-top: 12px;
+        position: relative;
+    }
+
+    .budget-input-group .number-input-wrapper {
+        position: relative;
+        flex-grow: 1;
+    }
+
+    .budget-input-group .number-input-wrapper input {
+        width: 100%;
+        padding: 14px 16px 14px 44px;
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 15px;
+        box-sizing: border-box;
+        transition: var(--transition-smooth);
+    }
+
+    .budget-input-group .number-input-wrapper input:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+        z-index: 2;
+    }
+
+    .budget-input-group .number-input-wrapper input:focus + .input-icon {
+        color: var(--accent-blue);
+    }
+
+    .budget-input-group .currency-select {
+        padding: 0 16px;
+        background: var(--input-bg);
+        border: 1px solid var(--input-border);
+        border-left: none;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        box-sizing: border-box;
+        transition: var(--transition-smooth);
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        background-size: 10px;
+        padding-right: 32px;
+    }
+
+    html[data-theme="dark"] .budget-input-group .currency-select {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    }
+
+    html[data-theme="light"] .budget-input-group .currency-select {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    }
+
+    .budget-input-group .currency-select:focus {
+        border-color: var(--accent-blue);
+        z-index: 2;
+    }
+
+    .budget-tip {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 6px;
+        margin-bottom: 0;
+    }
+
+    html[data-theme="light"] .budget-tip {
+        color: rgba(0, 0, 0, 0.45);
+    }
+
+    /* Błędy formularza */
+    .form__error {
+        display: block;
+        color: #ef4444;
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 6px;
+        opacity: 0;
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .form__error.visible {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+        margin-top: 6px;
+    }
+
+    .input--error {
+        border-color: #ef4444 !important;
+        background: rgba(239, 68, 68, 0.03) !important;
+    }
+
+    .input--error:focus {
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.15) !important;
+    }
+
+    /* Komunikat o walidacji telefonu/maila */
+    .contact-validation-notice {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: rgba(139, 92, 246, 0.06);
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        border-radius: 12px;
+        padding: 12px 16px;
+        margin-bottom: 24px;
+        font-size: 13.5px;
+        color: var(--text-secondary);
+        line-height: 1.45;
+    }
+
+    .contact-validation-notice i {
+        color: var(--accent-blue);
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    /* Siatki formularza */
+    .form__grid-2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 24px;
+    }
+
+    @media (min-width: 640px) {
+        .form__grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* RODO */
+    .rodo__group {
+        margin-top: 24px;
+    }
+
+    .rodo__label {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .rodo__label input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .rodo__checkmark {
+        position: relative;
+        height: 20px;
+        width: 20px;
+        background-color: var(--input-bg);
+        border: 1px solid var(--input-border);
+        border-radius: 6px;
+        transition: var(--transition-smooth);
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    .rodo__label:hover input ~ .rodo__checkmark {
+        border-color: var(--accent-blue);
+    }
+
+    .rodo__label input:checked ~ .rodo__checkmark {
+        background-color: var(--accent-blue);
+        border-color: var(--accent-blue);
+    }
+
+    .rodo__checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .rodo__label input:checked ~ .rodo__checkmark:after {
+        display: block;
+    }
+
+    .rodo__label .rodo__checkmark:after {
+        left: 7px;
+        top: 3px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    .rodo__text {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    .rodo__text a {
+        color: var(--accent-blue);
+        text-decoration: underline;
+        transition: var(--transition-smooth);
+    }
+
+    .rodo__text a:hover {
+        color: var(--accent-blue-hover);
+    }
+
+    /* ==========================================================================
+       NAWIGACJA / STOPKA WIZARDA
+       ========================================================================== */
+    .wizard-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    html[data-theme="light"] .wizard-footer {
+        border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .wizard-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 28px;
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        box-sizing: border-box;
+    }
+
+    .btn-secondary {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: var(--text-primary);
+    }
+
+    html[data-theme="light"] .btn-secondary {
+        border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    html[data-theme="light"] .btn-secondary:hover {
+        background: rgba(0, 0, 0, 0.03);
+        border-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-primary,
+    .btn-submit {
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
+        border: none;
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+    }
+
+    .btn-primary:hover,
+    .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.35);
+    }
+
+    .btn-primary:active,
+    .btn-submit:active {
+        transform: translateY(0);
+    }
+
+    .btn-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none !important;
+    }
+
+    /* Powiadomienia */
+    .form__notification {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 24px;
+        border-radius: 16px;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: notificationSlideIn 0.4s
+            cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form__notification.success {
+        background: rgba(16, 185, 129, 0.95);
+    }
+
+    .form__notification.error {
+        background: rgba(239, 68, 68, 0.95);
+    }
+
+    @keyframes notificationSlideIn {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* ==========================================================================
+       RESPONSYWNOŚĆ (TABLET & SMARTFON)
+       ========================================================================== */
+    @media (max-width: 1023px) {
+        .wizard-container {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        /* Ukrywamy stary sidebar kroków (kółka) na mobile */
+        .wizard-sidebar {
+            display: none !important;
+        }
+
+        /* Na mobile pasek staje się cieniutką linią przyczepioną bezpośrednio pod headerem */
+        .wizard-header-progress {
+            position: fixed;
+            top: 70px; /* nadpisane dynamicznie przez JS */
+            left: 0;
+            width: 100%;
+            height: 4px;
+            padding: 0;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            z-index: 9998;
+        }
+
+        .wizard-header-progress .progress-bar-wrapper {
+            gap: 0;
+            height: 100%;
+        }
+
+        .wizard-header-progress .progress-bar-container {
+            height: 100%;
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        html[data-theme="light"]
+            .wizard-header-progress
+            .progress-bar-container {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .wizard-header-progress .progress-bar-fill {
+            border-radius: 0;
+            box-shadow: 0 1px 4px rgba(139, 92, 246, 0.5);
+        }
+
+        .wizard-header-progress .progress-bar-info {
+            display: none !important;
+        }
+
+        .wizard-form-wrapper {
+            padding: 24px;
+        }
+
+        .panel-header h2 {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .wizard-section {
+            padding: 20px 12px;
+        }
+
+        .wizard-header-progress {
+            margin: 0;
+            width: 100%;
+            padding: 0;
+        }
+
+        .wizard-form-wrapper {
+            padding: 20px 16px;
+        }
+
+        .panel-header h2 {
+            font-size: 22px;
+        }
+
+        .wizard-btn {
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+    }
+
+</style>
+
+<style is:global>
+    /* ==========================================================================
+       EMAIL ERROR POPUP
+       ========================================================================== */
+    .email-error-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(15, 15, 20, 0.7);
+        backdrop-filter: blur(8px);
+        z-index: 10000000;
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: auto;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .email-error-popup.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .email-error-content {
+        background: var(--bg-card, #1a1a1a);
+        border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+        border-radius: 24px;
+        padding: 48px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        margin: 10vh auto;
+    }
+
+    html[data-theme="light"] .email-error-content {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .email-error-popup.active .email-error-content {
+        transform: translateY(0);
+    }
+
+    .email-error-close {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-primary, #fff);
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    html[data-theme="light"] .email-error-close {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: var(--text-primary, #000);
+    }
+
+    .email-error-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.05);
+    }
+
+    html[data-theme="light"] .email-error-close:hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .email-error-icon {
+        font-size: 48px;
+        color: #ff4757;
+        margin-bottom: 24px;
+    }
+
+    .email-error-content h3 {
+        font-size: 28px;
+        margin-bottom: 16px;
+        color: var(--text-primary, #fff);
+    }
+
+    .email-error-content p {
+        color: var(--text-secondary, #a0a0a0);
+        margin-bottom: 32px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    #email-error-mailto-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        text-decoration: none;
+        padding: 16px 24px;
+        font-size: 16px;
+        border-radius: 50px;
+    }
+
+    @media (max-width: 768px) {
+        .email-error-content {
+            padding: 32px 24px;
+        }
+        .email-error-close {
+            top: 16px;
+            left: 16px;
+        }
+    }
+</style>
+
+<script>
+    // ============================================================
+    // EMAILJS KONFIGURACJA & Dynamic Loader
+    // ============================================================
+    const EMAILJS_PUBLIC_KEY = "S";
+    const EMAILJS_SERVICE_ID = "service_dnkrj6g";
+    const EMAILJS_TEMPLATE_ID = "template_h5b0n9s";
+
+    let emailjsLoaded = false;
+    let loadingPromise: Promise<void> | null = null;
+
+    function loadEmailJS(): Promise<void> {
+        if (emailjsLoaded) return Promise.resolve();
+        if (loadingPromise) return loadingPromise;
+
+        loadingPromise = new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src =
+                "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+            script.async = true;
+            script.onload = () => {
+                emailjsLoaded = true;
+                if ((window as any).emailjs) {
+                    (window as any).emailjs.init({
+                        publicKey: EMAILJS_PUBLIC_KEY,
+                    });
+                }
+                resolve();
+            };
+            script.onerror = () => {
+                loadingPromise = null;
+                reject(
+                    new Error("Nie udało się załadować biblioteki EmailJS."),
+                );
+            };
+            document.body.appendChild(script);
+        });
+
+        return loadingPromise;
+    }
+
+    // ─── Elementy DOM Wizarda ────────────────────────────────────
+    const form = document.getElementById(
+        "wizard-form",
+    ) as HTMLFormElement | null;
+    const stepItems = document.querySelectorAll(".wizard-step-item");
+    const panels = document.querySelectorAll(".wizard-panel");
+
+    // Paski postępu
+    const progressFill = document.getElementById("progress-fill");
+    const globalProgressFill = document.getElementById("global-progress-fill");
+    const globalProgressStepText = document.getElementById(
+        "global-progress-step-text",
+    );
+    const globalProgressPercent = document.getElementById(
+        "global-progress-percent",
+    );
+
+    // Przyciski nawigacyjne
+    const prevBtn = document.getElementById(
+        "prev-btn",
+    ) as HTMLButtonElement | null;
+    const nextBtn = document.getElementById(
+        "next-btn",
+    ) as HTMLButtonElement | null;
+    const submitBtn = document.getElementById(
+        "submit-btn",
+    ) as HTMLButtonElement | null;
+
+    // Pola formularza
+    const inputUsluga = document.getElementById(
+        "usluga",
+    ) as HTMLSelectElement | null;
+    const inputBudzet = document.getElementById(
+        "budzet",
+    ) as HTMLInputElement | null;
+    const budzetKwotaEl = document.getElementById(
+        "budzet_kwota",
+    ) as HTMLInputElement | null;
+    const walutaEl = document.getElementById(
+        "waluta",
+    ) as HTMLSelectElement | null;
+
+    // Powiadomienie
+    const notification = document.getElementById(
+        "form__notification",
+    ) as HTMLElement | null;
+
+    let currentStep = 1;
+    const totalSteps = 4;
+    let maxStepReached = 1;
+
+    // Krok po kroku tytuły
+    const stepNames = [
+        "Przedstaw się nam",
+        "Wybierz usługę i budżet",
+        "Opisz swój biznes",
+        "Dane kontaktowe",
+    ];
+
+    // Load EmailJS dynamically when user interacts with form
+    if (form) {
+        const triggerLoad = () => {
+            loadEmailJS().catch((err) =>
+                console.error("EmailJS lazy load error:", err),
+            );
+            form.removeEventListener("focusin", triggerLoad);
+            form.removeEventListener("mouseenter", triggerLoad);
+            form.removeEventListener("touchstart", triggerLoad);
+        };
+        form.addEventListener("focusin", triggerLoad, { passive: true });
+        form.addEventListener("mouseenter", triggerLoad, { passive: true });
+        form.addEventListener("touchstart", triggerLoad, { passive: true });
+    }
+
+    // ============================================================
+    // DYNAMICZNE ELEMENTY WIZARDU: KAFELKI I WALUTA
+    // ============================================================
+
+    // Kafelki usług
+    const serviceTiles = document.querySelectorAll(".service-tile");
+    serviceTiles.forEach((tile) => {
+        tile.addEventListener("click", () => {
+            serviceTiles.forEach((t) => t.classList.remove("selected"));
+            tile.classList.add("selected");
+
+            const value = tile.getAttribute("data-value");
+            if (inputUsluga && value) {
+                inputUsluga.value = value;
+                clearError("usluga");
+            }
+        });
+    });
+
+    // Auto-wybór pakietu na podstawie parametru z URL (?pakiet=...)
+    (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pakiet = urlParams.get("pakiet");
+        if (pakiet && inputUsluga) {
+            let matchedValue = "";
+            if (pakiet === "onepage") {
+                matchedValue = "OnePage (Szybki start w sieci)";
+            } else if (pakiet === "multipage") {
+                matchedValue = "Wizytówka Multi-Page (Budowa autorytetu)";
+            } else if (pakiet === "cms") {
+                matchedValue = "Wizytówka + CMS (Dynamiczne treści)";
+            } else if (pakiet === "system") {
+                matchedValue = 'System Dedykowany (Rozwiązania "Full Custom")';
+            }
+
+            if (matchedValue) {
+                inputUsluga.value = matchedValue;
+                const activeTile = document.querySelector(
+                    `.service-tile[data-value="${matchedValue}"]`,
+                );
+                if (activeTile) {
+                    serviceTiles.forEach((t) => t.classList.remove("selected"));
+                    activeTile.classList.add("selected");
+                }
+            }
+        } else {
+            // Domyślnie zaznacz "Potrzebuję pomocy doradcy"
+            const defaultTile = document.querySelector(
+                '.service-tile[data-value="Potrzebuję pomocy doradcy"]',
+            );
+            if (defaultTile && inputUsluga) {
+                defaultTile.classList.add("selected");
+                inputUsluga.value = "Potrzebuję pomocy doradcy";
+            }
+        }
+    })();
+
+    // Czyszczenie błędów przy zmianie budżetu lub waluty
+    if (budzetKwotaEl) {
+        budzetKwotaEl.addEventListener("input", () =>
+            clearError("budzet_kwota"),
+        );
+    }
+    if (walutaEl) {
+        walutaEl.addEventListener("change", () => clearError("budzet_kwota"));
+    }
+
+    // ============================================================
+    // WALIDACJA I ZARZĄDZANIE KROKAMI
+    // ============================================================
+
+    function showError(fieldId: string, message: string) {
+        const el = document.getElementById(fieldId + "__error");
+        const input =
+            document.getElementById(fieldId) ||
+            document.querySelector('[name="' + fieldId + '"]');
+        if (el) {
+            el.textContent = message;
+            el.classList.add("visible");
+        }
+        if (input) input.classList.add("input--error");
+    }
+
+    function clearError(fieldId: string) {
+        const el = document.getElementById(fieldId + "__error");
+        const input =
+            document.getElementById(fieldId) ||
+            document.querySelector('[name="' + fieldId + '"]');
+        if (el) {
+            el.textContent = "";
+            el.classList.remove("visible");
+        }
+        if (input) input.classList.remove("input--error");
+    }
+
+    // Walidacja konkretnego kroku
+    function validateStep(step: number): boolean {
+        let valid = true;
+
+        if (step === 1) {
+            const imieEl = document.getElementById(
+                "imie",
+            ) as HTMLInputElement | null;
+            const imie = imieEl ? imieEl.value.trim() : "";
+            if (!imie) {
+                showError("imie", "Imię i nazwisko są wymagane.");
+                valid = false;
+            } else if (imie.split(" ").filter(Boolean).length < 2) {
+                showError("imie", "Proszę podać imię oraz nazwisko.");
+                valid = false;
+            } else {
+                clearError("imie");
+            }
+        }
+
+        if (step === 2) {
+            // Wstępna usługa
+            if (inputUsluga && !inputUsluga.value) {
+                showError("usluga", "Proszę wybrać wstępną usługę.");
+                valid = false;
+            } else {
+                clearError("usluga");
+            }
+
+            // Budżet numeryczny, minimalnie 1000
+            const budzetKwotaVal = budzetKwotaEl
+                ? budzetKwotaEl.value.trim()
+                : "";
+            const walutaVal = walutaEl ? walutaEl.value : "zł";
+
+            if (!budzetKwotaVal) {
+                showError("budzet_kwota", "Proszę wpisać kwotę budżetu.");
+                valid = false;
+            } else {
+                const kwotaNum = parseFloat(budzetKwotaVal);
+                if (isNaN(kwotaNum) || kwotaNum < 1000) {
+                    showError(
+                        "budzet_kwota",
+                        "Minimalny budżet projektu to 1000 zł / EUR.",
+                    );
+                    valid = false;
+                } else {
+                    clearError("budzet_kwota");
+                    if (inputBudzet) {
+                        // Aktualizacja ukrytego pola na wartość łączną
+                        inputBudzet.value = `${kwotaNum} ${walutaVal}`;
+                    }
+                }
+            }
+        }
+
+        if (step === 3) {
+            // Branża
+            const branzaEl = document.getElementById(
+                "branza",
+            ) as HTMLInputElement | null;
+            if (!branzaEl || !branzaEl.value.trim()) {
+                showError("branza", "Wpisz branżę w jakiej działa firma.");
+                valid = false;
+            } else {
+                clearError("branza");
+            }
+
+            // Opis firmy
+            const opisEl = document.getElementById(
+                "opis_firmy",
+            ) as HTMLTextAreaElement | null;
+            if (!opisEl || opisEl.value.trim().length < 10) {
+                showError(
+                    "opis_firmy",
+                    "Opisz krótko profil firmy (min. 10 znaków).",
+                );
+                valid = false;
+            } else {
+                clearError("opis_firmy");
+            }
+
+            // Zakres strony
+            const zakresEl = document.getElementById(
+                "zakres_strony",
+            ) as HTMLTextAreaElement | null;
+            if (!zakresEl || zakresEl.value.trim().length < 15) {
+                showError(
+                    "zakres_strony",
+                    "Opisz czego oczekujesz na stronie (min. 15 znaków).",
+                );
+                valid = false;
+            } else {
+                clearError("zakres_strony");
+            }
+        }
+
+        if (step === 4) {
+            // Email lub Telefon (przynajmniej jedno musi być wypełnione)
+            const emailEl = document.getElementById(
+                "email",
+            ) as HTMLInputElement | null;
+            const telEl = document.getElementById(
+                "telefon",
+            ) as HTMLInputElement | null;
+            const email = emailEl ? emailEl.value.trim() : "";
+            const tel = telEl ? telEl.value.trim() : "";
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email && !tel) {
+                showError(
+                    "email",
+                    "Proszę podać adres e-mail lub numer telefonu.",
+                );
+                showError(
+                    "telefon",
+                    "Proszę podać numer telefonu lub adres e-mail.",
+                );
+                valid = false;
+            } else {
+                clearError("email");
+                clearError("telefon");
+
+                if (email && !emailRegex.test(email)) {
+                    showError("email", "Podaj poprawny adres e-mail.");
+                    valid = false;
+                }
+            }
+
+            // RODO
+            const rodoEl = document.getElementById(
+                "rodo",
+            ) as HTMLInputElement | null;
+            if (!rodoEl || !rodoEl.checked) {
+                showError(
+                    "rodo",
+                    "Wymagana jest zgoda na przetwarzanie danych.",
+                );
+                valid = false;
+            } else {
+                clearError("rodo");
+            }
+        }
+
+        return valid;
+    }
+
+    // Czyszczenie błędów na bieżąco
+    [
+        "imie",
+        "branza",
+        "opis_firmy",
+        "zakres_strony",
+        "email",
+        "telefon",
+    ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener("input", () => {
+                clearError(id);
+                if (id === "email" || id === "telefon") {
+                    clearError("email");
+                    clearError("telefon");
+                }
+            });
+        }
+    });
+
+    const rodoCheckbox = document.getElementById("rodo");
+    if (rodoCheckbox) {
+        rodoCheckbox.addEventListener("change", () => clearError("rodo"));
+    }
+
+    // ============================================================
+    // NAWIGACJA WIZARDA
+    // ============================================================
+
+    function updateStepUI() {
+        // Panele formularza
+        panels.forEach((panel) => {
+            const p = panel as HTMLElement;
+            const stepNum = parseInt(p.getAttribute("data-panel") || "1", 10);
+
+            if (stepNum === currentStep) {
+                p.style.display = "block";
+                setTimeout(() => {
+                    p.classList.add("active");
+                }, 10);
+            } else {
+                p.classList.remove("active");
+                p.style.display = "none";
+            }
+        });
+
+        // Wskaźniki kroków na pasku bocznym (desktop)
+        stepItems.forEach((item) => {
+            const btn = item as HTMLButtonElement;
+            const stepNum = parseInt(btn.getAttribute("data-step") || "1", 10);
+
+            btn.classList.remove("active", "completed");
+
+            if (stepNum === currentStep) {
+                btn.classList.add("active");
+            } else if (stepNum < currentStep) {
+                btn.classList.add("completed");
+            }
+
+            // Odblokuj etapy, do których użytkownik ma już dostęp
+            if (stepNum <= maxStepReached) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        });
+
+        // Wypełnienie linii postępu globalnego paska postępu (desktop i mobile)
+        const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+
+        if (globalProgressFill) {
+            globalProgressFill.style.width = `${percentage}%`;
+        }
+
+        if (globalProgressStepText) {
+            globalProgressStepText.textContent = stepNames[currentStep - 1];
+        }
+
+        if (globalProgressPercent) {
+            globalProgressPercent.textContent = `Krok ${currentStep} z ${totalSteps}`;
+        }
+
+        // Wypełnienie linii postępu pionowej w sidebarze na desktopie
+        if (progressFill) {
+            progressFill.style.height = `${percentage}%`;
+        }
+
+        // Przyciski stopki
+        if (prevBtn) {
+            prevBtn.style.display = currentStep > 1 ? "inline-flex" : "none";
+        }
+
+        if (nextBtn) {
+            nextBtn.style.display =
+                currentStep < totalSteps ? "inline-flex" : "none";
+        }
+
+        if (submitBtn) {
+            submitBtn.style.display =
+                currentStep === totalSteps ? "inline-flex" : "none";
+        }
+
+        // Scroll do formularza (przydatne na telefonie)
+        const wizardEl = document.getElementById("order-wizard");
+        if (wizardEl && currentStep > 1) {
+            const offset = 80;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = wizardEl.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+            });
+        }
+    }
+
+    // Kliknięcie w przyciski Dalej / Powrót
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                if (currentStep > maxStepReached) {
+                    maxStepReached = currentStep;
+                }
+                updateStepUI();
+            }
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepUI();
+            }
+        });
+    }
+
+    // Bezpośrednie kliknięcia w numery kroków na pasku bocznym
+    stepItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            const targetStep = parseInt(
+                item.getAttribute("data-step") || "1",
+                10,
+            );
+
+            // Waliduj kroki pośrednie, jeśli idziemy do przodu
+            if (targetStep > currentStep) {
+                let canNavigate = true;
+                for (let i = currentStep; i < targetStep; i++) {
+                    if (!validateStep(i)) {
+                        canNavigate = false;
+                        currentStep = i; // Pokaż krok z błędem
+                        break;
+                    }
+                }
+                if (canNavigate) {
+                    currentStep = targetStep;
+                }
+            } else {
+                currentStep = targetStep;
+            }
+            updateStepUI();
+        });
+    });
+
+    // ============================================================
+    // WYSYŁANIE FORMULARZA EMAILJS
+    // ============================================================
+
+    function showNotification(type: "success" | "error", message: string) {
+        if (!notification) return;
+        const icon = notification.querySelector(
+            ".notification__icon",
+        ) as HTMLElement | null;
+        const text = notification.querySelector(
+            ".notification__text",
+        ) as HTMLElement | null;
+        if (!icon || !text) return;
+
+        notification.className = "form__notification " + type;
+        icon.className =
+            "notification__icon fa-solid " +
+            (type === "success" ? "fa-check-circle" : "fa-circle-exclamation");
+        text.textContent = message;
+        notification.style.display = "flex";
+
+        setTimeout(() => {
+            notification.style.display = "none";
+        }, 6000);
+    }
+
+    function setLoading(loading: boolean) {
+        if (!submitBtn) return;
+        const text = submitBtn.querySelector(
+            ".btn__text",
+        ) as HTMLElement | null;
+        const icon = submitBtn.querySelector(
+            ".btn__icon",
+        ) as HTMLElement | null;
+        const spinner = submitBtn.querySelector(
+            ".btn__loading",
+        ) as HTMLElement | null;
+
+        if (!text || !icon || !spinner) return;
+
+        if (loading) {
+            text.style.display = "none";
+            icon.style.display = "none";
+            spinner.style.display = "inline-flex";
+            submitBtn.disabled = true;
+            if (prevBtn) prevBtn.disabled = true;
+        } else {
+            text.style.display = "inline";
+            icon.style.display = "inline";
+            spinner.style.display = "none";
+            submitBtn.disabled = false;
+            if (prevBtn) prevBtn.disabled = false;
+        }
+    }
+
+    form?.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const lastSentTime = localStorage.getItem("lastEmailSentTime");
+        const cooldownTime = 2 * 60 * 1000; // 2 minuty cooldownu
+
+        if (lastSentTime) {
+            const timeElapsed = Date.now() - parseInt(lastSentTime, 10);
+            if (timeElapsed < cooldownTime) {
+                const timeLeft = Math.ceil((cooldownTime - timeElapsed) / 1000);
+                const minutesLeft = Math.floor(timeLeft / 60);
+                const secondsLeft = timeLeft % 60;
+                const timeString =
+                    minutesLeft > 0
+                        ? `${minutesLeft}m ${secondsLeft}s`
+                        : `${secondsLeft}s`;
+                showNotification(
+                    "error",
+                    `⏳ Odczekaj jeszcze ${timeString} przed wysłaniem kolejnej wiadomości.`,
+                );
+                return;
+            }
+        }
+
+        // Walidacja ostatniego kroku i całości
+        let isAllValid = true;
+        for (let i = 1; i <= totalSteps; i++) {
+            if (!validateStep(i)) {
+                isAllValid = false;
+                currentStep = i;
+                updateStepUI();
+                break;
+            }
+        }
+
+        if (!isAllValid) return;
+
+        setLoading(true);
+
+        // Przygotowanie danych
+        const imieEl = document.getElementById(
+            "imie",
+        ) as HTMLInputElement | null;
+        const firmaEl = document.getElementById(
+            "firma",
+        ) as HTMLInputElement | null;
+        const branzaEl = document.getElementById(
+            "branza",
+        ) as HTMLInputElement | null;
+        const opisEl = document.getElementById(
+            "opis_firmy",
+        ) as HTMLTextAreaElement | null;
+        const zakresEl = document.getElementById(
+            "zakres_strony",
+        ) as HTMLTextAreaElement | null;
+        const emailEl = document.getElementById(
+            "email",
+        ) as HTMLInputElement | null;
+        const telEl = document.getElementById(
+            "telefon",
+        ) as HTMLInputElement | null;
+
+        const nameVal = imieEl ? imieEl.value.trim() : "";
+        const firmaVal = firmaEl ? firmaEl.value.trim() : "";
+        const serviceVal = inputUsluga ? inputUsluga.value : "";
+        const budgetVal = inputBudzet ? inputBudzet.value : "";
+        const branzaVal = branzaEl ? branzaEl.value.trim() : "";
+        const opisVal = opisEl ? opisEl.value.trim() : "";
+        const zakresVal = zakresEl ? zakresEl.value.trim() : "";
+        const emailVal = emailEl ? emailEl.value.trim() : "";
+        const telVal = telEl ? telEl.value.trim() : "";
+
+        const templateParams = {
+            imie: `${nameVal}${firmaVal ? ` (Firma: ${firmaVal})` : ""}`,
+            nazwisko: ` — Usługa: ${serviceVal} | Budżet: ${budgetVal}`,
+            kontakt: `E-mail: ${emailVal || "brak"} | Telefon: ${telVal || "brak"}`,
+            tresc: `BRANŻA:\n${branzaVal}\n\nOPIS FIRMY:\n${opisVal}\n\nZAKRES WITRYNY:\n${zakresVal}`,
+        };
+
+        const triggerErrorPopup = () => {
+            const popup = document.getElementById("email-error-popup");
+            const mailtoBtn = document.getElementById(
+                "email-error-mailto-btn",
+            ) as HTMLAnchorElement | null;
+
+            if (popup && mailtoBtn) {
+                const subject = encodeURIComponent(
+                    "Zapytanie ofertowe ze strony web2sell.pl",
+                );
+                const body = encodeURIComponent(
+                    `Imię i Nazwisko: ${templateParams.imie}\n` +
+                        `${templateParams.nazwisko}\n` +
+                        `Kontakt: ${templateParams.kontakt}\n\n` +
+                        `${templateParams.tresc}`,
+                );
+                mailtoBtn.href = `mailto:kontakt@web2sell.pl?subject=${subject}&body=${body}`;
+                popup.classList.add("active");
+                document.body.style.overflow = "hidden"; // block body scrolling
+            }
+        };
+
+        try {
+            // Upewniamy się, że EmailJS jest załadowany
+            await loadEmailJS();
+
+            if (!(window as any).emailjs) {
+                throw new Error("Biblioteka EmailJS nie została załadowana.");
+            }
+
+            (window as any).emailjs
+                .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, {
+                    publicKey: EMAILJS_PUBLIC_KEY,
+                })
+                .then(() => {
+                    setLoading(false);
+                    localStorage.setItem(
+                        "lastEmailSentTime",
+                        Date.now().toString(),
+                    );
+                    window.location.href = "/dziekujemy";
+                })
+                .catch((error: any) => {
+                    setLoading(false);
+                    console.error("EmailJS sending error:", error);
+                    triggerErrorPopup();
+                });
+        } catch (error: any) {
+            setLoading(false);
+            console.error("EmailJS submit error:", error);
+            triggerErrorPopup();
+        }
+    });
+
+    // Dynamiczne pozycjonowanie paska postępu na mobile
+    const header = document.getElementById("main-header");
+    const progressBar = document.getElementById("wizard-progress-bar");
+
+    function positionMobileProgressBar() {
+        if (header && progressBar) {
+            const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+            if (isMobile) {
+                const headerHeight = header.offsetHeight;
+                progressBar.style.top = `${headerHeight}px`;
+            } else {
+                progressBar.style.top = ""; // reset na desktopie
+            }
+        }
+    }
+
+    // Uruchomienie przy załadowaniu, resize i scrollu (w przypadku zmiany wysokości headera)
+    positionMobileProgressBar();
+    window.addEventListener("resize", positionMobileProgressBar);
+    window.addEventListener("scroll", positionMobileProgressBar, {
+        passive: true,
+    });
+
+    // Zamykanie popupa błędu i przeniesienie do body
+    const errorPopup = document.getElementById("email-error-popup");
+    const errorPopupClose = document.getElementById("email-error-close");
+
+    if (errorPopup) {
+        document.body.appendChild(errorPopup);
+    }
+
+    if (errorPopupClose && errorPopup) {
+        errorPopupClose.addEventListener("click", (e) => {
+            e.preventDefault();
+            errorPopup.classList.remove("active");
+            document.body.style.overflow = ""; // restore body scrolling
+        });
+    }
+
+    // Inicjalizacja widoku
+    updateStepUI();
+</script>
