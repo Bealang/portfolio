@@ -23,7 +23,9 @@ import HeroBg from "../components/HeroBg.astro";
                 class="pricing-toggle-wrapper reveal-element"
                 style="transition-delay: 0.2s;"
             >
-                <span class="toggle-label active" id="label-netto">Ceny Netto</span>
+                <span class="toggle-label active" id="label-netto"
+                    >Ceny Netto</span
+                >
                 <button
                     class="pricing-toggle-switch"
                     id="price-toggle"
@@ -368,14 +370,33 @@ import HeroBg from "../components/HeroBg.astro";
                 class="cennik-cta reveal-element"
                 style="transition-delay: 0.25s;"
             >
-                <h3 class="cennik-cta__title">Jaki pakiet wybierasz?</h3>
-                <p class="cennik-cta__desc">
-                    Niezależnie, czy masz wybrany pakiet, czy nie, skontaktuj
-                    się z nami, aby uzyskać indywidualną wycenę.
-                </p>
-                <a href="/zamow" class="pricing-btn primary"
-                    >Skonfiguruj i wyceń projekt</a
-                >
+                <div class="cennik-cta__container">
+                    <div class="cennik-cta__visual">
+                        <div class="bulb-circle-bg">
+                            <i class="fa-solid fa-lightbulb bulb-icon"></i>
+                        </div>
+                    </div>
+                    <div class="cennik-cta__content">
+                        <h3 class="cennik-cta__title">
+                            Gotowy na <span class="gradient__text"
+                                >współpracę?</span
+                            >
+                        </h3>
+                        <p class="cennik-cta__desc">
+                            Wypełnij krótki formularz opisujący Twoją firmę, a
+                            my w ciągu kilku godzin odpowiemy i zaprezentujemy
+                            Ci ofertę spersonalizowaną dla Twojej firmy,
+                            niezależnie, czy wiesz, jaki pakiet wybrać.
+                        </p>
+                        <a
+                            href="/zamow"
+                            class="pricing-btn primary highlight-cta"
+                            >Rozpocznij darmową wycenę <i
+                                class="fa-solid fa-chevron-right icon-slide"
+                            ></i></a
+                        >
+                    </div>
+                </div>
             </div>
 
             <article class="seo-text reveal-element">
@@ -541,41 +562,154 @@ import HeroBg from "../components/HeroBg.astro";
 
 <style>
     .cennik-cta {
-        text-align: center;
-        max-width: 650px;
-        margin: 80px auto 40px;
-        padding: 50px 40px;
-        background: var(--card-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        box-shadow: var(--glass-shadow);
+        max-width: 1400px;
+        margin: 120px auto 80px;
+        padding: 40px 20px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        position: relative;
+        overflow: visible;
+    }
+
+    .cennik-cta__container {
+        display: grid;
+        grid-template-columns: 1.2fr 2fr;
+        gap: 60px;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .cennik-cta__visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 280px;
+    }
+
+    .bulb-circle-bg {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(139, 92, 246, 0.12);
+        border: 2px solid rgba(139, 92, 246, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .bulb-circle-bg:hover {
+        transform: scale(1.05);
+    }
+
+    html[data-theme="dark"] .bulb-circle-bg {
+        background: rgba(167, 139, 250, 0.15);
+        border: 2px solid rgba(167, 139, 250, 0.4);
+        box-shadow: 0 10px 30px rgba(167, 139, 250, 0.2);
+    }
+
+    .bulb-icon {
+        font-size: 80px;
+        color: #8b5cf6;
+        filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.5));
+    }
+
+    html[data-theme="dark"] .bulb-icon {
+        color: #a78bfa;
+        filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.7));
+    }
+
+    .cennik-cta__content {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        align-items: flex-start;
+        text-align: left;
+        gap: 24px;
     }
 
     .cennik-cta__title {
         font-family: "Figtree", sans-serif;
-        font-size: clamp(24px, 4vw, 36px);
+        font-size: clamp(32px, 5vw, 48px);
         font-weight: 800;
         color: var(--text-primary);
         margin: 0;
-        line-height: 1.2;
+        line-height: 1.15;
     }
 
     .cennik-cta__desc {
         color: var(--text-secondary);
-        font-size: clamp(1rem, 2vw, 1.15rem);
-        line-height: 1.6;
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        line-height: 1.7;
         margin: 0 0 10px;
+        max-width: 680px;
+    }
+
+    /* Wysoce widoczny przycisk CTA */
+    .highlight-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 38px;
+        font-size: clamp(18px, 2vw, 20px);
+        font-weight: 700;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
+        transition:
+            transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+            box-shadow 0.3s ease;
+    }
+
+    .highlight-cta:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(139, 92, 246, 0.45);
+    }
+
+    .highlight-cta .icon-slide {
+        transition: transform 0.3s ease;
+    }
+
+    .highlight-cta:hover .icon-slide {
+        transform: translateX(4px);
+    }
+
+    /* Dostosowanie cienia przycisku dla ciemnego tła */
+    html[data-theme="dark"] .highlight-cta {
+        box-shadow:
+            0 10px 25px rgba(251, 113, 133, 0.15),
+            0 0 15px rgba(167, 139, 250, 0.1);
+    }
+    html[data-theme="dark"] .highlight-cta:hover {
+        box-shadow:
+            0 15px 30px rgba(251, 113, 133, 0.25),
+            0 0 25px rgba(167, 139, 250, 0.2);
+    }
+
+    @media (max-width: 991px) {
+        .cennik-cta__container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .cennik-cta__content {
+            align-items: center;
+            text-align: center;
+        }
+
+        .cennik-cta__visual {
+            height: 220px;
+        }
     }
 
     @media (max-width: 500px) {
         .cennik-cta {
-            padding: 35px 20px;
+            padding: 40px 15px;
             margin: 60px auto 30px;
-            border-radius: 16px;
         }
     }
 </style>
