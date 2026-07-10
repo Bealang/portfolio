@@ -652,7 +652,7 @@ html[data-theme="dark"] .btn-call i {
 
 /* Hero Badges & Disclaimer & Scroll Arrow */
 .hero-badges {
-    display: flex;
+    display: none; /* Hidden on desktop */
     gap: 40px;
     margin-top: 35px;
     align-items: center;
@@ -683,6 +683,7 @@ html[data-theme="dark"] .btn-call i {
 }
 
 .hero-disclaimer {
+    display: none; /* Hidden on desktop */
     font-size: 11px;
     color: var(--text-muted);
     margin-top: 15px;
@@ -1069,7 +1070,7 @@ html[data-theme="dark"] .hero-scroll-arrow:hover {
         font-size: 16px;
         margin-bottom: -15px;
         width: 100%;
-        padding-top: 20vh;
+        padding-top: 10vh;
     }
 
     .typing-stack {
@@ -1145,6 +1146,7 @@ html[data-theme="dark"] .hero-scroll-arrow:hover {
     }
 
     .hero-disclaimer {
+        display: block !important; /* Visible on mobile */
         font-size: clamp(8px, 2vw, 9px) !important;
         text-align: center !important;
         width: 100% !important;
@@ -1155,7 +1157,8 @@ html[data-theme="dark"] .hero-scroll-arrow:hover {
         display: flex !important;
         align-items: center;
         justify-content: center;
-        bottom: 140px !important; /* Positioned higher to clear bottom bar */
+        bottom: 140px !important;
+        /* Positioned higher to clear bottom bar */
         text-decoration: none !important;
     }
 
