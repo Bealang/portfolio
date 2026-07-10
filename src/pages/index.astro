@@ -60,9 +60,38 @@ const projects = (await getCollection("projects")).sort(
                     >
                         <i class="fa-solid fa-phone" style="margin-right: 8px;"
                         ></i>
-                        <span>Zadzwoń: +48 530 315 860</span>
+                        <span>Zadzwoń<span class="phone-number-desktop">: +48 530 315 860</span></span>
                     </a>
                 </div>
+
+                <div
+                    class="hero-badges"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="2000"
+                >
+                    <div class="badge-item">
+                        <span class="badge-value">&lt;1s</span>
+                        <span class="badge-label">CZASU ŁADOWANIA</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-value">od 7 dni</span>
+                        <span class="badge-label">SZYBKI CZAS REALIZACJI</span>
+                    </div>
+                    <div class="badge-item">
+                        <span class="badge-value">20zł/mies.</span>
+                        <span class="badge-label">NISKIE KOSZTY UTRZYMANIA*</span>
+                    </div>
+                </div>
+
+                <p
+                    class="hero-disclaimer"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="2100"
+                >
+                    * W rozliczeniu rocznym. Cena obejmuje koszty hostingu i domeny .pl
+                </p>
             </div>
         </div>
 
@@ -227,6 +256,9 @@ const projects = (await getCollection("projects")).sort(
                 </div>
             </div>
         </div>
+        <a href="#o-nas" class="hero-scroll-arrow" aria-label="Przewiń w dół">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
     </main>
 
     <ONasTxt />

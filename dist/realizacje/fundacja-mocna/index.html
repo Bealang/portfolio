@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><script>
+            (function () {
+                const savedTheme = localStorage.getItem("theme");
+                if (savedTheme === "dark") {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                    document.documentElement.setAttribute(
+                        "data-theme",
+                        "light",
+                    );
+                }
+            })();
+        </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/assets/favicon.png"><title>Projekt Fundacja MOCna! | web2sell</title><meta name="description" content="Zobacz naszą realizację projektu Fundacja MOCna!. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta."><link rel="canonical" href="https://web2sell.pl/realizacje/fundacja-mocna/"><meta name="robots" content="index, follow"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://web2sell.pl/realizacje/fundacja-mocna/"><meta property="og:title" content="Projekt Fundacja MOCna! | web2sell"><meta property="og:description" content="Zobacz naszą realizację projektu Fundacja MOCna!. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta."><meta property="og:image" content="https://web2sell.pl/assets/project-img/mocna.avif"><meta property="og:site_name" content="web2sell"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://web2sell.pl/realizacje/fundacja-mocna/"><meta property="twitter:title" content="Projekt Fundacja MOCna! | web2sell"><meta property="twitter:description" content="Zobacz naszą realizację projektu Fundacja MOCna!. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta."><meta property="twitter:image" content="https://web2sell.pl/assets/project-img/mocna.avif"><!-- Fonts --><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="/assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/css/all.min.css"></noscript><!-- Google Analytics (Conditional load based on user cookie consent) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script>
+            (function () {
+                window.initGA = function () {
+                    if (window.gaInitialized) return;
+                    window.gaInitialized = true;
+
+                    // Inject gtag.js
+                    var script = document.createElement("script");
+                    script.async = true;
+                    script.src =
+                        "https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP";
+                    document.head.appendChild(script);
+
+                    window.dataLayer = window.dataLayer || [];
+                    window.gtag = function () {
+                        window.dataLayer.push(arguments);
+                    };
+                    window.gtag("js", new Date());
+                    window.gtag("config", "G-QZ55XLZEDP");
+                };
+
+                const consent = localStorage.getItem("cookie-consent");
+                if (consent === "accepted") {
+                    // User has already given consent. Load GA non-blockingly with delayed strategy.
+                    var gaTriggered = false;
+                    function triggerGA() {
+                        if (gaTriggered) return;
+                        gaTriggered = true;
+                        window.removeEventListener("scroll", triggerGA);
+                        window.removeEventListener("mousemove", triggerGA);
+                        window.removeEventListener("touchstart", triggerGA);
+                        window.removeEventListener("keydown", triggerGA);
+                        window.initGA();
+                    }
+                    setTimeout(triggerGA, 3000);
+                    window.addEventListener("scroll", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("mousemove", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("touchstart", triggerGA, {
+                        passive: true,
+                    });
+                    window.addEventListener("keydown", triggerGA, {
+                        passive: true,
+                    });
+                }
+            })();
+        </script><!-- Structured Data --><script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "web2sell - Tworzenie stron www",
+                "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
+                "url": "https://web2sell.pl/",
+                "telephone": "",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Myślenice",
+                    "addressCountry": "PL"
+                },
+                "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+            }
+        </script><link rel="stylesheet" href="/_astro/HeroBg.c1cba356.css">
+<link rel="stylesheet" href="/_astro/_slug_.5ae47792.css"></head> <body class> <div class="app-wrapper">  <header id="main-header"> <!-- 1. DESKTOP NAGŁÓWEK: GÓRNA CZĘŚĆ (TOP TIER) --> <div class="header-top"> <div class="header-top-container"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-top-right"> <a href="tel:+48530315860" class="header-phone"> <i class="fa-solid fa-phone"></i> <span>+48 530 315 860</span> </a> <!-- PRESTIŻOWY PRZEŁĄCZNIK MOTYWU (PASTYLKA Z SUWAKIEM) --> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> <a href="/zamow" class="header-cta">Bezpłatna wycena</a> </div> </div> </div> <!-- 2. DESKTOP NAGŁÓWEK: DOLNA CZĘŚĆ (BOTTOM TIER) --> <div class="header-bottom"> <div class="header-bottom-container"> <!-- Dynamiczne Logo po scrollu, domyślnie ukryte na samej górze --> <a href="/" class="logo-text-scrolled">web2<span class="gradient__text">sell</span></a> <nav id="nav-menu"> <a href="/#o-nas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/jak-dzialamy" class="nav-link">Jak działamy?</a> <a href="/jak-dzialamy#faq" class="nav-link">FAQ</a> <a href="/blog" class="nav-link">Blog</a> <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile --> <div class="mobile-menu-footer"> <div class="mobile-menu-theme-row"> <span class="theme-label">Motyw:</span> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> </div> <a href="tel:+48530315860" class="mobile-menu-phone"> <i class="fa-solid fa-phone"></i> +48 530 315 860
+</a> <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a> </div> </nav> <!-- Dynamiczna prawa sekcja po scrollu (theme + CTA) --> <div class="header-right-scrolled"> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a> </div> </div> </div> <!-- 3. MOBILNY NAGŁÓWEK (COMPACT SINGLE ROW) --> <div class="header-mobile-row"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-mobile-actions"> <!-- Widoczny przycisk Zamów wycenę od razu na mobile (chowa się przy open menu) --> <a href="/zamow" class="mobile-visible-cta">Bezpłatna wycena</a> <!-- Hamburger menu --> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </div> </div> </header> <!-- 4. MOBILNE PŁYWAJĄCE MENU (FLOATING BOTTOM NAV) --> <div class="mobile-floating-nav" id="mobileFloatingNav"> <a href="/cennik" class="floating-nav-item" aria-label="Cennik"> <i class="fa-solid fa-dollar-sign"></i> <span>Cennik</span> </a> <a href="/zamow" class="floating-nav-item" aria-label="Wycena"> <i class="fa-solid fa-file-invoice-dollar"></i> <span>Wycena</span> </a> <a href="tel:+48530315860" class="floating-nav-item" aria-label="Zadzwoń"> <i class="fa-solid fa-phone"></i> <span>Zadzwoń</span> </a> </div> <script type="module" src="/_astro/Header.astro_astro_type_script_index_0_lang.DgFm-SUB.js"></script> <main class="project-container" data-astro-cid-2kxltejf> <div class="hero-bg" style="z-index: -1;"> <div class="blob blob-1"></div> <div class="blob blob-2"></div> <div class="blob blob-3"></div> <div class="glow-overlay"></div> </div> <article class="project" data-astro-cid-2kxltejf> <div class="project__header" data-aos="fade-up" data-aos-duration="600" data-astro-cid-2kxltejf> <a href="/#projekty" class="project__back-btn" data-astro-cid-2kxltejf> <i class="fa-solid fa-arrow-left-long" data-astro-cid-2kxltejf></i> <span data-astro-cid-2kxltejf>Wróć do realizacjii</span> </a> <div class="project__meta" data-astro-cid-2kxltejf> <span class="project__date" data-astro-cid-2kxltejf> <i class="fa-regular fa-calendar-days" data-astro-cid-2kxltejf></i> Rok realizacji:
+2026 </span>  <span class="project__divider" data-astro-cid-2kxltejf>•</span> <a href="https://mocnakrakow.pl" target="_blank" rel="noopener noreferrer" class="project__preview-link" style="--project-accent: #2c5ea9" data-astro-cid-2kxltejf> <i class="fa-solid fa-arrow-up-right-from-square" data-astro-cid-2kxltejf></i> 
+Odwiedź stronę
+</a>  </div> <h1 class="project__title" data-astro-cid-2kxltejf>Fundacja MOCna!</h1> </div> <div class="project__gallery-container" data-astro-cid-2kxltejf> <div class="project-gallery" data-gallery data-autoplay="4500" style="--gallery-accent: #2c5ea9;" data-astro-cid-2kxltejf> <div class="project-gallery__stage" data-astro-cid-2kxltejf> <div class="project-gallery__viewport" data-astro-cid-2kxltejf> <div class="project-gallery__track" data-astro-cid-2kxltejf> <figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_1.avif" alt="Fundacja MOCna! — zdjęcie 1" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_2.avif" alt="Fundacja MOCna! — zdjęcie 2" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_3.avif" alt="Fundacja MOCna! — zdjęcie 3" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_4.avif" alt="Fundacja MOCna! — zdjęcie 4" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_5.avif" alt="Fundacja MOCna! — zdjęcie 5" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_6.avif" alt="Fundacja MOCna! — zdjęcie 6" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_7.avif" alt="Fundacja MOCna! — zdjęcie 7" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_8.avif" alt="Fundacja MOCna! — zdjęcie 8" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_9.avif" alt="Fundacja MOCna! — zdjęcie 9" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_10.avif" alt="Fundacja MOCna! — zdjęcie 10" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_11.avif" alt="Fundacja MOCna! — zdjęcie 11" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_12.avif" alt="Fundacja MOCna! — zdjęcie 12" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure><figure class="project-gallery__slide" data-astro-cid-2kxltejf> <img src="/assets/project-img/mocna_13.avif" alt="Fundacja MOCna! — zdjęcie 13" class="project-gallery__img" draggable="false" data-astro-cid-2kxltejf> </figure> </div> </div>  <button type="button" class="project-gallery__btn project-gallery__btn--prev" aria-label="Poprzednie zdjęcie" data-astro-cid-2kxltejf> <i class="fa-solid fa-chevron-left" aria-hidden="true" data-astro-cid-2kxltejf></i> </button> <button type="button" class="project-gallery__btn project-gallery__btn--next" aria-label="Następne zdjęcie" data-astro-cid-2kxltejf> <i class="fa-solid fa-chevron-right" aria-hidden="true" data-astro-cid-2kxltejf></i> </button> <div class="project-gallery__dots" role="tablist" aria-label="Galeria projektu" data-astro-cid-2kxltejf> <button type="button" class="project-gallery__dot is-active" role="tab" aria-label="Zdjęcie 1" aria-selected="true" data-index="0" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 2" aria-selected="false" data-index="1" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 3" aria-selected="false" data-index="2" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 4" aria-selected="false" data-index="3" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 5" aria-selected="false" data-index="4" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 6" aria-selected="false" data-index="5" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 7" aria-selected="false" data-index="6" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 8" aria-selected="false" data-index="7" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 9" aria-selected="false" data-index="8" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 10" aria-selected="false" data-index="9" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 11" aria-selected="false" data-index="10" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 12" aria-selected="false" data-index="11" data-astro-cid-2kxltejf></button><button type="button" class="project-gallery__dot" role="tab" aria-label="Zdjęcie 13" aria-selected="false" data-index="12" data-astro-cid-2kxltejf></button> </div>  </div> </div> </div> <section class="project__content" data-astro-cid-2kxltejf> <h1 id="o-projekcie">O projekcie</h1>
+<p>Dla Fundacji MOCna! oraz powiązanej z nią kawiarni społecznej stworzyliśmy aplikację, która zdecydowanie wykracza poza standardową wizytówkę. Naszym celem było dostarczenie zaawansowanego narzędzia do obsługi całego zaplecza biznesowego. Zrezygnowaliśmy z gotowych rozwiązań na rzecz autorskich modułów. Napisaliśmy od zera system e-commerce, rezerwacje stolików, sprzedaż biletów oraz dedykowany panel pracowniczy.</p>
+<p>Całość zoptymalizowaliśmy tak, by wykręcała najwyższe wyniki <strong>Lighthouse</strong>, bazując na architekturze server-first.</p>
+<h1 id="co-zrobiliśmy">Co zrobiliśmy?</h1>
+<ul>
+<li><strong>Sklep internetowy z mapą Paczkomatów i płatnościami online</strong> - zbudowaliśmy kompletny koszyk i autorski proces zakupowy z integracją Stripe (obsługa płatności kartą i blikiem) oraz widgetem InPost, dzięki któremu klient wybiera punkt odbioru z interaktywnej mapy bezpośrednio w checkoucie.</li>
+<li><strong>Panel pracowniczy i automatyzacja maili</strong> - wdrożyliśmy bezpieczne zaplecze z uprawnieniami RBAC; zmiana statusu zamówienia przez obsługę (np. na „w realizacji”) automatycznie generuje i wysyła do klienta maila transakcyjnego przez API Resend.</li>
+<li><strong>Skanowanie biletów z weryfikacją na żywo</strong> - stworzyliśmy generator biletów eventowych z kodem QR wysyłanym w wiadomości e-mail. Pracownicy kawiarni skanują wejściówki własnymi smartfonami, a system weryfikuje ich ważność w czasie rzeczywistym, dbając o blokadę overbookingu na poziomie bazy danych.</li>
+<li><strong>Rezerwacje stolików odporne na race conditions</strong> - goście wybierają miejsca na interaktywnej mapie sali. Logika w PostgreSQL (unikalne indeksy kompozytowe) uniemożliwia zdublowanie rezerwacji przy dużym ruchu, a rezygnacja z wizyty odbywa się jednym kliknięciem w mailu za pomocą bezpiecznego tokenu.</li>
+<li><strong>Architektura wyspowa, bezpieczeństwo i testy</strong> - serwis oparty na Astro serwuje lekki kod HTML, a komponenty Reacta uruchamiają się tylko tam, gdzie niezbędna jest interakcja. Autoryzację sesji oparliśmy na plikach cookie HTTP-Only z podpisem HMAC-SHA256, a stabilność kodu zabezpieczyliśmy testami Playwright i Vitest.</li>
+</ul>
+<h1 id="technologie">Technologie</h1>
+<ul>
+<li>Astro</li>
+<li>React</li>
+<li>TypeScript</li>
+<li>PostgreSQL</li>
+<li>Drizzle ORM</li>
+<li>Tailwind CSS</li>
+<li>Framer Motion</li>
+<li>Stripe</li>
+<li>InPost</li>
+<li>Resend</li>
+<li>Vercel</li>
+<li>Vercel Blob</li>
+<li>Playwright</li>
+<li>Vitest</li>
+</ul> </section> </article> </main> <footer class="site-footer"> <div class="footer__container"> <div class="footer__grid"> <!-- Column 1: Info & Contact details --> <div class="footer__info-col"> <a href="/" class="logo-text footer__logo">web2<span class="gradient__text">sell</span></a> <p class="footer__desc">
+Tworzymy szybkie, nowoczesne i bezpieczne strony internetowe
+                    od podstaw. Porzucamy obciążające systemy na rzecz
+                    autorskiego, zoptymalizowanego kodu.
+</p> <div class="footer__contact-info"> <a href="mailto:kontakt@web2sell.pl" class="footer__contact-item"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>kontakt@web2sell.pl</span> </a> <div class="footer__contact-item"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Kraków, Myślenice, Polska</span> </div> </div> </div> <!-- Column 2: Split links (Menu & Docs) --> <div class="footer__links-col"> <div class="footer__links-subgrid"> <!-- Subsection A: Menu --> <div class="footer__links-group"> <h3 class="footer__group-title">Menu</h3> <ul class="footer__group-list"> <li> <a href="/#onas">O nas</a> </li> <li> <a href="/#projekty">Realizacje</a> </li> <li><a href="/cennik">Cennik</a></li> <li><a href="/jak-dzialamy">Jak działamy</a></li> <li><a href="/blog">Blog</a></li> <li> <a href="/#kontakt">Kontakt</a> </li> </ul> </div> <!-- Subsection B: Dokumenty --> <div class="footer__links-group"> <h3 class="footer__group-title">Dokumenty</h3> <ul class="footer__group-list"> <li> <a href="/polityka">Polityka prywatności</a> </li> <li><a href="/sitemap">Mapa witryny</a></li> </ul> </div> </div> </div> </div> <div class="footer__bottom"> <p class="footer__copyright">
+&copy; 2026 Copyright web2sell
+</p> <p class="footer__credits">
+Design by web2sell team
+</p> </div> </div> </footer>  </div> <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) --> <div id="cookie-banner" class="cookie-banner hidden" role="dialog" aria-modal="true" aria-label="Zgoda na pliki cookie" aria-describedby="cookie-text"> <div class="cookie-banner__container"> <div class="cookie-banner__content"> <i class="fa-solid fa-cookie-bite cookie-banner__icon" aria-hidden="true"></i> <p id="cookie-text">
+Ta strona korzysta z ciasteczek analitycznych (Google
+                        Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
+</p> </div> <button id="cookie-accept" class="cookie-banner__btn">Akceptuję</button> </div> </div> <script>
+            (function () {
+                const consent = localStorage.getItem("cookie-consent");
+                if (consent !== "accepted") {
+                    const banner = document.getElementById("cookie-banner");
+                    const acceptBtn = document.getElementById("cookie-accept");
+                    if (banner && acceptBtn) {
+                        banner.classList.remove("hidden");
+                        acceptBtn.addEventListener("click", function () {
+                            localStorage.setItem("cookie-consent", "accepted");
+                            banner.classList.add("hidden");
+                            if (typeof window.initGA === "function") {
+                                window.initGA();
+                            }
+                        });
+                    }
+                }
+            })();
+        </script> <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("[data-aos]").forEach(e=>{e.classList.add("aos-animate")});return}let a=[],s=null;const d=()=>{a.forEach(e=>{e.classList.add("aos-animate")}),a=[],s=null},l=new IntersectionObserver((e,c)=>{let n=!1;e.forEach(o=>{if(o.isIntersecting){const t=o.target,r=t.getAttribute("data-aos-duration"),i=t.getAttribute("data-aos-delay");r&&(t.style.transitionDuration=`${r}ms`),i&&(t.style.transitionDelay=`${i}ms`),a.push(t),n=!0,c.unobserve(t)}}),n&&s===null&&(s=requestAnimationFrame(d))},{rootMargin:"0px 0px -60px 0px",threshold:.05});document.querySelectorAll("[data-aos]").forEach(e=>{l.observe(e)})});</script> </body> </html> <!-- Lightweight gallery — no Swiper, scroll never blocked --> <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("[data-gallery]").forEach(function (gallery) {
+            var track = gallery.querySelector(".project-gallery__track");
+            var slides = Array.from(
+                gallery.querySelectorAll(".project-gallery__slide"),
+            );
+            var prevBtn = gallery.querySelector(".project-gallery__btn--prev");
+            var nextBtn = gallery.querySelector(".project-gallery__btn--next");
+            var dotsEl = gallery.querySelector(".project-gallery__dots");
+            var total = slides.length;
+            var current = 0;
+            var timer = null;
+            var autoplayDelay =
+                Number(gallery.getAttribute("data-autoplay")) || 0;
+
+            if (!track || total === 0) return;
+
+            function render() {
+                track.style.transform =
+                    "translate3d(-" + current * 100 + "%, 0, 0)";
+                if (dotsEl) {
+                    dotsEl
+                        .querySelectorAll(".project-gallery__dot")
+                        .forEach(function (dot, i) {
+                            dot.classList.toggle("is-active", i === current);
+                            dot.setAttribute(
+                                "aria-selected",
+                                i === current ? "true" : "false",
+                            );
+                        });
+                }
+            }
+
+            function goTo(index) {
+                current = (index + total) % total;
+                render();
+            }
+
+            function resetAutoplay() {
+                if (!autoplayDelay || total < 2) return;
+                if (timer) clearInterval(timer);
+                timer = setInterval(function () {
+                    goTo(current + 1);
+                }, autoplayDelay);
+            }
+
+            if (dotsEl && total > 1) {
+                dotsEl
+                    .querySelectorAll(".project-gallery__dot")
+                    .forEach(function (dot, i) {
+                        dot.addEventListener("click", function () {
+                            goTo(i);
+                            resetAutoplay();
+                        });
+                    });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener("click", function () {
+                    goTo(current - 1);
+                    resetAutoplay();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener("click", function () {
+                    goTo(current + 1);
+                    resetAutoplay();
+                });
+            }
+
+            gallery.addEventListener("mouseenter", function () {
+                if (timer) clearInterval(timer);
+            });
+
+            gallery.addEventListener("mouseleave", resetAutoplay);
+
+            render();
+            resetAutoplay();
+        });
+    });
+</script> 

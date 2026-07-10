@@ -161,7 +161,9 @@ import "../styles/main.css";
         <slot name="head" />
     </head>
     <body class={bodyClass}>
-        <slot />
+        <div class="app-wrapper">
+            <slot />
+        </div>
 
         <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) -->
         <div

@@ -210,6 +210,113 @@ import HeroBg from "./HeroBg.astro";
     </div>
 </section>
 
+<!-- WHY WEBSITE SECTION (PAIN POINTS) -->
+<section class="onas-why-website">
+    <div class="onas-why-website__container">
+        <div
+            class="onas-why-website__header"
+            data-aos="fade-up"
+            data-aos-duration="800"
+        >
+            <h2>
+                Dlaczego Twoja firma potrzebuje <span class="gradient__text"
+                    >strony, a nie tylko Facebooka?</span
+                >
+            </h2>
+            <p class="section-subtitle">
+                Większość lokalnych firm uważa, że profil na Facebooku w
+                zupełności wystarczy do prowadzenia biznesu. To błąd, przez
+                który każdego dnia oddajesz klientów konkurencji walkowerem.
+                Ponad połowa osób szukających usług w naszej okolicy w ogóle nie
+                korzysta z mediów społecznościowych – gdy potrzebują mechanika,
+                fryzjera czy autokaru na wynajem, wpisują frazę w wyszukiwarkę
+                Google, chcą szybko sprawdzić cennik i zadzwonić.
+            </p>
+        </div>
+
+        <div class="why-website-grid">
+            <!-- Point 1 -->
+            <div
+                class="why-card"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="100"
+            >
+                <div class="why-card__icon">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <h3 class="why-card__title">Własny cennik i spokój</h3>
+                <p class="why-card__desc">
+                    Zamiast marnować godziny na odpisywanie na te same
+                    wiadomości na Messengerze o ceny czy wolne terminy, dajesz
+                    klientom jasne informacje. Twoja strona automatyzuje
+                    obsługę, podczas gdy Ty skupiasz się na pracy.
+                </p>
+            </div>
+
+            <!-- Point 2 -->
+            <div
+                class="why-card"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="200"
+            >
+                <div class="why-card__icon">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <h3 class="why-card__title">
+                    Nie oddawaj klientów Google Maps
+                </h3>
+                <p class="why-card__desc">
+                    Sam profil w mapach Google to za mało. Algorytm znacznie
+                    wyżej pozycjonuje te firmy, które mają podpiętą szybką,
+                    zoptymalizowaną witrynę. Brak strony to gorsza widoczność w
+                    regionie.
+                </p>
+            </div>
+
+            <!-- Point 3 -->
+            <div
+                class="why-card"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="300"
+            >
+                <div class="why-card__icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="why-card__title">
+                    Niezależność od algorytmów fb/ig
+                </h3>
+                <p class="why-card__desc">
+                    Profil na Facebooku czy Instagramie nie należy do Ciebie.
+                    Jedna awaria, zmiana algorytmu zmniejszająca zasięgi lub
+                    nagła blokada konta mogą z dnia na dzień odciąć Cię od
+                    źródła zarobku. Własna domena to pełne bezpieczeństwo.
+                </p>
+            </div>
+
+            <!-- Point 4 -->
+            <div
+                class="why-card"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="400"
+            >
+                <div class="why-card__icon">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+                <h3 class="why-card__title">Budowa realnego zaufania</h3>
+                <p class="why-card__desc">
+                    Profesjonalna, błyskawicznie działająca strona internetowa
+                    buduje prestiż. Pokazuje, że traktujesz swój biznes i swoich
+                    klientów poważnie.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- TECHNOLOGY COMPARISON SECTION -->
 <section class="onas-tech">
     <div class="onas-tech__container">
@@ -570,7 +677,10 @@ import HeroBg from "./HeroBg.astro";
     .onas-tech__content p,
     .onas-process__header h2,
     .step-title,
-    .step-desc {
+    .step-desc,
+    .onas-why-website__header h2,
+    .why-card__title,
+    .why-card__desc {
         color: #000 !important;
     }
 
@@ -583,7 +693,9 @@ import HeroBg from "./HeroBg.astro";
     html[data-theme="dark"] .team-card__name,
     html[data-theme="dark"] .onas-tech__content h2,
     html[data-theme="dark"] .onas-process__header h2,
-    html[data-theme="dark"] .step-title {
+    html[data-theme="dark"] .step-title,
+    html[data-theme="dark"] .onas-why-website__header h2,
+    html[data-theme="dark"] .why-card__title {
         color: #ffffff !important;
     }
 
@@ -598,7 +710,8 @@ import HeroBg from "./HeroBg.astro";
     html[data-theme="dark"] .onas-mission__content p,
     html[data-theme="dark"] .team-card__desc,
     html[data-theme="dark"] .onas-tech__content p,
-    html[data-theme="dark"] .step-desc {
+    html[data-theme="dark"] .step-desc,
+    html[data-theme="dark"] .why-card__desc {
         color: #e5e7eb !important;
     }
 
@@ -1072,6 +1185,92 @@ import HeroBg from "./HeroBg.astro";
     }
 
     /* ==========================================================================
+       WHY WEBSITE SECTION (PAIN POINTS)
+       ========================================================================== */
+    .onas-why-website {
+        padding: var(--section-spacing) 5%;
+        border-top: 1px solid var(--glass-border);
+        background: linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(139, 92, 246, 0.02) 100%
+        );
+    }
+
+    .onas-why-website__container {
+        max-width: var(--container-width);
+        margin: 0 auto;
+    }
+
+    .onas-why-website__header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .onas-why-website__header h2 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .why-website-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .why-card {
+        position: relative;
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: var(--glass-shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transition: var(--transition-smooth);
+    }
+
+    @media (min-width: 1025px) {
+        .why-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--card-hover-border);
+            box-shadow: var(--card-hover-shadow);
+        }
+    }
+
+    .why-card__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: var(--process-card-num-gradient);
+        color: var(--accent-blue);
+        font-size: 1.5rem;
+    }
+
+    html[data-theme="dark"] .why-card__icon {
+        color: var(--accent-cyan);
+    }
+
+    .why-card__title {
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    .why-card__desc {
+        font-size: 1.1rem;
+        line-height: 1.65;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* ==========================================================================
        TECHNOLOGY COMPARISON SECTION
        ========================================================================== */
     .onas-tech {
@@ -1401,6 +1600,11 @@ import HeroBg from "./HeroBg.astro";
             gap: 50px;
         }
 
+        .why-website-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
         .process-steps {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -1451,7 +1655,10 @@ import HeroBg from "./HeroBg.astro";
         .team-card__desc,
         .onas-tech__content,
         .onas-tech__content h2,
-        .onas-tech__content p {
+        .onas-tech__content p,
+        .onas-why-website__header,
+        .why-card,
+        .why-card__desc {
             text-align: left !important;
             align-items: flex-start !important;
         }
@@ -1467,6 +1674,15 @@ import HeroBg from "./HeroBg.astro";
 
         .team-card:nth-child(3) {
             grid-column: span 1;
+        }
+
+        .why-website-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .why-card {
+            padding: 30px;
         }
 
         .process-steps {

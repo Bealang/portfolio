@@ -1,41 +1,50 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import HeroBg from '../../components/HeroBg.astro';
-import { getCollection, render } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import HeroBg from "../../components/HeroBg.astro";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
-  return projects.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+    const projects = await getCollection("projects");
+    return projects.map((project) => ({
+        params: { slug: project.id },
+        props: { project },
+    }));
 }
 
 const { project } = Astro.props;
 const { Content } = await render(project);
 
 // Get all projects sorted to provide simple navigation to other projects
-const allProjects = (await getCollection('projects')).sort(
-  (a, b) => a.data.order - b.data.order
+const allProjects = (await getCollection("projects")).sort(
+    (a, b) => a.data.order - b.data.order,
 );
 const currentIndex = allProjects.findIndex((p) => p.id === project.id);
-const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : (allProjects.length > 1 ? allProjects[0] : null);
+const nextProject =
+    currentIndex < allProjects.length - 1
+        ? allProjects[currentIndex + 1]
+        : allProjects.length > 1
+          ? allProjects[0]
+          : null;
 ---
 
 <Layout
-  title={`Projekt ${project.data.title} | web2sell`}
-  description={`Zobacz naszą realizację projektu ${project.data.title}. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta.`}
-  ogImage={project.data.thumbnail}
+    title={`Projekt ${project.data.title} | web2sell`}
+    description={`Zobacz naszą realizację projektu ${project.data.title}. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta.`}
+    ogImage={project.data.thumbnail}
 >
     <Header activePage="" />
 
     <main class="project-container">
         <HeroBg behindContent={true} />
 
-        <article class="project" data-aos="fade-up" data-aos-duration="800">
-            <div class="project__header">
+        <article class="project">
+            <div
+                class="project__header"
+                data-aos="fade-up"
+                data-aos-duration="600"
+            >
                 <a href="/#projekty" class="project__back-btn">
                     <i class="fa-solid fa-arrow-left-long"></i>
                     <span>Wróć do realizacjii</span>
@@ -43,100 +52,204 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
 
                 <div class="project__meta">
                     <span class="project__date">
-                        <i class="fa-regular fa-calendar-days"></i> Rok realizacji: {project.data.date}
+                        <i class="fa-regular fa-calendar-days"></i> Rok realizacji:
+                        {project.data.date}
                     </span>
-                    {project.data.url && (
-                        <>
-                            <span class="project__divider">•</span>
-                            <a href={project.data.url} target="_blank" rel="noopener noreferrer" class="project__preview-link" style={`--project-accent: ${project.data.color}`}>
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Odwiedź stronę
-                            </a>
-                        </>
-                    )}
+                    {
+                        project.data.url && (
+                            <>
+                                <span class="project__divider">•</span>
+                                <a
+                                    href={project.data.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project__preview-link"
+                                    style={`--project-accent: ${project.data.color}`}
+                                >
+                                    <i class="fa-solid fa-arrow-up-right-from-square" />{" "}
+                                    Odwiedź stronę
+                                </a>
+                            </>
+                        )
+                    }
                 </div>
 
                 <h1 class="project__title">{project.data.title}</h1>
             </div>
 
-            {project.data.gallery && project.data.gallery.length > 0 && (
-                <div class="project__gallery-container" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
-                    <div class="swiper project-gallery-swiper" style={`--swiper-navigation-color: ${project.data.color}; --swiper-pagination-color: ${project.data.color};`}>
-                        <div class="swiper-wrapper">
-                            {project.data.gallery.map((img, i) => (
-                                <div class="swiper-slide">
-                                    <div class="swiper-img-wrapper">
-                                        <img src={img} alt={`${project.data.title} — zdjęcie ${i + 1}`} class="project__gallery-img" />
+            {
+                project.data.gallery && project.data.gallery.length > 0 && (
+                    <div class="project__gallery-container">
+                        <div
+                            class="project-gallery"
+                            data-gallery
+                            data-autoplay="4500"
+                            style={`--gallery-accent: ${project.data.color};`}
+                        >
+                            <div class="project-gallery__stage">
+                                <div class="project-gallery__viewport">
+                                    <div class="project-gallery__track">
+                                        {project.data.gallery.map((img, i) => (
+                                            <figure class="project-gallery__slide">
+                                                <img
+                                                    src={img}
+                                                    alt={`${project.data.title} — zdjęcie ${i + 1}`}
+                                                    class="project-gallery__img"
+                                                    draggable="false"
+                                                />
+                                            </figure>
+                                        ))}
                                     </div>
                                 </div>
-                            ))}
+                                {project.data.gallery.length > 1 && (
+                                    <>
+                                        <button
+                                            type="button"
+                                            class="project-gallery__btn project-gallery__btn--prev"
+                                            aria-label="Poprzednie zdjęcie"
+                                        >
+                                            <i
+                                                class="fa-solid fa-chevron-left"
+                                                aria-hidden="true"
+                                            />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="project-gallery__btn project-gallery__btn--next"
+                                            aria-label="Następne zdjęcie"
+                                        >
+                                            <i
+                                                class="fa-solid fa-chevron-right"
+                                                aria-hidden="true"
+                                            />
+                                        </button>
+                                        <div
+                                            class="project-gallery__dots"
+                                            role="tablist"
+                                            aria-label="Galeria projektu"
+                                        >
+                                            {project.data.gallery.map(
+                                                (_, i) => (
+                                                    <button
+                                                        type="button"
+                                                        class:list={[
+                                                            "project-gallery__dot",
+                                                            {
+                                                                "is-active":
+                                                                    i === 0,
+                                                            },
+                                                        ]}
+                                                        role="tab"
+                                                        aria-label={`Zdjęcie ${i + 1}`}
+                                                        aria-selected={
+                                                            i === 0
+                                                                ? "true"
+                                                                : "false"
+                                                        }
+                                                        data-index={i}
+                                                    />
+                                                ),
+                                            )}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
                         </div>
-                        {project.data.gallery.length > 1 && (
-                            <>
-                                <div class="swiper-pagination"></div>
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-                            </>
-                        )}
                     </div>
-                </div>
-            )}
+                )
+            }
 
-            <section class="project__content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <section class="project__content">
                 <Content />
             </section>
-
-            <!-- Dolna nawigacja -->
-            <div class="project__navigation" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                <a href="/#projekty" class="project__nav-btn project__nav-btn--back" aria-label="Wróć do listy wszystkich realizacjii">
-                    <i class="fa-solid fa-arrow-left-long"></i>
-                    <span>Powrót do realizacjii</span>
-                </a>
-                
-                {nextProject && (
-                    <a href={`/realizacje/${nextProject.id}`} class="project__nav-btn project__nav-btn--next" aria-label={`Zobacz kolejny projekt: ${nextProject.data.title}`}>
-                        <span>Pokaż kolejny projekt</span>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                )}
-            </div>
         </article>
     </main>
 
     <Footer />
-
-    <!-- Floating CTA -->
-    <a href="/zamow" class="floating-cta" aria-label="Zamów bezpłatną wycenę">
-        <span>Bezpłatna wycena</span>
-        <i class="fa-solid fa-arrow-right-long"></i>
-    </a>
 </Layout>
 
-<!-- Swiper CDN Links -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+<!-- Lightweight gallery — no Swiper, scroll never blocked -->
 <script is:inline>
     document.addEventListener("DOMContentLoaded", function () {
-        var swiperEl = document.querySelector(".project-gallery-swiper");
-        if (swiperEl) {
-            new Swiper(swiperEl, {
-                loop: swiperEl.querySelectorAll(".swiper-slide").length > 1,
-                pagination: {
-                    el: swiperEl.querySelector(".swiper-pagination"),
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: swiperEl.querySelector(".swiper-button-next"),
-                    prevEl: swiperEl.querySelector(".swiper-button-prev"),
-                },
-                autoplay: {
-                    delay: 4500,
-                    disableOnInteraction: false,
-                },
-                effect: 'slide',
-                grabCursor: true,
+        document.querySelectorAll("[data-gallery]").forEach(function (gallery) {
+            var track = gallery.querySelector(".project-gallery__track");
+            var slides = Array.from(
+                gallery.querySelectorAll(".project-gallery__slide"),
+            );
+            var prevBtn = gallery.querySelector(".project-gallery__btn--prev");
+            var nextBtn = gallery.querySelector(".project-gallery__btn--next");
+            var dotsEl = gallery.querySelector(".project-gallery__dots");
+            var total = slides.length;
+            var current = 0;
+            var timer = null;
+            var autoplayDelay =
+                Number(gallery.getAttribute("data-autoplay")) || 0;
+
+            if (!track || total === 0) return;
+
+            function render() {
+                track.style.transform =
+                    "translate3d(-" + current * 100 + "%, 0, 0)";
+                if (dotsEl) {
+                    dotsEl
+                        .querySelectorAll(".project-gallery__dot")
+                        .forEach(function (dot, i) {
+                            dot.classList.toggle("is-active", i === current);
+                            dot.setAttribute(
+                                "aria-selected",
+                                i === current ? "true" : "false",
+                            );
+                        });
+                }
+            }
+
+            function goTo(index) {
+                current = (index + total) % total;
+                render();
+            }
+
+            function resetAutoplay() {
+                if (!autoplayDelay || total < 2) return;
+                if (timer) clearInterval(timer);
+                timer = setInterval(function () {
+                    goTo(current + 1);
+                }, autoplayDelay);
+            }
+
+            if (dotsEl && total > 1) {
+                dotsEl
+                    .querySelectorAll(".project-gallery__dot")
+                    .forEach(function (dot, i) {
+                        dot.addEventListener("click", function () {
+                            goTo(i);
+                            resetAutoplay();
+                        });
+                    });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener("click", function () {
+                    goTo(current - 1);
+                    resetAutoplay();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener("click", function () {
+                    goTo(current + 1);
+                    resetAutoplay();
+                });
+            }
+
+            gallery.addEventListener("mouseenter", function () {
+                if (timer) clearInterval(timer);
             });
-        }
+
+            gallery.addEventListener("mouseleave", resetAutoplay);
+
+            render();
+            resetAutoplay();
+        });
     });
 </script>
 
@@ -155,7 +268,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
     }
 
     .project__content h1 {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 2.2rem;
         font-weight: 800;
         color: var(--text-primary);
@@ -165,7 +278,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
     }
 
     .project__content h2 {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 1.8rem;
         font-weight: 700;
         color: var(--text-primary);
@@ -175,7 +288,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
     }
 
     .project__content h3 {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 1.4rem;
         font-weight: 700;
         color: var(--text-primary);
@@ -183,7 +296,8 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
         line-height: 1.3;
     }
 
-    .project__content ul, .project__content ol {
+    .project__content ul,
+    .project__content ol {
         margin: 0 0 24px;
         padding-left: 24px;
     }
@@ -218,6 +332,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
         margin: 0 auto;
         padding: 160px 5% 80px;
         min-height: 85vh;
+        overflow: visible;
     }
 
     .project {
@@ -299,7 +414,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
     }
 
     .project__title {
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: clamp(32px, 5vw, 54px);
         font-weight: 800;
         color: var(--text-primary);
@@ -308,7 +423,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
         margin: 0;
     }
 
-    /* Karuzela Swiper */
+    /* Galeria projektu — bez przechwytywania scrolla */
     .project__gallery-container {
         border-radius: 20px;
         overflow: hidden;
@@ -318,33 +433,123 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
         background: var(--card-bg);
     }
 
-    .project-gallery-swiper {
-        width: 100%;
-        height: 480px;
+    .project-gallery {
+        position: relative;
     }
 
-    .swiper-slide {
+    .project-gallery__stage {
+        position: relative;
         width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #000;
     }
 
-    .swiper-img-wrapper {
+    .project-gallery__viewport {
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 8;
+        touch-action: pan-y;
+    }
+
+    .project-gallery__track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        will-change: transform;
+    }
+
+    .project-gallery__slide {
+        flex: 0 0 100%;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin: 0;
+        padding: 0;
         overflow: hidden;
     }
 
-    .project__gallery-img {
+    .project-gallery__img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top center;
+        display: block;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    .project-gallery__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        background: var(--card-bg);
+        color: var(--gallery-accent, var(--accent-blue));
+        box-shadow: var(--glass-shadow);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .project-gallery__btn:hover {
+        transform: translateY(-50%) scale(1.06);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-gallery__btn--prev {
+        left: 16px;
+    }
+
+    .project-gallery__btn--next {
+        right: 16px;
+    }
+
+    .project-gallery__dots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 20px 16px 14px;
+        pointer-events: none;
+    }
+
+    .project-gallery__dot {
+        pointer-events: auto;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.55);
+        cursor: pointer;
+        transition:
+            background 0.25s ease,
+            transform 0.2s ease;
+    }
+
+    .project-gallery__dot:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(1.15);
+    }
+
+    .project-gallery__dot.is-active {
+        background: var(--gallery-accent, var(--accent-blue));
+        transform: scale(1.2);
+    }
+
+    .project-gallery__dot:focus-visible {
+        outline: 2px solid var(--gallery-accent, var(--accent-blue));
+        outline-offset: 3px;
     }
 
     @media (max-width: 768px) {
@@ -352,12 +557,22 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
             padding-top: 130px;
         }
 
-        .project-gallery-swiper {
-            height: 300px;
-        }
-
         .project__gallery-container {
             border-radius: 12px;
+        }
+
+        .project-gallery__btn {
+            display: none;
+        }
+
+        .project-gallery__dots {
+            gap: 7px;
+            padding: 10px 12px;
+        }
+
+        .project-gallery__dot {
+            width: 8px;
+            height: 8px;
         }
 
         .project__content {
@@ -408,7 +623,9 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
     .project__nav-btn--back:hover {
         transform: translateY(-3px);
         border-color: var(--card-hover-border);
-        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.06), var(--glass-shadow);
+        box-shadow:
+            0 10px 20px rgba(139, 92, 246, 0.06),
+            var(--glass-shadow);
     }
 
     .project__nav-btn--back:hover i {
@@ -418,7 +635,11 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
 
     /* Następny projekt */
     .project__nav-btn--next {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(59, 130, 246, 0.08));
+        background: linear-gradient(
+            135deg,
+            rgba(6, 182, 212, 0.08),
+            rgba(59, 130, 246, 0.08)
+        );
         border-color: rgba(6, 182, 212, 0.25);
     }
 
@@ -428,7 +649,11 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
 
     .project__nav-btn--next:hover {
         transform: translateY(-3px);
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+        background: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-blue)
+        );
         border-color: transparent;
         color: #fff;
         box-shadow: 0 12px 25px rgba(6, 182, 212, 0.25);
@@ -466,18 +691,26 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
         gap: 10px;
         padding: 14px 28px;
         border-radius: 50px;
-        font-family: 'Figtree', sans-serif;
+        font-family: "Figtree", sans-serif;
         font-size: 0.95rem;
         font-weight: 700;
         text-decoration: none;
         color: #fff !important;
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-blue)
+        );
+        box-shadow:
+            0 4px 15px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                    box-shadow 0.3s ease, 
-                    background-color 0.3s ease;
+        transition:
+            transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+            box-shadow 0.3s ease,
+            background-color 0.3s ease;
         cursor: pointer;
+        pointer-events: auto;
     }
 
     .floating-cta i {
@@ -488,8 +721,14 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
 
     .floating-cta:hover {
         transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
     }
 
     .floating-cta:hover i {

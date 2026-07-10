@@ -172,13 +172,110 @@ const isHome = activePage === "home";
         // Theme Toggle Handler (Syncing both Desktop & Mobile Toggles)
         // ──────────────────────────────────────────────────
         var themeToggles = document.querySelectorAll(".theme-switch-pill");
+        var isTransitioning = false;
+
         themeToggles.forEach(function (toggle) {
-            toggle.addEventListener("click", function () {
-                var currentTheme =
-                    document.documentElement.getAttribute("data-theme");
+            toggle.addEventListener("click", function (event) {
+                if (isTransitioning) return;
+                isTransitioning = true;
+
+                var currentTheme = document.documentElement.getAttribute("data-theme") || "light";
                 var newTheme = currentTheme === "dark" ? "light" : "dark";
-                document.documentElement.setAttribute("data-theme", newTheme);
-                localStorage.setItem("theme", newTheme);
+
+                // Get click coordinates (or center of the toggle if keyboard triggered)
+                var x = event.clientX;
+                var y = event.clientY;
+                if (x === undefined || y === undefined) {
+                    var rect = toggle.getBoundingClientRect();
+                    x = rect.left + rect.width / 2;
+                    y = rect.top + rect.height / 2;
+                }
+
+                // Create full-screen overlay container
+                var overlay = document.createElement("div");
+                overlay.className = "theme-transition-overlay";
+
+                // Create the scaling circle element
+                var circle = document.createElement("div");
+                circle.className = "theme-transition-circle";
+                circle.style.left = (x - 50) + "px";
+                circle.style.top = (y - 50) + "px";
+
+                // Create the cross-fading background layers inside the circle
+                var currentBg = document.createElement("div");
+                currentBg.className = "theme-transition-circle-bg current-bg";
+                currentBg.style.backgroundColor = currentTheme === "dark" ? "#101010" : "#f5f6f8";
+
+                var targetBg = document.createElement("div");
+                targetBg.className = "theme-transition-circle-bg target-bg";
+                targetBg.style.backgroundColor = newTheme === "dark" ? "#101010" : "#f5f6f8";
+
+                circle.appendChild(currentBg);
+                circle.appendChild(targetBg);
+                overlay.appendChild(circle);
+                document.body.appendChild(overlay);
+
+                // Calculate scale factor to cover the screen from point (x, y)
+                var maxDist = Math.max(
+                    Math.hypot(x, y),
+                    Math.hypot(window.innerWidth - x, y),
+                    Math.hypot(x, window.innerHeight - y),
+                    Math.hypot(window.innerWidth - x, window.innerHeight - y)
+                );
+                var targetScale = (maxDist / 50) + 0.5;
+
+                // Force DOM reflow
+                overlay.offsetWidth;
+
+                // Phase 1: Expand circle via GPU-accelerated transform scale (Slow & premium)
+                circle.animate([
+                    { transform: "scale(0)" },
+                    { transform: "scale(" + targetScale + ")" }
+                ], {
+                    duration: 550,
+                    easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+                    fill: "forwards"
+                });
+
+                // Phase 2: Snappy fade of target background color
+                // (Starts exactly after circle expands, at 550ms)
+                setTimeout(function() {
+                    // We only animate the target layer from 0 to 1 opacity.
+                    // The current layer remains solid (opacity 1) underneath, preventing transparency issues.
+                    targetBg.animate([
+                        { opacity: 0 },
+                        { opacity: 1 }
+                    ], {
+                        duration: 150, // Snappy 150ms transition for eye comfort
+                        easing: "ease-out",
+                        fill: "forwards"
+                    });
+                }, 550);
+
+                // Phase 3: Switch theme under the hood when the screen is fully masked
+                // (Starts at 700ms, right after background fade completes)
+                setTimeout(function() {
+                    document.documentElement.setAttribute("data-theme", newTheme);
+                    localStorage.setItem("theme", newTheme);
+                }, 700);
+
+                // Phase 4: Shrink circle back to click point to reveal the page
+                // (Starts at 750ms, allowing a short 50ms pause for visual pacing)
+                setTimeout(function() {
+                    var shrinkAnimation = circle.animate([
+                        { transform: "scale(" + targetScale + ")" },
+                        { transform: "scale(0)" }
+                    ], {
+                        duration: 550, // Slow & premium contraction
+                        easing: "cubic-bezier(0.76, 0, 0.24, 1)",
+                        fill: "forwards"
+                    });
+
+                    shrinkAnimation.onfinish = function() {
+                        overlay.remove();
+                        isTransitioning = false;
+                    };
+                }, 750);
             });
         });
 
@@ -303,8 +400,9 @@ const isHome = activePage === "home";
             );
             var moveNav = function () {
                 if (window.innerWidth <= 995) {
-                    if (navMenu.parentElement !== document.body)
-                        document.body.appendChild(navMenu);
+                    var wrapper = document.querySelector(".app-wrapper") || document.body;
+                    if (navMenu.parentElement !== wrapper)
+                        wrapper.appendChild(navMenu);
                 } else {
                     if (
                         headerBottomContainer &&
