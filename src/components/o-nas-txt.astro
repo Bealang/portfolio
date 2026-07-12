@@ -123,7 +123,7 @@ import HeroBg from "./HeroBg.astro";
             >
                 <div
                     class="team-card__glow"
-                    style="background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);"
+                    style="background: radial-gradient(circle, rgba(var(--accent-cyan-rgb), 0.15) 0%, transparent 70%);"
                 >
                 </div>
                 <div class="team-card__avatar">
@@ -153,7 +153,7 @@ import HeroBg from "./HeroBg.astro";
             >
                 <div
                     class="team-card__glow"
-                    style="background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);"
+                    style="background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.15) 0%, transparent 70%);"
                 >
                 </div>
                 <div class="team-card__avatar">
@@ -815,13 +815,13 @@ import HeroBg from "./HeroBg.astro";
         color: #fff !important;
         background: linear-gradient(
             135deg,
-            rgba(139, 92, 246, 0.95),
-            rgba(236, 72, 153, 0.95)
+            rgba(var(--accent-blue-rgb), 0.95),
+            rgba(var(--accent-cyan-rgb), 0.95)
         );
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 50px;
         box-shadow:
-            0 10px 30px rgba(139, 92, 246, 0.25),
+            0 10px 30px rgba(var(--accent-blue-rgb), 0.25),
             var(--glass-shadow);
         text-decoration: none !important;
         transition: var(--transition-smooth);
@@ -830,15 +830,15 @@ import HeroBg from "./HeroBg.astro";
     html[data-theme="dark"] .btn-manifesto {
         background: linear-gradient(
             135deg,
-            rgba(167, 139, 250, 0.95),
-            rgba(251, 113, 133, 0.95)
+            rgba(var(--accent-blue-rgb), 0.95),
+            rgba(var(--accent-cyan-rgb), 0.95)
         );
     }
 
     .btn-manifesto:hover {
         transform: translateY(-4px);
         box-shadow:
-            0 15px 35px rgba(139, 92, 246, 0.4),
+            0 15px 35px rgba(var(--accent-blue-rgb), 0.4),
             var(--glass-shadow);
     }
 
@@ -881,7 +881,7 @@ import HeroBg from "./HeroBg.astro";
         background: linear-gradient(
             180deg,
             transparent 0%,
-            rgba(139, 92, 246, 0.02) 100%
+            rgba(var(--accent-blue-rgb), 0.02) 100%
         );
     }
 
@@ -988,7 +988,7 @@ import HeroBg from "./HeroBg.astro";
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background: rgba(139, 92, 246, 0.1);
+        background: rgba(var(--accent-blue-rgb), 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1049,7 +1049,7 @@ import HeroBg from "./HeroBg.astro";
         font-size: 13.5px;
         font-weight: 600;
         cursor: pointer;
-        box-shadow: 0 4px 15px rgba(167, 139, 250, 0.25);
+        box-shadow: 0 4px 15px rgba(var(--accent-blue-rgb), 0.25);
         transition:
             transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
             box-shadow 0.25s ease;
@@ -1057,7 +1057,7 @@ import HeroBg from "./HeroBg.astro";
 
     .map-placeholder:hover .map-placeholder__btn {
         transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(167, 139, 250, 0.35);
+        box-shadow: 0 6px 20px rgba(var(--accent-blue-rgb), 0.35);
     }
 
     .onas-mission__content {
@@ -1193,7 +1193,7 @@ import HeroBg from "./HeroBg.astro";
         background: linear-gradient(
             180deg,
             transparent 0%,
-            rgba(139, 92, 246, 0.02) 100%
+            rgba(var(--accent-blue-rgb), 0.02) 100%
         );
     }
 
@@ -1279,7 +1279,7 @@ import HeroBg from "./HeroBg.astro";
         background: linear-gradient(
             0deg,
             transparent 0%,
-            rgba(139, 92, 246, 0.02) 100%
+            rgba(var(--accent-blue-rgb), 0.02) 100%
         );
     }
 

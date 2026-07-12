@@ -12,11 +12,9 @@ import HeroBg from '../components/HeroBg.astro';
     <Header activePage="polityka" />
 
     <main class="privacy-container">
-        <HeroBg behindContent={true} />
-
-        <div class="privacy__header">
+        <HeroBg behindContent={true} />        <div class="privacy__header">
             <h1>Polityka <span class="gradient__text">Prywatności</span></h1>
-            <p>Ostatnia aktualizacja: 22 maja 2026 r.</p>
+            <p>Ostatnia aktualizacja: 12 lipca 2026 r.</p>
         </div>
 
         <section class="privacy__content">
@@ -61,26 +59,123 @@ import HeroBg from '../components/HeroBg.astro';
             <p>Dokładamy wszelkich starań, aby Twoje dane były w pełni bezpieczne. Połączenie z naszą witryną jest szyfrowane za pomocą protokołu SSL/HTTPS, co zapewnia poufność danych przesyłanych przez formularz kontaktowy. Dbamy o regularne aktualizacje oprogramowania oraz stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony danych przed nieuprawnionym dostępem lub utratą.</p>
 
             <h2>8. Twoje prawa oraz prawo do skargi (PUODO)</h2>
-            <p>W związku z przetwarzaniem Twoich danych osobowych przysługuje Ci prawo do:</p>
+            <p>W związku z przetwarzaniem Twoich danych osobowych przysługuje Ci szereg praw wynikających z RODO:</p>
             <ul>
                 <li>Dostępu do swoich danych oraz otrzymania ich kopii,</li>
                 <li>Sprostowania (poprawiania) swoich danych,</li>
                 <li>Usunięcia danych („prawo do bycia zapomnianym”) – wystarczy wysłać prośbę na adres <a href="mailto:kontakt@web2sell.pl" class="privacy-link">kontakt@web2sell.pl</a>,</li>
                 <li>Ograniczenia przetwarzania danych,</li>
+                <li>Przenoszenia danych (do innego administratora lub w powszechnie używanym formacie),</li>
                 <li>Wniesienia sprzeciwu wobec przetwarzania,</li>
                 <li>Cofnięcia zgody w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania przed jej cofnięciem.</li>
             </ul>
             <p>Masz również prawo do wniesienia skargi do organu nadzorczego zajmującego się ochroną danych osobowych w Polsce – <strong>Prezesa Urzędu Ochrony Danych Osobowych (PUODO)</strong> (ul. Stawki 2, 00-193 Warszawa), jeżeli uznasz, że przetwarzanie Twoich danych narusza przepisy RODO.</p>
 
-            <h2>9. Ciasteczka (Cookies) i Pamięć Lokalna (localStorage)</h2>
-            <p>Nasza witryna korzysta z plików cookies oraz pamięci lokalnej w ściśle określonych celach:</p>
-            <ul>
-                <li><strong>Pliki cookies analityczne (Google Analytics):</strong> Służą do zbierania informacji o tym, jak Użytkownicy korzystają ze strony (odwiedzane podstrony, czas spędzony na stronie). Są one zapisywane w Twojej przeglądarce <strong>wyłącznie po kliknięciu przycisku „Akceptuję”</strong> na naszym banerze cookies. Zgodę możesz cofnąć, czyszcząc pliki cookies w przeglądarce.</li>
-                <li><strong>localStorage (Antyspam formularza):</strong> Przechowuje znacznik czasu po pomyślnym wysłaniu wiadomości z formularza kontaktowego, aby zablokować możliwość ponownego wysłania spamu przez kolejne 2 minuty.</li>
-                <li><strong>localStorage (Preferencja motywu):</strong> Służy do zapamiętania Twojego wyboru motywu (jasny lub ciemny). Na naszej witrynie domyślnym motywem przy pierwszej wizycie jest motyw jasny.</li>
-            </ul>
+            <h2>9. Profilowanie i zautomatyzowane podejmowanie decyzji</h2>
+            <p>Twoje dane osobowe nie będą wykorzystywane do zautomatyzowanego podejmowania decyzji, w tym do profilowania, o którym mowa w art. 22 ust. 1 i 4 RODO.</p>
+
+            <h2>10. Ciasteczka (Cookies) i Pamięć Lokalna (localStorage)</h2>
+            <p>Nasza witryna korzysta z technologii plików cookies oraz pamięci lokalnej przeglądarki (localStorage) w celu zapewnienia prawidłowego działania strony, zapamiętania Twoich preferencji oraz (za Twoją zgody) do analizy ruchu w witrynie.</p>
+
+            <div class="privacy-table-container">
+                <table class="privacy-table">
+                    <thead>
+                        <tr>
+                            <th>Nazwa / Klucz</th>
+                            <th>Dostawca</th>
+                            <th>Typ / Cel</th>
+                            <th>Okres przechowywania</th>
+                            <th>Kwalifikacja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>color-theme</strong></td>
+                            <td>Pierwsza strona (własne)</td>
+                            <td>Funkcjonalne – zapamiętuje wybraną przez Ciebie paletę kolorów witryny.</td>
+                            <td>365 dni (ciasteczko)</td>
+                            <td>Niezbędne (preferencyjne)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>theme</strong></td>
+                            <td>Pierwsza strona (własne)</td>
+                            <td>Funkcjonalne – zapamiętuje preferencję motywu jasnego/ciemnego.</td>
+                            <td>Trwałe (localStorage)</td>
+                            <td>Niezbędne (preferencyjne)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>cookie-consent</strong></td>
+                            <td>Pierwsza strona (własne)</td>
+                            <td>Niezbędne – zapamiętuje informację o wyrażeniu zgody na analityczne pliki cookies.</td>
+                            <td>Trwałe (localStorage)</td>
+                            <td>Niezbędne (techniczne)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>contact_form_sent</strong></td>
+                            <td>Pierwsza strona (własne)</td>
+                            <td>Niezbędne – antyspam, blokuje ponowne wysłanie formularza przez kolejne 2 minuty.</td>
+                            <td>2 minuty (localStorage)</td>
+                            <td>Niezbędne (bezpieczeństwo)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>_ga*</strong></td>
+                            <td>Google Analytics (zewnętrzne)</td>
+                            <td>Analityczne – zbieranie statystyk ruchu na stronie (zanonimizowane).</td>
+                            <td>Do 2 lat (ciasteczko)</td>
+                            <td>Opcjonalne (wymaga zgody)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>Zarządzanie zgodami na pliki cookies:</strong><br>
+            Możesz w każdej chwili usunąć, zablokować lub zmienić ustawienia plików cookies bezpośrednio w swojej przeglądarce internetowej. Wyczyszczenie plików cookies dla domeny web2sell.pl spowoduje również zresetowanie Twoich preferencji (np. wybranego motywu kolorystycznego) oraz ponowne wyświetlenie banera z zapytaniem o zgodę na pliki cookies analityczne.</p>
         </section>
     </main>
 
     <Footer />
 </Layout>
+
+<style>
+    .privacy-table-container {
+        overflow-x: auto;
+        margin: 32px 0;
+        border-radius: 16px;
+        border: 1px solid rgba(var(--accent-blue-rgb), 0.15);
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    
+    :global(html[data-theme="dark"]) .privacy-table-container {
+        background: rgba(20, 20, 20, 0.4);
+        border-color: rgba(var(--accent-blue-rgb), 0.1);
+    }
+    
+    .privacy-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 0.95rem;
+    }
+    
+    .privacy-table th, .privacy-table td {
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(var(--accent-blue-rgb), 0.1);
+    }
+    
+    .privacy-table th {
+        background: rgba(var(--accent-blue-rgb), 0.05);
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+    
+    .privacy-table td {
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+    
+    .privacy-table tr:last-child td {
+        border-bottom: none;
+    }
+</style>

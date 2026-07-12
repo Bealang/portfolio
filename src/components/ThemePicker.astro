@@ -1,0 +1,296 @@
+---
+// ThemePicker.astro - A floating theme picker button and menu
+---
+
+<div class="theme-picker" id="theme-picker-container">
+    <!-- Trigger Button -->
+    <button 
+        class="theme-picker__trigger" 
+        id="theme-picker-trigger" 
+        aria-label="Wybierz motyw kolorystyczny"
+        title="Zmień kolorystykę strony"
+    >
+        <i class="fa-solid fa-palette"></i>
+    </button>
+
+    <!-- Menu -->
+    <div class="theme-picker__menu" id="theme-picker-menu">
+        <div class="theme-picker__title">Kolorystyka strony</div>
+        <div class="theme-picker__options">
+            <button 
+                class="theme-picker__option" 
+                data-theme-value="blue" 
+                title="Niebieski" 
+                aria-label="Motyw niebieski"
+                style="background: linear-gradient(135deg, #2563eb, #38bdf8);"
+            >
+                <span class="theme-picker__option-dot"></span>
+            </button>
+            <button 
+                class="theme-picker__option" 
+                data-theme-value="pink" 
+                title="Różowy" 
+                aria-label="Motyw różowy"
+                style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"
+            >
+                <span class="theme-picker__option-dot"></span>
+            </button>
+            <button 
+                class="theme-picker__option" 
+                data-theme-value="green" 
+                title="Zielony" 
+                aria-label="Motyw zielony"
+                style="background: linear-gradient(135deg, #059669, #34d399);"
+            >
+                <span class="theme-picker__option-dot"></span>
+            </button>
+            <button 
+                class="theme-picker__option" 
+                data-theme-value="red" 
+                title="Czerwony" 
+                aria-label="Motyw czerwony"
+                style="background: linear-gradient(135deg, #dc2626, #f87171);"
+            >
+                <span class="theme-picker__option-dot"></span>
+            </button>
+            <button 
+                class="theme-picker__option" 
+                data-theme-value="yellow" 
+                title="Żółty" 
+                aria-label="Motyw żółty"
+                style="background: linear-gradient(135deg, #d97706, #facc15);"
+            >
+                <span class="theme-picker__option-dot"></span>
+            </button>
+            <button 
+                class="theme-picker__option" 
+                data-theme-value="orange" 
+                title="Pomarańczowy" 
+                aria-label="Motyw pomarańczowy"
+                style="background: linear-gradient(135deg, #ea580c, #fb923c);"
+            >
+                <span class="theme-picker__option-dot"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Floating button container in the bottom right corner */
+    .theme-picker {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 10000; /* overlay all components */
+    }
+
+    /* Hide picker on mobile screens */
+    @media (max-width: 768px) {
+        .theme-picker {
+            display: none !important;
+        }
+    }
+
+    /* Trigger Button - Glassmorphism style, glows with theme color */
+    .theme-picker__trigger {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(var(--accent-blue-rgb), 0.25);
+        background: rgba(var(--accent-blue-rgb), 0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: var(--accent-blue);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 15px rgba(var(--accent-blue-rgb), 0.15);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        padding: 0;
+    }
+
+    .theme-picker__trigger:hover {
+        background: var(--accent-blue);
+        color: #ffffff;
+        border-color: var(--accent-blue);
+        box-shadow: 0 15px 35px rgba(var(--accent-blue-rgb), 0.35), 0 0 25px rgba(var(--accent-blue-rgb), 0.25);
+        transform: scale(1.1) rotate(20deg);
+    }
+
+    .theme-picker__trigger:active {
+        transform: scale(0.95) rotate(-10deg);
+    }
+
+    /* Menu container - Glassmorphic card styling */
+    .theme-picker__menu {
+        position: absolute;
+        bottom: 72px;
+        right: 0;
+        width: 220px;
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(var(--accent-blue-rgb), 0.15);
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 20px rgba(var(--accent-blue-rgb), 0.05);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px) scale(0.95);
+        transform-origin: bottom right;
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Dark mode adaptibility */
+    :global(html[data-theme="dark"]) .theme-picker__menu {
+        background: rgba(20, 20, 20, 0.85);
+        border-color: rgba(var(--accent-blue-rgb), 0.2);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(var(--accent-blue-rgb), 0.1);
+    }
+
+    /* Opened state */
+    .theme-picker.is-open .theme-picker__menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    .theme-picker.is-open .theme-picker__trigger {
+        transform: rotate(90deg);
+        background: var(--accent-blue);
+        color: #ffffff;
+        border-color: var(--accent-blue);
+    }
+
+    .theme-picker__title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Grid of color swatches */
+    .theme-picker__options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    /* Individual Color Swatch */
+    .theme-picker__option {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+    }
+
+    .theme-picker__option:hover {
+        transform: scale(1.15) translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .theme-picker__option:active {
+        transform: scale(0.9);
+    }
+
+    /* Selected state indicator */
+    .theme-picker__option.is-active {
+        border-color: var(--text-primary);
+        box-shadow: 0 0 0 2px rgba(var(--accent-blue-rgb), 0.3), 0 6px 12px rgba(0, 0, 0, 0.15);
+        transform: scale(1.1);
+    }
+
+    .theme-picker__option-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ffffff;
+        opacity: 0;
+        transform: scale(0.5);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .theme-picker__option.is-active .theme-picker__option-dot {
+        opacity: 1;
+        transform: scale(1);
+    }
+</style>
+
+<script>
+    // ThemePicker Script
+    document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("theme-picker-container");
+        const trigger = document.getElementById("theme-picker-trigger");
+        const options = document.querySelectorAll(".theme-picker__option");
+
+        if (!container || !trigger) return;
+
+        // Read active color theme from attribute or cookies
+        const getActiveTheme = (): string => {
+            return document.documentElement.getAttribute("data-color-theme") || "pink";
+        };
+
+        // Update active class on swatch options
+        const updateActiveState = (activeTheme: string) => {
+            options.forEach(opt => {
+                const themeVal = opt.getAttribute("data-theme-value");
+                if (themeVal === activeTheme) {
+                    opt.classList.add("is-active");
+                } else {
+                    opt.classList.remove("is-active");
+                }
+            });
+        };
+
+        // Initialize active state
+        updateActiveState(getActiveTheme());
+
+        // Toggle menu open/closed
+        trigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            container.classList.toggle("is-open");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!container.contains(e.target as Node)) {
+                container.classList.remove("is-open");
+            }
+        });
+
+        // Theme option selection handler
+        options.forEach(opt => {
+            opt.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const selectedTheme = opt.getAttribute("data-theme-value");
+                if (!selectedTheme) return;
+
+                // 1. Set cookie for 365 days
+                document.cookie = `color-theme=${selectedTheme}; path=/; max-age=${365 * 24 * 60 * 60}; SameSite=Lax`;
+
+                // 2. Set document attribute
+                document.documentElement.setAttribute("data-color-theme", selectedTheme);
+
+                // 3. Update switcher visual indicator
+                updateActiveState(selectedTheme);
+
+                // 4. Close picker menu with a tiny delay for click feedback
+                setTimeout(() => {
+                    container.classList.remove("is-open");
+                }, 200);
+            });
+        });
+    });
+</script>

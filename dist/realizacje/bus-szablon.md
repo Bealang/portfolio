@@ -86,14 +86,14 @@ Przedstawiany system to kompletna aplikacja webowa rozwiązująca problemy komun
   }
   .feature-list li::before {
     content: "•";
-    color: #8b5cf6;
+    color: #2563eb;
     font-weight: bold;
     position: absolute;
     left: 0;
     top: 0;
   }
   html[data-theme="dark"] .feature-list li::before {
-    color: #a78bfa;
+    color: #60a5fa;
   }
 </style>
 
@@ -138,7 +138,7 @@ Przedstawiany system to kompletna aplikacja webowa rozwiązująca problemy komun
   /* Główne style oferty sprzedaży - Płaski i czysty design bez cieni i gradientów */
   .sale-banner {
     background: #ffffff;
-    border: 2px solid #8b5cf6;
+    border: 2px solid #2563eb;
     border-radius: 12px;
     padding: 30px;
     margin: 20px 0 40px;
@@ -150,14 +150,14 @@ Przedstawiany system to kompletna aplikacja webowa rozwiązująca problemy komun
   /* Dostosowanie dla ciemnego motywu (tło i ramka) */
   html[data-theme="dark"] .sale-banner {
     background: #161616;
-    border-color: #a78bfa;
+    border-color: #60a5fa;
   }
 
   .sale-banner__badge {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: #8b5cf6;
+    background: #2563eb;
     color: #ffffff;
     font-size: 0.75rem;
     font-weight: 600;
@@ -167,7 +167,7 @@ Przedstawiany system to kompletna aplikacja webowa rozwiązująca problemy komun
   }
 
   html[data-theme="dark"] .sale-banner__badge {
-    background: #a78bfa;
+    background: #60a5fa;
     color: #101010;
   }
 
@@ -219,12 +219,12 @@ Przedstawiany system to kompletna aplikacja webowa rozwiązująca problemy komun
   }
 
   .price-box--new .price-value {
-    color: #8b5cf6;
+    color: #2563eb;
     font-size: 2.2rem;
   }
 
   html[data-theme="dark"] .price-box--new .price-value {
-    color: #a78bfa;
+    color: #60a5fa;
   }
 
   /* Ostrzeżenie o wyłączności */
@@ -276,17 +276,17 @@ Przedstawiany system to kompletna aplikacja webowa rozwiązująca problemy komun
   }
 
   .btn-cta--primary {
-    background: #8b5cf6;
+    background: #2563eb;
     color: #ffffff !important;
   }
 
   html[data-theme="dark"] .btn-cta--primary {
-    background: #a78bfa;
+    background: #60a5fa;
     color: #101010 !important;
   }
 
   .btn-cta--primary:hover {
-    background: #7c3aed;
+    background: #1d4ed8;
     transform: none !important;
     box-shadow: none !important;
   }
@@ -324,18 +324,18 @@ Przedstawiany system to kompletna aplikacja webowa rozwiązująca problemy komun
 
 
   html[data-theme="dark"] .feature-card:hover {
-    border-color: #a78bfa;
+    border-color: #60a5fa;
     background: #161616;
   }
 
   .feature-card__icon {
     font-size: 1.8rem;
-    color: #8b5cf6;
+    color: #2563eb;
     margin-bottom: 12px;
   }
 
   html[data-theme="dark"] .feature-card__icon {
-    color: #a78bfa;
+    color: #60a5fa;
   }
 
   .feature-card__title {

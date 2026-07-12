@@ -27,6 +27,7 @@ import "@fontsource/figtree/400.css";
 import "@fontsource/figtree/600.css";
 import "@fontsource/figtree/800.css";
 import "../styles/main.css";
+import ThemePicker from "../components/ThemePicker.astro";
 ---
 
 <!doctype html>
@@ -35,6 +36,7 @@ import "../styles/main.css";
         <meta charset="UTF-8" />
         <script is:inline>
             (function () {
+                // Theme (light/dark)
                 const savedTheme = localStorage.getItem("theme");
                 if (savedTheme === "dark") {
                     document.documentElement.setAttribute("data-theme", "dark");
@@ -44,6 +46,18 @@ import "../styles/main.css";
                         "light",
                     );
                 }
+
+                // Color Palette Theme (cookie-based)
+                const cookies = document.cookie.split(';');
+                let colorTheme = 'pink'; // default to pink
+                for (let i = 0; i < cookies.length; i++) {
+                    const c = cookies[i].trim();
+                    if (c.startsWith('color-theme=')) {
+                        colorTheme = c.substring('color-theme='.length);
+                        break;
+                    }
+                }
+                document.documentElement.setAttribute('data-color-theme', colorTheme);
             })();
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -187,26 +201,42 @@ import "../styles/main.css";
                         >.
                     </p>
                 </div>
-                <button id="cookie-accept" class="cookie-banner__btn"
-                    >Akceptuję</button
-                >
+                <div class="cookie-banner__actions">
+                    <button id="cookie-decline" class="cookie-banner__btn cookie-banner__btn--decline"
+                        >Odrzuć</button
+                    >
+                    <button id="cookie-accept" class="cookie-banner__btn"
+                        >Akceptuję</button
+                    >
+                </div>
             </div>
         </div>
 
         <script is:inline>
             (function () {
                 const consent = localStorage.getItem("cookie-consent");
-                if (consent !== "accepted") {
+                // Show banner only if the user hasn't made a choice yet
+                if (!consent) {
                     const banner = document.getElementById("cookie-banner");
                     const acceptBtn = document.getElementById("cookie-accept");
-                    if (banner && acceptBtn) {
+                    const declineBtn = document.getElementById("cookie-decline");
+                    
+                    if (banner && acceptBtn && declineBtn) {
                         banner.classList.remove("hidden");
+                        
+                        // User accepts cookies
                         acceptBtn.addEventListener("click", function () {
                             localStorage.setItem("cookie-consent", "accepted");
                             banner.classList.add("hidden");
                             if (typeof window.initGA === "function") {
                                 window.initGA();
                             }
+                        });
+
+                        // User declines cookies
+                        declineBtn.addEventListener("click", function () {
+                            localStorage.setItem("cookie-consent", "declined");
+                            banner.classList.add("hidden");
                         });
                     }
                 }
@@ -275,5 +305,6 @@ import "../styles/main.css";
                 });
             });
         </script>
+        <ThemePicker />
     </body>
 </html>
