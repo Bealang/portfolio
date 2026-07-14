@@ -6166,7 +6166,7 @@ nav>a.active::after {
         justify-content: center;
         gap: 3px;
         text-decoration: none;
-        color: var(--text-secondary);
+        color: var(--accent-blue);
         font-size: 11px;
         font-weight: 700;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -6180,7 +6180,7 @@ nav>a.active::after {
     .floating-nav-item i {
         font-size: 22px;
         transition: transform 0.3s ease, color 0.3s ease;
-        color: var(--text-secondary);
+        color: var(--accent-blue);
     }
 
     /* Active State (Selected Page) - Light Theme */
