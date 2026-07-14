@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.9",
     "@astrojs/sitemap": "^3.2.1",
     "@fontsource/figtree": "^5.2.10",
+    "@fontsource/plus-jakarta-sans": "^5.2.8",
     "aos": "^2.3.4",
     "astro": "^6.3.3"
   },

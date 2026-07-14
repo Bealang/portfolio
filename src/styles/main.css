@@ -367,7 +367,7 @@ html[data-theme="light"] .theme-toggle-btn .sun-icon {
 }
 
 * {
-    font-family: 'Figtree', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 html {
@@ -1875,7 +1875,7 @@ h2 {
     padding: 14px 18px;
     color: var(--text-primary);
     font-size: 17px;
-    font-family: 'Figtree', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     border-radius: 12px;
     width: 100%;
     box-sizing: border-box;
@@ -2039,7 +2039,7 @@ html[data-theme="dark"] #kontakt__form select {
     color: #ffffff;
     border: none;
     border-radius: 14px;
-    font-family: 'Figtree', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 17px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -2319,7 +2319,7 @@ html[data-theme="dark"] #kontakt__form select {
     font-size: 28px;
     font-weight: 800;
     text-decoration: none;
-    font-family: 'Figtree', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.5px;
     color: #111827;
     /* Głęboki, elegancki ciemnofioletowy w motywie jasnym */
@@ -5113,7 +5113,7 @@ nav>a.active::after {
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.1;
-    font-family: 'Figtree', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-primary);
 }
 
@@ -5476,7 +5476,7 @@ nav>a.active::after {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    font-family: 'Figtree', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 17px;
     font-weight: 600;
     color: var(--text-primary);
