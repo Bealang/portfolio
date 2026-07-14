@@ -613,10 +613,10 @@ body {
 }
 
 html[data-theme="dark"] .btn-about {
-    background: linear-gradient(135deg, rgba(167, 139, 250, 0.95), rgba(251, 113, 133, 0.95));
+    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.95), rgba(var(--accent-cyan-rgb), 0.95));
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow:
-        0 10px 30px rgba(167, 139, 250, 0.25),
+        0 10px 30px rgba(var(--accent-blue-rgb), 0.25),
         var(--glass-shadow);
 }
 
@@ -632,9 +632,9 @@ html[data-theme="dark"] .btn-about {
 }
 
 html[data-theme="dark"] .btn-about:hover {
-    background: linear-gradient(135deg, rgba(167, 139, 250, 1), rgba(251, 113, 133, 1));
+    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 1), rgba(var(--accent-cyan-rgb), 1));
     box-shadow:
-        0 15px 40px rgba(167, 139, 250, 0.45),
+        0 15px 40px rgba(var(--accent-blue-rgb), 0.45),
         var(--glass-shadow);
 }
 
@@ -6166,7 +6166,7 @@ nav>a.active::after {
         justify-content: center;
         gap: 3px;
         text-decoration: none;
-        color: var(--accent-blue);
+        color: var(--text-secondary);
         font-size: 11px;
         font-weight: 700;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -6180,28 +6180,28 @@ nav>a.active::after {
     .floating-nav-item i {
         font-size: 22px;
         transition: transform 0.3s ease, color 0.3s ease;
-        color: var(--accent-blue);
+        color: var(--text-secondary);
     }
 
     /* Active State (Selected Page) - Light Theme */
     .floating-nav-item.active {
         background: rgba(var(--accent-blue-rgb), 0.12);
-        color: #6d28d9;
+        color: var(--accent-blue);
     }
 
     .floating-nav-item.active i {
-        color: #6d28d9;
+        color: var(--accent-blue);
         transform: scale(1.05);
     }
 
     /* Active State (Selected Page) - Dark Theme */
     html[data-theme="dark"] .floating-nav-item.active {
         background: rgba(var(--accent-blue-rgb), 0.20);
-        color: #a78bfa;
+        color: var(--accent-blue);
     }
 
     html[data-theme="dark"] .floating-nav-item.active i {
-        color: #a78bfa;
+        color: var(--accent-blue);
         transform: scale(1.05);
     }
 
