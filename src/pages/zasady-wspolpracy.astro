@@ -15,6 +15,16 @@ import Footer from "../components/Footer.astro";
         <div class="privacy__header">
             <h1>Zasady <span class="gradient__text">Współpracy</span></h1>
             <p>Ostatnia aktualizacja: 14 lipca 2026 r.</p>
+            <div class="privacy__actions">
+                <a
+                    href="https://docs.google.com/document/d/18RHKDVB0IsYBZyKhzWvQpU38UEnkcZffoKD34iO4Vwc/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-glass btn-secondary"
+                >
+                    <i class="fa-solid fa-file-pdf"></i> Drukuj / Pobierz zasady
+                </a>
+            </div>
         </div>
 
         <section class="privacy__content">
@@ -174,3 +184,27 @@ import Footer from "../components/Footer.astro";
 
     <Footer />
 </Layout>
+
+<style>
+    .privacy__actions {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .privacy__actions .btn-glass {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        padding: 12px 24px;
+        max-width: none;
+        width: auto;
+        color: var(--text-primary);
+    }
+
+    .privacy__actions .btn-glass i {
+        font-size: 16px;
+        color: var(--accent-blue);
+    }
+</style>
