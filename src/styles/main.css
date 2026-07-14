@@ -5247,9 +5247,9 @@ nav>a.active::after {
     align-items: center;
     position: relative;
     z-index: 1;
-    opacity: 0.25;
-    transform: scale(0.93) translateY(10px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), z-index 0s;
 }
 
 /* Step dot */
@@ -5835,8 +5835,15 @@ nav>a.active::after {
 
 /* Horizontal Timeline Steps Scroll Reveal (Option B) */
 .htl-step.htl-step--visible {
+    opacity: 0.3;
+    transform: scale(0.9) translateY(0);
+}
+
+/* Active centered step styling */
+.htl-step.htl-step--visible.htl-step--active {
     opacity: 1;
     transform: scale(1) translateY(0);
+    z-index: 2;
 }
 
 
