@@ -1957,6 +1957,11 @@ html[data-theme="dark"] #kontakt__form select {
     margin-top: auto;
 }
 
+.rodo__group + .rodo__group {
+    margin-top: 10px;
+    padding-bottom: 8px;
+}
+
 .rodo__label {
     display: flex;
     align-items: flex-start;

@@ -3,23 +3,6 @@
 ---
 
 <section id="order-wizard" class="wizard-section">
-    <!-- PASEK POSTĘPU NA URZĄDZENIACH MOBILNYCH (STICKY) ORAZ DESKTOP -->
-    <div class="wizard-header-progress" id="wizard-progress-bar">
-        <div class="progress-bar-wrapper">
-            <div class="progress-bar-container">
-                <div class="progress-bar-fill" id="global-progress-fill"></div>
-            </div>
-            <div class="progress-bar-info">
-                <span class="progress-step-text" id="global-progress-step-text"
-                    >Przedstaw się nam</span
-                >
-                <span class="progress-percent" id="global-progress-percent"
-                    >Krok 1 z 4</span
-                >
-            </div>
-        </div>
-    </div>
-
     <div class="wizard-container">
         <!-- LEWY PANEL: ETAPY (DESKTOP ONLY) -->
         <aside class="wizard-sidebar">
@@ -37,7 +20,6 @@
                     </span>
                     <div class="step-details">
                         <span class="step-title">Przedstaw się</span>
-                        <span class="step-desc">Dane podstawowe</span>
                     </div>
                 </button>
 
@@ -55,7 +37,6 @@
                     </span>
                     <div class="step-details">
                         <span class="step-title">Twój projekt</span>
-                        <span class="step-desc">Usługa i budżet</span>
                     </div>
                 </button>
 
@@ -73,7 +54,6 @@
                     </span>
                     <div class="step-details">
                         <span class="step-title">Twój biznes</span>
-                        <span class="step-desc">Branża i zakres</span>
                     </div>
                 </button>
 
@@ -91,7 +71,6 @@
                     </span>
                     <div class="step-details">
                         <span class="step-title">Kontakt</span>
-                        <span class="step-desc">Finalizacja</span>
                     </div>
                 </button>
             </div>
@@ -99,6 +78,23 @@
 
         <!-- PRAWY PANEL: FORMULARZ Z KARTAMI -->
         <div class="wizard-form-wrapper">
+            <!-- PASEK POSTĘPU NA URZĄDZENIACH MOBILNYCH (STICKY) ORAZ DESKTOP -->
+            <div class="wizard-header-progress" id="wizard-progress-bar">
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="global-progress-fill"></div>
+                    </div>
+                    <div class="progress-bar-info">
+                        <span class="progress-step-text" id="global-progress-step-text"
+                            >Przedstaw się nam</span
+                        >
+                        <span class="progress-percent" id="global-progress-percent"
+                            >Krok 1 z 4</span
+                        >
+                    </div>
+                </div>
+            </div>
+
             <form id="wizard-form" novalidate>
                 <!-- KROK 1 PANEL -->
                 <div class="wizard-panel active" data-panel="1">
@@ -525,6 +521,25 @@
                             </label>
                             <span class="form__error" id="rodo__error"></span>
                         </div>
+
+                        <div class="form__group rodo__group">
+                            <label class="rodo__label">
+                                <input
+                                    type="checkbox"
+                                    id="zasady"
+                                    name="zasady"
+                                    required
+                                />
+                                <span class="rodo__checkmark"></span>
+                                <span class="rodo__text">
+                                    Zapoznałem się z
+                                    <a href="/zasady-wspolpracy" target="_blank"
+                                        >zasadami współpracy</a
+                                    > i akceptuję ich postanowienia. <span class="required">*</span>
+                                </span>
+                            </label>
+                            <span class="form__error" id="zasady__error"></span>
+                        </div>
                     </div>
                 </div>
 
@@ -617,26 +632,31 @@
 
     .wizard-container {
         display: grid;
-        grid-template-columns: 320px 1fr;
-        gap: 48px;
+        grid-template-columns: 200px 1fr;
+        gap: 32px;
         align-items: start;
         width: 100%;
     }
 
     /* ==========================================================================
-       GLOBALNY PASEK POSTĘPU (WIDOCZNY ZAWSZE NA GÓRZE)
+       GLOBALNY PASEK POSTĘPU (WIDOCZNY ZAWSZE NA GÓRZE W FORMULARZU)
        ========================================================================== */
     .wizard-header-progress {
         width: 100%;
-        margin-bottom: 32px;
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 18px 24px;
+        margin-bottom: 24px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0;
+        padding: 0 0 20px 0;
         box-sizing: border-box;
-        box-shadow: var(--glass-shadow);
-        backdrop-filter: blur(var(--glass-blur));
-        -webkit-backdrop-filter: blur(var(--glass-blur));
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    html[data-theme="light"] .wizard-header-progress {
+        border-bottom-color: rgba(0, 0, 0, 0.06);
     }
 
     .progress-bar-wrapper {
@@ -720,7 +740,7 @@
     .wizard-steps-list {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 20px;
         width: 100%;
     }
 
@@ -759,6 +779,7 @@
         transition: var(--transition-smooth);
         z-index: 2;
         color: var(--text-secondary);
+        flex-shrink: 0;
     }
 
     html[data-theme="light"] .step-num {
@@ -777,20 +798,11 @@
     }
 
     .step-title {
-        font-size: 15px;
+        font-size: 17px;
         font-weight: 600;
         color: var(--text-secondary);
         transition: var(--transition-smooth);
-    }
-
-    .step-desc {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.4);
-        transition: var(--transition-smooth);
-    }
-
-    html[data-theme="light"] .step-desc {
-        color: rgba(0, 0, 0, 0.45);
+        line-height: 1.2;
     }
 
     /* Stany etapów */
@@ -808,10 +820,6 @@
     .wizard-step-item.active .step-title {
         color: var(--text-primary);
         font-weight: 700;
-    }
-
-    .wizard-step-item.active .step-desc {
-        color: var(--accent-blue);
     }
 
     .wizard-step-item.completed .step-num {
@@ -1261,6 +1269,10 @@
         margin-top: 24px;
     }
 
+    .rodo__group + .rodo__group {
+        margin-top: 10px;
+    }
+
     .rodo__label {
         display: flex;
         align-items: flex-start;
@@ -1512,6 +1524,11 @@
 
         .wizard-form-wrapper {
             padding: 24px;
+        }
+
+        .wizard-form-wrapper {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
 
         .panel-header h2 {
@@ -2028,6 +2045,20 @@
             } else {
                 clearError("rodo");
             }
+
+            // ZASADY WSPÓŁPRACY
+            const zasadyEl = document.getElementById(
+                "zasady",
+            ) as HTMLInputElement | null;
+            if (!zasadyEl || !zasadyEl.checked) {
+                showError(
+                    "zasady",
+                    "Wymagana jest akceptacja zasad współpracy.",
+                );
+                valid = false;
+            } else {
+                clearError("zasady");
+            }
         }
 
         return valid;
@@ -2057,6 +2088,11 @@
     const rodoCheckbox = document.getElementById("rodo");
     if (rodoCheckbox) {
         rodoCheckbox.addEventListener("change", () => clearError("rodo"));
+    }
+
+    const zasadyCheckbox = document.getElementById("zasady");
+    if (zasadyCheckbox) {
+        zasadyCheckbox.addEventListener("change", () => clearError("zasady"));
     }
 
     // ============================================================

@@ -2,17 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import HeroBg from '../components/HeroBg.astro';
 ---
 
 <Layout
   title="Polityka Prywatności | web2sell"
   description="Polityka prywatności i informacje o ochronie danych osobowych na stronie web2sell."
+  robots="noindex, follow"
 >
     <Header activePage="polityka" />
 
     <main class="privacy-container">
-        <HeroBg behindContent={true} />        <div class="privacy__header">
+        <div class="privacy__header">
             <h1>Polityka <span class="gradient__text">Prywatności</span></h1>
             <p>Ostatnia aktualizacja: 12 lipca 2026 r.</p>
         </div>

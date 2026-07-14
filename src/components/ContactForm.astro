@@ -146,6 +146,23 @@
                         </label>
                         <span class="form__error" id="rodo__error"></span>
                     </div>
+                    <div class="form__group rodo__group">
+                        <label class="rodo__label">
+                            <input
+                                type="checkbox"
+                                id="zasady"
+                                name="zasady"
+                                required
+                            />
+                            <span class="rodo__checkmark"></span>
+                            <span class="rodo__text"
+                                >Zapoznałem się z <a href="/zasady-wspolpracy"
+                                    >zasadami współpracy</a
+                                > i akceptuję ich postanowienia. <span class="required">*</span></span
+                            >
+                        </label>
+                        <span class="form__error" id="zasady__error"></span>
+                    </div>
                 </div>
                 <button
                     type="submit"
@@ -318,6 +335,15 @@
             clearError("rodo");
         }
 
+        const zasadyEl = document.getElementById("zasady") as HTMLInputElement | null;
+        const zasady = zasadyEl ? zasadyEl.checked : false;
+        if (!zasady) {
+            showError("zasady", "Wymagana jest akceptacja zasad współpracy.");
+            valid = false;
+        } else {
+            clearError("zasady");
+        }
+
         return valid;
     }
 
@@ -334,6 +360,9 @@
     document
         .getElementById("rodo")
         ?.addEventListener("change", () => clearError("rodo"));
+    document
+        .getElementById("zasady")
+        ?.addEventListener("change", () => clearError("zasady"));
 
     // ─── Powiadomienie ────────────────────────────────────────────
     function showNotification(type: "success" | "error", message: string) {
