@@ -12,6 +12,7 @@ const projects = defineCollection({
     url: z.string().optional(),
     thumbnail: z.string(),
     thumbnailAlt: z.string(),
+    mockup: z.string().optional(),
     gallery: z.array(z.string()).min(1),
     order: z.number(),
   }),

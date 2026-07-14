@@ -23,6 +23,9 @@
     "thumbnailAlt": {
       "type": "string"
     },
+    "mockup": {
+      "type": "string"
+    },
     "gallery": {
       "minItems": 1,
       "type": "array",

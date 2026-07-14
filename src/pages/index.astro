@@ -263,7 +263,7 @@ const projects = (await getCollection("projects")).sort(
 
     <ONasTxt />
 
-    <section id="projekty">
+    <section id="projekty" class="projekty-section">
         <div
             class="projekty__heading"
             data-aos="fade-up"
@@ -272,41 +272,27 @@ const projects = (await getCollection("projects")).sort(
             <h2>Nasze <span class="gradient__text">realizacje</span></h2>
         </div>
         <div
-            class="c3d__scene"
+            class="projects-grid"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay="200"
         >
-            <div class="c3d__track" id="c3dTrack">
-                {
-                    projects.map((project) => (
-                        <ProjectCard
-                            slug={project.id}
-                            title={project.data.title}
-                            date={project.data.date}
-                            url={project.data.url}
-                            color={project.data.color}
-                            accent={project.data.accent}
-                            thumbnail={project.data.thumbnail}
-                            thumbnailAlt={project.data.thumbnailAlt}
-                        />
-                    ))
-                }
-            </div>
-            <button
-                class="c3d__nav c3d__nav--prev"
-                id="c3dPrev"
-                aria-label="Poprzedni"
-                ><i class="fa-solid fa-chevron-left"></i></button
-            >
-            <button
-                class="c3d__nav c3d__nav--next"
-                id="c3dNext"
-                aria-label="Następny"
-                ><i class="fa-solid fa-chevron-right"></i></button
-            >
+            {
+                projects.map((project) => (
+                    <ProjectCard
+                        slug={project.id}
+                        title={project.data.title}
+                        date={project.data.date}
+                        url={project.data.url}
+                        color={project.data.color}
+                        accent={project.data.accent}
+                        thumbnail={project.data.thumbnail}
+                        thumbnailAlt={project.data.thumbnailAlt}
+                        mockup={project.data.mockup}
+                    />
+                ))
+            }
         </div>
-        <div class="c3d__dots" id="c3dDots"></div>
     </section>
     <ContactForm />
 
@@ -496,274 +482,27 @@ const projects = (await getCollection("projects")).sort(
         })();
     </script>
 
-    <!-- 3D Slider -->
+    <!-- Realizations Intersection Observer for Mobile -->
     <script>
         (function () {
-            var cards = Array.from(document.querySelectorAll(".c3d__card"));
-            var dotsEl = document.getElementById("c3dDots");
-            var prevBtn = document.getElementById("c3dPrev");
-            var nextBtn = document.getElementById("c3dNext");
-            var total = cards.length;
-            var current = 0;
-            var autoTimer = null;
-            var CARD_W = 320;
-            var GAP = 360;
-
-            function updateDimensions() {
-                var w = window.innerWidth;
-                if (w <= 600) {
-                    CARD_W = 240;
-                    GAP = 260;
-                } else if (w <= 900) {
-                    CARD_W = 270;
-                    GAP = 300;
-                } else {
-                    CARD_W = 320;
-                    GAP = 360;
-                }
-            }
-
-            window.addEventListener(
-                "resize",
-                function () {
-                    updateDimensions();
-                    applyLayout(false);
-                },
-                { passive: true },
-            );
-            // Handle card clicks → prevent navigation if dragging
-            var currentDragDelta = 0;
-            cards.forEach(function (card) {
-                card.addEventListener("click", function (e) {
-                    if (Math.abs(currentDragDelta) > 5) {
-                        e.preventDefault();
-                    }
-                });
-            });
-
-            function applyLayout(dragging, dragOffset) {
-                if (dragOffset === undefined) dragOffset = 0;
-                cards.forEach(function (card, i) {
-                    var rel = i - current;
-                    var abs = Math.abs(rel);
-                    var tx = rel * GAP - CARD_W / 2 + dragOffset;
-                    var ty = -50 + (abs === 0 ? -10 : 0);
-                    var scale = abs === 0 ? 1 : abs === 1 ? 0.78 : 0.62;
-                    var opacity =
-                        abs === 0
-                            ? 1
-                            : abs === 1
-                              ? 0.55
-                              : abs === 2
-                                ? 0.3
-                                : 0.15;
-                    var brightness = abs === 0 ? 1 : abs === 1 ? 0.55 : 0.3;
-                    var zIndex = abs === 0 ? 20 : abs === 1 ? 15 : 5;
-                    card.style.transform =
-                        "translate(" +
-                        tx +
-                        "px, " +
-                        ty +
-                        "%) scale(" +
-                        scale +
-                        ")";
-                    card.style.opacity = opacity;
-
-                    // GPU-optimized overlay opacity instead of expensive CSS filter: brightness
-                    var overlay = card.querySelector(".c3d__card-overlay");
-                    if (overlay) {
-                        overlay.style.opacity = 1 - brightness;
-                    }
-
-                    card.style.zIndex = zIndex;
-                    card.style.boxShadow = "none";
-
-                    if (!dragging)
-                        card.classList.toggle("is-active", i === current);
-                    card.style.transition = dragging
-                        ? "none"
-                        : "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, box-shadow 0.6s ease";
-
-                    if (overlay) {
-                        overlay.style.transition = dragging
-                            ? "none"
-                            : "opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
-                    }
-                });
-
-                if (!dragging) {
-                    var dots = dotsEl.querySelectorAll(".c3d__dot");
-                    dots.forEach(function (d, i) {
-                        d.classList.toggle("is-active", i === current);
-                    });
-                }
-            }
-
-            function goTo(idx) {
-                if (idx < 0) idx = total - 1;
-                else if (idx >= total) idx = 0;
-                current = idx;
-                applyLayout(false, 0);
-                resetAuto();
-            }
-
-            function resetAuto() {
-                if (autoTimer) clearInterval(autoTimer);
-                if (document.querySelector(".project-modal.is-open")) return;
-                autoTimer = setInterval(function () {
-                    goTo(current + 1);
-                }, 3500);
-            }
-            window.sliderResetAuto = resetAuto;
-            window.sliderStopAuto = function () {
-                if (autoTimer) clearInterval(autoTimer);
-            };
-
-            prevBtn.addEventListener("click", function () {
-                goTo(current - 1);
-            });
-            nextBtn.addEventListener("click", function () {
-                goTo(current + 1);
-            });
-
-            // Drag
-            var startX = 0;
-            var isDragging = false;
-            var rafPending = false;
-            var scene = document.querySelector(".c3d__scene");
-
-            scene.addEventListener("mousedown", function (e) {
-                if (
-                    e.target.closest(".c3d__nav") ||
-                    e.target.closest(".c3d__dots") ||
-                    e.target.closest(".c3d__cta")
-                ) {
-                    return;
-                }
-                isDragging = true;
-                startX = e.clientX;
-                currentDragDelta = 0;
-                scene.classList.add("is-dragging");
-                if (autoTimer) clearInterval(autoTimer);
-            });
-            window.addEventListener(
-                "mousemove",
-                function (e) {
-                    if (!isDragging) return;
-                    currentDragDelta = e.clientX - startX;
-                    if (current === 0 && currentDragDelta > 0)
-                        currentDragDelta *= 0.3;
-                    else if (current === total - 1 && currentDragDelta < 0)
-                        currentDragDelta *= 0.3;
-
-                    if (!rafPending) {
-                        rafPending = true;
-                        requestAnimationFrame(function () {
-                            rafPending = false;
-                            if (!isDragging) return;
-                            applyLayout(true, currentDragDelta);
+            if ("IntersectionObserver" in window) {
+                const cards = document.querySelectorAll(".project-card.has-mockup");
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("is-in-view");
+                            } else {
+                                entry.target.classList.remove("is-in-view");
+                            }
                         });
-                    }
-                },
-                { passive: true },
-            );
-            window.addEventListener("mouseup", function () {
-                if (!isDragging) return;
-                isDragging = false;
-                scene.classList.remove("is-dragging");
-                if (Math.abs(currentDragDelta) > 55)
-                    goTo(currentDragDelta < 0 ? current + 1 : current - 1);
-                else {
-                    applyLayout(false, 0);
-                    resetAuto();
-                }
-                setTimeout(function () {
-                    currentDragDelta = 0;
-                }, 0);
-            });
-
-            scene.addEventListener(
-                "touchstart",
-                function (e) {
-                    if (
-                        e.target.closest(".c3d__nav") ||
-                        e.target.closest(".c3d__dots") ||
-                        e.target.closest(".c3d__cta")
-                    ) {
-                        return;
-                    }
-                    isDragging = true;
-                    startX = e.touches[0].clientX;
-                    currentDragDelta = 0;
-                    if (autoTimer) clearInterval(autoTimer);
-                    scene.classList.add("is-dragging");
-                },
-                { passive: true },
-            );
-            scene.addEventListener(
-                "touchmove",
-                function (e) {
-                    if (!isDragging) return;
-                    currentDragDelta = e.touches[0].clientX - startX;
-                    if (current === 0 && currentDragDelta > 0)
-                        currentDragDelta *= 0.3;
-                    else if (current === total - 1 && currentDragDelta < 0)
-                        currentDragDelta *= 0.3;
-
-                    if (!rafPending) {
-                        rafPending = true;
-                        requestAnimationFrame(function () {
-                            rafPending = false;
-                            if (!isDragging) return;
-                            applyLayout(true, currentDragDelta);
-                        });
-                    }
-                },
-                { passive: true },
-            );
-            scene.addEventListener("touchend", function () {
-                if (!isDragging) return;
-                isDragging = false;
-                scene.classList.remove("is-dragging");
-                if (Math.abs(currentDragDelta) > 50)
-                    goTo(currentDragDelta < 0 ? current + 1 : current - 1);
-                else {
-                    applyLayout(false, 0);
-                    resetAuto();
-                }
-                setTimeout(function () {
-                    currentDragDelta = 0;
-                }, 0);
-            });
-
-            function initSlider() {
-                updateDimensions();
-
-                // Build dots
-                cards.forEach(function (_, i) {
-                    var d = document.createElement("button");
-                    d.className = "c3d__dot";
-                    d.setAttribute("aria-label", "Slajd " + (i + 1));
-                    d.addEventListener("click", function () {
-                        goTo(i);
-                    });
-                    dotsEl.appendChild(d);
-                });
-
-                applyLayout(false, 0);
-                resetAuto();
-            }
-
-            if (document.readyState === "loading") {
-                document.addEventListener(
-                    "DOMContentLoaded",
-                    function () {
-                        requestAnimationFrame(initSlider);
                     },
-                    { once: true },
+                    {
+                        rootMargin: "-15% 0px -15% 0px", // Trigger when 15% inside the screen
+                        threshold: 0.1,
+                    }
                 );
-            } else {
-                requestAnimationFrame(initSlider);
+                cards.forEach((card) => observer.observe(card));
             }
         })();
     </script>

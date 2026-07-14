@@ -4356,329 +4356,233 @@ nav>a.active::after {
     margin: 0;
 }
 
-.c3d__scene {
-    position: relative;
+.projekty-section {
+    padding: 100px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 60px;
     width: 100%;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: grab;
 }
 
-.c3d__scene.is-dragging {
-    cursor: grabbing;
+@media (min-width: 769px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px 30px;
+    }
 }
 
-.c3d__track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.c3d__card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 320px;
-    height: 420px;
+.project-card {
+    display: block;
     border-radius: 28px;
-    overflow: visible;
-    cursor: grab;
-    will-change: transform, opacity;
-    transition: transform 0.7s cubic-bezier(0.33, 1, 0.68, 1),
-        opacity 0.7s ease,
-        box-shadow 0.7s ease;
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-.c3d__card:active {
-    cursor: grabbing;
-}
-
-.c3d__card-inner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 30px;
-    box-sizing: border-box;
-    position: relative;
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: none;
-    border-radius: 0;
-    transition: var(--transition-smooth);
-}
-
-.c3d__card-overlay {
-    position: absolute;
-    inset: 0;
-    border-radius: 28px;
-    z-index: 2;
-    pointer-events: none;
-    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.c3d__card-inner::before {
-    content: '';
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--card-accent, rgba(var(--accent-blue-rgb), 0.2)) 0%, transparent 70%);
-    z-index: 0;
-    pointer-events: none;
-}
-
-.c3d__logo-wrap {
-    position: relative;
-    z-index: 1;
-    width: 140px;
-    height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 28px;
-    transition: transform 0.5s ease;
-}
-
-.c3d__logo-wrap img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18));
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
-.c3d__card.is-active .c3d__logo-wrap {
-    transform: translateY(-6px);
-}
-
-.c3d__name {
-    position: relative;
-    z-index: 1;
-    color: var(--text-primary);
-    font-size: 26px;
-    font-weight: 700;
-    margin: 0 0 8px;
-    text-align: center;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-}
-
-.c3d__tag {
-    position: relative;
-    z-index: 1;
-    color: var(--text-secondary);
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    opacity: 0.7;
-}
-
-.c3d__domain {
-    position: relative;
-    z-index: 1;
-    color: var(--accent-blue);
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: lowercase;
-    letter-spacing: 0.5px;
-    transition: var(--transition-smooth);
-}
-
-.c3d__cta {
-    position: absolute;
-    z-index: 3;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%) translateY(15px);
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-    color: #fff !important;
-    padding: 13px 30px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    box-shadow: 0 10px 30px rgba(var(--accent-blue-rgb), 0.6);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.c3d__card.is-active:hover .c3d__cta {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateX(-50%) translateY(0);
-}
-
-.c3d__nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 18px;
-    color: var(--accent-blue);
-    cursor: pointer;
-    z-index: 100;
-    box-shadow: var(--glass-shadow);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.3s ease;
+    will-change: transform;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(var(--accent-blue-rgb), 0.3);
+}
+
+.project-card-inner {
+    position: relative;
+    width: 100%;
+}
+
+.project-mockup-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--bg-color);
+}
+
+/* Static logo styles */
+.project-logo-static-wrapper {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: none;
+    background: radial-gradient(circle at center, rgba(var(--accent-blue-rgb), 0.06) 0%, transparent 70%);
 }
 
-.c3d__nav i {
+.project-logo-static {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-card.no-mockup:hover .project-logo-static {
+    transform: scale(1.1) translateY(-6px);
+}
+
+/* Scrolling mockup styles */
+.project-mockup-scroll-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+}
+
+.project-mockup-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+/* Infinite scroll animations */
+@media (hover: hover) {
+    .project-card.has-mockup:hover .project-mockup-scroll-wrapper {
+        animation: scrollMockup 22s linear infinite;
+    }
+}
+
+@keyframes scrollMockup {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* Unified Bottom Overlay */
+.project-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+    display: block;
+}
+
+.project-overlay-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.project-overlay-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.project-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 20px;
+    }
+}
+
+.project-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    color: #ffffff !important;
+    padding: 10px 22px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: none;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease;
 }
 
-.c3d__nav--prev:hover i {
-    transform: translateX(-2px);
+.project-cta-btn:hover {
+    transform: scale(1.05);
 }
 
-.c3d__nav--next:hover i {
-    transform: translateX(2px);
-}
-
-.c3d__nav--prev {
-    left: calc(50% - 300px);
-}
-
-.c3d__nav--next {
-    right: calc(50% - 300px);
-}
-
-.c3d__nav:hover {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 10px 30px rgba(var(--accent-blue-rgb), 0.4);
-}
-
-.c3d__dots {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 32px;
-}
-
-.c3d__dot {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.35s;
-    border: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.c3d__dot::after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    background: rgba(var(--accent-blue-rgb), 0.25);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c3d__dot.is-active::after {
-    background: var(--accent-blue);
-    width: 24px;
-    border-radius: 5px;
-}
-
-@media (max-width: 900px) {
-    .c3d__scene {
-        height: 430px;
+/* Desktop Hover Interactions */
+@media (hover: hover) {
+    .project-card-overlay {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: none;
     }
-
-    .c3d__card {
-        width: 270px;
-        height: 370px;
-    }
-
-    .c3d__nav--prev {
-        left: 10px;
-    }
-
-    .c3d__nav--next {
-        right: 10px;
-    }
-
-    .projekty__heading h2 {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 600px) {
-    .c3d__scene {
-        height: 390px;
-    }
-
-    .c3d__card {
-        width: 240px;
-        height: 340px;
-    }
-
-    .c3d__card-inner {
-        padding: 30px 15px 50px 15px;
-    }
-
-    /* More space at bottom for CTA */
-    .c3d__nav {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .c3d__nav--prev {
-        left: 15px;
-    }
-
-    .c3d__nav--next {
-        right: 15px;
-    }
-
-    .projekty__heading h2 {
-        font-size: 30px;
-    }
-
-    .c3d__cta {
-        bottom: 15px;
-        /* Better margin from bottom */
-        padding: 10px 22px;
-        font-size: 13px;
-        transform: translateX(-50%) translateY(10px);
-    }
-
-    .c3d__card.is-active .c3d__cta {
+    
+    .project-card:hover .project-card-overlay {
         opacity: 1;
-        pointer-events: all;
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    
+    /* Subtle dimming effect on the mockup on hover */
+    .project-card:hover .project-mockup-viewport::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.25);
+        transition: background 0.35s ease;
+        pointer-events: none;
+        z-index: 5;
     }
 }
+
+/* Mobile responsive overlay overrides */
+@media (hover: none), (max-width: 768px) {
+    /* Auto-scrolling inside viewport for mobile */
+    .project-card.has-mockup.is-in-view .project-mockup-scroll-wrapper {
+        animation: scrollMockup 35s linear infinite;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-cta-btn span {
+        display: none;
+    }
+    
+    .project-cta-btn {
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+    }
+}
+
 
 .hamburger {
     display: none;

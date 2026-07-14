@@ -1,8 +1,20 @@
 ---
 title: "System dla busów [NA SPRZEDAŻ]"
 date: "2026"
+color: "#2563eb"
+accent: "rgba(37, 99, 235, 0.15)"
 url: "tel:796760814"
+thumbnail: "/assets/project-img/bus/logo.avif"
 thumbnailAlt: "Dedykowany system rozkładu jazdy i cennika dla firm przewozowych"
+gallery:
+  - "/assets/project-img/bus/screeny/bus_1.avif"
+  - "/assets/project-img/bus/screeny/bus_2.avif"
+  - "/assets/project-img/bus/screeny/bus_3.avif"
+  - "/assets/project-img/bus/screeny/bus_4.avif"
+  - "/assets/project-img/bus/screeny/bus_5.avif"
+  - "/assets/project-img/bus/screeny/bus_6.avif"
+  - "/assets/project-img/bus/screeny/bus_7.avif"
+order: 0
 ---
 
 <div class="sale-banner">
