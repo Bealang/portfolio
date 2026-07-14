@@ -33,3 +33,7 @@
 *.njsproj
 *.sln
 *.sw?
+
+# AI Agent files
+.agent/
+.gemini/
