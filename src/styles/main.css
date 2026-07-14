@@ -248,6 +248,7 @@ html[data-color-theme="blue"] {
     --accent-cyan-rgb: 56, 189, 248;
     --accent-blue-hover-rgb: 29, 78, 216;
 }
+
 html[data-theme="dark"][data-color-theme="blue"] {
     --accent-blue-rgb: 96, 165, 250;
     --accent-cyan-rgb: 125, 211, 252;
@@ -260,6 +261,7 @@ html[data-color-theme="pink"] {
     --accent-cyan-rgb: 236, 72, 153;
     --accent-blue-hover-rgb: 124, 58, 237;
 }
+
 html[data-theme="dark"][data-color-theme="pink"] {
     --accent-blue-rgb: 167, 139, 250;
     --accent-cyan-rgb: 251, 113, 133;
@@ -272,6 +274,7 @@ html[data-color-theme="green"] {
     --accent-cyan-rgb: 52, 211, 153;
     --accent-blue-hover-rgb: 4, 120, 87;
 }
+
 html[data-theme="dark"][data-color-theme="green"] {
     --accent-blue-rgb: 52, 211, 153;
     --accent-cyan-rgb: 110, 231, 183;
@@ -284,6 +287,7 @@ html[data-color-theme="red"] {
     --accent-cyan-rgb: 248, 113, 113;
     --accent-blue-hover-rgb: 185, 28, 28;
 }
+
 html[data-theme="dark"][data-color-theme="red"] {
     --accent-blue-rgb: 248, 113, 113;
     --accent-cyan-rgb: 252, 165, 165;
@@ -296,6 +300,7 @@ html[data-color-theme="yellow"] {
     --accent-cyan-rgb: 234, 179, 8;
     --accent-blue-hover-rgb: 180, 83, 9;
 }
+
 html[data-theme="dark"][data-color-theme="yellow"] {
     --accent-blue-rgb: 250, 204, 21;
     --accent-cyan-rgb: 253, 224, 71;
@@ -308,6 +313,7 @@ html[data-color-theme="orange"] {
     --accent-cyan-rgb: 251, 146, 60;
     --accent-blue-hover-rgb: 194, 65, 12;
 }
+
 html[data-theme="dark"][data-color-theme="orange"] {
     --accent-blue-rgb: 251, 146, 60;
     --accent-cyan-rgb: 253, 186, 116;
@@ -372,12 +378,14 @@ html[data-theme="light"] .theme-toggle-btn .sun-icon {
 
 html {
     scroll-behavior: auto;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
+    overflow-x: hidden;
 }
 
 .app-wrapper {
@@ -436,59 +444,8 @@ body {
     pointer-events: none;
 }
 
-.blob {
-    position: absolute;
-    opacity: 0.6;
-    border-radius: 50%;
-    animation: blob-float 45s infinite alternate ease-in-out;
-    will-change: transform;
-    backface-visibility: hidden;
-    transform: translate3d(0, 0, 0);
-}
-
-.blob-1 {
-    top: -10%;
-    left: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(var(--accent-blue-rgb), 0.4) 0%, rgba(var(--accent-blue-rgb), 0) 70%);
-}
-
-.blob-2 {
-    bottom: -20%;
-    right: -10%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(var(--accent-cyan-rgb), 0.3) 0%, rgba(var(--accent-cyan-rgb), 0) 70%);
-    animation-delay: -5s;
-}
-
-.blob-3 {
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%) translate3d(0, 0, 0);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(30, 58, 138, 0.2) 0%, rgba(30, 58, 138, 0) 70%);
-    animation-delay: -10s;
-}
-
 .grid-lines {
     display: none !important;
-}
-
-@keyframes blob-float {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-
-    50% {
-        transform: translate3d(-30px, 40px, 0);
-    }
-
-    100% {
-        transform: translate3d(30px, -30px, 0);
-    }
 }
 
 /* Hero Content */
@@ -733,7 +690,8 @@ html[data-theme="dark"] .btn-call i {
 
 /* Hero Badges & Disclaimer & Scroll Arrow */
 .hero-badges {
-    display: none; /* Hidden on desktop */
+    display: none;
+    /* Hidden on desktop */
     gap: 40px;
     margin-top: 35px;
     align-items: center;
@@ -764,7 +722,8 @@ html[data-theme="dark"] .btn-call i {
 }
 
 .hero-disclaimer {
-    display: none; /* Hidden on desktop */
+    display: none;
+    /* Hidden on desktop */
     font-size: 11px;
     color: var(--text-muted);
     margin-top: 15px;
@@ -1227,7 +1186,8 @@ html[data-theme="dark"] .hero-scroll-arrow:hover {
     }
 
     .hero-disclaimer {
-        display: block !important; /* Visible on mobile */
+        display: block !important;
+        /* Visible on mobile */
         font-size: clamp(8px, 2vw, 9px) !important;
         text-align: center !important;
         width: 100% !important;
@@ -1957,7 +1917,7 @@ html[data-theme="dark"] #kontakt__form select {
     margin-top: auto;
 }
 
-.rodo__group + .rodo__group {
+.rodo__group+.rodo__group {
     margin-top: 10px;
     padding-bottom: 8px;
 }
@@ -6079,9 +6039,6 @@ nav>a.active::after {
         -webkit-backdrop-filter: none !important;
     }
 
-    .blob {
-        animation: none !important;
-    }
 }
 
 /* Custom Lightweight GPU-Accelerated Scroll Reveal */
