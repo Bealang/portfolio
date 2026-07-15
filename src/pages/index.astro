@@ -60,7 +60,11 @@ const projects = (await getCollection("projects")).sort(
                     >
                         <i class="fa-solid fa-phone" style="margin-right: 8px;"
                         ></i>
-                        <span>Zadzwoń<span class="phone-number-desktop">: +48 530 315 860</span></span>
+                        <span
+                            >Zadzwoń<span class="phone-number-desktop"
+                                >: +48 530 315 860</span
+                            ></span
+                        >
                     </a>
                 </div>
 
@@ -80,7 +84,9 @@ const projects = (await getCollection("projects")).sort(
                     </div>
                     <div class="badge-item">
                         <span class="badge-value">20zł/mies.</span>
-                        <span class="badge-label">NISKIE KOSZTY UTRZYMANIA*</span>
+                        <span class="badge-label"
+                            >NISKIE KOSZTY UTRZYMANIA*</span
+                        >
                     </div>
                 </div>
 
@@ -90,7 +96,8 @@ const projects = (await getCollection("projects")).sort(
                     data-aos-duration="1000"
                     data-aos-delay="2100"
                 >
-                    * W rozliczeniu rocznym. Cena obejmuje koszty hostingu i domeny .pl
+                    * W rozliczeniu rocznym. Cena obejmuje koszty hostingu i
+                    domeny .pl
                 </p>
             </div>
         </div>
@@ -269,7 +276,7 @@ const projects = (await getCollection("projects")).sort(
             data-aos="fade-up"
             data-aos-duration="800"
         >
-            <h2>Nasze <span class="gradient__text">realizacje</span></h2>
+            <h2>Przykładowe <span class="gradient__text">realizacje</span></h2>
         </div>
         <div
             class="projects-grid"
@@ -471,7 +478,11 @@ const projects = (await getCollection("projects")).sort(
 
             setTimeout(() => {
                 if (titleElement) {
-                    const isLighthouse = navigator.userAgent.includes("Chrome-Lighthouse") || navigator.userAgent.includes("Speed Insights") || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                    const isLighthouse =
+                        navigator.userAgent.includes("Chrome-Lighthouse") ||
+                        navigator.userAgent.includes("Speed Insights") ||
+                        window.matchMedia("(prefers-reduced-motion: reduce)")
+                            .matches;
                     if (isLighthouse) {
                         titleElement.innerHTML = titleHTML;
                     } else {
@@ -486,7 +497,9 @@ const projects = (await getCollection("projects")).sort(
     <script>
         (function () {
             if ("IntersectionObserver" in window) {
-                const cards = document.querySelectorAll(".project-card.has-mockup");
+                const cards = document.querySelectorAll(
+                    ".project-card.has-mockup",
+                );
                 const observer = new IntersectionObserver(
                     (entries) => {
                         entries.forEach((entry) => {
@@ -500,7 +513,7 @@ const projects = (await getCollection("projects")).sort(
                     {
                         rootMargin: "-15% 0px -15% 0px", // Trigger when 15% inside the screen
                         threshold: 0.1,
-                    }
+                    },
                 );
                 cards.forEach((card) => observer.observe(card));
             }
