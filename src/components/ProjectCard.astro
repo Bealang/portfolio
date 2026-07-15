@@ -40,12 +40,12 @@ if (url) {
         <div class="project-mockup-viewport">
             {mockup ? (
                 <div class="project-mockup-scroll-wrapper">
-                    <img src={mockup} alt={thumbnailAlt} class="project-mockup-img" loading="lazy" decoding="async" />
-                    <img src={mockup} alt={thumbnailAlt} class="project-mockup-img" aria-hidden="true" loading="lazy" decoding="async" />
+                    <img src={mockup} alt={thumbnailAlt} class="project-mockup-img" loading="lazy" decoding="async" onload="this.closest('.project-mockup-viewport').classList.add('loaded')" />
+                    <img src={mockup} alt={thumbnailAlt} class="project-mockup-img" aria-hidden="true" loading="lazy" decoding="async" onload="this.closest('.project-mockup-viewport').classList.add('loaded')" />
                 </div>
             ) : (
                 <div class="project-logo-static-wrapper">
-                    <img src={thumbnail} alt={thumbnailAlt} class="project-logo-static" loading="lazy" decoding="async" />
+                    <img src={thumbnail} alt={thumbnailAlt} class="project-logo-static" loading="lazy" decoding="async" onload="this.closest('.project-mockup-viewport').classList.add('loaded')" />
                 </div>
             )}
             

@@ -4405,7 +4405,38 @@ nav>a.active::after {
     aspect-ratio: 16 / 10;
     overflow: hidden;
     border-radius: 28px;
-    background: var(--bg-color);
+    background: #1e293b;
+}
+
+/* Skeleton loader shimmer */
+.project-mockup-viewport::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.project-mockup-viewport.loaded::before {
+    opacity: 0;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 /* Static logo styles */
@@ -4423,7 +4454,8 @@ nav>a.active::after {
     max-height: 150px;
     object-fit: contain;
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    opacity: 0;
 }
 
 .project-card.no-mockup:hover .project-logo-static {
@@ -4448,6 +4480,13 @@ nav>a.active::after {
     object-fit: cover;
     -webkit-user-drag: none;
     user-select: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.project-mockup-viewport.loaded .project-mockup-img,
+.project-mockup-viewport.loaded .project-logo-static {
+    opacity: 1;
 }
 
 /* Infinite scroll animations */
