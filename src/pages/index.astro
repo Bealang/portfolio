@@ -34,9 +34,8 @@ const projects = (await getCollection("projects")).sort(
                 <h2 class="hero-title typing-stack">
                     <span id="type-title-ghost" class="ghost-layer"
                         >Zaprojektujemy.
-                        <br /><span
-                            class="gradient__text text-glow"
-                            data-text="Zbudujemy">Zbudujemy.</span
+                        <br /><span class="gradient__text" data-text="Zbudujemy"
+                            >Zbudujemy.</span
                         >
                         <br />Od zera.
                         <br />Dla Twojej firmy.
@@ -450,7 +449,7 @@ const projects = (await getCollection("projects")).sort(
             const titleElement = document.getElementById("type-title");
 
             const titleHTML =
-                "Zaprojektujemy.<br><span class='gradient__text text-glow' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.";
+                "Zaprojektujemy.<br><span class='gradient__text' data-text='Zbudujemy'>Zbudujemy.</span><br>Od zera.<br>Dla Twojej firmy.";
 
             if (titleGhost) titleGhost.innerHTML = titleHTML;
 
