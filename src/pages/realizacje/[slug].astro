@@ -806,7 +806,8 @@ const nextProject =
     .project-showcase-viewport {
         position: relative;
         width: 100%;
-        height: 600px;
+        height: auto;
+        min-height: 400px;
         overflow: hidden;
         background: #1e293b;
     }
@@ -837,24 +838,11 @@ const nextProject =
         height: auto;
         display: block;
         opacity: 0;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        will-change: transform;
-        transform-origin: top center;
+        transition: opacity 0.5s ease;
     }
 
     .project-showcase-viewport.loaded .project-showcase-img {
         opacity: 1;
-    }
-
-    @media (hover: hover) {
-        .project-showcase-viewport:hover .project-showcase-img {
-            transform: translateY(calc(-100% + 600px));
-            transition: transform 16s linear;
-        }
-        
-        .project-showcase-viewport .project-showcase-img {
-            transition: transform 2s ease-out;
-        }
     }
 
     @media (max-width: 768px) {
@@ -863,12 +851,7 @@ const nextProject =
             border-radius: 12px;
         }
         .project-showcase-viewport {
-            height: 400px;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .project-showcase-img {
-            opacity: 1;
+            min-height: 250px;
         }
     }
 </style>
