@@ -4877,6 +4877,7 @@ nav>a.active::after {
     /* Stopka panelu bocznego (Drawer Footer) wypchnięta na sam dół */
     .mobile-menu-footer {
         margin-top: auto !important;
+        padding-bottom: 30px !important;
         flex-shrink: 0 !important;
         /* Wypycha na sam dół draweru */
         width: 100% !important;
