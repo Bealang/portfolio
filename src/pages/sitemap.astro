@@ -29,35 +29,56 @@ const blogPosts = (await getCollection("blog")).sort(
             <h1>Mapa <span class="gradient__text">Witryny</span></h1>
         </div>
 
-        <div class="sitemap__simple-list reveal-element">
+        <div class="sitemap__simple-list">
             <ol>
-                <li><a href="/">Strona główna</a>
+                <li>
+                    <a href="/">Strona główna</a>
                     <ol>
                         <li><a href="/#o-nas">O nas</a></li>
                         <li><a href="/#projekty">Nasze realizacje</a></li>
-                        <li><a href="/jak-dzialamy">Jak działamy (Proces współpracy)</a></li>
-                        <li><a href="/jak-dzialamy#faq">Najczęściej zadawane pytania (FAQ)</a></li>
+                        <li>
+                            <a href="/jak-dzialamy"
+                                >Jak działamy (Proces współpracy)</a>
+                        </li>
+                        <li>
+                            <a href="/jak-dzialamy#faq"
+                                >Najczęściej zadawane pytania (FAQ)</a>
+                        </li>
                     </ol>
                 </li>
                 <li><a href="/cennik">Cennik usług</a></li>
                 <li><a href="/zamow">Zamów bezpłatną wycenę</a></li>
-                <li><a href="/#projekty">Nasze realizacje</a>
-                    {projects.length > 0 && (
-                        <ol>
-                            {projects.map((project) => (
-                                <li><a href="/#projekty">{project.data.title}</a></li>
-                            ))}
-                        </ol>
-                    )}
+                <li>
+                    <a href="/#projekty">Nasze realizacje</a>
+                    {
+                        projects.length > 0 && (
+                            <ol>
+                                {projects.map((project) => (
+                                    <li>
+                                        <a href="/#projekty">
+                                            {project.data.title}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ol>
+                        )
+                    }
                 </li>
-                <li><a href="/blog">Nasz Blog</a>
-                    {blogPosts.length > 0 && (
-                        <ol>
-                            {blogPosts.map((post) => (
-                                <li><a href={`/blog/${post.id}`}>{post.data.title}</a></li>
-                            ))}
-                        </ol>
-                    )}
+                <li>
+                    <a href="/blog">Nasz Blog</a>
+                    {
+                        blogPosts.length > 0 && (
+                            <ol>
+                                {blogPosts.map((post) => (
+                                    <li>
+                                        <a href={`/blog/${post.id}`}>
+                                            {post.data.title}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ol>
+                        )
+                    }
                 </li>
                 <li><a href="/polityka">Polityka prywatności i Cookies</a></li>
                 <li><a href="/zasady-wspolpracy">Zasady współpracy</a></li>
@@ -85,7 +106,7 @@ const blogPosts = (await getCollection("blog")).sort(
     }
 
     .sitemap__header h1 {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
         font-size: clamp(32px, 5vw, 56px);
         font-weight: 800;
         color: var(--text-primary);
