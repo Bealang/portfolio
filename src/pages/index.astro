@@ -7,6 +7,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { getCollection } from "astro:content";
 import ONasTxt from "../components/o-nas-txt.astro";
+import "../styles/bus.css";
 
 const projects = (await getCollection("projects")).sort(
     (a, b) => a.data.order - b.data.order,
@@ -300,6 +301,74 @@ const projects = (await getCollection("projects")).sort(
             }
         </div>
     </section>
+
+    <section class="bus-announcement-section">
+        <div class="bus-announcement-container">
+            <div
+                class="bus-announcement-content"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+            >
+                <h3 class="bus-announcement-title">
+                    Masz firmę przewozową? Otrzymaj system na własność.
+                </h3>
+                <p class="bus-announcement-desc">
+                    Zwiększ zyski i przejmij pełną kontrolę nad rozkładem jazdy.
+                    Oferujemy nowoczesny, w pełni gotowy system klasy
+                    dedykowanej dla linii autobusowych i busów. Płacisz tylko
+                    raz i zyskujesz unikalny system z własną stroną i panelem
+                    zarządzania na własność, bez żadnych ukrytych kosztów.
+                </p>
+                <div class="bus-why-us">
+                    <span class="bus-why-us-title">Dlaczego warto?</span>
+                    <ul class="bus-why-us-list">
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span
+                                ><strong>Jednorazowa opłata</strong> – płacisz tylko
+                                raz, bez żadnych abonamentów za opiekę.</span
+                            >
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span
+                                ><strong>Szybkie wdrożenie</strong> – strona jest
+                                gotowa nawet w 48 godzin.</span
+                            >
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span
+                                ><strong>Pół roku opieki</strong> – bezpłatna pomoc
+                                techniczna w cenie wdrożenia.</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <a href="/oferta-dla-przewoznikow" class="bus-cta-btn">
+                    <span>Sprawdź szczegóły oferty</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div
+                class="bus-announcement-visual"
+                data-aos="fade-left"
+                data-aos-duration="1200"
+            >
+                <div class="bus-organic-circle"></div>
+                <div class="bus-mockup-wrapper">
+                    <img
+                        src="/assets/oferty/przewoznzik.webp"
+                        alt="Wizualizacja systemu dla firm przewozowych"
+                        class="bus-mockup-img"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <ContactForm />
 
     <div class="google-map-embed" id="mapContainer">

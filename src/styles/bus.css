@@ -1,0 +1,1270 @@
+/* ==========================================================================
+   Bus Dedykowany System - Stylizacja dla Oferty Przewoźników
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Sekcja Ogłoszenia na Stronie Głównej
+   -------------------------------------------------------------------------- */
+
+.bus-announcement-section {
+    padding: var(--section-spacing) 0;
+    background: var(--bg-color);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.bus-announcement-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.bus-announcement-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bus-limit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.bus-limit-badge i {
+    font-size: 0.95rem;
+    animation: simplePulse 2s infinite ease-in-out;
+}
+
+@keyframes simplePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.bus-why-us {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.bus-why-us-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.bus-why-us-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bus-why-us-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.bus-why-us-list li i {
+    color: var(--accent-blue);
+    font-size: 1.15rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.bus-why-us-list li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.bus-announcement-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    letter-spacing: -1px;
+}
+
+.bus-announcement-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 30px 0;
+}
+
+.bus-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    box-shadow: 0 4px 15px rgba(var(--accent-blue-rgb), 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.bus-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(var(--accent-blue-rgb), 0.35);
+}
+
+.bus-cta-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.bus-cta-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* Wizualizacja z boku (Mockup + Koło) */
+.bus-announcement-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bus-organic-circle {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.22) 0%, rgba(var(--accent-cyan-rgb), 0.1) 100%);
+    border-radius: 43% 57% 65% 35% / 54% 45% 55% 46%;
+    filter: blur(12px);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: organicRotate 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes organicRotate {
+    0% {
+        border-radius: 43% 57% 65% 35% / 54% 45% 55% 46%;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    50% {
+        border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    100% {
+        border-radius: 43% 57% 65% 35% / 54% 45% 55% 46%;
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.bus-mockup-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    background: var(--card-bg);
+    animation: slowFloatDown 9s ease-in-out infinite alternate;
+}
+
+@keyframes slowFloatDown {
+    0% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(22px);
+    }
+}
+
+.bus-mockup-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+
+/* Responsywność strony głównej */
+@media (max-width: 991px) {
+    .bus-announcement-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .bus-announcement-visual {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .bus-organic-circle {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Dedykowana Podstrona /oferta-dla-przewoznikow (Nowoczesny Layout)
+   -------------------------------------------------------------------------- */
+
+.bus-page-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 160px 5% 80px;
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .bus-page-container {
+        padding: 100px 16px 50px;
+    }
+}
+
+/* Modern Hero Section Split Layout */
+.bus-hero-split-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.bus-hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bus-page-title-split {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(34px, 4.5vw, 54px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin: 10px 0 20px 0;
+    letter-spacing: -1.5px;
+}
+
+.bus-page-subtitle-split {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+.bus-hero-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.bus-bullet-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+}
+
+.bus-bullet-item i {
+    color: var(--accent-blue);
+    font-size: 1rem;
+    background: rgba(var(--accent-blue-rgb), 0.1);
+    padding: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--accent-blue-rgb), 0.2);
+}
+
+.bus-bullet-item strong {
+    color: var(--text-primary);
+}
+
+.bus-hero-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bus-hero-visual-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    perspective: 1000px;
+}
+
+.bus-organic-circle-large {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.2) 0%, rgba(var(--accent-cyan-rgb), 0.08) 100%);
+    border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+    filter: blur(15px);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: organicRotate 18s linear infinite;
+    pointer-events: none;
+}
+
+.bus-perspective-mockup {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.35),
+        0 0 40px rgba(var(--accent-blue-rgb), 0.1);
+    background: var(--card-bg);
+    transform: rotateY(-12deg) rotateX(6deg) rotateZ(2deg);
+    transition: transform 0.5s ease;
+}
+
+.bus-perspective-mockup:hover {
+    transform: rotateY(-4deg) rotateX(2deg) rotateZ(0deg);
+}
+
+/* Floating visual badges */
+.bus-floating-badge {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+.bus-floating-badge i {
+    color: var(--accent-blue);
+    font-size: 1rem;
+}
+
+.float-tag-1 {
+    top: 5%;
+    left: -10%;
+    animation: drift 5s ease-in-out infinite alternate;
+}
+
+.float-tag-2 {
+    bottom: 10%;
+    right: -10%;
+    animation: drift 6s ease-in-out infinite alternate 1s;
+}
+
+.float-tag-3 {
+    bottom: -15%;
+    left: 15%;
+    animation: drift 7s ease-in-out infinite alternate 0.5s;
+}
+
+@keyframes drift {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    100% {
+        transform: translateY(12px) translateX(8px);
+    }
+}
+
+/* Responsywność dla Hero Split */
+@media (max-width: 991px) {
+    .bus-hero-split-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0 !important;
+        margin: 0 0 50px 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .bus-hero-left {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .bus-hero-right {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 500px !important;
+        padding: 0 !important;
+        margin: 40px auto 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .bus-page-title-split {
+        width: 100% !important;
+        margin: 10px auto 20px auto !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+
+    .bus-page-subtitle-split {
+        width: 100% !important;
+        margin: 0 auto 25px auto !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+
+    .bus-hero-bullets {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+        margin: 0 auto 30px auto !important;
+        padding: 0 !important;
+    }
+
+    .bus-hero-actions {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+
+    .bus-cta-btn--large {
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        padding: 14px 20px !important;
+        font-size: 1rem !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    .bus-hero-visual-wrapper {
+        width: 100% !important;
+        max-width: 500px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        aspect-ratio: 16 / 9 !important;
+    }
+
+    .bus-perspective-mockup {
+        transform: none !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .bus-perspective-mockup:hover {
+        transform: none !important;
+    }
+
+    .bus-organic-circle-large {
+        display: none !important;
+    }
+
+    .bus-floating-badge {
+        display: none !important;
+    }
+}
+
+/* Suwak wyboru: Dla pasażera / Dla właściciela */
+.bus-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.bus-toggle-container {
+    display: inline-flex;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    z-index: 10;
+}
+
+.bus-toggle-btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.bus-toggle-btn.active {
+    background: var(--accent-blue);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(var(--accent-blue-rgb), 0.25);
+}
+
+html[data-theme="dark"] .bus-toggle-btn.active {
+    color: #101010;
+}
+
+/* Blok zawartości pod suwak */
+.bus-toggle-content {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bus-toggle-content.active {
+    display: block;
+    animation: busFadeIn 0.5s ease;
+}
+
+@keyframes busFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styl dla przełączalnych kafelków */
+.bus-features-switchable-container {
+    min-height: 380px;
+}
+
+/* Alert o wyłączności */
+.bus-alert-box {
+    background: rgba(239, 68, 68, 0.06);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 35px;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.bus-alert-box i {
+    color: #ef4444;
+    font-size: 1.35rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.bus-alert-box strong {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+/* Działy korzyści */
+.bus-section-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 60px 0 25px 0;
+    letter-spacing: -0.5px;
+    text-align: center;
+}
+
+.bus-features-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .bus-features-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bus-features-block {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: var(--glass-shadow);
+}
+
+.bus-block-icon {
+    font-size: 2.2rem;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+}
+
+.bus-block-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+}
+
+.bus-sales-desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.bus-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.bus-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.bus-list li::before {
+    content: "•";
+    color: var(--accent-blue);
+    font-weight: bold;
+    font-size: 1.3rem;
+    position: absolute;
+    left: 4px;
+    top: -2px;
+}
+
+.bus-list li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Wymagania technologiczne w prostym języku */
+.bus-tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .bus-tech-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bus-tech-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--glass-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+}
+
+.bus-tech-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(var(--accent-blue-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-blue-rgb), 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    font-size: 1.3rem;
+}
+
+.bus-tech-card h4 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.bus-tech-card p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Sekcja Ceny (Minimalistyczny split layout) */
+.bus-pricing-section {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+.bus-pricing-split-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: var(--glass-shadow);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.bus-pricing-split-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 1px solid var(--glass-border);
+    padding-right: 50px;
+}
+
+.bus-pricing-meta-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.bus-pricing-comparison {
+    margin-bottom: 5px;
+}
+
+.bus-price-value-old {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ef4444;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.bus-price-value-new {
+    font-size: 4rem;
+    /* Bardzo duże i czytelne ceny */
+    font-weight: 800;
+    color: var(--accent-blue);
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.bus-price-value-new .netto {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin-left: 5px;
+}
+
+.bus-price-bonus {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.bus-price-bonus i {
+    color: #22c55e;
+}
+
+.bus-pricing-split-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bus-pricing-features-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+}
+
+.bus-pricing-features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bus-pricing-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.15rem;
+    /* Zwiększona czcionka */
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.bus-pricing-features-list li i {
+    color: #22c55e;
+    font-size: 1.2rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.bus-pricing-features-list li strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Responsywność dla split ceny */
+@media (max-width: 991px) {
+    .bus-pricing-split-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px;
+    }
+
+    .bus-pricing-split-left {
+        border-right: none;
+        border-bottom: 1px solid var(--glass-border);
+        padding-right: 0;
+        padding-bottom: 40px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bus-pricing-split-right {
+        align-items: center;
+    }
+}
+
+/* Sekcja Kontaktu i Demo (Minimalistyczna) */
+.bus-contact-section {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    box-shadow: var(--glass-shadow);
+}
+
+.bus-contact-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.bus-contact-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+    letter-spacing: -0.5px;
+}
+
+.bus-contact-desc {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 30px 0;
+}
+
+.bus-cta-btn--large {
+    padding: 18px 45px;
+    font-size: 1.15rem;
+}
+
+@media (max-width: 768px) {
+    .bus-cta-btn--large {
+        padding: 14px 24px;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Interaktywna, scrollowalna sekcja makiety na samym dole
+   -------------------------------------------------------------------------- */
+
+.bus-scroll-showcase {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.bus-scroll-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.bus-scroll-frame {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    background: var(--card-bg);
+}
+
+.bus-scroll-header {
+    height: 42px;
+    background: rgba(var(--accent-blue-rgb), 0.04);
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 8px;
+}
+
+.bus-scroll-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.bus-scroll-dot--red {
+    background: #ff5f56;
+}
+
+.bus-scroll-dot--yellow {
+    background: #ffbd2e;
+}
+
+.bus-scroll-dot--green {
+    background: #27c93f;
+}
+
+.bus-scroll-address {
+    margin-left: 20px;
+    padding: 3px 18px;
+    background: var(--bg-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    flex: 1;
+    max-width: 320px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.bus-scroll-viewport {
+    flex: 1;
+    overflow-y: scroll;
+    background: #0f172a;
+    position: relative;
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--accent-blue-rgb), 0.5) transparent;
+}
+
+.bus-scroll-viewport::-webkit-scrollbar {
+    width: 8px;
+}
+
+.bus-scroll-viewport::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bus-scroll-viewport::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-blue-rgb), 0.4);
+    border-radius: 4px;
+}
+
+.bus-scroll-viewport::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+.bus-scroll-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsywność makiety scrollowanej */
+@media (max-width: 768px) {
+    .pricing-amount {
+        font-size: 2.5rem;
+    }
+
+    .bus-scroll-header {
+        padding: 0 10px;
+        height: 36px;
+    }
+
+    .bus-scroll-address {
+        display: none;
+    }
+}
+
+/* Dlaczego tego potrzebujesz - Nowy, unikalny układ */
+.bus-benefits-showcase {
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bus-benefits-main-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(2.3rem, 5.5vw, 3.5rem);
+    /* Larger font size as requested */
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 50px;
+    letter-spacing: -1.5px;
+    text-align: center;
+}
+
+.bus-benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.bus-benefit-row {
+    display: flex;
+    gap: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+    align-items: flex-start;
+}
+
+.bus-benefit-number {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--accent-blue);
+    opacity: 0.8;
+    background: rgba(var(--accent-blue-rgb), 0.08);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(var(--accent-blue-rgb), 0.15);
+}
+
+.bus-benefit-text {
+    flex: 1;
+}
+
+.bus-benefit-heading {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.bus-benefit-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 20px 0;
+}
+
+.bus-benefit-paragraph strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.bus-benefit-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.bus-benefit-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(var(--accent-blue-rgb), 0.04);
+    border: 1px solid var(--glass-border);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.bus-benefit-tag i {
+    color: var(--accent-blue);
+}
+
+@media (max-width: 768px) {
+    .bus-benefit-row {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+    }
+
+    .bus-benefit-number {
+        width: 60px;
+        height: 60px;
+        font-size: 2.2rem;
+    }
+}
+
+/* Siatka interaktywnych kafelków */
+.bus-tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 991px) {
+    .bus-tiles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .bus-tiles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bus-feature-tile {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--glass-shadow);
+    position: relative;
+}
+
+.bus-tile-icon {
+    font-size: 2.2rem;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+}
+
+.bus-tile-title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 10px 0;
+}
+
+.bus-tile-desc {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+}
+
+bus-tile-desc {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+}

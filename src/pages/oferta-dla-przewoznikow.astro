@@ -1,0 +1,543 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import "../styles/bus.css";
+---
+
+<Layout
+    title="System dla busów | Dedykowana Strona i Rozkład dla Przewoźników"
+    description="Koniec z telefonami od pasażerów. Zbuduj profesjonalną stronę dla swojej linii przewozowej z rozkładem jazdy i panelem do edycji w telefonie."
+>
+    <Header activePage="" />
+
+    <main class="bus-page-container">
+        <HeroBg behindContent={true} />
+
+        <!-- Hero section z nowoczesnym rozkładem siatki i dynamicznym driftem -->
+        <header class="bus-hero-split-container">
+            <div
+                class="bus-hero-left"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+            >
+                <h1 class="bus-page-title-split">
+                    Koniec z telefonami o 21:00 w niedzielę. Rozkład jazdy
+                    online.
+                </h1>
+                <p class="bus-page-subtitle-split">
+                    Otrzymaj gotowy, intuicyjny system <strong
+                        >dla przewoźników</strong
+                    > z rozkładem jazdy online dla pasażerów i panelem administratora
+                    w atrakcyjnej cenie.
+                </p>
+
+                <div class="bus-hero-bullets">
+                    <div class="bus-bullet-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Uruchomienie w 48 godzin pod Twoją domeną</span>
+                    </div>
+                    <div class="bus-bullet-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Zarządzasz wszystkim z poziomu telefonu</span>
+                    </div>
+                    <div class="bus-bullet-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Jednorazowa opłata, brak abonamentów</span>
+                    </div>
+                </div>
+
+                <div class="bus-hero-actions">
+                    <a
+                        href="tel:796760814"
+                        class="bus-cta-btn bus-cta-btn--large"
+                    >
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń i sprawdź demo: 796 760 814</span>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="bus-hero-right"
+                data-aos="fade-left"
+                data-aos-duration="1200"
+            >
+                <div class="bus-hero-visual-wrapper">
+                    <div class="bus-organic-circle-large"></div>
+                    <div class="bus-perspective-mockup">
+                        <img
+                            src="/assets/oferty/przewoznzik.webp"
+                            alt="Podgląd systemu dla busów"
+                            class="bus-mockup-img"
+                        />
+                    </div>
+                    <!-- Pływające etykiety wizualne -->
+                    <div class="bus-floating-badge float-tag-1">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Live odjazdy</span>
+                    </div>
+                    <div class="bus-floating-badge float-tag-2">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <span>Panel w telefonie</span>
+                    </div>
+                    <div class="bus-floating-badge float-tag-3">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Bezawaryjne działanie</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dlaczego tego potrzebujesz (Przeprojektowany układ) -->
+        <section
+            class="bus-benefits-showcase"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <h2 class="bus-benefits-main-title">Dlaczego tego potrzebujesz?</h2>
+
+            <div class="bus-benefits-list">
+                <!-- Punkt 1 -->
+                <div
+                    class="bus-benefit-row"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                >
+                    <div class="bus-benefit-number">
+                        <span>01</span>
+                    </div>
+                    <div class="bus-benefit-text">
+                        <h3 class="bus-benefit-heading">
+                            Koniec z telefonami o 21:00 w niedzielę
+                        </h3>
+                        <p class="bus-benefit-paragraph">
+                            Pasażerowie czekający na przystanku nie będą do
+                            Ciebie dzwonić z pytaniem o godzinę odjazdu. Zamiast
+                            tego <strong
+                                >sami sprawdzą wszystko w sekundę</strong
+                            > na swoich smartfonach.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Punkt 2 -->
+                <div
+                    class="bus-benefit-row"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="100"
+                >
+                    <div class="bus-benefit-number">
+                        <span>02</span>
+                    </div>
+                    <div class="bus-benefit-text">
+                        <h3 class="bus-benefit-heading">
+                            Zmiana rozkładu w 10 sekund z poziomu telefonu
+                        </h3>
+                        <p class="bus-benefit-paragraph">
+                            Niespodziewana awaria pojazdu? Objazd na trasie?
+                            Nadchodzące święta? Logujesz się do prostego panelu
+                            bezpośrednio z telefonu i <strong
+                                >zmieniasz godziny odjazdów w mgnieniu oka</strong
+                            >.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Punkt 3 -->
+                <div
+                    class="bus-benefit-row"
+                    data-aos="fade-up"
+                    data-aos-duration="800"
+                    data-aos-delay="200"
+                >
+                    <div class="bus-benefit-number">
+                        <span>03</span>
+                    </div>
+                    <div class="bus-benefit-text">
+                        <h3 class="bus-benefit-heading">
+                            Zgarniasz klientów z Google prosto przed nosem
+                            konkurencji
+                        </h3>
+                        <p class="bus-benefit-paragraph">
+                            Kiedy ludzie w regionie szukają transportu i wpisują
+                            w Google frazy typu „bus [Twoja miejscowość]”, to <strong
+                                >Twój rozkład jazdy wyświetli się na samej górze</strong
+                            >. Konkurencja z przestarzałymi rozkładami lub
+                            brakiem strony po prostu traci pasażerów na Twoją
+                            rzecz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Konkretne funkcjonalności z repo w formie suwaka (Dla pasażera / Dla właściciela) -->
+        <section
+            class="bus-features-section"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <h3 class="bus-section-title">
+                Co dokładnie wchodzi w skład systemu?
+            </h3>
+
+            <div class="bus-toggle-wrapper">
+                <div class="bus-toggle-container">
+                    <button
+                        type="button"
+                        class="bus-toggle-btn active"
+                        id="btn-passenger">Dla pasażera</button
+                    >
+                    <button type="button" class="bus-toggle-btn" id="btn-owner"
+                        >Dla właściciela</button
+                    >
+                </div>
+            </div>
+
+            <div class="bus-features-switchable-container">
+                <!-- PANEL PASAŻERA -->
+                <div class="bus-toggle-content active" id="content-passenger">
+                    <div class="bus-tiles-grid">
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Rozkład online</h4>
+                            <p class="bus-tile-desc">
+                                Przejrzysty i czytelny widok godzin odjazdów na
+                                komórkach i komputerach.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Kalkulator cen</h4>
+                            <p class="bus-tile-desc">
+                                Pasażer wybiera przystanek początkowy oraz
+                                końcowy i sam widzi koszt biletów.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-newspaper"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Aktualności</h4>
+                            <p class="bus-tile-desc">
+                                Ważne ogłoszenia o świętach czy remontach na
+                                samej górze strony.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Rozwijane FAQ</h4>
+                            <p class="bus-tile-desc">
+                                Odpowiedzi na najczęstsze pytania pasażerów o
+                                bagaż, bilety i zwierzęta.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Kontakt i trasy</h4>
+                            <p class="bus-tile-desc">
+                                Bezpośredni telefon do przewoźnika oraz
+                                przejrzysty opis przebiegu linii.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Regulamin PDF</h4>
+                            <p class="bus-tile-desc">
+                                Regulamin przewozów dostępny do pobrania jednym
+                                kliknięciem.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL WŁAŚCICIELA -->
+                <div class="bus-toggle-content" id="content-owner">
+                    <div class="bus-tiles-grid">
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-route"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Edycja kursów</h4>
+                            <p class="bus-tile-desc">
+                                Dodawaj, edytuj i usuwaj godziny odjazdów
+                                bezpośrednio ze smartfona.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-calendar-day"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Dni kursowania</h4>
+                            <p class="bus-tile-desc">
+                                Ustawianie kursów osobno na dni od poniedziałku
+                                do piątku, soboty oraz niedziele i święta.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Grupowa zmiana cen</h4>
+                            <p class="bus-tile-desc">
+                                Zmieniaj ceny wszystkich biletów na trasie o
+                                wybraną kwotę jednym kliknięciem.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Szybki upload</h4>
+                            <p class="bus-tile-desc">
+                                Wgrywaj pliki rozkładów, PDF-y z regulaminem i
+                                zdjęcia do aktualności.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Bezpieczny dostęp</h4>
+                            <p class="bus-tile-desc">
+                                Panel administratora zabezpieczony szyfrowanym
+                                hasłem.
+                            </p>
+                        </div>
+
+                        <div class="bus-feature-tile">
+                            <div class="bus-tile-icon">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <h4 class="bus-tile-title">Bezawaryjność</h4>
+                            <p class="bus-tile-desc">
+                                Optymalny kod i stabilna baza danych chronią
+                                przed awariami strony.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kluczowe zalety wdrożenia -->
+        <section
+            class="bus-tech-section"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <h3 class="bus-section-title">Najważniejsze korzyści</h3>
+            <div class="bus-tech-grid">
+                <div class="bus-tech-card">
+                    <div class="bus-tech-icon-wrapper">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h4>Śmiesznie niskie koszty utrzymania</h4>
+                    <p>
+                        Nie ma tu żadnych abonamentów ani ukrytych opłat za
+                        system. Koszt serwera i domeny u zewnętrznego dostawcy
+                        to łącznie około 20 zł miesięcznie. Cały system należy w
+                        pełni do Ciebie.
+                    </p>
+                </div>
+                <div class="bus-tech-card">
+                    <div class="bus-tech-icon-wrapper">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Pół roku gwarancji i pomocy w cenie</h4>
+                    <p>
+                        Przez 6 miesięcy po uruchomieniu bezpłatnie pomagamy Ci
+                        technicznie w razie pytań i dbamy o to, by system
+                        działał stabilnie i bez przerwy.
+                    </p>
+                </div>
+                <div class="bus-tech-card">
+                    <div class="bus-tech-icon-wrapper">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4>Błyskawiczne wczytywanie na telefonie</h4>
+                    <p>
+                        Kod strony został zoptymalizowany pod maksymalną
+                        szybkość działania. Pasażer czekający na przystanku w
+                        trasie przy słabym zasięgu otworzy rozkład w ułamku
+                        sekundy.
+                    </p>
+                </div>
+                <div class="bus-tech-card">
+                    <div class="bus-tech-icon-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h4>Widoczność w Google lepsza od konkurencji</h4>
+                    <p>
+                        Dzięki wdrożeniu danych strukturalnych i czystych
+                        adresów URL, pasażerowie szukający busów w okolicy
+                        trafią bezpośrednio do Ciebie, a nie na konkurencyjne
+                        tablice ogłoszeń.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Ceny: Minimalistyczny Split Layout (Cena po lewej, Zawartość po prawej) -->
+        <section
+            class="bus-pricing-section"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <h3 class="bus-section-title">Jasne warunki. Płacisz tylko raz.</h3>
+
+            <div class="bus-pricing-split-card">
+                <!-- Lewa strona: Cena -->
+                <div class="bus-pricing-split-left">
+                    <span class="bus-pricing-meta-label"
+                        >Jednorazowa inwestycja</span
+                    >
+                    <div class="bus-pricing-comparison">
+                        <span class="bus-price-value-old"
+                            >5 200 zł + hosting</span
+                        >
+                    </div>
+                    <div class="bus-price-value-new">
+                        2 500 zł <span class="netto">netto</span>
+                    </div>
+                    <div class="bus-price-bonus">
+                        <i class="fa-solid fa-gift" style="color: #22c55e;"></i>
+                        <span
+                            style="font-weight: 700; color: var(--text-primary);"
+                            >Serwer na 1 rok za darmo</span
+                        >
+                    </div>
+                </div>
+
+                <!-- Prawa strona: Co otrzymujesz -->
+                <div class="bus-pricing-split-right">
+                    <h4 class="bus-pricing-features-title">
+                        Co otrzymujesz w cenie:
+                    </h4>
+                    <ul class="bus-pricing-features-list">
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span
+                                ><strong>Jednorazowa opłata</strong> – płacisz tylko
+                                raz, bez żadnych abonamentów za opiekę.</span
+                            >
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span
+                                ><strong>Szybkie wdrożenie</strong> – strona jest
+                                gotowa nawet w 48 godzin.</span
+                            >
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span
+                                ><strong>Pół roku opieki</strong> – bezpłatna pomoc
+                                techniczna w cenie wdrożenia.</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Kontaktu i Demo -->
+        <section
+            class="bus-contact-section"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <div class="bus-contact-content">
+                <h3 class="bus-contact-title">
+                    Chcesz zobaczyć, jak panel działa na żywo?
+                </h3>
+                <p class="bus-contact-desc">
+                    Zadzwoń do nas. Bez żadnych zobowiązań udostępnimy Ci dostęp
+                    do wersji demonstracyjnej. Sprawdzisz z telefonu, jak łatwo
+                    dodaje się kursy i zmienia ceny.
+                </p>
+                <a href="tel:796760814" class="bus-cta-btn bus-cta-btn--large">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Zadzwoń i sprawdź demo: 796 760 814</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Interaktywna makieta do scrollowania na samym dole -->
+        <section
+            class="bus-scroll-showcase"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
+            <h3 class="bus-scroll-title">
+                Przewiń, a zobaczysz stronę główną strony internetowej:
+            </h3>
+            <div class="bus-scroll-frame">
+                <div class="bus-scroll-header">
+                    <span class="bus-scroll-dot bus-scroll-dot--red"></span>
+                    <span class="bus-scroll-dot bus-scroll-dot--yellow"></span>
+                    <span class="bus-scroll-dot bus-scroll-dot--green"></span>
+                    <div class="bus-scroll-address">
+                        https://twoja-strona.pl
+                    </div>
+                </div>
+                <div class="bus-scroll-viewport">
+                    <img
+                        src="/assets/oferty/przewoznzik.webp"
+                        alt="Wizualizacja działania systemu przewozowego"
+                        class="bus-scroll-img"
+                    />
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>
+
+<script is:inline>
+    (function () {
+        const btnPassenger = document.getElementById("btn-passenger");
+        const btnOwner = document.getElementById("btn-owner");
+        const contentPassenger = document.getElementById("content-passenger");
+        const contentOwner = document.getElementById("content-owner");
+
+        if (btnPassenger && btnOwner && contentPassenger && contentOwner) {
+            btnPassenger.addEventListener("click", function () {
+                btnPassenger.classList.add("active");
+                btnOwner.classList.remove("active");
+                contentPassenger.classList.add("active");
+                contentOwner.classList.remove("active");
+            });
+
+            btnOwner.addEventListener("click", function () {
+                btnOwner.classList.add("active");
+                btnPassenger.classList.remove("active");
+                contentOwner.classList.add("active");
+                contentPassenger.classList.remove("active");
+            });
+        }
+    })();
+</script>
