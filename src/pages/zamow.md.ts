@@ -18,7 +18,6 @@ Aby złożyć zapytanie na stronie [web2sell.pl/zamow](https://web2sell.pl/zamow
 2. **Wstępna usługa** * (Wybierz jedną z opcji):
    - *Nie wiem. Chcę to ustalić*
    - *OnePage (Szybki start w sieci)*
-   - *Wizytówka Multi-Page (Budowa autorytetu)*
    - *Wizytówka + CMS (Dynamiczne treści)*
    - *System Dedykowany (Rozwiązania "Full Custom")*
 3. **Adres e-mail** *

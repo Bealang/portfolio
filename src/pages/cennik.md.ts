@@ -7,19 +7,15 @@ Cennik usług tworzenia stron internetowych. Oferujemy ceny netto oraz brutto (+
 
 ### OnePage (Jednostronicowa)
 Szybka i prosta jednostronicowa wizytówka. Doskonała dla jednoosobowych działalności, freelancerów czy małych firm. Znajduje się na niej wszystko, co niezbędne, by skutecznie zaprezentować ofertę i zdobyć pierwszych klientów z Google.
-- **Cena**: od 1000 zł netto / 1230 zł brutto
-
-### Wizytówka Multi-Page (2-5 podstron)
-Pełnoprawna strona internetowa podzielona na kilka dedykowanych podstron (o nas, oferta, galeria, kontakt). Idealna dla firm, które chcą zbudować silniejszą pozycję w Google i zaoferować klientom bardziej rozbudowaną prezentację swojej oferty niż Onepage.
-- **Cena**: od 1500 zł netto / 1845 zł brutto
+- **Cena**: od 990 zł netto / 1218 zł brutto
 
 ### Wizytówka + CMS (2-5 podstron + panel administracyjny) - Najpopularniejszy wybór
 Strona z autorskim, banalnie prostym panelem administracyjnym. Samodzielnie i błyskawicznie edytujesz ofertę, portfolio czy bloga bez pisania kodu. To doskonały wybór dla firm, które chcą mieć pełną kontrolę nad swoją stroną i regularnie aktualizować treści.
-- **Cena**: od 2500 zł netto / 3075 zł brutto
+- **Cena**: od 2290 zł netto / 2817 zł brutto
 
 ### System Dedykowany (Zaawansowane rozwiązanie)
 Dedykowane rozwiązanie dla najbardziej wymagających klientów. Strona idealnie dopasowana do potrzeb Twojego biznesu, z rozbudowanymi funkcjonalnościami (rezerwacje, interaktywne cenniki, integracje z systemami zewnętrznymi). To inwestycja dla firm, które chcą mieć absolutnie unikalną i najwyższej jakości stronę, wybijającą się na tle konkurencji.
-- **Cena**: od 4000 zł netto / 4920 zł brutto
+- **Cena**: od 3990 zł netto / 4908 zł brutto
 
 ---
 
@@ -29,14 +25,14 @@ Dedykowane rozwiązanie dla najbardziej wymagających klientów. Strona idealnie
 
 ## Porównanie pakietów
 
-| Zakres usług | OnePage | Multi-Page | Wizytówka + CMS (Najpopularniejszy) | System Dedykowany |
-| :--- | :--- | :--- | :--- | :--- |
-| **Czas realizacji** | do 1 tygodnia | 1 do 2 tygodni | 3-4 tygodnie | od 5 tygodni |
-| **Optymalizacja pod wyszukiwarki Google** | Podstawowa pod Google | Rozszerzona pod regionalne wyszukiwania | Rozszerzone | Najwyższe, najbardziej staranne |
-| **Zarządzanie treścią [CMS]** | ✕ | ✕ | Aktualności, Blog, Galeria | Indywidualnie dostosowane do Twoich potrzeb |
-| **Darmowy hosting+domena .pl na pierwszy rok** | ✕ | ✓ (Tak) | ✓ (Tak) | ✓ (Tak) |
-| **Opieka w pakiecie** | 1 mies. | 2 mies. | 6 mies. | 6 mies. |
-| **Wizytówka Google Maps w cenie** | ✓ (Tak) | ✓ (Tak) | ✓ (Tak) | ✓ (Tak) |
+| Zakres usług | OnePage | Wizytówka + CMS (Najpopularniejszy) | System Dedykowany |
+| :--- | :--- | :--- | :--- |
+| **Czas realizacji** | do 1 tygodnia | 3-4 tygodnie | od 5 tygodni |
+| **Optymalizacja pod wyszukiwarki Google** | Podstawowa pod Google | Rozszerzone | Najwyższe, najbardziej staranne |
+| **Zarządzanie treścią [CMS]** | ✕ | Aktualności, Blog, Galeria | Indywidualnie dostosowane do Twoich potrzeb |
+| **Darmowy hosting+domena .pl na pierwszy rok** | ✕ | ✓ (Tak) | ✓ (Tak) |
+| **Opieka w pakiecie** | 1 mies. | 6 mies. | 6 mies. |
+| **Wizytówka Google Maps w cenie** | ✓ (Tak) | ✓ (Tak) | ✓ (Tak) |
 
 ---
 

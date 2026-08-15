@@ -54,20 +54,20 @@
     --grid-line-color: rgba(0, 0, 0, 0.03);
 
     /* Pricing Toggle Background */
-    --pricing-toggle-bg: rgba(255, 255, 255, 0.45);
+    --pricing-toggle-bg: rgba(255, 255, 255, 0.7);
 
     /* Pricing Toggle Switch (Light theme) */
-    --pricing-switch-bg: rgba(17, 24, 39, 0.06);
-    --pricing-switch-border: 1.5px solid rgba(17, 24, 39, 0.1);
-    --pricing-switch-active-bg: rgba(17, 24, 39, 0.1);
+    --pricing-switch-bg: rgba(17, 24, 39, 0.07);
+    --pricing-switch-border: 1px solid rgba(17, 24, 39, 0.12);
+    --pricing-switch-active-bg: rgba(17, 24, 39, 0.09);
     --pricing-switch-active-border: rgba(17, 24, 39, 0.18);
-    --pricing-switch-focus: 0 0 0 3px rgba(17, 24, 39, 0.08);
+    --pricing-switch-focus: 0 0 0 3px rgba(var(--accent-blue-rgb), 0.18);
     --pricing-switch-slider-bg: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
     --pricing-switch-slider-active-bg: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-    --pricing-switch-slider-shadow: 0 2px 6px rgba(var(--accent-blue-rgb), 0.25);
-    --pricing-switch-slider-active-shadow: 0 2px 6px rgba(var(--accent-cyan-rgb), 0.25);
-    --vat-badge-bg: rgba(17, 24, 39, 0.06);
-    --vat-badge-color: var(--text-secondary);
+    --pricing-switch-slider-shadow: 0 2px 8px rgba(var(--accent-blue-rgb), 0.35);
+    --pricing-switch-slider-active-shadow: 0 2px 8px rgba(var(--accent-cyan-rgb), 0.35);
+    --vat-badge-bg: rgba(var(--accent-blue-rgb), 0.1);
+    --vat-badge-color: var(--accent-blue);
 
     /* Card and Component Hover Borders & Shadows (Light theme) */
     --card-hover-border: rgba(var(--accent-blue-rgb), 0.3);
@@ -183,20 +183,20 @@ html[data-theme="dark"] {
     --grid-line-color: rgba(255, 255, 255, 0.05);
 
     /* Pricing Toggle Background */
-    --pricing-toggle-bg: rgba(22, 22, 22, 0.7);
+    --pricing-toggle-bg: rgba(22, 22, 22, 0.85);
 
     /* Pricing Toggle Switch (Dark theme - mega dark/grey, no fiolet) */
-    --pricing-switch-bg: rgba(255, 255, 255, 0.06);
-    --pricing-switch-border: 1.5px solid rgba(255, 255, 255, 0.08);
+    --pricing-switch-bg: rgba(255, 255, 255, 0.08);
+    --pricing-switch-border: 1px solid rgba(255, 255, 255, 0.12);
     --pricing-switch-active-bg: rgba(255, 255, 255, 0.12);
-    --pricing-switch-active-border: rgba(255, 255, 255, 0.18);
-    --pricing-switch-focus: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    --pricing-switch-active-border: rgba(255, 255, 255, 0.2);
+    --pricing-switch-focus: 0 0 0 3px rgba(var(--accent-blue-rgb), 0.25);
     --pricing-switch-slider-bg: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
     --pricing-switch-slider-active-bg: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-    --pricing-switch-slider-shadow: 0 2px 6px rgba(var(--accent-blue-rgb), 0.35);
-    --pricing-switch-slider-active-shadow: 0 2px 6px rgba(var(--accent-cyan-rgb), 0.35);
-    --vat-badge-bg: rgba(255, 255, 255, 0.08);
-    --vat-badge-color: var(--text-secondary);
+    --pricing-switch-slider-shadow: 0 2px 8px rgba(var(--accent-blue-rgb), 0.5);
+    --pricing-switch-slider-active-shadow: 0 2px 8px rgba(var(--accent-cyan-rgb), 0.5);
+    --vat-badge-bg: rgba(var(--accent-blue-rgb), 0.15);
+    --vat-badge-color: var(--accent-blue);
 
     /* Card and Component Hover Borders & Shadows (Dark theme - mega dark, płaski hover) */
     --card-hover-border: rgba(255, 255, 255, 0.04);
@@ -3456,86 +3456,98 @@ a.footer__contact-item:hover {
     box-sizing: border-box;
 }
 
-/* --- Pricing Toggle Netto / Brutto --- */
-.pricing-toggle-wrapper {
-    display: inline-flex;
+/* --- Cennik Header Row (Title on Left/Center, Subtelny Segment Toggle on Right) --- */
+.cennik-header-row {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin: 10px auto 40px auto;
-    background: var(--pricing-toggle-bg);
-    border: 1px solid var(--glass-border);
-    padding: 10px 24px;
-    border-radius: 100px;
-    backdrop-filter: blur(var(--glass-blur));
-    box-shadow: var(--glass-shadow);
-    z-index: 5;
-    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 35px auto;
+    padding: 0 5px;
+    box-sizing: border-box;
+    gap: 20px;
 }
 
-.toggle-label {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: var(--transition-smooth);
-    user-select: none;
-}
-
-.toggle-label.active {
+.cennik-header-row .cennik__title {
+    font-size: 42px;
+    margin: 0;
     color: var(--text-primary);
-    font-weight: 700;
+    text-align: left;
+    line-height: 1.2;
 }
 
-.vat-badge {
-    font-size: 11px;
-    background: var(--vat-badge-bg);
-    color: var(--vat-badge-color);
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-left: 4px;
-    font-weight: 600;
-    transition: var(--transition-smooth);
-}
-
-.pricing-toggle-switch {
+/* --- Subtelny Segmentowy Przełącznik Netto / Brutto --- */
+.pricing-segment-control {
     position: relative;
-    width: 60px;
-    height: 32px;
-    background: var(--pricing-switch-bg);
-    border: var(--pricing-switch-border);
-    border-radius: 100px;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-    padding: 0;
-    outline: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 150px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 3px;
+    border-radius: 10px;
+    user-select: none;
+    z-index: 5;
+    flex-shrink: 0;
+    box-sizing: border-box;
 }
 
-.pricing-toggle-switch:focus-visible {
-    box-shadow: var(--pricing-switch-focus);
+html[data-theme="dark"] .pricing-segment-control {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.toggle-slider {
+.segment-indicator {
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 24px;
-    height: 24px;
-    background: var(--pricing-switch-slider-bg);
-    border-radius: 50%;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
-    box-shadow: var(--pricing-switch-slider-shadow);
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    background: #ffffff;
+    border-radius: 7px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
 }
 
-.pricing-toggle-switch.active {
-    background: var(--pricing-switch-active-bg);
-    border-color: var(--pricing-switch-active-border);
+html[data-theme="dark"] .segment-indicator {
+    background: #252525;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-.pricing-toggle-switch.active .toggle-slider {
-    transform: translateX(28px);
-    background: var(--pricing-switch-slider-active-bg);
-    box-shadow: var(--pricing-switch-slider-active-shadow);
+.segment-btn {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    transition: color 0.15s ease;
+    outline: none;
+    user-select: none;
+}
+
+.segment-btn:hover {
+    color: var(--text-primary);
+}
+
+.segment-btn.active {
+    color: var(--text-primary);
+    font-weight: 700;
 }
 
 /* --- Pricing Card Base --- */
@@ -3546,15 +3558,13 @@ a.footer__contact-item:hover {
     padding: 40px;
     display: flex;
     flex-direction: column;
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
     position: relative;
     text-align: left;
     box-sizing: border-box;
     box-shadow: var(--glass-shadow), var(--box-inset-shadow);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* --- Pricing Grid Standard (3 Columns) --- */
@@ -3581,9 +3591,9 @@ a.footer__contact-item:hover {
 .pricing-card.card--active {
     background: var(--card-grad-glass);
     border: none;
-    transform: scale(1.04);
+    transform: translateY(-8px);
     z-index: 2;
-    box-shadow: 0 20px 40px rgba(var(--accent-blue-rgb), 0.12), var(--glass-shadow);
+    box-shadow: 0 20px 45px rgba(var(--accent-blue-rgb), 0.16), var(--glass-shadow);
 }
 
 .pricing-card.card--active::before {
@@ -3836,7 +3846,7 @@ a.footer__contact-item:hover {
 }
 
 .comparison-table .package-col {
-    width: 18.75%;
+    width: 25%;
     text-align: center;
     font-weight: 600;
 }
@@ -4059,21 +4069,29 @@ a.footer__contact-item:hover {
 /* Responsive Pricing */
 @media (max-width: 900px) {
     .cennik-page {
-        padding-top: 20px;
+        padding-top: 105px !important;
     }
 
     #cennik {
-        margin-top: 0px;
+        margin-top: 15px !important;
     }
 
-    #cennik .cennik__title {
-        font-size: 32px;
-        padding: 0 20px;
+    .cennik-header-row {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 16px !important;
+        margin-bottom: 25px !important;
     }
 
-    #cennik p.cennik__subtitle {
-        padding: 0 20px;
-        margin-bottom: 30px;
+    .cennik-header-row .cennik__title {
+        font-size: clamp(28px, 6vw, 36px) !important;
+        text-align: center !important;
+        padding: 0 10px;
+    }
+
+    .pricing-segment-control {
+        align-self: center !important;
     }
 
     /* Grid i karty standardowe */
@@ -4088,12 +4106,13 @@ a.footer__contact-item:hover {
     .pricing-card {
         min-height: unset !important;
         padding: 30px 24px !important;
+        transform: none !important;
     }
 
-    /* Wyłączenie powiększenia (scale) aktywnej karty CMS na mobile */
+    /* Wyłączenie uniesienia aktywnej karty CMS na mobile */
     .pricing-card.card--active {
         transform: none !important;
-        margin: 10px 0;
+        margin: 10px 0 !important;
     }
 
     /* Pakiet Dedykowany (Szeroki Baner) na mobile */

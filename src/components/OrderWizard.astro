@@ -181,10 +181,6 @@
                                     >OnePage (Szybki start w sieci)</option
                                 >
                                 <option
-                                    value="Wizytówka Multi-Page (Budowa autorytetu)"
-                                    >Wizytówka Multi-Page (Budowa autorytetu)</option
-                                >
-                                <option
                                     value="Wizytówka + CMS (Dynamiczne treści)"
                                     >Wizytówka + CMS (Dynamiczne treści)</option
                                 >
@@ -208,7 +204,7 @@
                                     <div class="tile-header">
                                         <span class="tile-title">OnePage</span>
                                         <span class="tile-badge"
-                                            >od 1000 zł</span
+                                            >od 990 zł</span
                                         >
                                     </div>
                                     <p class="tile-desc">
@@ -225,33 +221,6 @@
                                     </div>
                                 </div>
 
-                                <!-- MultiPage -->
-                                <div
-                                    class="service-tile"
-                                    data-value="Wizytówka Multi-Page (Budowa autorytetu)"
-                                >
-                                    <div class="tile-header">
-                                        <span class="tile-title"
-                                            >Multi-Page</span
-                                        >
-                                        <span class="tile-badge"
-                                            >od 1500 zł</span
-                                        >
-                                    </div>
-                                    <p class="tile-desc">
-                                        Pełnoprawna strona internetowa
-                                        podzielona na kilka dedykowanych
-                                        podstron (o nas, oferta, galeria,
-                                        kontakt). Idealna dla firm, które chcą
-                                        zbudować silniejszą pozycję w Google i
-                                        zaoferować klientom bardziej rozbudowaną
-                                        prezentację swojej oferty niż Onepage.
-                                    </p>
-                                    <div class="tile-select-indicator">
-                                        <i class="fa-solid fa-check"></i>
-                                    </div>
-                                </div>
-
                                 <!-- Wizytówka + CMS -->
                                 <div
                                     class="service-tile"
@@ -262,11 +231,11 @@
                                             >Wizytówka + CMS</span
                                         >
                                         <span class="tile-badge"
-                                            >od 2500 zł</span
+                                            >od 2290 zł</span
                                         >
                                     </div>
                                     <p class="tile-desc">
-                                        Strona z autorskim, panel
+                                        Strona z autorskim, prostym panelem
                                         administracyjnym. Samodzielnie i
                                         błyskawicznie edytujesz ofertę,
                                         portfolio czy bloga bez pisania kodu. To
@@ -289,7 +258,7 @@
                                             >System Dedykowany</span
                                         >
                                         <span class="tile-badge"
-                                            >od 4000 zł</span
+                                            >od 3990 zł</span
                                         >
                                     </div>
                                     <p class="tile-desc">
@@ -1834,9 +1803,7 @@
             let matchedValue = "";
             if (pakiet === "onepage") {
                 matchedValue = "OnePage (Szybki start w sieci)";
-            } else if (pakiet === "multipage") {
-                matchedValue = "Wizytówka Multi-Page (Budowa autorytetu)";
-            } else if (pakiet === "cms") {
+            } else if (pakiet === "multipage" || pakiet === "cms") {
                 matchedValue = "Wizytówka + CMS (Dynamiczne treści)";
             } else if (pakiet === "system") {
                 matchedValue = 'System Dedykowany (Rozwiązania "Full Custom")';

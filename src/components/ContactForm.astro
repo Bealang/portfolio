@@ -84,10 +84,6 @@
                             <option value="OnePage (Szybki start w sieci)"
                                 >OnePage (Szybki start w sieci)</option
                             >
-                            <option
-                                value="Wizytówka Multi-Page (Budowa autorytetu)"
-                                >Wizytówka Multi-Page (Budowa autorytetu)</option
-                            >
                             <option value="Wizytówka + CMS (Dynamiczne treści)"
                                 >Wizytówka + CMS (Dynamiczne treści)</option
                             >
@@ -239,9 +235,7 @@
         if (pakiet && selectEl) {
             if (pakiet === 'onepage') {
                 selectEl.value = "OnePage (Szybki start w sieci)";
-            } else if (pakiet === 'multipage') {
-                selectEl.value = "Wizytówka Multi-Page (Budowa autorytetu)";
-            } else if (pakiet === 'cms') {
+            } else if (pakiet === 'multipage' || pakiet === 'cms') {
                 selectEl.value = "Wizytówka + CMS (Dynamiczne treści)";
             } else if (pakiet === 'system') {
                 selectEl.value = 'System Dedykowany (Rozwiązania "Full Custom")';
