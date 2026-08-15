@@ -7,7 +7,7 @@ Cennik usług tworzenia stron internetowych. Oferujemy ceny netto oraz brutto (+
 
 ### OnePage (Jednostronicowa)
 Szybka i prosta jednostronicowa wizytówka. Doskonała dla jednoosobowych działalności, freelancerów czy małych firm. Znajduje się na niej wszystko, co niezbędne, by skutecznie zaprezentować ofertę i zdobyć pierwszych klientów z Google.
-- **Cena**: od 990 zł netto / 1218 zł brutto
+- **Cena**: od 1090 zł netto / 1341 zł brutto
 
 ### Wizytówka + CMS (2-5 podstron + panel administracyjny) - Najpopularniejszy wybór
 Strona z autorskim, banalnie prostym panelem administracyjnym. Samodzielnie i błyskawicznie edytujesz ofertę, portfolio czy bloga bez pisania kodu. To doskonały wybór dla firm, które chcą mieć pełną kontrolę nad swoją stroną i regularnie aktualizować treści.
