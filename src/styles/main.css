@@ -5115,7 +5115,7 @@ nav>a.active::after {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 0 70px;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -5272,6 +5272,20 @@ nav>a.active::after {
         padding-left: calc(50% - 140px);
         padding-right: calc(50% - 140px);
     }
+
+    .htl-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .htl-nav--prev {
+        left: max(6px, calc(50% - 192px));
+    }
+
+    .htl-nav--next {
+        right: max(6px, calc(50% - 192px));
+    }
 }
 
 /* Navigation arrows */
@@ -5281,13 +5295,15 @@ nav>a.active::after {
     transform: translateY(-50%);
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     width: 48px;
     height: 48px;
     border-radius: 50%;
     font-size: 16px;
     color: var(--accent-blue);
     cursor: pointer;
-    z-index: 10;
+    z-index: 20;
     box-shadow: var(--glass-shadow);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -5304,11 +5320,11 @@ nav>a.active::after {
 }
 
 .htl-nav--prev {
-    left: 10px;
+    left: max(12px, calc(50% - 250px));
 }
 
 .htl-nav--next {
-    right: 10px;
+    right: max(12px, calc(50% - 250px));
 }
 
 /* Dots */
