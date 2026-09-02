@@ -1,0 +1,989 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import HeroBg from "../../components/HeroBg.astro";
+import ContactForm from "../../components/ContactForm.astro";
+---
+
+<Layout
+    title="Strona OnePage – Cennik, Zakres i Korzyści | web2sell"
+    description="Dowiedz się, czym jest strona OnePage, co dokładnie wchodzi w jej skład i jakie realne korzyści daje Twojej firmie. Sprawdź pełny opis pakietu OnePage od web2sell."
+>
+    <Header activePage="cennik" />
+
+    <main class="cennik-page service-detail-page">
+        <HeroBg behindContent={true} />
+
+        <div class="service-container">
+            <!-- HERO SEKCYJNE -->
+            <header class="service-hero reveal-element">
+                <h1 class="service-hero__title">
+                    Strona OnePage – <span class="gradient__text">nowoczesna wizytówka</span>, przyciągająca klientów za niewielką cenę
+                </h1>
+                <p class="service-hero__lead">
+                    Prosta, jednostronicowa wizytówka, która błyskawicznie przedstawi ofertę Twojej firmy. Bez błądzenia po podstronach. Skupienie się w 100% na pozyskiwaniu klientów, za niewielką cenę, bez abonamentów.
+                </p>
+
+                <div class="service-hero__actions">
+                    <a href="/zamow?pakiet=onepage" class="pricing-btn primary hero-cta-btn">
+                        <span>Zapytaj o stronę</span>
+                        <i class="fa-solid fa-arrow-right icon-slide"></i>
+                    </a>
+                    <a href="/cennik" class="pricing-btn secondary hero-back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Wróć do pełnego cennika</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- CZYM JEST STRONA ONEPAGE? -->
+            <section class="service-section reveal-element" id="co-to-jest">
+                <h2 class="section-title">Co to jest strona OnePage i jak działa?</h2>
+                <div class="concept-grid">
+                    <div class="concept-card concept-card--highlight">
+                        <div class="concept-card__icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3>Wszystko na stronie głównej</h3>
+                        <p>
+                            Strona typu <strong>Onepage</strong> to witryna, w której cała zawartość mieści się na jednej, przewijanej stronie. Zamiast otwierać kilka podstron i czekać na ich ładowanie, użytkownik jednym ruchem kciuka lub myszki zapoznaje się z całą Twoją firmą.
+                        </p>
+                        <p>
+                            Menu na samej górze działa w oparciu o <em>płynne przewijanie strony</em> – po kliknięciu np. w „Oferta” strona automatycznie przesuwa się do właściwej sekcji, zamiast ładować nową podstronę, co utrzymuje uwagę klienta.
+                        </p>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-card__icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3>Skupienie się na sprzedaży</h3>
+                        <p>
+                            Według oficjalnych badań Google, jeżeli strona ładuje się powyżej 3 sekund, to 53% użytkowników mobilnych całkowicie rezygnuje z czekania i opuszcza stronę. Dlatego nasze strony projektujemy od zera, co powoduje, że ładują się one w ułamku sekundy.
+
+                        </p>
+                        <p>
+                            OnePage również eliminuje wszelkie rozpraszacze – prowadzi klienta krok po kroku - od problemu, przez Twoje unikalne atuty i ofertę, aż do natychmiastowego wykonania telefonu lub wysłania wiadomości.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CO REALNIE ZNAJDUJE SIĘ W WIZYTÓWCE ONEPAGE? (ANATOMIA KROK PO KROKU) -->
+            <section class="service-section reveal-element" id="anatomia">
+                <h2 class="section-title">Co znajduje się w takiej wizytówce?</h2>
+                <p class="section-subtitle">
+                    Onepage to wbrew pozorom nie jest uboga strona. To kompletna machina sprzedażowa. Każda sekcja została dokładnie zaprojektowana, by zdobywać klientów.
+                </p>
+
+                <div class="anatomy-grid">
+                    <!-- Sekcja 1 -->
+                    <div class="anatomy-card">
+                        <div class="anatomy-step">01</div>
+                        <div class="anatomy-icon-wrap">
+                            <i class="fa-solid fa-flag"></i>
+                        </div>
+                        <div class="anatomy-body">
+                            <h3>1. Sekcja Hero - Pierwsze wrażenie</h3>
+                            <p>
+                                Pierwsze 3 sekundy decydują o tym, czy klient zostanie na stronie. Umieszczamy tu chwytliwe hasło określające, czym się zajmujesz, dlaczego warto wybrać Ciebie oraz wyrazisty przycisk <strong>Zadzwoń teraz</strong> lub <strong>Poproś o wycenę</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sekcja 2 -->
+                    <div class="anatomy-card">
+                        <div class="anatomy-step">02</div>
+                        <div class="anatomy-icon-wrap">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="anatomy-body">
+                            <h3>2. O firmie / O Tobie - Budowanie zaufania</h3>
+                            <p>
+                                Krótka, konkretna prezentacja Twojej firmy - czym się zajmuje, standardy jakości, lata doświadczenia, wszystkie jej atuty. Eliminuje to anonimowość i buduje zaufanie dla klienta.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sekcja 3 -->
+                    <div class="anatomy-card">
+                        <div class="anatomy-step">03</div>
+                        <div class="anatomy-icon-wrap">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <div class="anatomy-body">
+                            <h3>3. Przejrzysty zakres usług i oferta</h3>
+                            <p>
+                                Rozpisanie oferty firmy: krótki opis, korzyści dla klienta i podana cena. Klient z góry wie, co i za ile kupuje. Filtruje to osoby szukające czegoś innego lub zrażone stawką, dzięki czemu zyskujesz czas odbierając tylko od zainteresowanych.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sekcja 4 -->
+                    <div class="anatomy-card">
+                        <div class="anatomy-step">04</div>
+                        <div class="anatomy-icon-wrap">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="anatomy-body">
+                            <h3>4. Opinie klientów & Dowód społeczny</h3>
+                            <p>
+                                Przedstawienie opinii z Google lub referencji, certyfikatów, dyplomów oraz liczb pokazujących twoje sukcesy, bądź doświadczenie. Klienta przekonuje to, jak zadowoleni byli poprzedni klienci.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sekcja 5 -->
+                    <div class="anatomy-card">
+                        <div class="anatomy-step">05</div>
+                        <div class="anatomy-icon-wrap">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="anatomy-body">
+                            <h3>5. Kontakt, interaktywna mapa i godziny otwarcia</h3>
+                            <p>
+                                Udostępnienie kontaktu do Ciebie/Twojej firmy - numer telefonu, adres e-mail, formularz kontaktowy i zintegrowana mapa Google, aby łatwo było się z tobą skontaktować.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sekcja 6 -->
+                    <div class="anatomy-card">
+                        <div class="anatomy-step">06</div>
+                        <div class="anatomy-icon-wrap">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="anatomy-body">
+                            <h3>6. Fundament techniczny, SEO i RODO</h3>
+                            <p>
+                                Szybki, czysty kod, prędkość wczytywania poniżej 1 sekundy, certyfikat SSL, baner cookies zgodny z przepisami, polityka prywatności oraz podstawowe pozycjonowanie w Google.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- JAKIE REALNE KORZYŚCI DAJE STRONA ONEPAGE? -->
+            <section class="service-section reveal-element" id="korzysci">
+                <h2 class="section-title">Jakie korzyści zyskuje Twoja firma?</h2>
+                <p class="section-subtitle">
+                    Inwestycja w taką stronę zwraca się błyskawicznie. Sprawdź, co zyskujesz w praktyce:
+                </p>
+
+                <div class="benefits-grid">
+                    <div class="benefit-box">
+                        <div class="benefit-box__header">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <h3>Więcej telefonów od klientów</h3>
+                        </div>
+                        <p>
+                            Dzięki prowadzeniu krok po kroku przez ofertę, klient nie gubi się na podstronach. Każda sekcja kieruje go do kontaktu, co podnosi konwersję i liczbę zapytań.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="benefit-box__header">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <h3>Start w sieci w 5-7 dni roboczych</h3>
+                        </div>
+                        <p>
+                            Od momentu zebrania materiałów i podstawowych informacji na temat Twojej firmy do uruchomenia strony zazwyczaj mija kilka dni. Nie musisz więc czekać miesiącami na realizację.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="benefit-box__header">
+                            <i class="fa-solid fa-wallet"></i>
+                            <h3>0 zł abonamentu za stronę</h3>
+                        </div>
+                        <p>
+                            W przeciwieństwie do popularnych kreatorów stron, gdzie płacisz wysokie opłaty co miesiąc, u nas strona jest w pełni Twoją własnością bez ukrytych prowizji. Płacisz tylko za hosting i domenę zewnętrznej firmie co roku.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="benefit-box__header">
+                            <i class="fa-solid fa-mobile-button"></i>
+                            <h3>Dostosowanie pod wersje mobilne</h3>
+                        </div>
+                        <p>
+                            Projektujemy stronę metodą <em>Mobile-First</em>. Witryn działa jak nowoczesna aplikacja na każdym smartfonie – bez przycinania i bez rozjeżdżających się elementów.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="benefit-box__header">
+                            <i class="fa-solid fa-map-pin"></i>
+                            <h3>Wizytówka Google Maps w cenie</h3>
+                        </div>
+                        <p>
+                            Jeśli nie masz utworzonego profilu firmy w Mapach Google, możemy to zrobić za ciebie bezpłatnie. Dzięki temu strona będzie lepiej widoczna i w wyszukiwarce i w Google Maps, oraz klienci łatwo dojadą do twojej Firmy.
+                        </p>
+                    </div>
+
+                    <div class="benefit-box">
+                        <div class="benefit-box__header">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            <h3>Gotowa pod reklamy Google i FB</h3>
+                        </div>
+                        <p>
+                            Strona OnePage jest idealnym landing pagem pod kampanie reklamowe Google Ads i Meta Ads. Ma jeden, precyzyjny cel, dzięki czemu nie marnujesz budżetu reklamowego.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DLA KOGO TO ROZWIĄZANIE JEST IDEALNE? -->
+            <section class="service-section reveal-element" id="dla-kogo">
+                <h2 class="section-title">Dla kogo jest OnePage?</h2>
+                <div class="audience-grid">
+                    <div class="audience-card">
+                        <div class="audience-icon">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h4>Usługi lokalne i fachowcy</h4>
+                        <p>
+                            Hydraulicy, elektrycy, autoserwisy, firmy budowlane, usługi transportowe czy sprzątające. Klient chce szybko sprawdzić zakres usług i zadzwonić.
+                        </p>
+                    </div>
+
+                    <div class="audience-card">
+                        <div class="audience-icon">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <h4>Gabinety, salony i zdrowie</h4>
+                        <p>
+                            Kosmetyczki, fryzjerzy, fizjoterapeuci, studia masażu, trenerzy personalni i dietetycy potrzebujący eleganckiego przedstawienia oferty.
+                        </p>
+                    </div>
+
+                    <div class="audience-card">
+                        <div class="audience-icon">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h4>Eksperci i jednoosobowe firmy</h4>
+                        <p>
+                            Księgowi, doradcy, prawnicy, architekci, projektanci i freelancerzy, którzy chcą zbudować profesjonalny wizerunek eksperta.
+                        </p>
+                    </div>
+
+                    <div class="audience-card">
+                        <div class="audience-icon">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h4>Nowe firmy i startupy</h4>
+                        <p>
+                            Przedsiębiorstwa, które dopiero wchodzą na rynek i potrzebują natychmiastowej, solidnej obecności w sieci przy optymalnym budżecie.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KIEDY ONEPAGE MOŻE NIE WYSTARCZYĆ? (SZCZERE PORÓWNANIE) -->
+            <section class="service-section reveal-element" id="porownanie">
+                <h2 class="section-title">Kiedy warto wybrać pakiet z podstronami i CMS?</h2>
+                <p class="section-subtitle">
+                    Gramy w otwarte karty. Choć OnePage jest rewelacyjny dla większości firm, w pewnych sytuacjach lepszym wyborem będzie pakiet <strong>Wizytówka + CMS</strong>:
+                </p>
+
+                <div class="comparison-cards">
+                    <div class="comp-box comp-box--onepage">
+                        <div class="comp-box__head">
+                            <h3>OnePage (od 990 zł)</h3>
+                        </div>
+                        <ul class="comp-list">
+                            <li><i class="fa-solid fa-check"></i> Świadczysz kilka głównych usług i Twoja oferta jest zwięzła</li>
+                            <li><i class="fa-solid fa-check"></i> Zależy Ci na jak najszybszym wdrożeniu (do 1 tygodnia)</li>
+                            <li><i class="fa-solid fa-check"></i> Chcesz minimalnego budżetu bez comiesięcznych kosztów</li>
+                            <li><i class="fa-solid fa-check"></i> Twoim głównym celem jest kontakt telefoniczny lub e-mail</li>
+                            <li><i class="fa-solid fa-check"></i> Nie planujesz regularnego pisania artykułów na blogu</li>
+                        </ul>
+                    </div>
+
+                    <div class="comp-box comp-box--cms">
+                        <div class="comp-box__head">
+                            <h3>Wizytówka + CMS (od 2 290 zł)</h3>
+                        </div>
+                        <ul class="comp-list">
+                            <li><i class="fa-solid fa-arrow-right"></i> Masz bogatą ofertę i każda usługa wymaga osobnej podstrony</li>
+                            <li><i class="fa-solid fa-arrow-right"></i> Chcesz samodzielnie edytować teksty, cenniki i zdjęcia w panelu</li>
+                            <li><i class="fa-solid fa-arrow-right"></i> Planujesz prowadzić bloga firmowego lub rozbudowaną galerię</li>
+                            <li><i class="fa-solid fa-arrow-right"></i> Potrzebujesz darmowego hostingu i domeny w pakiecie na 1 rok</li>
+                        </ul>
+                        <div class="comp-box__action">
+                            <a href="/cennik/cms" class="pricing-btn primary">Zobacz pakiet CMS</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PODSUMOWANIE PAKIETU I CENA -->
+            <section class="service-section reveal-element" id="cennik-box">
+                <div class="pricing-summary-card">
+                    <div class="summary-left">
+                        <h2 class="summary-title">Niska cena, a wiele korzyści.</h2>
+                        <div class="summary-price">
+                            od <span class="price-big">990</span> <span class="currency">zł netto</span>
+                            <span class="price-gross">/ 1 217 zł brutto</span>
+                        </div>
+                        <a href="/zamow?pakiet=onepage" class="pricing-btn primary highlight-cta">
+                            <span>Zamów pakiet OnePage</span>
+                            <i class="fa-solid fa-chevron-right icon-slide"></i>
+                        </a>
+                    </div>
+                    <div class="summary-right">
+                        <h3 class="included-title">Co dokładnie otrzymujesz w cenie:</h3>
+                        <ul class="included-list">
+                            <li><i class="fa-solid fa-circle-check"></i> Indywidualny, nowoczesny projekt graficzny</li>
+                            <li><i class="fa-solid fa-circle-check"></i> 100% responsywność pod smartfony, tablety i komputery</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Konfiguracja i optymalizacja profilu Google Maps</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Formularz kontaktowy</li>
+                            <li><i class="fa-solid fa-circle-check"></i> 1 miesiąc bezpłatnej opieki technicznej i gwarancji</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEKCJA FAQ (SPÓJNA ZE STRONĄ JAK DZIAŁAMY) -->
+            <section id="faq" class="zamow-faq">
+                <div class="zamow-faq__header reveal-element">
+                    <h2>
+                        Najczęściej zadawane <span class="gradient__text">pytania</span>
+                    </h2>
+                </div>
+
+                <div class="faq-list reveal-element">
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>Czy strona OnePage dobrze pozycjonuje się w Google?</span>
+                            <i class="fa-solid fa-chevron-down faq-item__chevron"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                <strong>Tak, szczególnie w pozycjonowaniu lokalnym!</strong> Dzięki temu, że cała treść i linki skupione są na jednej stronie, witryna gromadzi pełną siłę domeny w jednym miejscu. W połączeniu z błyskawiczną prędkością ładowania oraz skonfigurowaną przez nas wizytówką Google Maps, Twoja firma będzie świetnie widoczna dla osób szukających usług w Twojej miejscowości i okolicach.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>Czy w przyszłości będę mógł rozbudować stronę o kolejne podstrony i CMS?</span>
+                            <i class="fa-solid fa-chevron-down faq-item__chevron"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                <strong>Oczywiście.</strong> Tworzymy kod w sposób modułowy i przyszłościowy. Kiedy Twój biznes się rozwinie i będziesz potrzebować bloga, panelu do edycji treści lub kolejnych 10 podstron, bez problemu możemy rozbudować Twoją obecną stronę bez konieczności robienia wszystkiego od zera.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>Co muszę przygotować przed rozpoczęciem prac?</span>
+                            <i class="fa-solid fa-chevron-down faq-item__chevron"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                Wystarczą podstawowe informacje: nazwa firmy, dane kontaktowe, krótki opis czym się zajmujesz oraz orientacyjny cennik. Dopiero po dogadaniu oferty potrzebne nam są zdjęcia i logo firmy.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>Jakie są koszty hostingu i domeny po pierwszym roku?</span>
+                            <i class="fa-solid fa-chevron-down faq-item__chevron"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                Ponieważ nasze strony są pisane w nowoczesnych technologiach, koszt ich utrzymania jest minimalny. Za standardowy szybki serwer i polską domenę .pl zapłacisz łącznie około 250 zł rocznie u zewnętrznego dostawcy, bez żadnych dodatkowych opłat dla nas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>Kto jest właścicielem strony po zakończeniu realizacji?</span>
+                            <i class="fa-solid fa-chevron-down faq-item__chevron"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                <strong>W 100% Ty.</strong> Przekazujemy pełen komplet plików źródłowych, dostęp do domeny i serwera (który jest na Twoje dane). Nie przywiązujemy Cię żadnymi umowami lojalnościowymi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- FORMULARZ KONTAKTOWY ZAMIAST GENERYCZNEGO CTA -->
+    <ContactForm />
+
+    <Footer />
+
+    <!-- FAQ Accordion Script -->
+    <script is:inline>
+        (function () {
+            var questions = document.querySelectorAll(".faq-item__question");
+            questions.forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    var item = btn.closest(".faq-item");
+                    var isOpen = item.classList.contains("is-open");
+
+                    // Close all others
+                    document
+                        .querySelectorAll(".faq-item.is-open")
+                        .forEach(function (openItem) {
+                            openItem.classList.remove("is-open");
+                            openItem
+                                .querySelector(".faq-item__question")
+                                .setAttribute("aria-expanded", "false");
+                        });
+
+                    // Toggle current
+                    if (!isOpen) {
+                        item.classList.add("is-open");
+                        btn.setAttribute("aria-expanded", "true");
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <!-- Scroll Reveal Script -->
+    <script is:inline>
+        (function () {
+            var revealElements = document.querySelectorAll(".reveal-element");
+            if ("IntersectionObserver" in window && revealElements.length > 0) {
+                var observer = new IntersectionObserver(
+                    function (entries, obs) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("reveal--visible");
+                                obs.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        rootMargin: "0px 0px -60px 0px",
+                        threshold: 0.05,
+                    }
+                );
+
+                revealElements.forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                revealElements.forEach(function (el) {
+                    el.classList.add("reveal--visible");
+                });
+            }
+        })();
+    </script>
+</Layout>
+
+<style>
+    .service-detail-page {
+        padding-top: 140px;
+        padding-bottom: 80px;
+    }
+
+    .service-container {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    /* SERVICE HERO */
+    .service-hero {
+        text-align: center;
+        max-width: 920px;
+        margin: 20px auto 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-hero__title {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: clamp(32px, 5vw, 52px);
+        font-weight: 800;
+        line-height: 1.18;
+        color: var(--text-primary);
+        margin: 0 0 22px;
+    }
+
+    .service-hero__lead {
+        font-size: clamp(16px, 2vw, 19px);
+        color: var(--text-secondary);
+        line-height: 1.65;
+        margin: 0 0 35px;
+        max-width: 780px;
+    }
+
+    .service-hero__metrics {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 35px;
+    }
+
+    .metric-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        font-size: 14px;
+        color: var(--text-secondary);
+        box-shadow: var(--glass-shadow);
+    }
+
+    .metric-pill i {
+        color: var(--accent-blue);
+    }
+
+    .metric-pill strong {
+        color: var(--text-primary);
+    }
+
+    .service-hero__actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        font-size: 17px;
+        font-weight: 700;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(var(--accent-blue-rgb), 0.25);
+    }
+
+    .hero-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 28px;
+        font-size: 16px;
+        border-radius: 14px;
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .hero-back-btn:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-blue);
+    }
+
+    /* COMMON SECTIONS */
+    .service-section {
+        margin-bottom: 75px;
+    }
+
+    .section-title {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: clamp(26px, 3.5vw, 38px);
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0 0 16px;
+        line-height: 1.2;
+        text-align: left;
+    }
+
+    .section-subtitle {
+        font-size: 17px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin: 0 0 35px;
+        max-width: 800px;
+        text-align: left;
+    }
+
+    /* CONCEPT GRID */
+    .concept-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .concept-card {
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: var(--glass-shadow);
+        text-align: left;
+    }
+
+    .concept-card--highlight {
+        border-color: rgba(var(--accent-blue-rgb), 0.35);
+        background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.04) 0%, rgba(var(--accent-cyan-rgb), 0.02) 100%), var(--card-grad-glass);
+    }
+
+    .concept-card__icon {
+        font-size: 32px;
+        color: var(--accent-blue);
+        margin-bottom: 20px;
+    }
+
+    .concept-card h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 14px;
+    }
+
+    .concept-card p {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.65;
+        margin: 0 0 12px;
+    }
+
+    .concept-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ANATOMY GRID */
+    .anatomy-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .anatomy-card {
+        display: grid;
+        grid-template-columns: 60px 50px 1fr;
+        align-items: center;
+        gap: 20px;
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 24px 30px;
+        box-shadow: var(--glass-shadow);
+        text-align: left;
+    }
+
+    .anatomy-step {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 28px;
+        font-weight: 850;
+        color: rgba(var(--accent-blue-rgb), 0.35);
+        line-height: 1;
+    }
+
+    .anatomy-icon-wrap {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        background: rgba(var(--accent-blue-rgb), 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--accent-blue);
+    }
+
+    .anatomy-body h3 {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 6px;
+    }
+
+    .anatomy-body p {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* BENEFITS GRID */
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .benefit-box {
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: var(--glass-shadow);
+        text-align: left;
+    }
+
+    .benefit-box__header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+    }
+
+    .benefit-box__header i {
+        font-size: 24px;
+        color: var(--accent-blue);
+    }
+
+    .benefit-box__header h3 {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    .benefit-box p {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* AUDIENCE GRID */
+    .audience-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .audience-card {
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 18px;
+        padding: 26px 20px;
+        text-align: center;
+        box-shadow: var(--glass-shadow);
+    }
+
+    .audience-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: rgba(var(--accent-blue-rgb), 0.1);
+        color: var(--accent-blue);
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+    }
+
+    .audience-card h4 {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 10px;
+    }
+
+    .audience-card p {
+        font-size: 14px;
+        color: var(--text-secondary);
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    /* COMPARISON CARDS */
+    .comparison-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .comp-box {
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: var(--glass-shadow);
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .comp-box--cms {
+        border-color: rgba(var(--accent-blue-rgb), 0.4);
+        position: relative;
+    }
+
+    .comp-box__head {
+        margin-bottom: 24px;
+    }
+
+    .comp-box h3 {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .comp-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        flex-grow: 1;
+    }
+
+    .comp-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    .comp-list li i {
+        color: var(--accent-blue);
+        margin-top: 4px;
+    }
+
+    .comp-box__action {
+        margin-top: auto;
+    }
+
+    /* PRICING SUMMARY CARD */
+    .pricing-summary-card {
+        background: var(--card-grad-glass);
+        border: 1px solid rgba(var(--accent-blue-rgb), 0.35);
+        border-radius: 24px;
+        padding: 45px;
+        display: grid;
+        grid-template-columns: 1.1fr 1.3fr;
+        gap: 50px;
+        box-shadow: 0 20px 45px rgba(var(--accent-blue-rgb), 0.12), var(--glass-shadow);
+        text-align: left;
+    }
+
+    .summary-title {
+        font-size: clamp(24px, 3vw, 32px);
+        font-weight: 800;
+        color: var(--text-primary);
+        margin: 0 0 16px;
+    }
+
+    .summary-price {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 14px;
+    }
+
+    .price-big {
+        font-size: 46px;
+        font-weight: 850;
+    }
+
+    .price-gross {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        margin-top: 4px;
+    }
+
+    .summary-desc {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin: 0 0 25px;
+    }
+
+    .included-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 20px;
+    }
+
+    .included-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .included-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 15px;
+        color: var(--text-secondary);
+    }
+
+    .included-list li i {
+        color: #22c55e;
+        font-size: 17px;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 900px) {
+        .service-detail-page {
+            padding-top: 105px !important;
+        }
+
+        .concept-grid,
+        .benefits-grid,
+        .comparison-cards,
+        .pricing-summary-card {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .audience-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .pricing-summary-card {
+            padding: 30px 24px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .audience-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .anatomy-card {
+            grid-template-columns: 40px 1fr;
+            gap: 14px;
+            padding: 20px 18px;
+        }
+
+        .anatomy-icon-wrap {
+            display: none;
+        }
+
+        .service-hero__actions {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .hero-cta-btn,
+        .hero-back-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

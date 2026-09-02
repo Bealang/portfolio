@@ -7,6 +7,9 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'never',
   },
+  redirects: {
+    '/oferta-dla-przewoznikow': '/uslugi/oferta-dla-przewoznikow',
+  },
   integrations: [
     sitemap(),
     purgecss({
