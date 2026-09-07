@@ -75,19 +75,19 @@ import HeroBg from "./HeroBg.astro";
                     >
                 </h2>
                 <p class="accent-paragraph">
-                    Zauważyliśmy, że ogromna liczba świetnych firm w okolicach
-                    powiatu Myślenickiego i Małopolski nie posiada własnej
-                    strony internetowej albo opiera swój biznes na
-                    przestarzałych szablonach, które zamiast budować prestiż –
-                    zniechęcają klientów i wolno działają na smartfonach.
+                    Dostarczamy dedykowane systemy tworzone od zera w jakości drogiej agencji – bez narzutu kosztownego biura i w uczciwych, lokalnych cenach.
                 </p>
-                <p>
-                    Postanowiliśmy to zmienić. Dostarczamy dedykowane systemy
-                    tworzone w 100% od zera. Ponieważ nie posiadamy kosztownego
-                    biura i działamy w trójkę, oferujemy jakość premium agencji
-                    interaktywnej w dużo atrakcyjniejszych cenach, dostępnych
-                    dla lokalnych przedsiębiorców.
-                </p>
+                <div class="expandable-text-block">
+                    <div class="expandable-content" id="mission-expanded-content">
+                        <p>
+                            Zauważyliśmy, że wiele firm w regionie opiera biznes na przestarzałych, wolnych szablonach, które zniechęcają klientów na smartfonach. My tworzymy witryny bezawaryjne, ultra szybkie i bezpośrednio przekładające się na zapytania ofertowe.
+                        </p>
+                    </div>
+                    <button type="button" class="btn-text-toggle" aria-expanded="false" aria-controls="mission-expanded-content">
+                        <span class="toggle-text">Czytaj więcej</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -134,13 +134,7 @@ import HeroBg from "./HeroBg.astro";
                     <h3 class="team-card__name">Łukasz</h3>
                 </div>
                 <p class="team-card__desc">
-                    Łukasz to ekspert od zaawansowanej struktury stron, baz
-                    danych oraz ochrony sieciowej. Projektuje stabilne zaplecze
-                    techniczne witryn, dbając o to, by Twoje dane oraz dane
-                    Twoich klientów były w 100% bezpieczne. Tworzy rozwiązania
-                    gwarantujące płynne działanie strony nawet przy bardzo dużym
-                    ruchu, skutecznie chroniąc ją przed awariami oraz atakami
-                    hakerskimi.
+                    Ekspert od baz danych, stabilnej architektury i bezpieczeństwa. Dba o to, by Twoja strona działała bezawaryjnie i była w 100% odporna na ataki.
                 </p>
             </div>
 
@@ -166,12 +160,7 @@ import HeroBg from "./HeroBg.astro";
                     <h3 class="team-card__name">Szymon</h3>
                 </div>
                 <p class="team-card__desc">
-                    Szymon zajmuje się projektowaniem nowoczesnego wyglądu stron
-                    i dba o ich pełną intuicyjność. Przekłada Twoją wizję
-                    biznesu na atrakcyjny interfejs, który przyciąga uwagę
-                    klientów i wzbudza zaufanie od pierwszego kliknięcia. Tworzy
-                    responsywne strony internetowe, które działają bezbłędnie i
-                    wyglądają perfekcyjnie na wszystkich urządzeniach.
+                    Projektuje unikalny wygląd i intuicyjny interfejs. Zamienia wizję Twojego biznesu w stronę, która przyciąga wzrok i świetnie wygląda na każdym smartfonie.
                 </p>
             </div>
 
@@ -197,13 +186,7 @@ import HeroBg from "./HeroBg.astro";
                     <h3 class="team-card__name">Kacper</h3>
                 </div>
                 <p class="team-card__desc">
-                    Kacper odpowiada za to, aby Twoja strona była widoczna w
-                    internecie i działała bez jakichkolwiek opóźnień.
-                    Optymalizuje kod źródłowy tak, by witryna ładowała się
-                    błyskawicznie, co zapobiega ucieczce potencjalnych klientów
-                    i znacznie podnosi skuteczność sprzedaży. Dba o zaawansowane
-                    SEO, dzięki czemu Twoja firma zdobywa wysokie pozycje w
-                    wyszukiwarce Google.
+                    Odpowiada za bezkompromisową szybkość i widoczność w sieci. Optymalizuje kod pod algorytmy Google, aby klienci bez trudu trafiali na Twoją ofertę.
                 </p>
             </div>
         </div>
@@ -219,18 +202,12 @@ import HeroBg from "./HeroBg.astro";
             data-aos-duration="800"
         >
             <h2>
-                Dlaczego Twoja firma potrzebuje <span class="gradient__text"
-                    >strony, a nie tylko Facebooka?</span
+                Facebook nie wystarczy. Potrzebna Ci <span class="gradient__text"
+                    >strona.</span
                 >
             </h2>
             <p class="section-subtitle">
-                Większość lokalnych firm uważa, że profil na Facebooku w
-                zupełności wystarczy do prowadzenia biznesu. To błąd, przez
-                który każdego dnia oddajesz klientów konkurencji walkowerem.
-                Ponad połowa osób szukających usług w naszej okolicy w ogóle nie
-                korzysta z mediów społecznościowych – gdy potrzebują mechanika,
-                fryzjera czy autokaru na wynajem, wpisują frazę w wyszukiwarkę
-                Google, chcą szybko sprawdzić cennik i zadzwonić.
+                Sam fanpage nie wystarczy. Klienci szukający usług wpisują frazy w Google – oczekują szybkiego cennika, profesjonalizmu i bezpośredniego kontaktu.
             </p>
         </div>
 
@@ -242,16 +219,23 @@ import HeroBg from "./HeroBg.astro";
                 data-aos-duration="800"
                 data-aos-delay="100"
             >
-                <div class="why-card__icon">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
+                <div class="why-card__header">
+                    <div class="why-card__icon">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="why-card__title">Własny cennik i spokój</h3>
                 </div>
-                <h3 class="why-card__title">Własny cennik i spokój</h3>
-                <p class="why-card__desc">
-                    Zamiast marnować godziny na odpisywanie na te same
-                    wiadomości na Messengerze o ceny czy wolne terminy, dajesz
-                    klientom jasne informacje. Twoja strona automatyzuje
-                    obsługę, podczas gdy Ty skupiasz się na pracy.
-                </p>
+                <div class="why-card__body">
+                    <div class="why-card__expand-wrap" id="why-desc-1">
+                        <p class="why-card__desc">
+                            Zamiast tracić czas na powtarzalne pytania na Messengerze, dajesz klientom czytelne informacje. Witryna automatyzuje obsługę 24/7.
+                        </p>
+                    </div>
+                    <button type="button" class="why-card__toggle btn-text-toggle" aria-expanded="false" aria-controls="why-desc-1">
+                        <span class="toggle-text">Czytaj więcej</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Point 2 -->
@@ -261,18 +245,25 @@ import HeroBg from "./HeroBg.astro";
                 data-aos-duration="800"
                 data-aos-delay="200"
             >
-                <div class="why-card__icon">
-                    <i class="fa-solid fa-map-location-dot"></i>
+                <div class="why-card__header">
+                    <div class="why-card__icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="why-card__title">
+                        Przewaga w Google Maps
+                    </h3>
                 </div>
-                <h3 class="why-card__title">
-                    Nie oddawaj klientów Google Maps
-                </h3>
-                <p class="why-card__desc">
-                    Sam profil w mapach Google to za mało. Algorytm znacznie
-                    wyżej pozycjonuje te firmy, które mają podpiętą szybką,
-                    zoptymalizowaną witrynę. Brak strony to gorsza widoczność w
-                    regionie.
-                </p>
+                <div class="why-card__body">
+                    <div class="why-card__expand-wrap" id="why-desc-2">
+                        <p class="why-card__desc">
+                            Google promuje w wynikach lokalnych profile połączone z szybką stroną www. Bez witryny oddajesz pozycje konkurencji.
+                        </p>
+                    </div>
+                    <button type="button" class="why-card__toggle btn-text-toggle" aria-expanded="false" aria-controls="why-desc-2">
+                        <span class="toggle-text">Czytaj więcej</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Point 3 -->
@@ -282,18 +273,25 @@ import HeroBg from "./HeroBg.astro";
                 data-aos-duration="800"
                 data-aos-delay="300"
             >
-                <div class="why-card__icon">
-                    <i class="fa-solid fa-shield-halved"></i>
+                <div class="why-card__header">
+                    <div class="why-card__icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="why-card__title">
+                        Niezależność od social mediów
+                    </h3>
                 </div>
-                <h3 class="why-card__title">
-                    Niezależność od algorytmów fb/ig
-                </h3>
-                <p class="why-card__desc">
-                    Profil na Facebooku czy Instagramie nie należy do Ciebie.
-                    Jedna awaria, zmiana algorytmu zmniejszająca zasięgi lub
-                    nagła blokada konta mogą z dnia na dzień odciąć Cię od
-                    źródła zarobku. Własna domena to pełne bezpieczeństwo.
-                </p>
+                <div class="why-card__body">
+                    <div class="why-card__expand-wrap" id="why-desc-3">
+                        <p class="why-card__desc">
+                            Zmienne algorytmy lub nagła blokada konta nie odbiorą Ci klientów. Własna domena to w 100% Twoja bezpieczna własność.
+                        </p>
+                    </div>
+                    <button type="button" class="why-card__toggle btn-text-toggle" aria-expanded="false" aria-controls="why-desc-3">
+                        <span class="toggle-text">Czytaj więcej</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Point 4 -->
@@ -303,15 +301,23 @@ import HeroBg from "./HeroBg.astro";
                 data-aos-duration="800"
                 data-aos-delay="400"
             >
-                <div class="why-card__icon">
-                    <i class="fa-solid fa-medal"></i>
+                <div class="why-card__header">
+                    <div class="why-card__icon">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h3 class="why-card__title">Budowa realnego zaufania</h3>
                 </div>
-                <h3 class="why-card__title">Budowa realnego zaufania</h3>
-                <p class="why-card__desc">
-                    Profesjonalna, błyskawicznie działająca strona internetowa
-                    buduje prestiż. Pokazuje, że traktujesz swój biznes i swoich
-                    klientów poważnie.
-                </p>
+                <div class="why-card__body">
+                    <div class="why-card__expand-wrap" id="why-desc-4">
+                        <p class="why-card__desc">
+                            Błyskawicznie ładująca się, nowoczesna strona internetowa buduje prestiż i natychmiast wzbudza zaufanie nowych klientów.
+                        </p>
+                    </div>
+                    <button type="button" class="why-card__toggle btn-text-toggle" aria-expanded="false" aria-controls="why-desc-4">
+                        <span class="toggle-text">Czytaj więcej</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -327,29 +333,24 @@ import HeroBg from "./HeroBg.astro";
                 data-aos-duration="1000"
             >
                 <h2>
-                    Dlaczego porzuciliśmy <span class="gradient__text"
-                        >WordPressa i Elementora?</span
+                    Porzuciliśmy<span class="gradient__text"
+                        >WordPressa i Elementora.</span
                     >
                 </h2>
                 <p class="accent-paragraph">
-                    Większość tradycyjnych agencji reklamowych stawia strony na
-                    gotowych, ciężkich szablonach WordPress i edytorach
-                    wizualnych typu Elementor czy Divi. Wynik? Powolna strona,
-                    która zniechęca klientów na telefonach i generuje wysokie
-                    koszty utrzymania.
+                    Odrzuciliśmy ociężałe szablony WordPress i edytory wizualne. Budujemy witryny w nowoczesnych technologiach, zapewniając szybkość i bezpieczeństwo.
                 </p>
-                <p>
-                    My idziemy zupełnie inną drogą. Odrzucamy generatory stron i
-                    budujemy dedykowane witryny w oparciu o najnowocześniejsze
-                    frameworki i architektury. Dzięki wykorzystaniu nowoczesnych
-                    i szybkich technologii nasze strony są bezpieczne, odporne
-                    na ataki oraz wolne od zbędnych wtyczek. Brak ciężkiego
-                    systemu sprawia, że w przyszłości witryna generuje znacznie
-                    mniejsze koszty utrzymania — stabilny i bezpieczny hosting
-                    kosztuje u nas zaledwie 140 zł rocznie, a nie 400-500 zł,
-                    jak w przypadku tradycyjnych rozwiązań. Nasze projekty są
-                    ultra szybkie i gotowe na przyszłość.
-                </p>
+                <div class="expandable-text-block">
+                    <div class="expandable-content" id="tech-expanded-content">
+                        <p>
+                            Brak podatnych wtyczek eliminuje ryzyko ataków i awarii. Nasze strony generują też znacznie mniejsze koszty utrzymania – szybki i stabilny hosting kosztuje u nas zaledwie 140 zł rocznie zamiast 400–500 zł w tradycyjnych agencjach.
+                        </p>
+                    </div>
+                    <button type="button" class="btn-text-toggle" aria-expanded="false" aria-controls="tech-expanded-content">
+                        <span class="toggle-text">Czytaj więcej</span>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                </div>
             </div>
 
             <div
@@ -391,7 +392,7 @@ import HeroBg from "./HeroBg.astro";
                                 data-metric="lighthouse"
                                 aria-label="Porównaj wynik Lighthouse"
                             >
-                                Wynik Lighthouse
+                                Wydajność
                             </button>
                         </div>
 
@@ -442,9 +443,7 @@ import HeroBg from "./HeroBg.astro";
                 >
             </h2>
             <p class="section-subtitle">
-                Nie zaczynamy od ślepego pisania kodu. Każda współpraca to
-                precyzyjnie zaplanowany proces, który gwarantuje stworzenie
-                strony doskonale odpowiadającej na potrzeby Twoich klientów.
+                Nie zaczynamy od ślepego pisania kodu.
                 Szczegóły znajdziesz na stronie <a href="/jak-dzialamy"
                     >jak działamy</a
                 >.
@@ -1178,24 +1177,31 @@ import HeroBg from "./HeroBg.astro";
         background: var(--card-bg);
         border: 1px solid var(--glass-border);
         border-radius: 20px;
-        padding: 40px;
+        padding: 24px 28px;
         box-shadow: var(--glass-shadow);
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
+    }
+
+    .why-card__header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
     }
 
     .why-card__icon {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 60px;
-        height: 60px;
-        border-radius: 16px;
+        width: 50px;
+        height: 50px;
+        flex-shrink: 0;
+        border-radius: 14px;
         background: var(--process-card-num-gradient);
         color: var(--accent-blue);
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     html[data-theme="dark"] .why-card__icon {
@@ -1203,16 +1209,47 @@ import HeroBg from "./HeroBg.astro";
     }
 
     .why-card__title {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         font-weight: 800;
         margin: 0;
+        line-height: 1.3;
+    }
+
+    .why-card__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .why-card__expand-wrap {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        opacity: 0;
+        width: 100%;
+    }
+
+    .why-card__expand-wrap > * {
+        overflow: hidden;
+    }
+
+    .why-card__expand-wrap.is-expanded {
+        grid-template-rows: 1fr;
+        opacity: 1;
     }
 
     .why-card__desc {
-        font-size: 1.1rem;
-        line-height: 1.65;
+        font-size: 1rem;
+        line-height: 1.55;
         color: var(--text-secondary);
         margin: 0;
+        padding-top: 4px;
+    }
+
+    .why-card__toggle {
+        margin-top: 0;
     }
 
     /* ==========================================================================
@@ -1276,20 +1313,23 @@ import HeroBg from "./HeroBg.astro";
 
     /* Speed Comparison Chart */
     .speed-compare-card {
-        background: #111b21;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 16px;
+        background: var(--card-grad-glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 32px;
         overflow: hidden;
-        padding: 24px;
+        padding: 28px 26px;
         display: flex;
         flex-direction: column;
         gap: 20px;
         height: 440px; /* Fixed height for the entire card to prevent any vertical layout shifts */
+        box-shadow: var(--glass-shadow), var(--box-inset-shadow);
+        backdrop-filter: blur(var(--glass-blur));
+        transition: var(--transition-smooth);
     }
 
     html[data-theme="light"] .speed-compare-card {
-        background: #ffffff;
-        border-color: #e2e8f0;
+        background: var(--card-bg);
+        border-color: var(--glass-border);
     }
 
     .speed-compare-header {
@@ -1301,21 +1341,21 @@ import HeroBg from "./HeroBg.astro";
     .speed-compare-title {
         font-size: 1.15rem;
         font-weight: 700;
-        color: #ffffff;
+        color: var(--text-primary);
         text-wrap: balance;
     }
 
     html[data-theme="light"] .speed-compare-title {
-        color: #0f172a;
+        color: var(--text-primary);
     }
 
     .speed-compare-tabs {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        gap: 6px;
         background: rgba(255, 255, 255, 0.03);
-        padding: 4px;
-        border-radius: 8px;
+        padding: 5px;
+        border-radius: 9999px;
         border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
@@ -1327,11 +1367,11 @@ import HeroBg from "./HeroBg.astro";
     .speed-compare-tab {
         background: transparent;
         border: none;
-        padding: 10px 4px;
+        padding: 10px 8px;
         font-size: 0.9rem;
         font-weight: 600;
         color: rgba(255, 255, 255, 0.65);
-        border-radius: 6px;
+        border-radius: 9999px;
         cursor: pointer;
         transition: background-color 0.2s ease, color 0.2s ease;
         text-align: center;
@@ -1396,7 +1436,7 @@ import HeroBg from "./HeroBg.astro";
         height: 140px; /* Fixed height of the bar container */
         width: 50px;
         background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
+        border-radius: 9999px;
         display: flex;
         align-items: flex-end; /* Align to bottom so heights grow upwards */
         overflow: hidden;
@@ -1410,7 +1450,7 @@ import HeroBg from "./HeroBg.astro";
 
     .col-bar {
         width: 100%;
-        border-radius: 6px;
+        border-radius: 9999px;
         transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -1686,6 +1726,71 @@ import HeroBg from "./HeroBg.astro";
             grid-template-columns: 1fr;
         }
     }
+
+    /* ==========================================================================
+       ANIMATED EXPANDABLE TEXT BLOCKS
+       ========================================================================== */
+    .expandable-text-block {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .expandable-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .expandable-content > * {
+        overflow: hidden;
+    }
+
+    .expandable-content.is-expanded {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
+
+    .btn-text-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: var(--radius-pill, 9999px);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--glass-border);
+        color: var(--accent-blue);
+        font-size: 0.92rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+    }
+
+    html[data-theme="light"] .btn-text-toggle {
+        background: rgba(0, 0, 0, 0.03);
+        color: var(--accent-blue);
+    }
+
+    html[data-theme="dark"] .btn-text-toggle {
+        color: var(--accent-cyan);
+    }
+
+    .btn-text-toggle:hover {
+        background: rgba(139, 92, 246, 0.1);
+        border-color: var(--card-hover-border);
+        transform: translateY(-1px);
+    }
+
+    .toggle-icon {
+        font-size: 0.75rem;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-text-toggle.is-active .toggle-icon {
+        transform: rotate(180deg);
+    }
 </style>
 
 <script>
@@ -1745,5 +1850,24 @@ import HeroBg from "./HeroBg.astro";
                 });
             });
         }
+
+        // Expandable text blocks
+        const toggleButtons = document.querySelectorAll('.btn-text-toggle');
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('aria-controls');
+                const content = targetId ? document.getElementById(targetId) : null;
+                const textSpan = btn.querySelector('.toggle-text');
+                
+                if (content) {
+                    const isExpanded = content.classList.toggle('is-expanded');
+                    btn.classList.toggle('is-active', isExpanded);
+                    btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+                    if (textSpan) {
+                        textSpan.textContent = isExpanded ? 'Schowaj tekst' : 'Czytaj więcej';
+                    }
+                }
+            });
+        });
     })();
 </script>

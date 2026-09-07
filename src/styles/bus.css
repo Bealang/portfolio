@@ -2,6 +2,15 @@
    Bus Dedykowany System - Stylizacja dla Oferty Przewoźników
    ========================================================================== */
 
+:root {
+    --radius-sm: 14px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --radius-xl: 32px;
+    --radius-2xl: 40px;
+    --radius-pill: 9999px;
+}
+
 /* --------------------------------------------------------------------------
    Sekcja Ogłoszenia na Stronie Głównej
    -------------------------------------------------------------------------- */
@@ -40,7 +49,7 @@
     font-size: 0.8rem;
     font-weight: 700;
     padding: 8px 16px;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -79,33 +88,39 @@
 }
 
 .bus-why-us-list {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .bus-why-us-list li {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 1.05rem;
-    line-height: 1.5;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
     color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .bus-why-us-list li i {
     color: var(--accent-blue);
-    font-size: 1.15rem;
-    margin-top: 2px;
+    font-size: 1rem;
+    background: rgba(var(--accent-blue-rgb), 0.1);
+    padding: 6px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
 }
 
 .bus-why-us-list li strong {
     color: var(--text-primary);
-    font-weight: 600;
 }
 
 .bus-announcement-title {
@@ -130,7 +145,7 @@
     align-items: center;
     gap: 10px;
     padding: 14px 28px;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
@@ -205,7 +220,7 @@
     z-index: 2;
     width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
@@ -551,7 +566,7 @@
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
     padding: 6px;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     box-shadow: var(--glass-shadow);
     position: relative;
     z-index: 10;
@@ -559,7 +574,7 @@
 
 .bus-toggle-btn {
     padding: 12px 30px;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     border: none;
     background: transparent;
     color: var(--text-secondary);
@@ -577,7 +592,7 @@
 }
 
 html[data-theme="dark"] .bus-toggle-btn.active {
-    color: #101010;
+    color: #000000;
 }
 
 /* Blok zawartości pod suwak */
@@ -614,7 +629,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
 .bus-alert-box {
     background: rgba(239, 68, 68, 0.06);
     border: 1px solid rgba(239, 68, 68, 0.2);
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     padding: 20px;
     display: flex;
     gap: 15px;
@@ -664,7 +679,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
 .bus-features-block {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     padding: 35px;
     box-shadow: var(--glass-shadow);
 }
@@ -736,7 +751,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
 .bus-tech-card {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     padding: 30px;
     box-shadow: var(--glass-shadow);
     display: flex;
@@ -749,7 +764,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
 .bus-tech-icon-wrapper {
     width: 50px;
     height: 50px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     background: rgba(var(--accent-blue-rgb), 0.08);
     border: 1px solid rgba(var(--accent-blue-rgb), 0.15);
     display: flex;
@@ -784,7 +799,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
 .bus-pricing-split-card {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    border-radius: var(--radius-2xl);
     padding: 50px;
     box-shadow: var(--glass-shadow);
     display: grid;
@@ -924,7 +939,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
 .bus-contact-section {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    border-radius: var(--radius-2xl);
     padding: 50px 40px;
     text-align: center;
     margin-top: 50px;
@@ -991,7 +1006,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
     flex-direction: column;
     width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
@@ -1031,7 +1046,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
     padding: 3px 18px;
     background: var(--bg-color);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border-radius: var(--radius-pill);
     font-size: 0.72rem;
     color: var(--text-secondary);
     font-weight: 500;
@@ -1123,7 +1138,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
     padding: 35px;
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     box-shadow: var(--glass-shadow);
     align-items: flex-start;
 }
@@ -1184,7 +1199,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
     background: rgba(var(--accent-blue-rgb), 0.04);
     border: 1px solid var(--glass-border);
     padding: 8px 16px;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-secondary);
@@ -1231,7 +1246,7 @@ html[data-theme="dark"] .bus-toggle-btn.active {
 .bus-feature-tile {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
     padding: 24px;
     display: flex;
     flex-direction: column;

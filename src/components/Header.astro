@@ -200,11 +200,11 @@ const isHome = activePage === "home";
                 // Create the cross-fading background layers inside the circle
                 var currentBg = document.createElement("div");
                 currentBg.className = "theme-transition-circle-bg current-bg";
-                currentBg.style.backgroundColor = currentTheme === "dark" ? "#101010" : "#f5f6f8";
+                currentBg.style.backgroundColor = currentTheme === "dark" ? "#000000" : "#f5f6f8";
 
                 var targetBg = document.createElement("div");
                 targetBg.className = "theme-transition-circle-bg target-bg";
-                targetBg.style.backgroundColor = newTheme === "dark" ? "#101010" : "#f5f6f8";
+                targetBg.style.backgroundColor = newTheme === "dark" ? "#000000" : "#f5f6f8";
 
                 circle.appendChild(currentBg);
                 circle.appendChild(targetBg);
@@ -253,6 +253,10 @@ const isHome = activePage === "home";
                 setTimeout(function() {
                     document.documentElement.setAttribute("data-theme", newTheme);
                     localStorage.setItem("theme", newTheme);
+                    var metaTheme = document.querySelector('meta[name="theme-color"]');
+                    if (metaTheme) {
+                        metaTheme.setAttribute("content", newTheme === "dark" ? "#000000" : "#f5f6f8");
+                    }
                 }, 700);
 
                 // Phase 4: Shrink circle back to click point to reveal the page

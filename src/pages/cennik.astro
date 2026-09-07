@@ -52,24 +52,22 @@ import HeroBg from "../components/HeroBg.astro";
                         style="transition-delay: 0.1s;"
                     >
                         <h3>
-                            <div class="pricing-card-title-wrap">
-                                <span>OnePage</span>
-                                <a
-                                    href="/cennik/onepage"
-                                    class="pricing-info-trigger"
-                                    aria-label="Dowiedz się więcej o pakiecie OnePage"
-                                >
-                                    <i class="fa-solid fa-circle-question info-icon" aria-hidden="true"></i>
-                                    <span class="pricing-tooltip" role="tooltip">Dowiedz się więcej</span>
-                                </a>
-                            </div>
+                            <span>OnePage</span>
                             <span class="subtitle">Jednostronicowa</span>
                         </h3>
                         <p class="card-summary">
-                            Doskonała dla jednoosobowych działalności, czy małych firm
-. Wszystkie kluczowe informacje (o firmie, oferta, kontakt) znajdują się na jednej, przewijanej stronie
-. To budżetowe rozwiązanie, które zawiera wszystko, co niezbędne, by skutecznie zaprezentować firmę w sieci i zdobyć pierwszych klientów z Google
+                            Idealna, budżetowa wizytówka dla małych firm. Wszystkie najważniejsze informacje na jednej, estetycznej stronie, gotowej do pozyskiwania klientów z Google.
                         </p>
+                        <div class="pricing-card-details-action">
+                            <a
+                                href="/cennik/onepage"
+                                class="pricing-learn-more-btn"
+                                aria-label="Czytaj więcej o pakiecie OnePage"
+                            >
+                                <span>Czytaj więcej</span>
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
                         <div class="price">
                             od <span
                                 class="price-value"
@@ -92,28 +90,24 @@ import HeroBg from "../components/HeroBg.astro";
                     >
                         <div class="card-badge">Najpopularniejszy wybór</div>
                         <h3>
-                            <div class="pricing-card-title-wrap">
-                                <span>Wizytówka + CMS</span>
-                                <a
-                                    href="/cennik/cms"
-                                    class="pricing-info-trigger"
-                                    aria-label="Dowiedz się więcej o pakiecie Wizytówka + CMS"
-                                >
-                                    <i class="fa-solid fa-circle-question info-icon" aria-hidden="true"></i>
-                                    <span class="pricing-tooltip" role="tooltip">Dowiedz się więcej</span>
-                                </a>
-                            </div>
+                            <span>Wizytówka + CMS</span>
                             <span class="subtitle"
                                 >2-5 podstron + panel administracyjny</span
                             >
                         </h3>
                         <p class="card-summary">
-                            Pełnoprawna strona internetowa podzielona na kilka dedykowanych podstron (np. o nas, oferta, galeria, kontakt)
-. Idealna dla firm, które chcą zaprezentować ofertę w bardziej rozbudowany sposób niż na OnePage i zbudować silniejszą pozycję w wyszukiwarce
-. Wyposażona w autorski panel administracyjny
- – samodzielnie i błyskawicznie edytujesz teksty, zdjęcia czy aktualności bez pisania kodu i pomocy programisty
-
+                            Wielopodstronowy serwis z autorskim, prostym panelem CMS. Błyskawicznie edytuj treści, zdjęcia i ofertę bez znajomości kodu i bez abonamentów.
                         </p>
+                        <div class="pricing-card-details-action">
+                            <a
+                                href="/cennik/cms"
+                                class="pricing-learn-more-btn"
+                                aria-label="Czytaj więcej o pakiecie Wizytówka + CMS"
+                            >
+                                <span>Czytaj więcej</span>
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
                         <div class="price">
                             od <span
                                 class="price-value"
@@ -135,18 +129,13 @@ import HeroBg from "../components/HeroBg.astro";
                         style="transition-delay: 0.4s;"
                     >
                         <h3>
-                            <div class="pricing-card-title-wrap">
-                                <span>System Dedykowany</span>
-                            </div>
+                            <span>System Dedykowany</span>
                             <span class="subtitle"
                                 >Zaawansowane rozwiązanie</span
                             >
                         </h3>
                         <p class="card-summary">
-                            Dedykowane rozwiązanie dla najbardziej wymagających biznesów. Strona projektowana od zera, idealnie dopasowana do unikalnych potrzeb Twojej firmy
-. Wyposażona w rozbudowane, indywidualne funkcjonalności, takie jak systemy rezerwacji online, interaktywne cenniki i kalkulatory
-. To inwestycja, która pozwoli Twojej firmie całkowicie zdominować i wyprzedzić konkurencję w sieci
-
+                            Indywidualny projekt od podstaw pod unikalne potrzeby biznesu – m.in. rezerwacje online, kalkulatory wycen i integracje, dające przewagę nad konkurencją.
                         </p>
                         <div class="price">
                             od <span
@@ -539,7 +528,7 @@ import HeroBg from "../components/HeroBg.astro";
         max-width: 680px;
     }
 
-    /* Wysoce widoczny przycisk CTA */
+    /* Wysoce widoczny przycisk CTA (Pastylka) */
     .highlight-cta {
         display: inline-flex;
         align-items: center;
@@ -547,7 +536,7 @@ import HeroBg from "../components/HeroBg.astro";
         padding: 18px 38px;
         font-size: clamp(18px, 2vw, 20px);
         font-weight: 700;
-        border-radius: 14px;
+        border-radius: 9999px;
         box-shadow: 0 10px 25px rgba(var(--accent-blue-rgb), 0.25);
         transition:
             transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -603,79 +592,57 @@ import HeroBg from "../components/HeroBg.astro";
         }
     }
 
-    /* Pytajnik i dymek informacyjny (Tooltip) */
-    .pricing-card-title-wrap {
+    /* Kontener przycisku Czytaj więcej pod tekstem */
+    .pricing-card-details-action {
+        display: flex;
+        align-items: center;
+        margin: -5px 0 15px 0;
+    }
+
+    .pricing-learn-more-btn {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-    }
-
-    .pricing-info-trigger {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-secondary);
-        opacity: 0.6;
-        font-size: 18px;
-        line-height: 1;
-        cursor: pointer;
-        text-decoration: none;
-        transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        padding: 4px;
-        margin: -4px;
-        border-radius: 50%;
-    }
-
-    .pricing-info-trigger:hover,
-    .pricing-info-trigger:focus-visible {
-        opacity: 1;
-        color: var(--accent-blue);
-        transform: scale(1.15);
-        outline: none;
-    }
-
-    .pricing-tooltip {
-        position: absolute;
-        bottom: calc(100% + 10px);
-        left: 50%;
-        transform: translateX(-50%) translateY(4px);
-        background: #111827;
-        color: #f8fafc;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 12px;
+        gap: 7px;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        font-size: 13px;
         font-weight: 600;
-        letter-spacing: -0.01em;
-        padding: 6px 12px;
-        border-radius: 8px;
+        text-decoration: none;
+        color: var(--accent-blue);
+        background: rgba(var(--accent-blue-rgb), 0.08);
+        border: 1px solid rgba(var(--accent-blue-rgb), 0.22);
         white-space: nowrap;
-        pointer-events: none;
-        opacity: 0;
-        visibility: hidden;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                    visibility 0.2s ease;
-        z-index: 100;
+        transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        line-height: 1.2;
     }
 
-    /* Strzałka dymka */
-    .pricing-tooltip::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-width: 5px;
-        border-style: solid;
-        border-color: #111827 transparent transparent transparent;
+    .pricing-learn-more-btn i {
+        font-size: 10px;
+        transition: transform 0.25s ease;
     }
 
-    .pricing-info-trigger:hover .pricing-tooltip,
-    .pricing-info-trigger:focus-visible .pricing-tooltip {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%) translateY(0);
+    .pricing-learn-more-btn:hover {
+        background: var(--accent-blue);
+        color: #ffffff;
+        border-color: var(--accent-blue);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(var(--accent-blue-rgb), 0.3);
+    }
+
+    .pricing-learn-more-btn:hover i {
+        transform: translateX(3px);
+    }
+
+    html[data-theme="dark"] .pricing-learn-more-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+    }
+
+    html[data-theme="dark"] .pricing-learn-more-btn:hover {
+        background: var(--accent-blue);
+        border-color: var(--accent-blue);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(var(--accent-blue-rgb), 0.4);
     }
 </style>
