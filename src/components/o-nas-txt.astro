@@ -2,6 +2,81 @@
 import HeroBg from "./HeroBg.astro";
 ---
 
+
+
+
+
+<!-- PROBLEM & REFRESH SECTION (WHY WE EXIST / VALUE ANCHOR) -->
+<section class="onas-mission">
+    <div class="onas-mission__container">
+        <div class="onas-mission__grid">
+            <div
+                class="onas-mission__visual"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+            >
+                <div class="confused-man-wrapper" aria-label="Zastanawiasz się, dlaczego Twoja strona nie zdobywa klientów?">
+                    <div class="confused-man-body"></div>
+                    <div class="confused-man-question"></div>
+                </div>
+            </div>
+
+            <div
+                class="onas-mission__content"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+            >
+                <h2>
+                    Twoja strona nie zbiera klientów? <br />
+                    <span class="gradient__text"
+                        >A może przyda jej się odświeżenie?</span
+                    >
+                </h2>
+                <p class="accent-paragraph">
+                    Przestarzały szablon WordPress i wolne ładowanie sprawiają, że potencjalny klient rezygnuje w pierwszych 3 sekundach. My tworzymy dedykowane strony od zera – bez ciężkich motywów, bez zbędnych wtyczek i w uczciwej cenie.
+                </p>
+
+                <div class="mission-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-item__icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="benefit-item__text">
+                            <strong>100% autorski kod bez szablonów</strong>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-item__icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="benefit-item__text">
+                            <strong>Błyskawiczna prędkość i Mobile-First</strong>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-item__icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="benefit-item__text">
+                            <strong>Jakość drogiej agencji w lokalnej cenie</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-cta-wrapper">
+                    <a href="#kontakt" class="btn-refresh-cta">
+                        <span>Zamów darmową wycenę</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <span class="mission-cta-hint">
+                        <i class="fa-regular fa-clock"></i> Odpowiadamy i wyceniamy w 24h
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- HERO SECTION WITH ASYMMETRIC MANIFESTO -->
 <section id="o-nas" class="onas-hero">
     <HeroBg />
@@ -21,8 +96,7 @@ import HeroBg from "./HeroBg.astro";
         >
             Jesteśmy 3-osobowym zespołem pasjonatów programowania, który
             porzucił ciężkie szablony WordPress na rzecz czystego i szybkiego
-            kodu. Tworzymy dedykowane witryny, które generują zyski i ładują się
-            w mgnieniu oka, co lepiej pozycjonuje je w google.
+            kodu. 
         </p>
         <div
             class="onas-hero__actions"
@@ -39,60 +113,7 @@ import HeroBg from "./HeroBg.astro";
             </a>
         </div>
     </div>
-</section>
-
-<!-- MISSION SECTION (WHY WE EXIST / LOCAL ANCHOR) -->
-<section class="onas-mission">
-    <div class="onas-mission__container">
-        <div class="onas-mission__grid">
-            <div
-                class="onas-mission__visual"
-                data-aos="fade-right"
-                data-aos-duration="1000"
-            >
-                <div class="mission-geo-card" id="mission-map-container">
-                    <div class="map-placeholder" id="mission-map-placeholder">
-                        <div class="map-placeholder__bg"></div>
-                        <div class="map-placeholder__content">
-                            <h3>Wczytywanie mapy...</h3>
-                            <button
-                                class="map-placeholder__btn"
-                                aria-label="Załaduj mapę Google">Załaduj</button
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="onas-mission__content"
-                data-aos="fade-left"
-                data-aos-duration="1000"
-                data-aos-delay="200"
-            >
-                <h2>
-                    Lokalne zaufanie, <span class="gradient__text"
-                        >globalna jakość</span
-                    >
-                </h2>
-                <p class="accent-paragraph">
-                    Dostarczamy dedykowane systemy tworzone od zera w jakości drogiej agencji – bez narzutu kosztownego biura i w uczciwych, lokalnych cenach.
-                </p>
-                <div class="expandable-text-block">
-                    <div class="expandable-content" id="mission-expanded-content">
-                        <p>
-                            Zauważyliśmy, że wiele firm w regionie opiera biznes na przestarzałych, wolnych szablonach, które zniechęcają klientów na smartfonach. My tworzymy witryny bezawaryjne, ultra szybkie i bezpośrednio przekładające się na zapytania ofertowe.
-                        </p>
-                    </div>
-                    <button type="button" class="btn-text-toggle" aria-expanded="false" aria-controls="mission-expanded-content">
-                        <span class="toggle-text">Czytaj więcej</span>
-                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+</section>  
 <!-- TEAM SECTION (TRIO) -->
 <section id="trio" class="onas-trio">
     <div class="onas-trio__container">
@@ -516,100 +537,8 @@ import HeroBg from "./HeroBg.astro";
     </div>
 </section>
 
-<script>
-    (function () {
-        const mapContainer = document.getElementById("mission-map-container");
-        const mapPlaceholder = document.getElementById(
-            "mission-map-placeholder",
-        );
-        let loaded = false;
 
-        if (mapContainer && mapPlaceholder) {
-            const loadMap = () => {
-                if (loaded) return;
-                loaded = true;
 
-                // Preconnect Google Maps domains
-                const preconnect1 = document.createElement("link");
-                preconnect1.rel = "preconnect";
-                preconnect1.href = "https://maps.googleapis.com";
-                const preconnect2 = document.createElement("link");
-                preconnect2.rel = "preconnect";
-                preconnect2.href = "https://maps.gstatic.com";
-                document.head.appendChild(preconnect1);
-                document.head.appendChild(preconnect2);
-
-                // Create map iframe
-                const iframe = document.createElement("iframe");
-                iframe.src =
-                    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164284.03881732273!2d19.81539296121519!3d49.95626210607544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell%20-%20Tworzenie%20stron%20internetowych!5e0!3m2!1spl!2spl!4v1779532948277!5m2!1spl!2spl";
-                iframe.width = "100%";
-                iframe.height = "100%";
-                iframe.style.border = "0";
-                iframe.style.display = "block";
-                iframe.title = "Lokalizacja web2sell na mapie Google";
-                iframe.setAttribute("allowfullscreen", "");
-                iframe.setAttribute(
-                    "referrerpolicy",
-                    "no-referrer-when-downgrade",
-                );
-                iframe.className = "mission-map-iframe";
-
-                // Fade out placeholder and inject iframe
-                iframe.addEventListener("load", () => {
-                    mapPlaceholder.style.opacity = "0";
-                    setTimeout(() => {
-                        mapPlaceholder.style.display = "none";
-                    }, 500);
-                });
-
-                mapContainer.appendChild(iframe);
-
-                // Clean up event listeners
-                mapContainer.removeEventListener("mouseenter", loadMap);
-                mapContainer.removeEventListener("click", loadMap);
-                mapContainer.removeEventListener("touchstart", loadMap);
-                window.removeEventListener("scroll", checkScroll);
-            };
-
-            const checkScroll = () => {
-                const rect = mapContainer.getBoundingClientRect();
-                if (rect.top < window.innerHeight + 300 && rect.bottom > -300) {
-                    loadMap();
-                }
-            };
-
-            // Event listeners for lazy loading
-            mapContainer.addEventListener("mouseenter", loadMap, {
-                passive: true,
-            });
-            mapContainer.addEventListener("click", loadMap, { passive: true });
-            mapContainer.addEventListener("touchstart", loadMap, {
-                passive: true,
-            });
-            window.addEventListener("scroll", checkScroll, { passive: true });
-
-            // Proximity detection using IntersectionObserver
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                loadMap();
-                                observer.disconnect();
-                            }
-                        });
-                    },
-                    { rootMargin: "300px" },
-                );
-                observer.observe(mapContainer);
-            }
-
-            // Initial check
-            checkScroll();
-        }
-    })();
-</script>
 
 <style>
     /* ==========================================================================
@@ -856,162 +785,197 @@ import HeroBg from "./HeroBg.astro";
         justify-content: center;
     }
 
-    .mission-geo-card {
+    /* Confused Man Visual Icon Component */
+    .confused-man-wrapper {
         position: relative;
-        width: 100%;
-        max-width: 400px;
-        aspect-ratio: 1 / 1;
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, 0.05);
-        border-radius: 24px;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-        overflow: hidden;
-        transition: var(--transition-smooth);
+        width: clamp(220px, 30vw, 320px);
+        aspect-ratio: 475 / 508;
     }
 
-    html[data-theme="light"] .mission-geo-card {
-        border-color: #cbd5e1;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-    }
-
-    .mission-map-iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        display: block;
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    /* Map Placeholder Premium Styling */
-    .map-placeholder {
+    .confused-man-body,
+    .confused-man-question {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--card-bg);
-        cursor: pointer;
-        overflow: hidden;
-        z-index: 2;
-        transition: opacity 0.5s ease;
+        background-color: #0f172a;
+        transition: background-color 0.3s ease;
     }
 
-    .map-placeholder__bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--bg-color);
-        background-image:
-            radial-gradient(var(--accent-blue) 0.5px, transparent 0.5px),
-            radial-gradient(var(--accent-blue) 0.5px, var(--bg-color) 0.5px);
-        background-size: 20px 20px;
-        background-position:
-            0 0,
-            10px 10px;
-        opacity: 0.12;
-        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    .confused-man-body {
+        -webkit-mask: url('/assets/icons/confused-man-body.webp') no-repeat center / contain;
+        mask: url('/assets/icons/confused-man-body.webp') no-repeat center / contain;
     }
 
-    html[data-theme="dark"] .map-placeholder__bg {
-        opacity: 0.08;
+    .confused-man-question {
+        -webkit-mask: url('/assets/icons/confused-man-question.webp') no-repeat center / contain;
+        mask: url('/assets/icons/confused-man-question.webp') no-repeat center / contain;
+        transform-origin: 86.6% 19%;
+        animation: questionFloat 3.2s ease-in-out infinite;
+        will-change: transform;
     }
 
-    .map-placeholder:hover .map-placeholder__bg {
-        transform: scale(1.06);
+    html[data-theme="light"] .confused-man-body,
+    html[data-theme="light"] .confused-man-question {
+        background-color: #0f172a;
     }
 
-    .map-placeholder__content {
-        position: relative;
-        z-index: 3;
+    html[data-theme="dark"] .confused-man-body,
+    html[data-theme="dark"] .confused-man-question {
+        background-color: #ffffff;
+    }
+
+    @keyframes questionFloat {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+        }
+        25% {
+            transform: translateY(-5px) rotate(-3deg);
+        }
+        50% {
+            transform: translateY(-9px) rotate(2deg);
+        }
+        75% {
+            transform: translateY(-4px) rotate(-1deg);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .confused-man-question {
+            animation: none;
+        }
+    }
+
+    @supports not (mask: url('/assets/icons/confused-man-body.webp')) {
+        .confused-man-body {
+            background-image: url('/assets/icons/confused-man-body-dark.webp');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .confused-man-question {
+            background-image: url('/assets/icons/confused-man-question-dark.webp');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        html[data-theme="dark"] .confused-man-body {
+            background-image: url('/assets/icons/confused-man-body-white.webp');
+        }
+        html[data-theme="dark"] .confused-man-question {
+            background-image: url('/assets/icons/confused-man-question-white.webp');
+        }
+    }
+
+
+    /* Mission Benefits & CTA */
+    .mission-benefits {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding: 30px;
-        text-align: center;
         gap: 12px;
+        margin: 4px 0 8px;
     }
 
-    .map-placeholder__icon-pulse {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: rgba(var(--accent-blue-rgb), 0.1);
+    .benefit-item {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .benefit-item__icon {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        border-radius: 6px;
+        background: rgba(var(--accent-blue-rgb), 0.12);
+        color: var(--accent-cyan);
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 0.75rem;
+        margin-top: 3px;
+    }
+
+    html[data-theme="light"] .benefit-item__icon {
+        background: rgba(var(--accent-blue-rgb), 0.1);
         color: var(--accent-blue);
-        font-size: 24px;
-        margin-bottom: 6px;
-        position: relative;
     }
 
-    .map-placeholder__icon-pulse::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 2px solid var(--accent-blue);
-        opacity: 0.4;
-        animation: mapPulse 2s infinite ease-out;
+    .benefit-item__text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--text-secondary);
     }
 
-    @keyframes mapPulse {
-        0% {
-            transform: scale(1);
-            opacity: 0.4;
-        }
-        100% {
-            transform: scale(1.6);
-            opacity: 0;
-        }
+    html[data-theme="light"] .benefit-item__text {
+        color: #334155;
     }
 
-    .map-placeholder h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
+    .benefit-item__text strong {
         color: var(--text-primary);
-        margin: 0;
+        font-weight: 700;
     }
 
-    .map-placeholder p {
-        font-size: 0.85rem !important;
-        color: var(--text-secondary) !important;
-        max-width: 260px;
-        margin: 0 !important;
-        line-height: 1.45;
+    html[data-theme="light"] .benefit-item__text strong {
+        color: #000000;
     }
 
-    .map-placeholder__btn {
+    .mission-cta-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
         margin-top: 8px;
+    }
+
+    .btn-refresh-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 28px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.98rem;
+        color: #ffffff !important;
         background: linear-gradient(
             135deg,
             var(--accent-blue),
             var(--accent-cyan)
         );
-        color: #fff;
-        border: none;
-        padding: 10px 22px;
-        border-radius: 10px;
-        font-size: 13.5px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(var(--accent-blue-rgb), 0.25);
+        box-shadow: 0 6px 20px rgba(var(--accent-blue-rgb), 0.35);
+        text-decoration: none !important;
         transition:
-            transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+            transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
             box-shadow 0.25s ease;
     }
 
-    .map-placeholder:hover .map-placeholder__btn {
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(var(--accent-blue-rgb), 0.35);
+    .btn-refresh-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(var(--accent-blue-rgb), 0.45);
+        color: #ffffff !important;
     }
+
+    .btn-refresh-cta i {
+        font-size: 0.88rem;
+        transition: transform 0.25s ease;
+    }
+
+    .btn-refresh-cta:hover i {
+        transform: translateX(4px);
+    }
+
+    .mission-cta-hint {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    html[data-theme="light"] .mission-cta-hint {
+        color: #64748b;
+    }
+
 
     .onas-mission__content {
         display: flex;
@@ -1702,7 +1666,18 @@ import HeroBg from "./HeroBg.astro";
 
         .onas-mission__grid {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 36px;
+        }
+
+        .confused-man-wrapper {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .mission-cta-wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
         }
 
         .onas-trio__grid {

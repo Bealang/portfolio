@@ -10,10 +10,11 @@ Zaprojektujemy. Zbudujemy. Od zera. Dla Twojej firmy.
 
 Jesteśmy 3-osobowym zespołem pasjonatów programowania, który porzucił ciężkie szablony WordPress na rzecz czystego i szybkiego kodu. Tworzymy dedykowane witryny, które generują zyski i ładują się w mgnieniu oka, co lepiej pozycjonuje je w google.
 
-### Lokalne zaufanie, globalna jakość
-Zauważyliśmy, że ogromna liczba świetnych firm w okolicach powiatu Myślenickiego i Małopolski nie posiada własnej strony internetowej albo opiera swój biznes na przestarzałych szablonach, które zamiast budować prestiż – zniechęcają klientów i wolno działają na smartfonach.
+### Twoja strona nie zbiera klientów? A może przyda jej się odświeżenie?
+Przestarzały szablon WordPress i wolne ładowanie sprawiają, że potencjalny klient rezygnuje w pierwszych sekundach. My tworzymy dedykowane strony od zera – bez ciężkich motywów, bez zbędnych wtyczek i w uczciwej cenie.
 
-Postanowiliśmy to zmienić. Dostarczamy dedykowane systemy tworzone w 100% od zera. Ponieważ nie posiadamy kosztownego biura i działamy w trójkę, oferujemy jakość premium agencji interaktywnej w dużo atrakcyjniejszych cenach, dostępnych dla lokalnych przedsiębiorców.
+Oferujemy autorski, lekki kod, natychmiastowe ładowanie na smartfonach i jakość drogiej agencji w lokalnej, uczciwej cenie – dla przedsiębiorców z Myślenic, Małopolski i całej Polski.
+
 
 ---
 
