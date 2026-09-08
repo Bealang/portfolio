@@ -71,15 +71,6 @@
             >
                 <span class="theme-picker__option-dot"></span>
             </button>
-            <button
-                class="theme-picker__option theme-picker__option--rgb"
-                data-theme-value="rgb"
-                title="RGB — tęcza"
-                aria-label="Motyw RGB — pełna tęcza"
-                style="background: linear-gradient(90deg, #ff304f, #ff8a00, #ffe600, #00db64, #00cfff, #4655ff, #da35ff);"
-            >
-                <span class="theme-picker__option-dot"></span>
-            </button>
         </div>
     </div>
 </div>
@@ -205,13 +196,6 @@
         position: relative;
     }
 
-    .theme-picker__option--rgb {
-        grid-column: 1 / -1;
-        aspect-ratio: auto;
-        height: 36px;
-        border-radius: 18px;
-    }
-
     .theme-picker__option:hover {
         transform: scale(1.15) translateY(-2px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -262,7 +246,6 @@
         const updateActiveState = (activeTheme: string) => {
             options.forEach(opt => {
                 const themeVal = opt.getAttribute("data-theme-value");
-                opt.setAttribute("aria-pressed", String(themeVal === activeTheme));
                 if (themeVal === activeTheme) {
                     opt.classList.add("is-active");
                 } else {
