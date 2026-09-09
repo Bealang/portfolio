@@ -1211,255 +1211,197 @@ html[data-theme="dark"] .hero-scroll-arrow:hover {
     }
 }
 
-/* Header Adjustments — Default: Transparent, Wide (Top of Page) */
-/* Custom Header Styling (Full-Width Two-Tier Premium Layout) */
+/* ==========================================================================
+   DESKTOP FLOATING PILL NAVBAR
+   ========================================================================== */
+
 #main-header {
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
-    border-radius: 0;
     width: 100%;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    color: var(--text-primary);
-
-    /* Transparent by default (at top) */
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    border-bottom: 1px solid transparent;
-    box-shadow: none;
-
     z-index: 9999;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* STICKY HEADER VERSION (After 200px scroll) */
-#main-header.is-sticky {
-    position: fixed;
-    animation: stickySlideDown 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-    background: var(--scrolled-header-bg);
-    border-bottom: 1px solid var(--scrolled-header-border);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05), var(--header-inset-shadow);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: background-color 0.4s ease,
-        border-color 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-#main-header.is-sticky.unsticky-animating {
-    animation: stickySlideUp 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
-
-#main-header.top-header-entrance {
-    animation: topHeaderSlideDown 0.2s linear forwards;
-}
-
-@keyframes topHeaderSlideDown {
-    0% {
-        transform: translateY(-100%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes stickySlideDown {
-    0% {
-        transform: translateY(-100%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes stickySlideUp {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(-100%);
-    }
-}
-
-#main-header.is-sticky .header-top {
-    display: none;
-}
-
-/* --- Tier 1: Header Top --- */
-.header-top {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    transition: opacity 0.4s ease, border-color 0.4s ease;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-html[data-theme="dark"] .header-top {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.header-top-container {
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-top-right {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.header-phone {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition-smooth);
-}
-
-.header-phone i {
-    color: #000000;
-    font-size: 14px;
-}
-
-.header-phone:hover {
-    color: var(--accent-blue);
-    transform: translateY(-1px);
-}
-
-/* Premium Gradient CTA button */
-.header-cta {
-    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.9), rgba(var(--accent-cyan-rgb), 0.9));
-    color: white;
-    padding: 10px 24px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(var(--accent-blue-rgb), 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.header-cta:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(var(--accent-blue-rgb), 0.35);
-    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 1), rgba(var(--accent-cyan-rgb), 1));
-}
-
-/* --- Tier 2: Header Bottom --- */
-.header-bottom {
-    height: 70px;
-    display: flex;
-    align-items: center;
-}
-
-.header-bottom-container {
-    position: relative;
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
+    pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    padding: 24px 30px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: padding 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.logo-text-scrolled {
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    transform: translateX(-15px);
-    transition: none;
-    pointer-events: none;
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    text-decoration: none;
-    color: var(--text-primary);
+/* Po przescrollowaniu – lekki ruch ku górze oszczędzający miejsce */
+#main-header.is-scrolled {
+    padding: 14px 30px;
 }
 
-.header-cta-scrolled {
+/* Główna kapsuła pastylki */
+.header-desktop-pill {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 1360px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-radius: 9999px;
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-sizing: border-box;
+    transition: max-width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                -webkit-backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ściśnięta pastylka ze szkłem (Neutral Glassmorphic Floating Pill) */
+#main-header.is-scrolled .header-desktop-pill {
+    max-width: 1020px;
+    height: 56px;
+    padding: 0 16px 0 22px;
+    background: rgba(246, 247, 249, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.07),
+                0 2px 6px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Wariant Dark Mode dla pastylki po scrollu (neutralna głęboka czerń / grafit) */
+html[data-theme="dark"] #main-header.is-scrolled .header-desktop-pill {
+    background: rgba(14, 14, 16, 0.86);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55),
+                0 2px 8px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Logo w pastylce */
+.header-desktop-pill .logo-text {
+    font-size: 26px;
     display: inline-flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.9), rgba(var(--accent-cyan-rgb), 0.9));
-    color: white;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(var(--accent-blue-rgb), 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    transition: font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
 }
 
-.header-cta-scrolled:hover {
-    transform: translateY(-1px) scale(1.02);
-    box-shadow: 0 6px 18px rgba(var(--accent-blue-rgb), 0.25);
+.header-desktop-pill .logo-text:hover {
+    transform: scale(1.02);
 }
 
-/* Scrolled Bottom Tier Expanded height change removed to prevent layout thrashing */
+#main-header.is-scrolled .header-desktop-pill .logo-text {
+    font-size: 23px;
+}
 
-/* Container for right elements in scrolled state */
-.header-right-scrolled {
-    position: absolute;
-    right: 0;
+/* Menu nawigacyjne na desktopie */
+#main-header .header-desktop-pill #nav-menu {
     display: flex;
     align-items: center;
-    gap: 15px;
-    opacity: 0;
-    transform: translateX(15px);
-    transition: none;
-    pointer-events: none;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+    transition: gap 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Phone number visible in scrolled bottom tier */
-.header-phone-scrolled {
+#main-header.is-scrolled .header-desktop-pill #nav-menu {
+    gap: 18px;
+}
+
+#main-header .header-desktop-pill .nav-link {
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition-smooth);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 6px 4px;
+    position: relative;
+    transition: color 0.3s ease, font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
+    white-space: nowrap;
 }
 
-.header-phone-scrolled i {
-    color: #000000;
-    font-size: 13px;
+#main-header.is-scrolled .header-desktop-pill .nav-link {
+    font-size: 14.5px;
 }
 
-.header-phone-scrolled:hover {
+#main-header .header-desktop-pill .nav-link:hover {
     color: var(--accent-blue);
     transform: translateY(-1px);
 }
 
-#main-header.is-sticky .logo-text-scrolled,
-#main-header.is-sticky .header-right-scrolled {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+#main-header .header-desktop-pill .nav-link.active {
+    color: var(--accent-blue);
+}
+
+#main-header .header-desktop-pill .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 4px;
+    right: 4px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    border-radius: 2px;
+}
+
+/* Prawa sekcja akcji (Theme Toggle + CTA) */
+.header-desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+    transition: gap 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#main-header.is-scrolled .header-desktop-actions {
+    gap: 14px;
+}
+
+/* Przycisk CTA */
+.header-desktop-actions .header-cta {
+    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.95), rgba(var(--accent-cyan-rgb), 0.95));
+    color: white;
+    padding: 9px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 14px rgba(var(--accent-blue-rgb), 0.22);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.3s ease,
+                padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                font-size 0.4s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-desktop-actions .header-cta:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(var(--accent-blue-rgb), 0.38);
+    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 1), rgba(var(--accent-cyan-rgb), 1));
+}
+
+#main-header.is-scrolled .header-desktop-actions .header-cta {
+    padding: 8px 18px;
+    font-size: 13.5px;
 }
 
 /* --- Mobile Header Row (Compact & Modern) --- */
@@ -1748,12 +1690,17 @@ h2 {
 #kontakt__formularz {
     flex: 1.6;
     margin-top: 0;
-    background: var(--card-grad-145);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    padding: 50px;
-    box-shadow: 0 10px 40px rgba(31, 38, 135, 0.05);
     box-sizing: border-box;
+}
+
+@media (min-width: 996px) {
+    #kontakt__formularz {
+        background: var(--card-grad-145);
+        border: 1px solid var(--glass-border);
+        border-radius: 30px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(31, 38, 135, 0.05);
+    }
 }
 
 #kontakt__formularz>h2 {
@@ -3201,8 +3148,13 @@ a.footer__contact-item:hover {
     #kontakt__formularz {
         margin-top: 0;
         margin-bottom: 20px;
-        padding: 24px 20px;
-        border-radius: 20px;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         text-align: left;
     }
 
@@ -4695,6 +4647,13 @@ nav>a.active::after {
 
     /* Mobile Menu Overrides for #main-header */
     #main-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        display: block !important;
+        pointer-events: auto !important;
         background: var(--scrolled-header-bg-mobile) !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
@@ -4720,9 +4679,8 @@ nav>a.active::after {
         border-bottom: 1px solid var(--scrolled-header-border) !important;
     }
 
-    /* Ukrywamy desktopowe sekcje, pokazujemy dedykowany mobilny wiersz */
-    .header-top,
-    .header-bottom {
+    /* Ukrywamy desktopową pastylkę, pokazujemy dedykowany mobilny wiersz */
+    .header-desktop-pill {
         display: none !important;
     }
 

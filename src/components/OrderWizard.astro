@@ -4,10 +4,10 @@
 
 <section id="order-wizard" class="wizard-section">
     <div class="wizard-container">
-        <!-- LEWY PANEL: ETAPY (DESKTOP ONLY) -->
-        <aside class="wizard-sidebar">
-            <div class="wizard-steps-list">
-                <!-- KROK 1 -->
+        <!-- GŁÓWNY PANEL: FORMULARZ Z KARTAMI WYZNACZAJĄCY ŚRODEK -->
+        <div class="wizard-form-wrapper">
+            <!-- GÓRNY STEPPER Z KROKAMI 1-4 -->
+            <div class="wizard-top-stepper">
                 <button
                     class="wizard-step-item active"
                     data-step="1"
@@ -18,12 +18,11 @@
                         <span class="num-text">01</span>
                         <i class="fa-solid fa-check check-icon"></i>
                     </span>
-                    <div class="step-details">
-                        <span class="step-title">Przedstaw się</span>
-                    </div>
+                    <span class="step-title">O Tobie</span>
                 </button>
 
-                <!-- KROK 2 -->
+                <div class="stepper-connector" aria-hidden="true"></div>
+
                 <button
                     class="wizard-step-item"
                     data-step="2"
@@ -35,12 +34,11 @@
                         <span class="num-text">02</span>
                         <i class="fa-solid fa-check check-icon"></i>
                     </span>
-                    <div class="step-details">
-                        <span class="step-title">Twój projekt</span>
-                    </div>
+                    <span class="step-title">Projekt</span>
                 </button>
 
-                <!-- KROK 3 -->
+                <div class="stepper-connector" aria-hidden="true"></div>
+
                 <button
                     class="wizard-step-item"
                     data-step="3"
@@ -52,12 +50,11 @@
                         <span class="num-text">03</span>
                         <i class="fa-solid fa-check check-icon"></i>
                     </span>
-                    <div class="step-details">
-                        <span class="step-title">Twój biznes</span>
-                    </div>
+                    <span class="step-title">Biznes</span>
                 </button>
 
-                <!-- KROK 4 -->
+                <div class="stepper-connector" aria-hidden="true"></div>
+
                 <button
                     class="wizard-step-item"
                     data-step="4"
@@ -69,16 +66,11 @@
                         <span class="num-text">04</span>
                         <i class="fa-solid fa-check check-icon"></i>
                     </span>
-                    <div class="step-details">
-                        <span class="step-title">Kontakt</span>
-                    </div>
+                    <span class="step-title">Kontakt</span>
                 </button>
             </div>
-        </aside>
 
-        <!-- PRAWY PANEL: FORMULARZ Z KARTAMI -->
-        <div class="wizard-form-wrapper">
-            <!-- PASEK POSTĘPU NA URZĄDZENIACH MOBILNYCH (STICKY) ORAZ DESKTOP -->
+            <!-- PASEK POSTĘPU W FORMULARZU -->
             <div class="wizard-header-progress" id="wizard-progress-bar">
                 <div class="progress-bar-wrapper">
                     <div class="progress-bar-container">
@@ -100,13 +92,8 @@
                 <div class="wizard-panel active" data-panel="1">
                     <div class="panel-header">
                         <h2>
-                            Przedstaw się <span class="gradient__text">nam</span
-                            >
+                            Przedstaw się <span class="gradient__text">nam</span>
                         </h2>
-                        <p>
-                            Zaczynamy! Powiedz nam, jak się nazywasz i dla kogo
-                            będziemy tworzyć projekt.
-                        </p>
                     </div>
 
                     <div class="panel-body">
@@ -153,10 +140,6 @@
                         <h2>
                             Szczegóły <span class="gradient__text">usługi</span>
                         </h2>
-                        <p>
-                            Wybierz najbardziej odpowiadający Ci pakiet oraz
-                            określ swój budżet.
-                        </p>
                     </div>
 
                     <div class="panel-body">
@@ -204,7 +187,7 @@
                                     <div class="tile-header">
                                         <span class="tile-title">OnePage</span>
                                         <span class="tile-badge"
-                                            >od 1090 zł</span
+                                            >990 zł netto</span
                                         >
                                     </div>
                                     <div class="tile-select-indicator">
@@ -320,10 +303,6 @@
                         <h2>
                             O Twoim <span class="gradient__text">biznesie</span>
                         </h2>
-                        <p>
-                            Przybliż nam specyfikę swojej działalności, co
-                            pozwoli nam lepiej dopasować ofertę.
-                        </p>
                     </div>
 
                     <div class="panel-body">
@@ -382,10 +361,6 @@
                         <h2>
                             Dane <span class="gradient__text">kontaktowe</span>
                         </h2>
-                        <p>
-                            To już ostatni krok! Podaj nam kontakt do siebie,
-                            abyśmy mogli przesłać gotową wycenę.
-                        </p>
                     </div>
 
                     <div class="panel-body">
@@ -559,52 +534,201 @@
        ========================================================================== */
     .wizard-section {
         width: 100%;
-        max-width: 1000px;
+        max-width: 580px;
         margin: 0 auto;
-        padding: 40px 24px;
+        padding: 28px 16px;
         box-sizing: border-box;
         text-align: left;
+        color: var(--text-primary);
     }
 
     .wizard-container {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-        gap: 32px;
-        align-items: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
+        margin: 0 auto;
         text-align: left;
+        color: var(--text-primary);
     }
 
     /* ==========================================================================
-       GLOBALNY PASEK POSTĘPU (WIDOCZNY ZAWSZE NA GÓRZE W FORMULARZU)
+       GŁÓWNA KARTA FORMULARZA (CENTRUM STRONY, 80VH NA PC Z TŁEM SZKLANYM)
+       ========================================================================== */
+    .wizard-form-wrapper {
+        width: 100%;
+        max-width: 560px;
+        height: 70vh;
+        max-height: 70vh;
+        min-height: 520px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-2xl, 36px);
+        padding: 36px 36px 28px;
+        box-shadow: var(--glass-shadow);
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    :global(html[data-theme="light"]) .wizard-form-wrapper {
+        background: rgba(255, 255, 255, 0.85);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    /* ==========================================================================
+       GÓRNY STEPPER (KROKI 1, 2, 3, 4 POZIOMO)
+       ========================================================================== */
+    .wizard-top-stepper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 16px;
+        user-select: none;
+        flex-shrink: 0;
+    }
+
+    .wizard-step-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: none;
+        border: none;
+        padding: 2px 4px;
+        margin: 0;
+        text-align: left;
+        cursor: pointer;
+        color: inherit;
+        font-family: inherit;
+        border-radius: var(--radius-pill, 9999px);
+        transition: var(--transition-smooth);
+    }
+
+    .wizard-step-item:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+    }
+
+    .stepper-connector {
+        flex: 1;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0 6px;
+        border-radius: 2px;
+        transition: background 0.35s ease;
+    }
+
+    :global(html[data-theme="light"]) .stepper-connector {
+        background: rgba(0, 0, 0, 0.08);
+    }
+
+    .stepper-connector.completed {
+        background: #10b981;
+    }
+
+    .step-num {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 12px;
+        position: relative;
+        background: var(--bg-color);
+        transition: var(--transition-smooth);
+        z-index: 2;
+        color: var(--text-secondary);
+        flex-shrink: 0;
+    }
+
+    :global(html[data-theme="light"]) .step-num {
+        border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .step-num .check-icon {
+        display: none;
+        font-size: 10px;
+        color: #ffffff;
+    }
+
+    .step-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        transition: var(--transition-smooth);
+        white-space: nowrap;
+    }
+
+    /* Stany etapów */
+    .wizard-step-item.active .step-num {
+        border-color: transparent;
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
+        color: #ffffff;
+        box-shadow: 0 0 14px rgba(139, 92, 246, 0.35);
+    }
+
+    .wizard-step-item.active .step-title {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+
+    .wizard-step-item.completed .step-num {
+        background: #10b981;
+        border-color: #10b981;
+        color: #ffffff;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+    }
+
+    .wizard-step-item.completed .num-text {
+        display: none;
+    }
+
+    .wizard-step-item.completed .check-icon {
+        display: block;
+    }
+
+    .wizard-step-item.completed .step-title {
+        color: var(--text-primary);
+    }
+
+    /* ==========================================================================
+       PASEK POSTĘPU (W FORMULARZU)
        ========================================================================== */
     .wizard-header-progress {
         width: 100%;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         background: transparent;
         border: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 0;
-        padding: 0 0 20px 0;
+        padding: 0;
         box-sizing: border-box;
         box-shadow: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-
-    :global(html[data-theme="light"]) .wizard-header-progress {
-        border-bottom-color: rgba(0, 0, 0, 0.06);
+        flex-shrink: 0;
     }
 
     .progress-bar-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
 
     .progress-bar-container {
         width: 100%;
-        height: 6px;
+        height: 5px;
         background: rgba(255, 255, 255, 0.08);
         border-radius: 10px;
         overflow: hidden;
@@ -631,7 +755,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
     }
 
@@ -644,202 +768,112 @@
     }
 
     /* ==========================================================================
-       LEWY PANEL - ETAPY (DESKTOP)
+       FORMULARZ I PANELE (FLEX COLUMN, SCROLL & FADE)
        ========================================================================== */
-    .wizard-sidebar {
-        position: sticky;
-        top: 100px;
-        display: flex;
-        gap: 20px;
-        padding-left: 0;
-        user-select: none;
-    }
-
-    .wizard-progress-track {
-        display: none !important;
-    }
-
-    .progress-track-fill {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 0%;
-        background: linear-gradient(
-            to bottom,
-            var(--accent-blue),
-            var(--accent-cyan)
-        );
-        transition: height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
-    }
-
-    .wizard-steps-list {
+    #wizard-form {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .wizard-step-item {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0;
-        text-align: left;
-        cursor: pointer;
-        width: 100%;
-        color: inherit;
-        font-family: inherit;
-        transition: var(--transition-smooth);
-    }
-
-    .wizard-step-item:disabled {
-        cursor: not-allowed;
-    }
-
-    .step-num {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        font-size: 14px;
-        position: relative;
-        background: var(--bg-color);
-        transition: var(--transition-smooth);
-        z-index: 2;
-        color: var(--text-secondary);
-        flex-shrink: 0;
-    }
-
-    :global(html[data-theme="light"]) .step-num {
-        border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .step-num .check-icon {
-        display: none;
-        font-size: 12px;
-        color: #ffffff;
-    }
-
-    .step-details {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .step-title {
-        font-size: 17px;
-        font-weight: 600;
-        color: var(--text-secondary);
-        transition: var(--transition-smooth);
-        line-height: 1.2;
-    }
-
-    /* Stany etapów */
-    .wizard-step-item.active .step-num {
-        border-color: transparent;
-        background: linear-gradient(
-            135deg,
-            var(--accent-blue),
-            var(--accent-cyan)
-        );
-        color: #ffffff;
-        box-shadow: 0 0 15px rgba(139, 92, 246, 0.35);
-    }
-
-    .wizard-step-item.active .step-title {
-        color: var(--text-primary);
-        font-weight: 700;
-    }
-
-    .wizard-step-item.completed .step-num {
-        background: #10b981;
-        border-color: #10b981;
-        color: #ffffff;
-        box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
-    }
-
-    .wizard-step-item.completed .num-text {
-        display: none;
-    }
-
-    .wizard-step-item.completed .check-icon {
-        display: block;
-    }
-
-    .wizard-step-item.completed .step-title {
-        color: var(--text-primary);
-    }
-
-    /* ==========================================================================
-       PRAWY PANEL - KARTA FORMULARZA
-       ========================================================================== */
-    .wizard-form-wrapper {
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: var(--radius-2xl, 36px);
-        padding: 40px;
-        box-shadow: var(--glass-shadow);
-        backdrop-filter: blur(var(--glass-blur));
-        -webkit-backdrop-filter: blur(var(--glass-blur));
-        position: relative;
+        min-height: 0;
         overflow: hidden;
-        text-align: left;
-    }
-
-    :global(html[data-theme="light"]) .wizard-form-wrapper {
-        background: rgba(255, 255, 255, 0.846) !important;
     }
 
     .wizard-panel {
         display: none;
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateX(16px);
         transition:
-            opacity 0.4s ease,
-            transform 0.4s ease;
+            opacity 0.35s ease,
+            transform 0.35s ease;
         text-align: left;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
     }
 
     .wizard-panel.active {
-        display: block;
+        display: flex !important;
         opacity: 1;
         transform: translateX(0);
     }
 
     .panel-header {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        flex-shrink: 0;
     }
 
+    .panel-header h2,
     .panel-title {
-        font-size: 26px;
+        font-size: 24px;
         font-weight: 800;
         color: var(--text-primary);
-        margin: 0 0 8px 0;
+        margin: 0;
         letter-spacing: -0.5px;
     }
 
+    .panel-header p,
     .panel-subtitle {
-        font-size: 15px;
+        font-size: 14.5px;
         color: var(--text-secondary);
         margin: 0;
         line-height: 1.5;
     }
 
-    /* Pola formularza */
+    .panel-body {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 8px;
+        margin-right: -4px;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+        transition: -webkit-mask-image 0.25s ease, mask-image 0.25s ease;
+    }
+
+    :global(html[data-theme="light"]) .panel-body {
+        scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+    }
+
+    .panel-body::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .panel-body::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 4px;
+    }
+
+    :global(html[data-theme="light"]) .panel-body::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+    /* Dynamiczny efekt zanikania od dołu (gdy zawartość wystaje poza wysokość 80vh) */
+    .panel-body.has-bottom-fade {
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            black calc(100% - 46px),
+            transparent 100%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            black 0%,
+            black calc(100% - 46px),
+            transparent 100%
+        );
+    }
+
+    /* Pola formularza i etykiety */
     .form__group {
         margin-bottom: 24px;
         position: relative;
     }
 
-    .form__label {
+    .form__label,
+    .wizard-label {
         display: block;
         font-size: 14px;
         font-weight: 600;
@@ -847,11 +881,13 @@
         margin-bottom: 8px;
     }
 
-    .form__label .required {
+    .form__label .required,
+    .wizard-label .required {
         color: var(--accent-cyan);
     }
 
-    .form__label .optional {
+    .form__label .optional,
+    .wizard-label .optional {
         color: var(--text-secondary);
         font-size: 12px;
         font-weight: normal;
@@ -866,10 +902,13 @@
     .input-icon {
         position: absolute;
         left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
         color: var(--text-secondary);
         font-size: 16px;
         transition: var(--transition-smooth);
         pointer-events: none;
+        z-index: 3;
     }
 
     .input-wrapper input {
@@ -1026,6 +1065,8 @@
 
     .budget-input-group .number-input-wrapper {
         position: relative;
+        display: flex;
+        align-items: center;
         flex-grow: 1;
     }
 
@@ -1090,6 +1131,16 @@
         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     }
 
+    .budget-input-group .currency-select option {
+        background-color: var(--card-bg, #060606);
+        color: var(--text-primary, #ffffff);
+    }
+
+    :global(html[data-theme="light"]) .budget-input-group .currency-select option {
+        background-color: #ffffff;
+        color: #111827;
+    }
+
     .budget-input-group .currency-select:focus {
         border-color: var(--accent-blue);
         z-index: 2;
@@ -1097,13 +1148,9 @@
 
     .budget-tip {
         font-size: 12.5px;
-        color: rgba(255, 255, 255, 0.4);
+        color: var(--text-secondary);
         margin-top: 6px;
         margin-bottom: 0;
-    }
-
-    :global(html[data-theme="light"]) .budget-tip {
-        color: rgba(0, 0, 0, 0.45);
     }
 
     /* Błędy formularza */
@@ -1260,9 +1307,10 @@
         display: flex;
         justify-content: flex-end;
         gap: 16px;
-        margin-top: 40px;
-        padding-top: 24px;
+        margin-top: auto;
+        padding-top: 16px;
         border-top: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
     }
 
     :global(html[data-theme="light"]) .wizard-footer {
@@ -1376,75 +1424,46 @@
     /* ==========================================================================
        RESPONSYWNOŚĆ (TABLET & SMARTFON)
        ========================================================================== */
-    @media (max-width: 1023px) {
-        .wizard-container {
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        /* Ukrywamy stary sidebar kroków (kółka) na mobile */
-        .wizard-sidebar {
-            display: none !important;
-        }
-
-        /* Na mobile pasek staje się cieniutką linią przyczepioną bezpośrednio pod headerem */
-        .wizard-header-progress {
-            position: fixed;
-            top: 70px; /* nadpisane dynamicznie przez JS */
-            left: 0;
-            width: 100%;
-            height: 4px;
-            padding: 0;
-            margin: 0;
-            border: none;
-            border-radius: 0;
-            background: transparent;
-            box-shadow: none;
-            z-index: 9998;
-        }
-
-        .wizard-header-progress .progress-bar-wrapper {
-            gap: 0;
-            height: 100%;
-        }
-
-        .wizard-header-progress .progress-bar-container {
-            height: 100%;
-            border-radius: 0;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        :global(html[data-theme="light"])
-            .wizard-header-progress
-            .progress-bar-container {
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .wizard-header-progress .progress-bar-fill {
-            border-radius: 0;
-            box-shadow: 0 1px 4px rgba(139, 92, 246, 0.5);
-        }
-
-        .wizard-header-progress .progress-bar-info {
-            display: none !important;
+    @media (max-width: 768px) {
+        .wizard-section {
+            padding: 16px 12px;
         }
 
         .wizard-form-wrapper {
-            padding: 20px 8px;
             background: transparent !important;
             border: none !important;
             border-radius: 0 !important;
+            padding: 0 !important;
             box-shadow: none !important;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
+            height: 70vh !important;
+            max-height: 70vh !important;
+            min-height: 400px;
         }
 
         :global(html[data-theme="light"]) .wizard-form-wrapper {
             background: transparent !important;
         }
 
+        .wizard-step-item .step-title {
+            display: none;
+        }
+
+        .wizard-step-item {
+            padding: 2px;
+        }
+
+        .stepper-connector {
+            margin: 0 4px;
+        }
+
         .panel-header h2 {
-            font-size: 24px;
+            font-size: 22px;
+        }
+
+        .panel-header p {
+            font-size: 13.5px;
         }
     }
 
@@ -1454,22 +1473,49 @@
         }
 
         .wizard-header-progress {
-            margin: 0;
+            margin: 0 0 16px 0;
             width: 100%;
             padding: 0;
         }
 
         .wizard-form-wrapper {
-            padding: 12px 4px;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            height: 70vh !important;
+            max-height: 70vh !important;
+            min-height: 380px;
+        }
+
+        :global(html[data-theme="light"]) .wizard-form-wrapper {
+            background: transparent !important;
+        }
+
+        .step-num {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
         }
 
         .panel-header h2 {
-            font-size: 22px;
+            font-size: 20px;
         }
 
         .wizard-btn {
-            padding: 12px 20px;
+            padding: 12px 18px;
             font-size: 14px;
+        }
+    }
+
+    @media (max-height: 620px) {
+        .wizard-form-wrapper {
+            height: 75vh !important;
+            max-height: 75vh !important;
+            min-height: 350px;
         }
     }
 </style>
@@ -1797,6 +1843,7 @@
             el.classList.add("visible");
         }
         if (input) input.classList.add("input--error");
+        requestAnimationFrame(() => updatePanelScrollFade());
     }
 
     function clearError(fieldId: string) {
@@ -1809,6 +1856,7 @@
             el.classList.remove("visible");
         }
         if (input) input.classList.remove("input--error");
+        requestAnimationFrame(() => updatePanelScrollFade());
     }
 
     // Walidacja konkretnego kroku
@@ -2015,17 +2063,22 @@
             const stepNum = parseInt(p.getAttribute("data-panel") || "1", 10);
 
             if (stepNum === currentStep) {
-                p.style.display = "block";
+                p.style.display = "flex";
                 setTimeout(() => {
                     p.classList.add("active");
                 }, 10);
+                const pb = p.querySelector(".panel-body") as HTMLElement | null;
+                if (pb) {
+                    pb.scrollTop = 0;
+                    setTimeout(() => updatePanelScrollFade(pb), 30);
+                }
             } else {
                 p.classList.remove("active");
                 p.style.display = "none";
             }
         });
 
-        // Wskaźniki kroków na pasku bocznym (desktop)
+        // Wskaźniki kroków w górnym stepperze
         stepItems.forEach((item) => {
             const btn = item as HTMLButtonElement;
             const stepNum = parseInt(btn.getAttribute("data-step") || "1", 10);
@@ -2043,6 +2096,16 @@
                 btn.disabled = false;
             } else {
                 btn.disabled = true;
+            }
+        });
+
+        // Łączniki w górnym stepperze
+        const connectors = document.querySelectorAll(".stepper-connector");
+        connectors.forEach((conn, index) => {
+            if (currentStep > index + 1) {
+                conn.classList.add("completed");
+            } else {
+                conn.classList.remove("completed");
             }
         });
 
@@ -2146,6 +2209,45 @@
             updateStepUI();
         });
     });
+
+    // ============================================================
+    // EFEKT ZANIKANIA OD DOŁU NA SCROLLU PANELU (80VH)
+    // ============================================================
+    function updatePanelScrollFade(panelBody?: HTMLElement | null) {
+        const activePanel = document.querySelector(".wizard-panel.active");
+        const pb =
+            panelBody ||
+            (activePanel
+                ? (activePanel.querySelector(".panel-body") as HTMLElement | null)
+                : null);
+        if (!pb) return;
+
+        const hasOverflow = pb.scrollHeight - pb.clientHeight > 12;
+        const isAtBottom =
+            pb.scrollHeight - pb.scrollTop - pb.clientHeight <= 10;
+
+        if (hasOverflow && !isAtBottom) {
+            pb.classList.add("has-bottom-fade");
+        } else {
+            pb.classList.remove("has-bottom-fade");
+        }
+    }
+
+    // Podpięcie eventów scrolla do każdego panel-body
+    document.querySelectorAll(".panel-body").forEach((pb) => {
+        pb.addEventListener(
+            "scroll",
+            () => updatePanelScrollFade(pb as HTMLElement),
+            { passive: true },
+        );
+    });
+
+    window.addEventListener("resize", () => updatePanelScrollFade(), {
+        passive: true,
+    });
+
+    // Inicjalne sprawdzenie po załadowaniu
+    requestAnimationFrame(() => updatePanelScrollFade());
 
     // ============================================================
     // WYSYŁANIE FORMULARZA EMAILJS

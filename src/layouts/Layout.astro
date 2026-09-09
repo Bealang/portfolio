@@ -38,16 +38,28 @@ import ThemePicker from "../components/ThemePicker.astro";
         <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)" />
         <script is:inline>
             (function () {
-                // Theme (light/dark)
+                // Theme (light/dark) - System default with manual override support
                 const savedTheme = localStorage.getItem("theme");
-                const isDark = savedTheme === "dark";
-                if (isDark) {
-                    document.documentElement.setAttribute("data-theme", "dark");
-                } else {
-                    document.documentElement.setAttribute(
-                        "data-theme",
-                        "light",
-                    );
+                const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const activeTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme", activeTheme);
+
+                // Listen for system theme changes live if no manual preference is saved
+                if (window.matchMedia) {
+                    try {
+                        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+                        const handleSystemThemeChange = function (e) {
+                            if (!localStorage.getItem("theme")) {
+                                const newTheme = e.matches ? "dark" : "light";
+                                document.documentElement.setAttribute("data-theme", newTheme);
+                            }
+                        };
+                        if (mediaQuery.addEventListener) {
+                            mediaQuery.addEventListener("change", handleSystemThemeChange);
+                        } else if (mediaQuery.addListener) {
+                            mediaQuery.addListener(handleSystemThemeChange);
+                        }
+                    } catch (e) {}
                 }
 
                 // Color Palette Theme (cookie-based)

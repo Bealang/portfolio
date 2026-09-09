@@ -27,9 +27,11 @@ export default defineConfig({
           'aos-init',
           'aos-animate',
           'is-sticky',
+          'is-scrolled',
           'unsticky-animating',
           'top-header-entrance',
-          'menu-open'
+          'menu-open',
+          'has-bottom-fade'
         ],
         greedy: [
           /^aos-/,

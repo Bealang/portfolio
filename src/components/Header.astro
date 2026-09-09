@@ -8,104 +8,41 @@ const isHome = activePage === "home";
 ---
 
 <header id="main-header">
-    <!-- 1. DESKTOP NAGŁÓWEK: GÓRNA CZĘŚĆ (TOP TIER) -->
-    <div class="header-top">
-        <div class="header-top-container">
-            <a href={isHome ? "#" : "/"} class="logo-text"
-                >web2<span class="gradient__text">sell</span></a
-            >
-            <div class="header-top-right">
-                <a href="tel:+48530315860" class="header-phone">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+48 530 315 860</span>
-                </a>
+    <!-- DESKTOP NAGŁÓWEK (FLOATING PILL NAVBAR) -->
+    <div class="header-desktop-pill">
+        <a href={isHome ? "#" : "/"} class="logo-text" aria-label="Strona główna">
+            web2<span class="gradient__text">sell</span>
+        </a>
 
-                <!-- PRESTIŻOWY PRZEŁĄCZNIK MOTYWU (PASTYLKA Z SUWAKIEM) -->
-                <button class="theme-switch-pill" aria-label="Zmień motyw">
-                    <span class="pill-track">
-                        <span class="pill-thumb">
-                            <i class="fa-solid fa-sun sun-icon"></i>
-                            <i class="fa-solid fa-moon moon-icon"></i>
-                        </span>
-                    </span>
-                </button>
+        <nav id="nav-menu">
+            <a href={isHome ? "#o-nas" : "/#o-nas"} class="nav-link">O nas</a>
+            <a href={isHome ? "#projekty" : "/#projekty"} class="nav-link">Realizacje</a>
+            <a href="/cennik" class:list={["nav-link", { active: activePage === "cennik" }]}>Cennik</a>
+            <a href="/jak-dzialamy" class:list={["nav-link", { active: activePage === "jak-dzialamy" }]}>Jak działamy?</a>
+            <a href="/jak-dzialamy#faq" class="nav-link">FAQ</a>
 
-                <a href="/zamow" class="header-cta">Bezpłatna wycena</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. DESKTOP NAGŁÓWEK: DOLNA CZĘŚĆ (BOTTOM TIER) -->
-    <div class="header-bottom">
-        <div class="header-bottom-container">
-            <!-- Dynamiczne Logo po scrollu, domyślnie ukryte na samej górze -->
-            <a href={isHome ? "#" : "/"} class="logo-text-scrolled"
-                >web2<span class="gradient__text">sell</span></a
-            >
-
-            <nav id="nav-menu">
-                <a
-                    href={isHome ? "#o-nas" : "/#o-nas"}
-                    class="nav-link"
-                    >O nas</a
-                >
-                <a href={isHome ? "#projekty" : "/#projekty"} class="nav-link"
-                    >Realizacje</a
-                >
-                <a
-                    href="/cennik"
-                    class:list={[
-                        "nav-link",
-                        { active: activePage === "cennik" },
-                    ]}>Cennik</a
-                >
-                <a
-                    href="/jak-dzialamy"
-                    class:list={[
-                        "nav-link",
-                        { active: activePage === "jak-dzialamy" },
-                    ]}>Jak działamy?</a
-                >
-                <a href="/jak-dzialamy#faq" class="nav-link">FAQ</a>
-
-
-                <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile -->
-                <div class="mobile-menu-footer">
-                    <div class="mobile-menu-theme-row">
-                        <span class="theme-label">Motyw:</span>
-                        <button
-                            class="theme-switch-pill"
-                            aria-label="Zmień motyw"
-                        >
-                            <span class="pill-track">
-                                <span class="pill-thumb">
-                                    <i class="fa-solid fa-sun sun-icon"></i>
-                                    <i class="fa-solid fa-moon moon-icon"></i>
-                                </span>
+            <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile -->
+            <div class="mobile-menu-footer">
+                <div class="mobile-menu-theme-row">
+                    <span class="theme-label">Motyw:</span>
+                    <button class="theme-switch-pill" aria-label="Zmień motyw">
+                        <span class="pill-track">
+                            <span class="pill-thumb">
+                                <i class="fa-solid fa-sun sun-icon"></i>
+                                <i class="fa-solid fa-moon moon-icon"></i>
                             </span>
-                        </button>
-                    </div>
-                    <a href="tel:+48530315860" class="mobile-menu-phone">
-                        <i class="fa-solid fa-phone"></i> +48 530 315 860
-                    </a>
-                    <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a
-                    >
-                </div>
-            </nav>
-
-            <!-- Dynamiczna prawa sekcja po scrollu (theme + CTA) -->
-            <div class="header-right-scrolled">
-                <button class="theme-switch-pill" aria-label="Zmień motyw">
-                    <span class="pill-track">
-                        <span class="pill-thumb">
-                            <i class="fa-solid fa-sun sun-icon"></i>
-                            <i class="fa-solid fa-moon moon-icon"></i>
                         </span>
-                    </span>
-                </button>
-                <a href="/zamow" class="header-cta-scrolled">Bezpłatna wycena</a
-                >
+                    </button>
+                </div>
+                <a href="tel:+48530315860" class="mobile-menu-phone">
+                    <i class="fa-solid fa-phone"></i> +48 530 315 860
+                </a>
+                <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a>
             </div>
+        </nav>
+
+        <div class="header-desktop-actions">
+            <a href="/zamow" class="header-cta">Bezpłatna wycena</a>
         </div>
     </div>
 
@@ -280,64 +217,28 @@ const isHome = activePage === "home";
         });
 
         // ──────────────────────────────────────────────────
-        // 1. Scroll Handler — Directional Smart Show/Hide Top Tier
-        //    Uses a delta threshold so navbar doesn't react to 1px changes
+        // 1. Scroll Handler — Smooth Morphing Desktop Pill & Mobile Sticky
         // ──────────────────────────────────────────────────
-        var lastScrollY = window.scrollY;
         var isTicking = false;
-        var unstickyTimeout = null;
-        var entranceTimeout = null;
 
         function updateScroll() {
             var currentScrollY = window.scrollY;
 
             if (window.innerWidth > 995) {
-                if (currentScrollY <= 200) {
-                    if (header.classList.contains("is-sticky") && !header.classList.contains("unsticky-animating")) {
-                        header.classList.add("unsticky-animating");
-                        
-                        if (unstickyTimeout) clearTimeout(unstickyTimeout);
-                        unstickyTimeout = setTimeout(function () {
-                            header.classList.remove("is-sticky");
-                            header.classList.remove("unsticky-animating");
-                            unstickyTimeout = null;
-                            
-                            header.classList.add("top-header-entrance");
-                            if (entranceTimeout) clearTimeout(entranceTimeout);
-                            entranceTimeout = setTimeout(function () {
-                                header.classList.remove("top-header-entrance");
-                                entranceTimeout = null;
-                            }, 200);
-                        }, 200);
-                    }
-                } else {
-                    if (unstickyTimeout) {
-                        clearTimeout(unstickyTimeout);
-                        unstickyTimeout = null;
-                    }
-                    if (entranceTimeout) {
-                        clearTimeout(entranceTimeout);
-                        entranceTimeout = null;
-                    }
-                    header.classList.remove("top-header-entrance");
-                    header.classList.remove("unsticky-animating");
+                if (currentScrollY > 30) {
+                    header.classList.add("is-scrolled");
                     header.classList.add("is-sticky");
+                } else {
+                    header.classList.remove("is-scrolled");
+                    header.classList.remove("is-sticky");
                 }
             } else {
-                if (currentScrollY <= 200) {
-                    header.classList.remove("is-sticky");
-                } else {
+                if (currentScrollY > 20) {
                     header.classList.add("is-sticky");
-                }
-                header.classList.remove("unsticky-animating");
-                header.classList.remove("top-header-entrance");
-                if (unstickyTimeout) {
-                    clearTimeout(unstickyTimeout);
-                    unstickyTimeout = null;
-                }
-                if (entranceTimeout) {
-                    clearTimeout(entranceTimeout);
-                    entranceTimeout = null;
+                    header.classList.add("is-scrolled");
+                } else {
+                    header.classList.remove("is-sticky");
+                    header.classList.remove("is-scrolled");
                 }
             }
             
@@ -352,6 +253,7 @@ const isHome = activePage === "home";
         }
 
         window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("resize", handleScroll, { passive: true });
         updateScroll();
 
         // ──────────────────────────────────────────────────
@@ -395,20 +297,21 @@ const isHome = activePage === "home";
             });
 
             // Fullscreen mobile navigation DOM positioning (synchronized with CSS media query at 995px)
-            var headerBottomContainer = document.querySelector(
-                ".header-bottom-container",
-            );
+            var headerDesktopPill = document.querySelector(".header-desktop-pill");
+            var headerActions = document.querySelector(".header-desktop-actions");
+
             var moveNav = function () {
                 if (window.innerWidth <= 995) {
                     var wrapper = document.querySelector(".app-wrapper") || document.body;
                     if (navMenu.parentElement !== wrapper)
                         wrapper.appendChild(navMenu);
                 } else {
-                    if (
-                        headerBottomContainer &&
-                        navMenu.parentElement !== headerBottomContainer
-                    ) {
-                        headerBottomContainer.appendChild(navMenu);
+                    if (headerDesktopPill && navMenu.parentElement !== headerDesktopPill) {
+                        if (headerActions) {
+                            headerDesktopPill.insertBefore(navMenu, headerActions);
+                        } else {
+                            headerDesktopPill.appendChild(navMenu);
+                        }
                     }
                 }
             };
