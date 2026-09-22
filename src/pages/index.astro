@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import HeroBg from "../components/HeroBg.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ContactForm from "../components/ContactForm.astro";
+import ConsentGoogleMap from "../components/ConsentGoogleMap.astro";
 import { getCollection } from "astro:content";
 import ONasTxt from "../components/o-nas-txt.astro";
 import "../styles/bus.css";
@@ -367,143 +368,10 @@ const projects = (await getCollection("projects")).sort(
 
     <ContactForm />
 
-    <div class="google-map-embed" id="mapContainer">
-        <div class="map-skeleton" id="mapSkeleton">
-            <div class="map-skeleton__inner">
-                <i class="fa-solid fa-circle-notch fa-spin"></i>
-                <span>Ładowanie mapy google...</span>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .google-map-embed {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            background: var(--bg-color);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-            overflow: hidden;
-        }
-        .map-skeleton {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(139, 92, 246, 0.03) 0%,
-                    rgba(0, 0, 0, 0) 80%
-                ),
-                var(--bg-color);
-            transition: opacity 0.6s ease;
-            z-index: 2;
-        }
-        .map-skeleton__inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        .map-skeleton__inner i {
-            font-size: 1.8rem;
-            color: var(--accent-blue);
-        }
-        .google-map-embed :global(iframe) {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-            transform: translateZ(0); /* Hardware acceleration */
-            pointer-events: none; /* Zapobiega przejmowaniu scrolla */
-        }
-        .google-map-embed.loaded :global(iframe) {
-            opacity: 1;
-        }
-        .google-map-embed.loaded:hover :global(iframe),
-        .google-map-embed.loaded:active :global(iframe) {
-            pointer-events: auto;
-        }
-    </style>
-
-    <script>
-        (function () {
-            const mapContainer = document.getElementById("mapContainer");
-            const mapSkeleton = document.getElementById("mapSkeleton");
-            let loaded = false;
-
-            if (mapContainer && mapSkeleton) {
-                const loadMap = () => {
-                    if (loaded) return;
-                    loaded = true;
-
-                    // Warm up DNS / Preconnect
-                    const preconnect1 = document.createElement("link");
-                    preconnect1.rel = "preconnect";
-                    preconnect1.href = "https://maps.googleapis.com";
-                    const preconnect2 = document.createElement("link");
-                    preconnect2.rel = "preconnect";
-                    preconnect2.href = "https://maps.gstatic.com";
-                    document.head.appendChild(preconnect1);
-                    document.head.appendChild(preconnect2);
-
-                    // Create iframe
-                    const iframe = document.createElement("iframe");
-                    iframe.src =
-                        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164316.23301606337!2d19.874760544328527!3d49.947282428156846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell!5e0!3m2!1spl!2spl!4v1779291902227!5m2!1spl!2spl";
-                    iframe.width = "100%";
-                    iframe.height = "400";
-                    iframe.style.border = "0";
-                    iframe.style.display = "block";
-                    iframe.title = "Lokalizacja web2sell na mapie Google";
-                    iframe.setAttribute("allowfullscreen", "");
-                    iframe.setAttribute(
-                        "referrerpolicy",
-                        "no-referrer-when-downgrade",
-                    );
-
-                    // Once iframe loads, fade it in and fade out the skeleton
-                    iframe.addEventListener("load", () => {
-                        mapContainer.classList.add("loaded");
-                        mapSkeleton.style.opacity = "0";
-                        setTimeout(() => {
-                            mapSkeleton.style.display = "none";
-                        }, 600);
-                    });
-
-                    mapContainer.appendChild(iframe);
-                };
-
-                // Use IntersectionObserver to load map when close to viewport
-                if ("IntersectionObserver" in window) {
-                    const observer = new IntersectionObserver(
-                        (entries) => {
-                            entries.forEach((entry) => {
-                                if (entry.isIntersecting) {
-                                    loadMap();
-                                    observer.disconnect();
-                                }
-                            });
-                        },
-                        { rootMargin: "150px" },
-                    );
-                    observer.observe(mapContainer);
-                } else {
-                    // Fallback for older browsers
-                    loadMap();
-                }
-            }
-        })();
-    </script>
+    <ConsentGoogleMap
+        embedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164316.23301606337!2d19.874760544328527!3d49.947282428156846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6447d991c045ed81%3A0x80337cb291998748!2sweb2sell!5e0!3m2!1spl!2spl!4v1779291902227!5m2!1spl!2spl"
+        mapsUrl="https://maps.app.goo.gl/VQRAs7KVT1nBckA36"
+    />
 
     <Footer isHome={true} />
 

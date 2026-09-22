@@ -1,0 +1,273 @@
+---
+interface Props {
+    embedUrl: string;
+    mapsUrl: string;
+    title?: string;
+}
+
+const {
+    embedUrl,
+    mapsUrl,
+    title = "Lokalizacja web2sell na mapie Google",
+} = Astro.props;
+---
+
+<div
+    class="google-map-embed consent-google-map"
+    data-consent-google-map
+    data-embed-url={embedUrl}
+    data-map-title={title}
+>
+    <div class="map-consent-placeholder" data-map-placeholder>
+        <div class="map-consent-placeholder__inner">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            <p data-map-status>
+                Mapa Google zostanie wczytana po zaakceptowaniu opcjonalnych
+                plików cookie.
+            </p>
+            <a
+                href={mapsUrl}
+                class="map-consent-placeholder__button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"
+                ></i>
+                Zobacz w Google Maps
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const CONSENT_MAP_SELECTOR = "[data-consent-google-map]";
+
+    function hasGoogleMapsConsent(): boolean {
+        const consentCheck = (window as any).hasOptionalGoogleConsent;
+        return typeof consentCheck === "function" && consentCheck();
+    }
+
+    function setupConsentMap(mapContainer: HTMLElement) {
+        const placeholder = mapContainer.querySelector<HTMLElement>(
+            "[data-map-placeholder]",
+        );
+        const status = mapContainer.querySelector<HTMLElement>(
+            "[data-map-status]",
+        );
+        const embedUrl = mapContainer.dataset.embedUrl;
+        const mapTitle =
+            mapContainer.dataset.mapTitle ||
+            "Lokalizacja web2sell na mapie Google";
+        let observer: IntersectionObserver | null = null;
+        let loaded = false;
+
+        if (!placeholder || !status || !embedUrl) return;
+
+        const showBlockedState = () => {
+            status.textContent =
+                "Mapa Google zostanie wczytana po zaakceptowaniu opcjonalnych plików cookie.";
+            placeholder.classList.remove("is-loading");
+            placeholder.style.display = "flex";
+            placeholder.style.opacity = "1";
+        };
+
+        const unloadMap = () => {
+            observer?.disconnect();
+            observer = null;
+            mapContainer.querySelector("iframe")?.remove();
+            mapContainer.classList.remove("loaded");
+            loaded = false;
+            showBlockedState();
+        };
+
+        const loadMap = () => {
+            if (loaded || !hasGoogleMapsConsent()) return;
+            loaded = true;
+            status.textContent = "Ładowanie mapy Google...";
+            placeholder.classList.add("is-loading");
+
+            const iframe = document.createElement("iframe");
+            iframe.src = embedUrl;
+            iframe.width = "100%";
+            iframe.height = "400";
+            iframe.style.border = "0";
+            iframe.title = mapTitle;
+            iframe.loading = "lazy";
+            iframe.setAttribute("allowfullscreen", "");
+            iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+
+            iframe.addEventListener("load", () => {
+                mapContainer.classList.add("loaded");
+                placeholder.style.opacity = "0";
+                window.setTimeout(() => {
+                    placeholder.style.display = "none";
+                }, 600);
+            });
+
+            mapContainer.appendChild(iframe);
+        };
+
+        const loadWhenVisible = () => {
+            if (!hasGoogleMapsConsent() || loaded || observer) return;
+
+            if ("IntersectionObserver" in window) {
+                observer = new IntersectionObserver(
+                    (entries) => {
+                        if (entries.some((entry) => entry.isIntersecting)) {
+                            observer?.disconnect();
+                            observer = null;
+                            loadMap();
+                        }
+                    },
+                    { rootMargin: "150px" },
+                );
+                observer.observe(mapContainer);
+            } else {
+                loadMap();
+            }
+        };
+
+        window.addEventListener("privacy-consent-changed", (event) => {
+            const decision = (event as CustomEvent).detail?.decision;
+            if (decision === "accepted") {
+                loadWhenVisible();
+            } else {
+                unloadMap();
+            }
+        });
+
+        if (hasGoogleMapsConsent()) {
+            loadWhenVisible();
+        } else {
+            showBlockedState();
+        }
+    }
+
+    document
+        .querySelectorAll<HTMLElement>(CONSENT_MAP_SELECTOR)
+        .forEach(setupConsentMap);
+</script>
+
+<style>
+    .consent-google-map {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background: var(--bg-color);
+        overflow: hidden;
+    }
+
+    .map-consent-placeholder {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background:
+            radial-gradient(
+                circle at center,
+                rgba(var(--accent-blue-rgb), 0.08) 0%,
+                transparent 70%
+            ),
+            var(--bg-color);
+        transition: opacity 0.6s ease;
+    }
+
+    .map-consent-placeholder__inner {
+        display: flex;
+        max-width: 520px;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        color: var(--text-secondary);
+        text-align: center;
+        line-height: 1.55;
+    }
+
+    .map-consent-placeholder__inner > i {
+        color: var(--accent-blue);
+        font-size: 2rem;
+    }
+
+    .map-consent-placeholder.is-loading
+        .map-consent-placeholder__inner
+        > i {
+        animation: map-pulse 1.2s ease-in-out infinite;
+    }
+
+    .map-consent-placeholder__inner p {
+        margin: 0;
+    }
+
+    .map-consent-placeholder__button {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 11px 20px;
+        border-radius: 10px;
+        background: linear-gradient(
+            135deg,
+            var(--accent-blue),
+            var(--accent-cyan)
+        );
+        box-shadow: 0 6px 18px rgba(var(--accent-blue-rgb), 0.25);
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1;
+        text-decoration: none;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .map-consent-placeholder__button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 9px 24px rgba(var(--accent-blue-rgb), 0.35);
+    }
+
+    .consent-google-map :global(iframe) {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateZ(0);
+        transition: opacity 0.8s ease;
+    }
+
+    .consent-google-map.loaded :global(iframe) {
+        opacity: 1;
+    }
+
+    .consent-google-map.loaded:hover :global(iframe),
+    .consent-google-map.loaded:active :global(iframe) {
+        pointer-events: auto;
+    }
+
+    @keyframes map-pulse {
+        50% {
+            transform: scale(1.12);
+            opacity: 0.65;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .map-consent-placeholder,
+        .map-consent-placeholder__button,
+        .consent-google-map :global(iframe) {
+            transition: none;
+        }
+
+        .map-consent-placeholder.is-loading
+            .map-consent-placeholder__inner
+            > i {
+            animation: none;
+        }
+    }
+</style>

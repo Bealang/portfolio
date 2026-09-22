@@ -55,11 +55,84 @@ if (url) {
                     <div class="project-overlay-text">
                         <h3 class="project-title">{title}</h3>
                     </div>
-                    <span class="project-cta-btn">
-                        <span>O Projekcie</span>
-                    </span>
                 </div>
             </div>
+
         </div>
     </div>
+    <span class="project-cursor-cta" aria-hidden="true">
+        <span>O projekcie</span>
+    </span>
 </a>
+
+<script>
+    const finePointer = window.matchMedia(
+        "(hover: hover) and (pointer: fine)",
+    );
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+    );
+
+    if (finePointer.matches) {
+        document.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
+            if (card.dataset.cursorFollowerReady === "true") return;
+            card.dataset.cursorFollowerReady = "true";
+
+            const viewport = card.querySelector<HTMLElement>(
+                ".project-mockup-viewport",
+            );
+            const follower = card.querySelector<HTMLElement>(
+                ".project-cursor-cta",
+            );
+
+            if (!viewport || !follower) return;
+
+            let currentX = 0;
+            let currentY = 0;
+            let targetX = 0;
+            let targetY = 0;
+            let animationFrame = 0;
+
+            const positionTarget = (event: PointerEvent) => {
+                const bounds = viewport.getBoundingClientRect();
+                targetX = event.clientX - bounds.left;
+                targetY = event.clientY - bounds.top;
+            };
+
+            const render = () => {
+                const smoothing = reduceMotion.matches ? 1 : 0.16;
+                currentX += (targetX - currentX) * smoothing;
+                currentY += (targetY - currentY) * smoothing;
+                follower.style.transform = `translate3d(${currentX - follower.offsetWidth / 2}px, ${currentY - follower.offsetHeight / 2}px, 0)`;
+
+                if (
+                    Math.abs(targetX - currentX) > 0.1 ||
+                    Math.abs(targetY - currentY) > 0.1
+                ) {
+                    animationFrame = requestAnimationFrame(render);
+                } else {
+                    animationFrame = 0;
+                }
+            };
+
+            const handlePointerMove = (event: PointerEvent) => {
+                positionTarget(event);
+                if (!animationFrame) animationFrame = requestAnimationFrame(render);
+            };
+
+            viewport.addEventListener("pointerenter", (event) => {
+                positionTarget(event);
+                currentX = targetX;
+                currentY = targetY;
+                render();
+                card.classList.add("is-cursor-following");
+            });
+
+            viewport.addEventListener("pointermove", handlePointerMove);
+
+            viewport.addEventListener("pointerleave", () => {
+                card.classList.remove("is-cursor-following");
+            });
+        });
+    }
+</script>

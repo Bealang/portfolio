@@ -120,27 +120,73 @@ import ThemePicker from "../components/ThemePicker.astro";
         />
         <script is:inline>
             (function () {
+                var CONSENT_KEY = "cookie-consent";
+                var CONSENT_VERSION = "2026-09-22";
+                var GA_ID = "G-QZ55XLZEDP";
+
+                window.getPrivacyConsentRecord = function () {
+                    try {
+                        var storedConsent = localStorage.getItem(CONSENT_KEY);
+                        if (!storedConsent) return null;
+
+                        var record = JSON.parse(storedConsent);
+                        if (
+                            !record ||
+                            record.version !== CONSENT_VERSION ||
+                            (record.decision !== "accepted" &&
+                                record.decision !== "declined") ||
+                            !record.updatedAt
+                        ) {
+                            return null;
+                        }
+
+                        return record;
+                    } catch (error) {
+                        return null;
+                    }
+                };
+
+                window.hasOptionalGoogleConsent = function () {
+                    var record = window.getPrivacyConsentRecord();
+                    return Boolean(
+                        record &&
+                            record.decision === "accepted" &&
+                            record.categories &&
+                            record.categories.analytics === true &&
+                            record.categories.googleMaps === true,
+                    );
+                };
+
                 window.initGA = function () {
                     if (window.gaInitialized) return;
                     window.gaInitialized = true;
+                    window["ga-disable-" + GA_ID] = false;
 
                     // Inject gtag.js
                     var script = document.createElement("script");
                     script.async = true;
                     script.src =
-                        "https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP";
+                        "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
                     document.head.appendChild(script);
 
                     window.dataLayer = window.dataLayer || [];
                     window.gtag = function () {
                         window.dataLayer.push(arguments);
                     };
+                    window.gtag("consent", "default", {
+                        analytics_storage: "granted",
+                        ad_storage: "denied",
+                        ad_user_data: "denied",
+                        ad_personalization: "denied",
+                    });
                     window.gtag("js", new Date());
-                    window.gtag("config", "G-QZ55XLZEDP");
+                    window.gtag("config", GA_ID, {
+                        allow_google_signals: false,
+                        allow_ad_personalization_signals: false,
+                    });
                 };
 
-                const consent = localStorage.getItem("cookie-consent");
-                if (consent === "accepted") {
+                if (window.hasOptionalGoogleConsent()) {
                     // User has already given consent. Load GA non-blockingly with delayed strategy.
                     var gaTriggered = false;
                     function triggerGA() {
@@ -209,8 +255,9 @@ import ThemePicker from "../components/ThemePicker.astro";
                         class="fa-solid fa-cookie-bite cookie-banner__icon"
                         aria-hidden="true"></i>
                     <p id="cookie-text">
-                        Ta strona korzysta z ciasteczek analitycznych (Google
-                        Analytics). Szczegóły znajdziesz w <a
+                        Ta strona korzysta z opcjonalnych usług Google Analytics
+                        i Google Maps. Uruchomimy je dopiero po Twojej zgodzie.
+                        Szczegóły znajdziesz w <a
                             href="/polityka"
                             class="cookie-banner__link">Polityce Prywatności</a
                         >.
@@ -229,31 +276,123 @@ import ThemePicker from "../components/ThemePicker.astro";
 
         <script is:inline>
             (function () {
-                const consent = localStorage.getItem("cookie-consent");
-                // Show banner only if the user hasn't made a choice yet
-                if (!consent) {
-                    const banner = document.getElementById("cookie-banner");
-                    const acceptBtn = document.getElementById("cookie-accept");
-                    const declineBtn = document.getElementById("cookie-decline");
-                    
-                    if (banner && acceptBtn && declineBtn) {
-                        banner.classList.remove("hidden");
-                        
-                        // User accepts cookies
-                        acceptBtn.addEventListener("click", function () {
-                            localStorage.setItem("cookie-consent", "accepted");
-                            banner.classList.add("hidden");
-                            if (typeof window.initGA === "function") {
-                                window.initGA();
-                            }
+                var CONSENT_KEY = "cookie-consent";
+                var CONSENT_VERSION = "2026-09-22";
+                var GA_ID = "G-QZ55XLZEDP";
+                var banner = document.getElementById("cookie-banner");
+                var acceptBtn = document.getElementById("cookie-accept");
+                var declineBtn = document.getElementById("cookie-decline");
+
+                if (!banner || !acceptBtn || !declineBtn) return;
+
+                function showBanner() {
+                    banner.classList.remove("hidden");
+                    banner.setAttribute("aria-hidden", "false");
+                }
+
+                function hideBanner() {
+                    banner.classList.add("hidden");
+                    banner.setAttribute("aria-hidden", "true");
+                }
+
+                function saveDecision(decision) {
+                    var accepted = decision === "accepted";
+                    var record = {
+                        version: CONSENT_VERSION,
+                        decision: decision,
+                        updatedAt: new Date().toISOString(),
+                        categories: {
+                            analytics: accepted,
+                            googleMaps: accepted,
+                        },
+                    };
+                    localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
+                    return record;
+                }
+
+                function deleteAnalyticsCookies() {
+                    var cookieNames = document.cookie
+                        .split(";")
+                        .map(function (cookie) {
+                            return cookie.split("=")[0].trim();
+                        })
+                        .filter(function (name) {
+                            return name === "_ga" || name.indexOf("_ga_") === 0;
                         });
 
-                        // User declines cookies
-                        declineBtn.addEventListener("click", function () {
-                            localStorage.setItem("cookie-consent", "declined");
-                            banner.classList.add("hidden");
+                    cookieNames.forEach(function (name) {
+                        var expired =
+                            name +
+                            "=; Max-Age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax";
+                        document.cookie = expired;
+                        document.cookie =
+                            expired + "; domain=" + window.location.hostname;
+                        document.cookie =
+                            expired + "; domain=." + window.location.hostname;
+                    });
+                }
+
+                function notifyConsentChange(record) {
+                    window.dispatchEvent(
+                        new CustomEvent("privacy-consent-changed", {
+                            detail: record,
+                        }),
+                    );
+                }
+
+                acceptBtn.addEventListener("click", function () {
+                    var record = saveDecision("accepted");
+                    hideBanner();
+                    window["ga-disable-" + GA_ID] = false;
+
+                    if (typeof window.gtag === "function") {
+                        window.gtag("consent", "update", {
+                            analytics_storage: "granted",
+                        });
+                        window.gtag("config", GA_ID, {
+                            allow_google_signals: false,
+                            allow_ad_personalization_signals: false,
+                        });
+                    } else if (typeof window.initGA === "function") {
+                        window.initGA();
+                    }
+
+                    notifyConsentChange(record);
+                });
+
+                declineBtn.addEventListener("click", function () {
+                    var record = saveDecision("declined");
+                    hideBanner();
+                    window["ga-disable-" + GA_ID] = true;
+
+                    if (typeof window.gtag === "function") {
+                        window.gtag("consent", "update", {
+                            analytics_storage: "denied",
                         });
                     }
+
+                    deleteAnalyticsCookies();
+                    notifyConsentChange(record);
+                });
+
+                document.addEventListener("click", function (event) {
+                    if (!(event.target instanceof Element)) return;
+                    var trigger = event.target.closest(
+                        "[data-open-privacy-settings]",
+                    );
+                    if (!trigger) return;
+
+                    event.preventDefault();
+                    showBanner();
+                    acceptBtn.focus();
+                });
+
+                // Legacy string values do not contain a date or policy version,
+                // so one fresh choice is requested after this update.
+                if (!window.getPrivacyConsentRecord()) {
+                    showBanner();
+                } else {
+                    hideBanner();
                 }
             })();
         </script>
