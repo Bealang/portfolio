@@ -19,9 +19,8 @@ Oferujemy autorski, lekki kod, natychmiastowe ładowanie na smartfonach i jakoś
 
 ---
 
-## Nasz Zespół (Trzy osoby, jeden wspólny cel)
+## Nasz Zespół
 
-Każdy z nas specjalizuje się w innej dziedzinie, dzięki czemu Twoja strona jest dopracowana pod każdym kątem – od stabilnej architektury backendowej, przez niepowtarzalny design, aż po bezkompromisową szybkość.
 
 ### Łukasz — Backend developer
 Łukasz to ekspert od zaawansowanej struktury stron, baz danych oraz ochrony sieciowej. Projektuje stabilne zaplecze techniczne witryn, dbając o to, by Twoje dane oraz dane Twoich klientów były w 100% bezpieczne. Tworzy rozwiązania gwarantujące płynne działanie strony nawet przy bardzo dużym ruchu, skutecznie chroniąc ją przed awariami oraz atakami hakerskimi.

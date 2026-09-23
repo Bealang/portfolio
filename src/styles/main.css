@@ -550,8 +550,8 @@ body {
     }
 }
 
-/* Poznaj nas (O nas) Button */
-.btn-about {
+/* Hero quote button */
+.btn-quote {
     background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.95), rgba(var(--accent-cyan-rgb), 0.95));
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white !important;
@@ -572,7 +572,7 @@ body {
     -webkit-backdrop-filter: blur(10px);
 }
 
-html[data-theme="dark"] .btn-about {
+html[data-theme="dark"] .btn-quote {
     background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.95), rgba(var(--accent-cyan-rgb), 0.95));
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow:
@@ -580,7 +580,7 @@ html[data-theme="dark"] .btn-about {
         var(--glass-shadow);
 }
 
-.btn-about:hover {
+.btn-quote:hover {
     transform: translateY(-5px);
     background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 1), rgba(var(--accent-cyan-rgb), 1));
     border-color: rgba(255, 255, 255, 0.3);
@@ -591,20 +591,20 @@ html[data-theme="dark"] .btn-about {
     color: white !important;
 }
 
-html[data-theme="dark"] .btn-about:hover {
+html[data-theme="dark"] .btn-quote:hover {
     background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 1), rgba(var(--accent-cyan-rgb), 1));
     box-shadow:
         0 15px 40px rgba(var(--accent-blue-rgb), 0.45),
         var(--glass-shadow);
 }
 
-.btn-about i {
+.btn-quote i {
     font-size: 0.9rem;
     transition: transform 0.3s ease;
     color: white;
 }
 
-.btn-about:hover i {
+.btn-quote:hover i {
     transform: translateX(6px);
 }
 
@@ -1146,7 +1146,7 @@ html[data-theme="dark"] .hero-scroll-arrow:hover {
         /* Center the buttons */
     }
 
-    .hero-buttons .btn-about,
+    .hero-buttons .btn-quote,
     .hero-buttons .btn-glass {
         flex: 1 !important;
         min-width: 0 !important;
@@ -5994,7 +5994,7 @@ nav>a.active::after {
 /* Global Mobile Backdrop Filter & Animation Disabler for maximum FPS performance */
 @media (max-width: 995px) {
 
-    .btn-about,
+    .btn-quote,
     .btn-glass,
     .btn-primary,
     .btn-secondary,

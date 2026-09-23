@@ -2143,21 +2143,6 @@
             submitBtn.style.display =
                 currentStep === totalSteps ? "inline-flex" : "none";
         }
-
-        // Scroll do formularza (przydatne na telefonie)
-        const wizardEl = document.getElementById("order-wizard");
-        if (wizardEl && currentStep > 1) {
-            const offset = 80;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = wizardEl.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth",
-            });
-        }
     }
 
     // Kliknięcie w przyciski Dalej / Powrót

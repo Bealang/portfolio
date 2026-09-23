@@ -41,3 +41,6 @@
 # Local client panels
 client-panel/
 panel-klienta/
+
+# Local business scanner plan and CRM database
+/plan-skanera-firm/
