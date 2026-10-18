@@ -15,7 +15,15 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+
+// Spis treści - nagłówki H2 oraz H3
+const tocHeadings = (headings || []).filter((h) => h.depth === 2 || h.depth === 3);
+
+// Szacowany czas czytania
+const rawBody = post.body || "";
+const wordCount = rawBody.trim() ? rawBody.trim().split(/\s+/).length : 500;
+const readingTime = Math.max(2, Math.ceil(wordCount / 220));
 
 const formatDate = (date: Date) => {
     return date.toLocaleDateString("pl-PL", {
@@ -25,6 +33,70 @@ const formatDate = (date: Date) => {
     });
 };
 
+const canonicalURL = `https://web2sell.pl/blog/${post.id}`;
+const ogImageURL = post.data.image.startsWith("http")
+    ? post.data.image
+    : `https://web2sell.pl${post.data.image}`;
+
+// Dane strukturalne SEO pod Google (Rich Snippet - BlogPosting + BreadcrumbList)
+const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "@id": `${canonicalURL}#article`,
+            "headline": post.data.title,
+            "description": post.data.description,
+            "image": ogImageURL,
+            "datePublished": post.data.pubDate.toISOString(),
+            "dateModified": post.data.pubDate.toISOString(),
+            "inLanguage": "pl-PL",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": canonicalURL
+            },
+            "author": {
+                "@type": "Person",
+                "name": post.data.author || "Kacper Moskal",
+                "url": "https://web2sell.pl/#o-nas"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "web2sell",
+                "url": "https://web2sell.pl/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://web2sell.pl/assets/frameworks/logo.avif"
+                }
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${canonicalURL}#breadcrumb`,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Strona główna",
+                    "item": "https://web2sell.pl/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "https://web2sell.pl/blog"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": post.data.title,
+                    "item": canonicalURL
+                }
+            ]
+        }
+    ]
+};
+
 // Pobieramy wszystkie posty posortowane chronologicznie
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -32,7 +104,6 @@ const posts = (await getCollection("blog")).sort(
 const currentIndex = posts.findIndex((p) => p.id === post.id);
 
 // Pokaż dalej: następny post chronologicznie (starszy).
-// Jeśli nie ma starszego (jesteśmy na końcu), wracamy do najnowszego (pierwszego na liście).
 const nextPost =
     currentIndex < posts.length - 1
         ? posts[currentIndex + 1]
@@ -42,18 +113,29 @@ const nextPost =
 ---
 
 <Layout
-    title={`${post.data.title} | web2sell`}
+    title={`${post.data.title} | web2sell Blog`}
     description={post.data.description}
+    canonical={canonicalURL}
     ogImage={post.data.image}
     ogType="article"
-    robots="noindex, follow"
+    robots="index, follow"
 >
+    <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
     <Header activePage="blog" />
 
     <main class="post-container">
         <HeroBg behindContent={true} />
 
         <article class="post">
+            <!-- Breadcrumbs SEO -->
+            <nav class="post__breadcrumbs" aria-label="Ścieżka nawigacyjna">
+                <a href="/">Strona główna</a>
+                <span class="bc-sep">/</span>
+                <a href="/blog">Blog</a>
+                <span class="bc-sep">/</span>
+                <span class="bc-current" aria-current="page">{post.data.title}</span>
+            </nav>
+
             <div class="post__header">
                 <a href="/blog" class="post__back-btn">
                     <i class="fa-solid fa-arrow-left-long"></i>
@@ -73,6 +155,11 @@ const nextPost =
                         <i class="fa-regular fa-calendar-days"></i>
                         {formatDate(post.data.pubDate)}
                     </time>
+                    <span class="post__divider">•</span>
+                    <span class="post__reading-time">
+                        <i class="fa-regular fa-clock"></i>
+                        {readingTime} min czytania
+                    </span>
                 </div>
 
                 <h1 class="post__title">{post.data.title}</h1>
@@ -85,176 +172,252 @@ const nextPost =
                     width={1200}
                     height={600}
                     class="post__image"
+                    loading="eager"
                 />
             </div>
 
-            <section class="post__content">
-                <Content />
-            </section>
+            <!-- UKŁAD DWUKOLUMNOWY: LEWA STRONA TREŚĆ, PRAWA STRONA STICKY SIDEBAR -->
+            <div class="post__layout">
+                <!-- LEWA KOLUMNA: GŁÓWNA TREŚĆ ARTYKUŁU -->
+                <div class="post__main-content">
+                    {tocHeadings.length > 0 && (
+                        <!-- Spis treści na telefony (zwijany akordeon) -->
+                        <div class="post__mobile-toc">
+                            <details class="mobile-toc-details">
+                                <summary class="mobile-toc-summary">
+                                    <span class="mobile-toc-title">
+                                        <i class="fa-solid fa-list-ul"></i>
+                                        Spis treści artykułu
+                                    </span>
+                                    <i class="fa-solid fa-chevron-down mobile-toc-arrow"></i>
+                                </summary>
+                                <ul class="mobile-toc-list">
+                                    {tocHeadings.map((h) => (
+                                        <li class={`mobile-toc-item mobile-toc-item--depth-${h.depth}`}>
+                                            <a href={`#${h.slug}`}>{h.text}</a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </details>
+                        </div>
+                    )}
 
-            <!-- Sekcja udostępniania -->
-            <div class="post__share">
-                <span class="share__title"
-                    >Spodobał ci się artykuł? Udostępnij go innym!</span
-                >
-                <div class="share__buttons">
-                    <button
-                        class="share-btn share-btn--native"
-                        id="shareNative"
-                        style="display: none;"
-                        aria-label="Udostępnij artykuł"
-                    >
-                        <i class="fa-solid fa-share-nodes"></i>
-                        <span class="tooltip">Udostępnij</span>
-                    </button>
-                    <a
-                        href="#"
-                        class="share-btn share-btn--facebook"
-                        id="shareFacebook"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Udostępnij na Facebooku"
-                    >
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a
-                        href="#"
-                        class="share-btn share-btn--x"
-                        id="shareX"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Udostępnij na X"
-                    >
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a
-                        href="#"
-                        class="share-btn share-btn--linkedin"
-                        id="shareLinkedIn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Udostępnij na LinkedIn"
-                    >
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <button
-                        class="share-btn share-btn--copy"
-                        id="shareCopy"
-                        aria-label="Kopiuj link do schowka"
-                    >
-                        <i class="fa-solid fa-link"></i>
-                        <span class="tooltip" id="copyTooltip"
-                            >Skopiuj link</span
+                    <section class="post__content">
+                        <Content />
+                    </section>
+
+                    <!-- Sekcja udostępniania -->
+                    <div class="post__share">
+                        <span class="share__title"
+                            >Spodobał ci się artykuł? Udostępnij go innym!</span
                         >
-                    </button>
-                </div>
-            </div>
+                        <div class="share__buttons">
+                            <button
+                                class="share-btn share-btn--native"
+                                id="shareNative"
+                                style="display: none;"
+                                aria-label="Udostępnij artykuł"
+                            >
+                                <i class="fa-solid fa-share-nodes"></i>
+                                <span class="tooltip">Udostępnij</span>
+                            </button>
+                            <a
+                                href="#"
+                                class="share-btn share-btn--facebook"
+                                id="shareFacebook"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Udostępnij na Facebooku"
+                            >
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a
+                                href="#"
+                                class="share-btn share-btn--x"
+                                id="shareX"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Udostępnij na X"
+                            >
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a
+                                href="#"
+                                class="share-btn share-btn--linkedin"
+                                id="shareLinkedIn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Udostępnij na LinkedIn"
+                            >
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <button
+                                class="share-btn share-btn--copy"
+                                id="shareCopy"
+                                aria-label="Kopiuj link do schowka"
+                            >
+                                <i class="fa-solid fa-link"></i>
+                                <span class="tooltip" id="copyTooltip"
+                                    >Skopiuj link</span
+                                >
+                            </button>
+                        </div>
+                    </div>
 
-            <script is:inline>
-                document.addEventListener("DOMContentLoaded", function () {
-                    var pageUrl = window.location.href;
-                    var pageTitle = document.title;
-
-                    var shareNativeBtn = document.getElementById("shareNative");
-                    var fbBtn = document.getElementById("shareFacebook");
-                    var xBtn = document.getElementById("shareX");
-                    var liBtn = document.getElementById("shareLinkedIn");
-                    var copyBtn = document.getElementById("shareCopy");
-                    var tooltip = document.getElementById("copyTooltip");
-
-                    if (navigator.share) {
-                        // Jeśli przeglądarka wspiera Web Share API (głównie urządzenia mobilne)
-                        if (shareNativeBtn) {
-                            shareNativeBtn.style.display = "flex";
-                            shareNativeBtn.addEventListener(
-                                "click",
-                                function () {
-                                    navigator
-                                        .share({
-                                            title: document.title,
-                                            url: pageUrl,
-                                        })
-                                        .catch(function (err) {
-                                            console.log(
-                                                "Anulowano udostępnianie lub błąd: ",
-                                                err,
-                                            );
-                                        });
-                                },
-                            );
-                        }
-                        // Ukrywamy poszczególne przyciski społecznościowe, bo natywny panel systemowy obsługuje je znacznie lepiej
-                        if (fbBtn) fbBtn.style.display = "none";
-                        if (xBtn) xBtn.style.display = "none";
-                        if (liBtn) liBtn.style.display = "none";
-                    } else {
-                        // Tradycyjne linki społecznościowe dla komputerów stacjonarnych
-                        var encodedUrl = encodeURIComponent(pageUrl);
-                        var encodedTitle = encodeURIComponent(pageTitle);
-                        if (fbBtn)
-                            fbBtn.href =
-                                "https://www.facebook.com/sharer/sharer.php?u=" +
-                                encodedUrl;
-                        if (xBtn)
-                            xBtn.href =
-                                "https://twitter.com/intent/tweet?url=" +
-                                encodedUrl +
-                                "&text=" +
-                                encodedTitle;
-                        if (liBtn)
-                            liBtn.href =
-                                "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                                encodedUrl;
-                    }
-
-                    if (copyBtn && tooltip) {
-                        copyBtn.addEventListener("click", function () {
-                            navigator.clipboard
-                                .writeText(pageUrl)
-                                .then(function () {
-                                    tooltip.textContent = "Skopiowano!";
-                                    tooltip.classList.add("tooltip--visible");
-                                    setTimeout(function () {
-                                        tooltip.textContent = "Skopiuj link";
-                                        tooltip.classList.remove(
-                                            "tooltip--visible",
-                                        );
-                                    }, 2000);
-                                })
-                                .catch(function (err) {
-                                    console.error("Błąd kopiowania: ", err);
-                                });
-                        });
-                    }
-                });
-            </script>
-
-            <!-- Dolna nawigacja artykułu -->
-            <div class="post__navigation">
-                <a
-                    href="/blog"
-                    class="post__nav-btn post__nav-btn--back"
-                    aria-label="Wróć do listy wszystkich artykułów"
-                >
-                    <i class="fa-solid fa-arrow-left-long"></i>
-                    <span>Powrót na bloga</span>
-                </a>
-
-                {
-                    nextPost && (
+                    <!-- Dolna nawigacja artykułu -->
+                    <div class="post__navigation">
                         <a
-                            href={`/blog/${nextPost.id}`}
-                            class="post__nav-btn post__nav-btn--next"
-                            aria-label={`Przeczytaj kolejny artykuł: ${nextPost.data.title}`}
+                            href="/blog"
+                            class="post__nav-btn post__nav-btn--back"
+                            aria-label="Wróć do listy wszystkich artykułów"
                         >
-                            <span>Pokaż dalej</span>
-                            <i class="fa-solid fa-arrow-right-long" />
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                            <span>Powrót na bloga</span>
                         </a>
-                    )
-                }
+
+                        {
+                            nextPost && (
+                                <a
+                                    href={`/blog/${nextPost.id}`}
+                                    class="post__nav-btn post__nav-btn--next"
+                                    aria-label={`Przeczytaj kolejny artykuł: ${nextPost.data.title}`}
+                                >
+                                    <span>Pokaż dalej</span>
+                                    <i class="fa-solid fa-arrow-right-long" />
+                                </a>
+                            )
+                        }
+                    </div>
+                </div>
+
+                <!-- PRAWA KOLUMNA: STICKY DIVY (SPIS TREŚCI + DARMOWA WYCENA) -->
+                <aside class="post__sidebar">
+                    <div class="post__sidebar-sticky">
+                        {tocHeadings.length > 0 && (
+                            <div class="post__toc-card">
+                                <div class="toc-card__header">
+                                    <i class="fa-solid fa-list-ul"></i>
+                                    <span>Spis treści</span>
+                                </div>
+                                <nav class="toc-card__nav" aria-label="Spis treści artykułu">
+                                    <ul class="toc-card__list">
+                                        {tocHeadings.map((h) => (
+                                            <li class={`toc-card__item toc-card__item--depth-${h.depth}`}>
+                                                <a href={`#${h.slug}`} class="toc-link">
+                                                    {h.text}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </nav>
+                            </div>
+                        )}
+
+                        <!-- STICKY CTA: DARMOWA WYCENA / CZY POTRZEBUJESZ STRONY -->
+                        <div class="post__sidebar-cta">
+                            <div class="sidebar-cta__badge">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Darmowa wycena w 24h</span>
+                            </div>
+                            <h3 class="sidebar-cta__title">
+                                Potrzebujesz strony dla swojej firmy?
+                            </h3>
+                            <p class="sidebar-cta__desc">
+                                Budujemy ultra-szybkie strony internetowe od zera. Bez ciężkich motywów WordPress, z wynikiem 95-100 PageSpeed i bez comiesięcznych abonamentów.
+                            </p>
+                            
+                            <ul class="sidebar-cta__features">
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>100% autorski kod (Astro)</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>Ładowanie w ułamek sekundy</span>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>Optymalizacja SEO pod Google</span>
+                                </li>
+                            </ul>
+
+                            <div class="sidebar-cta__actions">
+                                <a href="/zamow" class="sidebar-cta__btn-primary">
+                                    <span>Wyceń projekt za darmo</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="tel:+48530315860" class="sidebar-cta__btn-phone">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>Zadzwoń: 530 315 860</span>
+                                </a>
+                            </div>
+
+                            <a href="/cennik" class="sidebar-cta__link-cennik">
+                                Sprawdź nasz przejrzysty cennik &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </article>
     </main>
+
+    <!-- Skrypt płynnego przewijania spisu treści i podświetlania aktywnego nagłówka -->
+    <script is:inline>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tocLinks = document.querySelectorAll(".toc-link, .mobile-toc-list a");
+            var contentHeadings = document.querySelectorAll(
+                ".post__content h2, .post__content h3"
+            );
+
+            if (tocLinks.length && contentHeadings.length) {
+                tocLinks.forEach(function (link) {
+                    link.addEventListener("click", function (e) {
+                        var targetHref = this.getAttribute("href");
+                        if (targetHref && targetHref.startsWith("#")) {
+                            var targetEl = document.getElementById(targetHref.substring(1));
+                            if (targetEl) {
+                                e.preventDefault();
+                                var offset = 100;
+                                var bodyRect = document.body.getBoundingClientRect().top;
+                                var elementRect = targetEl.getBoundingClientRect().top;
+                                var elementPosition = elementRect - bodyRect;
+                                var offsetPosition = elementPosition - offset;
+
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: "smooth"
+                                });
+                                history.pushState(null, "", targetHref);
+                            }
+                        }
+                    });
+                });
+
+                var observer = new IntersectionObserver(
+                    function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                var id = entry.target.id;
+                                document.querySelectorAll(".toc-link").forEach(function (l) {
+                                    if (l.getAttribute("href") === "#" + id) {
+                                        l.classList.add("toc-link--active");
+                                    } else {
+                                        l.classList.remove("toc-link--active");
+                                    }
+                                });
+                            }
+                        });
+                    },
+                    { rootMargin: "-80px 0px -70% 0px", threshold: 0 }
+                );
+
+                contentHeadings.forEach(function (h) {
+                    observer.observe(h);
+                });
+            }
+        });
+    </script>
 
     <Footer />
 </Layout>
@@ -400,9 +563,9 @@ const nextPost =
 <style>
     .post-container {
         position: relative;
-        max-width: 800px; /* węższy kontener dla maksymalnego skupienia na czytaniu */
+        max-width: 1260px;
         margin: 0 auto;
-        padding: 160px 5% 80px;
+        padding: 150px 24px 80px;
         min-height: 85vh;
     }
 
@@ -411,8 +574,41 @@ const nextPost =
         z-index: 2;
     }
 
+    .post__breadcrumbs {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+    }
+
+    .post__breadcrumbs a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: var(--transition-smooth);
+    }
+
+    .post__breadcrumbs a:hover {
+        color: var(--accent-blue);
+    }
+
+    .bc-sep {
+        color: var(--glass-border);
+    }
+
+    .bc-current {
+        color: var(--text-primary);
+        font-weight: 600;
+        max-width: 420px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     .post__header {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .post__back-btn {
@@ -423,7 +619,7 @@ const nextPost =
         font-size: 0.9rem;
         font-weight: 600;
         text-decoration: none;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         transition: var(--transition-smooth);
     }
 
@@ -444,6 +640,7 @@ const nextPost =
     .post__meta {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 12px;
         font-size: 0.88rem;
         color: var(--text-secondary);
@@ -460,12 +657,23 @@ const nextPost =
         color: var(--glass-border);
     }
 
+    .post__reading-time {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-secondary);
+    }
+
+    .post__reading-time i {
+        color: var(--accent-cyan);
+    }
+
     .post__title {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: clamp(28px, 4.5vw, 48px);
+        font-size: clamp(28px, 4.2vw, 46px);
         font-weight: 800;
         color: var(--text-primary);
-        line-height: 1.2;
+        line-height: 1.25;
         letter-spacing: -1px;
         margin: 0;
     }
@@ -475,8 +683,8 @@ const nextPost =
         overflow: hidden;
         border: 1px solid var(--glass-border);
         box-shadow: var(--glass-shadow);
-        margin-bottom: 40px;
-        height: 400px;
+        margin-bottom: 30px;
+        height: 440px;
         width: 100%;
     }
 
@@ -486,18 +694,343 @@ const nextPost =
         object-fit: cover;
     }
 
-    @media (max-width: 768px) {
+    /* UKŁAD DWUKOLUMNOWY: LEWA TREŚĆ, PRAWY STICKY SIDEBAR */
+    .post__layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 48px;
+        align-items: start;
+        margin-top: 30px;
+    }
+
+    .post__main-content {
+        min-width: 0;
+    }
+
+    .post__sidebar {
+        position: relative;
+        width: 340px;
+    }
+
+    .post__sidebar-sticky {
+        position: sticky;
+        top: 110px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-height: calc(100vh - 125px);
+        overflow-y: auto;
+        padding-right: 4px;
+        scrollbar-width: thin;
+    }
+
+    .post__sidebar-sticky::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .post__sidebar-sticky::-webkit-scrollbar-thumb {
+        background: rgba(var(--accent-blue-rgb), 0.2);
+        border-radius: 4px;
+    }
+
+    /* KARTA SPISU TREŚCI (TOC) */
+    .post__toc-card {
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 22px 20px;
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        box-shadow: var(--glass-shadow);
+    }
+
+    .toc-card__header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--text-primary);
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .toc-card__header i {
+        color: var(--accent-blue);
+        font-size: 0.9rem;
+    }
+
+    .toc-card__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .toc-card__item {
+        line-height: 1.4;
+    }
+
+    .toc-card__item--depth-3 {
+        padding-left: 14px;
+        font-size: 0.85rem;
+    }
+
+    .toc-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.88rem;
+        transition: all 0.2s ease;
+        display: block;
+        border-left: 2px solid transparent;
+        padding-left: 6px;
+    }
+
+    .toc-link:hover {
+        color: var(--text-primary);
+        border-left-color: rgba(var(--accent-blue-rgb), 0.5);
+        padding-left: 10px;
+    }
+
+    .toc-link--active {
+        color: var(--accent-blue) !important;
+        font-weight: 700;
+        border-left-color: var(--accent-blue) !important;
+        padding-left: 10px;
+    }
+
+    /* KARTA STICKY CTA: DARMOWA WYCENA */
+    .post__sidebar-cta {
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 26px 22px;
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        box-shadow: var(--glass-shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sidebar-cta__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        align-self: flex-start;
+        padding: 4px 12px;
+        background: rgba(var(--accent-blue-rgb), 0.1);
+        color: var(--accent-blue);
+        border: 1px solid rgba(var(--accent-blue-rgb), 0.25);
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .sidebar-cta__title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    .sidebar-cta__desc {
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .sidebar-cta__features {
+        list-style: none;
+        padding: 0;
+        margin: 4px 0 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .sidebar-cta__features li {
+        font-size: 0.82rem;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .sidebar-cta__features li i {
+        color: var(--accent-blue);
+        font-size: 0.75rem;
+    }
+
+    .sidebar-cta__actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 4px;
+    }
+
+    .sidebar-cta__btn-primary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 18px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(var(--accent-blue-rgb), 0.25);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sidebar-cta__btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(var(--accent-blue-rgb), 0.35);
+    }
+
+    .sidebar-cta__btn-phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 12px;
+        background: rgba(var(--accent-blue-rgb), 0.08);
+        border: 1px solid rgba(var(--accent-blue-rgb), 0.2);
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .sidebar-cta__btn-phone:hover {
+        background: rgba(var(--accent-blue-rgb), 0.15);
+        border-color: var(--accent-blue);
+    }
+
+    .sidebar-cta__link-cennik {
+        text-align: center;
+        font-size: 0.82rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        margin-top: 2px;
+    }
+
+    .sidebar-cta__link-cennik:hover {
+        color: var(--accent-blue);
+        text-decoration: underline;
+    }
+
+    /* MOBILE TOC */
+    .post__mobile-toc {
+        display: none;
+        margin-bottom: 30px;
+    }
+
+    .mobile-toc-details {
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 16px 20px;
+        box-shadow: var(--glass-shadow);
+    }
+
+    .mobile-toc-summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-size: 0.95rem;
+        list-style: none;
+    }
+
+    .mobile-toc-summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .mobile-toc-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .mobile-toc-title i {
+        color: var(--accent-blue);
+    }
+
+    .mobile-toc-arrow {
+        transition: transform 0.3s ease;
+        color: var(--text-secondary);
+    }
+
+    .mobile-toc-details[open] .mobile-toc-arrow {
+        transform: rotate(180deg);
+    }
+
+    .mobile-toc-list {
+        list-style: none;
+        padding: 14px 0 0;
+        margin: 14px 0 0;
+        border-top: 1px solid var(--glass-border);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mobile-toc-list a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .mobile-toc-item--depth-3 {
+        padding-left: 14px;
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 1024px) {
         .post-container {
-            padding-top: 130px;
+            padding: 130px 20px 60px;
         }
 
-        .post__title {
-            text-align: left !important;
+        .post__layout {
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
 
-        .post__image-wrapper {
-            height: 250px;
-            border-radius: 12px;
+        .post__sidebar {
+            width: 100%;
+        }
+
+        .post__sidebar-sticky {
+            position: static;
+            max-height: none;
+            overflow-y: visible;
+        }
+
+        .post__toc-card {
+            display: none;
+        }
+
+        .post__mobile-toc {
+            display: block;
         }
 
         .post__content {
