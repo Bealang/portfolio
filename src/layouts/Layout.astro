@@ -215,21 +215,61 @@ import ThemePicker from "../components/ThemePicker.astro";
             })();
         </script>
 
-        <!-- Structured Data -->
+        <!-- Structured Data (Org + SiteNavigationElement for Google Sitelinks) -->
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                "name": "web2sell - Tworzenie stron www",
-                "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
-                "url": "https://web2sell.pl/",
-                "telephone": "",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Myślenice",
-                    "addressCountry": "PL"
-                },
-                "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+                "@graph": [
+                    {
+                        "@type": "ProfessionalService",
+                        "@id": "https://web2sell.pl/#organization",
+                        "name": "web2sell - Tworzenie stron www",
+                        "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
+                        "url": "https://web2sell.pl/",
+                        "telephone": "+48530315860",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Myślenice",
+                            "addressCountry": "PL"
+                        },
+                        "description": "Profesjonalne tworzenie stron www w Myślenicach i całej Małopolsce. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+                    },
+                    {
+                        "@type": "ItemList",
+                        "@id": "https://web2sell.pl/#site-navigation",
+                        "name": "Główna nawigacja serwisu",
+                        "itemListElement": [
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 1,
+                                "name": "Cennik",
+                                "description": "Przejrzysty cennik stron www bez abonamentu - OnePage (990 zł), Wizytówka + CMS (2290 zł) i System Dedykowany (3990 zł).",
+                                "url": "https://web2sell.pl/cennik"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 2,
+                                "name": "Darmowa wycena",
+                                "description": "Skontaktuj się i otrzymaj bezpłatną, niezobowiązującą wycenę strony w 24 godziny.",
+                                "url": "https://web2sell.pl/zamow"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 3,
+                                "name": "Jak działamy",
+                                "description": "4-etapowy proces realizacji strony internetowej od projektu po wdrożenie oraz FAQ.",
+                                "url": "https://web2sell.pl/jak-dzialamy"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 4,
+                                "name": "Przykładowe realizacje",
+                                "description": "Portfolio stron internetowych stworzonych od zera dla firm z Małopolski.",
+                                "url": "https://web2sell.pl/#projekty"
+                            }
+                        ]
+                    }
+                ]
             }
         </script>
 
