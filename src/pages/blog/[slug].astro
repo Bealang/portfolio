@@ -169,8 +169,8 @@ const nextPost =
                 <Image
                     src={post.data.image}
                     alt={post.data.imageAlt || post.data.title}
-                    width={1200}
-                    height={600}
+                    width={1280}
+                    height={720}
                     class="post__image"
                     loading="eager"
                 />
@@ -684,14 +684,15 @@ const nextPost =
         border: 1px solid var(--glass-border);
         box-shadow: var(--glass-shadow);
         margin-bottom: 30px;
-        height: 440px;
         width: 100%;
+        aspect-ratio: 16 / 9;
     }
 
     .post__image {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
     }
 
     /* UKŁAD DWUKOLUMNOWY: LEWA TREŚĆ, PRAWY STICKY SIDEBAR */

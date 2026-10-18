@@ -37,7 +37,7 @@ const readTime = calculateReadTime(description);
 
     <div class="blog-card__image-container">
         <a href={`/blog/${slug}`} class="blog-card__image-link" aria-label={`Przeczytaj artykuł: ${title}`}>
-            <Image src={image} alt={imageAlt} width={600} height={400} class="blog-card__image" loading="lazy" />
+            <Image src={image} alt={imageAlt} width={640} height={360} class="blog-card__image" loading="lazy" />
             <div class="blog-card__image-overlay"></div>
         </a>
         <div class="blog-card__badge">
@@ -115,7 +115,7 @@ const readTime = calculateReadTime(description);
     .blog-card__image-container {
         position: relative;
         width: 100%;
-        height: 220px;
+        aspect-ratio: 16 / 9;
         overflow: hidden;
         border-bottom: 1px solid var(--glass-border);
         border-top-left-radius: 11px; /* Dopasowane do krawędzi karty */
