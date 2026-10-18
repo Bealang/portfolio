@@ -1,0 +1,296 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/myslenice.css";
+
+const citySchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Myślenice",
+    "description": "Projektowanie i wdrażanie szybkich stron www dla małych firm, rzemiosła i usług na terenie Myślenic i okolic.",
+    "url": "https://web2sell.pl/strony-internetowe-myslenice",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Myślenice",
+        "Dobczyce",
+        "Sułkowice",
+        "Pcim",
+        "Siepraw",
+        "Lubień",
+        "Tokarnia"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Tworzenie Stron Internetowych Myślenice | Dla małych firm – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla małych firm i usług z Myślenic i powiatu myślenickiego. Zero abonamentów, wysokie pozycje w Google i realne zlecenia. Sprawdź ofertę!"
+    canonical="https://web2sell.pl/strony-internetowe-myslenice"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(citySchema)} />
+
+    <Header activePage="" />
+
+    <main class="local-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="local-hero">
+            <div class="local-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="local-badge">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Myślenice i powiat myślenicki</span>
+                </div>
+                
+                <h1 class="local-title">
+                    Nowoczesne strony www dla <span class="local-highlight">małych firm w Myślenicach</span>, które przynoszą telefony.
+                </h1>
+
+                <p class="local-subtitle">
+                    Koniec ze stronami-widmami i przepłacaniem za comiesięczne abonamenty. Budujemy błyskawiczne, proste w obsłudze strony dla lokalnych wykonawców, rzemieślników i firm usługowych z Myślenic i okolic.
+                </p>
+
+                <div class="local-actions">
+                    <a href="tel:+48530315860" class="local-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="local-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Bezpłatna wycena online</span>
+                    </a>
+                </div>
+
+                <div class="local-trust-row">
+                    <div class="local-trust-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Możliwość spotkania w Myślenicach</span>
+                    </div>
+                    <div class="local-trust-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Strona na własność (0 zł abonamentu)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="local-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="local-hero-card-header">
+                    <span class="local-card-title">
+                        <span class="local-pulse-indicator"></span>
+                        Przewaga Twojej firmy w regionie
+                    </span>
+                    <span style="font-size: 0.8rem; color: #10b981; font-weight: 700;">LIVE METRICS</span>
+                </div>
+
+                <div class="local-stat-grid">
+                    <div class="local-stat-box">
+                        <div class="local-stat-value">&lt; 0.6s</div>
+                        <div class="local-stat-label">Czas ładowania na telefonie</div>
+                    </div>
+                    <div class="local-stat-box">
+                        <div class="local-stat-value">100%</div>
+                        <div class="local-stat-label">Dostosowanie do smartfonów</div>
+                    </div>
+                    <div class="local-stat-box">
+                        <div class="local-stat-value">TOP 3</div>
+                        <div class="local-stat-label">Potencjał lokalnego SEO w regionie</div>
+                    </div>
+                    <div class="local-stat-box">
+                        <div class="local-stat-value">0 zł</div>
+                        <div class="local-stat-label">Ukrytych comiesięcznych opłat</div>
+                    </div>
+                </div>
+
+                <div class="local-card-note">
+                    <strong>Jak szuka klient z Myślenic?</strong> Wyciąga telefon, wpisuje usługę i dzwoni do pierwszej firmy z czytelnym cennikiem i numerem na wierzchu. Sprawimy, że trafi do Ciebie.
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA: SPECYFIKA BIZNESU W MYŚLENICACH -->
+        <section class="local-section">
+            <div class="local-section-header" data-aos="fade-up">
+                <span class="local-section-tag">Dlaczego to działa?</span>
+                <h2 class="local-section-title">Jak lokalna firma w Myślenicach wygrywa z konkurencją w internecie?</h2>
+                <p class="local-section-desc">
+                    Większość małych firm w powiecie myślenickim ma ten sam problem: stara strona sprzed dekady, martwy profil na Facebooku albo brak widoczności w Google Maps. Wystarczy kilka konkretnych kroków, by przejąć lokalny rynek.
+                </p>
+            </div>
+
+            <div class="local-grid-3">
+                <div class="local-feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="local-feature-icon">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                    </div>
+                    <h3 class="local-feature-title">Ekspresowa na telefonach</h3>
+                    <p class="local-feature-text">
+                        Klienci w Myślenicach szukają fachowców na telefonie – w trasie po Zakopiance, w domu czy w pracy. Twoja strona otworzy się natychmiast, bez zacinania i długiego ładowania.
+                    </p>
+                </div>
+
+                <div class="local-feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="local-feature-icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="local-feature-title">Optymalizacja pod mapy i region</h3>
+                    <p class="local-feature-text">
+                        Projektujemy stronę tak, aby naturalnie windowała Twoją pozycję na frazy lokalne (Myślenice, Dobczyce, Sułkowice) oraz integrowała się z Twoją wizytówką Google.
+                    </p>
+                </div>
+
+                <div class="local-feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="local-feature-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="local-feature-title">Lokalny kontakt bez korpo-barier</h3>
+                    <p class="local-feature-text">
+                        Nie jesteśmy anonimową agencją z drugiego końca Polski. Działamy w Małopolsce – chętnie umówimy się na kawę w centrum Myślenic lub dopniemy wszystko sprawnie przez telefon.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA: LOKALNY DOWÓD / CASE STUDY -->
+        <section class="local-section">
+            <div class="local-case-box" data-aos="fade-up">
+                <div class="local-case-content">
+                    <span class="local-section-tag">Prawdziwy przykład z Myślenic</span>
+                    <h3>Praktyka i gabinet podologiczny w Myślenicach</h3>
+                    <p>
+                        Stworzyliśmy przejrzystą, budzącą pełne zaufanie stronę dla specjalistycznego gabinetu podologicznego w Myślenicach. Zamiast skomplikowanego medycznego żargonu – jasny cennik, proste objaśnienie zabiegów i wielki przycisk rezerwacji wizyty na samej górze.
+                    </p>
+                    <ul class="local-case-stats">
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Wzrost liczby bezpośrednich telefonów od pacjentów z Myślenic i okolic</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Koniec tłumaczenia cennika przez telefon – wszystko jest czytelne na smartfonie</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Wysoka pozycja w lokalnych wynikach wyszukiwania na kluczowe zabiegi</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="local-case-visual">
+                    <p class="local-quote">
+                        „Potrzebowałam strony, która przede wszystkim wzbudza zaufanie i sprawia, że pacjent nie boi się zadzwonić. Efekt przeszedł oczekiwania – większość nowych osób mówi, że trafiła do nas po prostu z Google.”
+                    </p>
+                    <div class="local-quote-author">Klient z Myślenic</div>
+                    <div class="local-quote-sub">Gabinet specjalistyczny, powiat myślenicki</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBSZAR DZIAŁANIA -->
+        <section class="local-section" style="margin-top: 40px;">
+            <div class="local-section-header" data-aos="fade-up">
+                <span class="local-section-tag">Zasięg</span>
+                <h2 class="local-section-title">Obsługujemy małe firmy w całym powiecie</h2>
+                <p class="local-section-desc">
+                    Niezależnie od tego, czy prowadzisz warsztat, usługi budowlane, salon czy sklep stacjonarny – dojeżdżamy lub współpracujemy w 100% zdalnie:
+                </p>
+
+                <div class="local-towns-wrap">
+                    <span class="local-town-pill">Myślenice Centrum</span>
+                    <span class="local-town-pill">Zarabie</span>
+                    <span class="local-town-pill">Dobczyce</span>
+                    <span class="local-town-pill">Sułkowice</span>
+                    <span class="local-town-pill">Pcim</span>
+                    <span class="local-town-pill">Lubień</span>
+                    <span class="local-town-pill">Tokarnia</span>
+                    <span class="local-town-pill">Siepraw</span>
+                    <span class="local-town-pill">Krzczonów</span>
+                    <span class="local-town-pill">Wiśniowa</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Myślenic" />
+
+        <!-- FAQ -->
+        <section class="local-section">
+            <div class="local-section-header" data-aos="fade-up">
+                <span class="local-section-tag">FAQ</span>
+                <h2 class="local-section-title">Częste pytania przedsiębiorców z Myślenic</h2>
+            </div>
+
+            <div class="local-faq-list">
+                <div class="local-faq-item" data-aos="fade-up">
+                    <h3 class="local-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy możemy spotkać się osobiście w Myślenicach?
+                    </h3>
+                    <p class="local-faq-a">
+                        Oczywiście. Działamy w rejonie Myślenic i Krakowa – możemy spotkać się na Rynku, Zarabiu lub w siedzibie Twojej firmy, aby omówić szczegóły. Jeśli wolisz oszczędzić czas, 100% ustaleń możemy przeprowadzić telefonicznie.
+                    </p>
+                </div>
+
+                <div class="local-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="local-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Nie mam tekstów ani profesjonalnych zdjęć. Czy to problem?
+                    </h3>
+                    <p class="local-faq-a">
+                        Żaden problem. Przeprowadzimy z Tobą krótką 15-minutową rozmowę, dowiemy się czym dokładnie się zajmujesz, a profesjonalne, przekonujące teksty napiszemy za Ciebie. Dobierzemy też estetyczne grafiki branżowe.
+                    </p>
+                </div>
+
+                <div class="local-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="local-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy będę musiał płacić stały abonament za stronę?
+                    </h3>
+                    <p class="local-faq-a">
+                        Nie. W Web2Sell płacisz raz za wykonanie strony i staje się ona w 100% Twoją własnością. Nie ma żadnych ukrytych umów lojalnościowych czy comiesięcznych haraczy za sam fakt działania strony.
+                    </p>
+                </div>
+
+                <div class="local-faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="local-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Ile trwa uruchomienie strony dla małej firmy?
+                    </h3>
+                    <p class="local-faq-a">
+                        Standardowa, skuteczna strona dla firmy usługowej (np. One Page lub strona z kilkoma zakładkami) jest gotowa zazwyczaj w ciągu 3 do 7 dni roboczych od momentu zebrania podstawowych informacji.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="local-section">
+            <div class="local-cta-box" data-aos="zoom-in">
+                <h2 class="local-cta-title">Rozwiń swój biznes w Myślenicach</h2>
+                <p class="local-cta-desc">
+                    Zadzwoń lub napisz. Przedstawimy konkretne rozwiązania, podamy jasną wycenę i podpowiemy, co najlepiej sprawdzi się w Twojej branży w naszym regionie.
+                </p>
+                <div class="local-cta-btns">
+                    <a href="tel:+48530315860" class="local-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="local-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

@@ -1,0 +1,313 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/krakow.css";
+
+const krakowSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Kraków",
+    "description": "Projektowanie i wdrażanie ultra-szybkich stron internetowych dla małych firm, gastronomii, kawiarni i usług w Krakowie.",
+    "url": "https://web2sell.pl/strony-internetowe-krakow",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Kraków",
+        "Stare Miasto",
+        "Kazimierz",
+        "Podgórze",
+        "Krowodrza",
+        "Nowa Huta",
+        "Ruczaj",
+        "Zabłocie",
+        "Dębniki",
+        "Bronowice"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kraków",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Tworzenie Stron Internetowych Kraków | Dla małych firm i gastro – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla małych firm, kawiarni i usług w Krakowie. Uruchomienie w kilka dni, ultra-szybkie ładowanie, 0 zł abonamentu. Sprawdź!"
+    canonical="https://web2sell.pl/strony-internetowe-krakow"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(krakowSchema)} />
+
+    <Header activePage="" />
+
+    <main class="krk-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="krk-hero">
+            <div class="krk-hero-top" data-aos="fade-up" data-aos-duration="900">
+                <div class="krk-badge">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Kraków & Małopolska • Ultra-szybkie strony dla firm</span>
+                </div>
+
+                <h1 class="krk-title">
+                    Tworzenie stron www w <span class="krk-highlight">Krakowie dla małych firm</span>, które nie chcą przepłacać w korpo-agencjach.
+                </h1>
+
+                <p class="krk-subtitle">
+                    Przeciętna krakowska agencja wycenia stronę na 10 000 zł i oddaje powolnego WordPressa po 3 miesiącach. My tworzymy strony lżejsze, ładujące się w ułamek sekundy i zoptymalizowane pod klienta ze smartfonem na Kazimierzu, Rynku czy Zabłociu.
+                </p>
+
+                <div class="krk-actions">
+                    <a href="tel:+48530315860" class="krk-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Porozmawiajmy: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="krk-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Wyceń stronę online</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SPEED & LOCAL BENEFIT BAR -->
+            <div class="krk-speed-bar" data-aos="fade-up" data-aos-delay="150">
+                <div class="krk-speed-item">
+                    <div class="krk-speed-icon">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <div>
+                        <div class="krk-speed-title">Czas ładowania &lt; 0.5s</div>
+                        <div class="krk-speed-sub">Klient w krakowskim tramwaju nie czeka. Strona otwiera się natychmiast.</div>
+                    </div>
+                </div>
+
+                <div class="krk-speed-item">
+                    <div class="krk-speed-icon">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <div>
+                        <div class="krk-speed-title">Uczciwy koszt, zero prowizji</div>
+                        <div class="krk-speed-sub">Brak abonamentów i opłat za sam fakt działania. Strona jest Twoja na zawsze.</div>
+                    </div>
+                </div>
+
+                <div class="krk-speed-item">
+                    <div class="krk-speed-icon">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <div>
+                        <div class="krk-speed-title">Spotkanie na kawę w Krakowie</div>
+                        <div class="krk-speed-sub">Działamy lokalnie – chętnie spotkamy się osobiście, by omówić projekt.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA: PORÓWNANIE (WEB2SELL VS TYPOWA AGENCJA) -->
+        <section class="krk-section">
+            <div class="krk-section-center" data-aos="fade-up">
+                <span class="krk-tag">Różnica, którą widać w portfelu</span>
+                <h2 class="krk-heading">Czego naprawdę potrzebuje mała firma w Krakowie?</h2>
+                <p class="krk-desc">
+                    W Krakowie konkurencja nie śpi. Jeśli Twoja strona jest wolna, klient cofa się do wyszukiwarki i klika w kolejny lokalny biznes.
+                </p>
+            </div>
+
+            <div class="krk-compare-box">
+                <div class="krk-compare-col krk-compare-col--bad" data-aos="fade-right">
+                    <h3 class="krk-col-title" style="color: #ef4444;">
+                        <i class="fa-solid fa-xmark"></i>
+                        Typowa agencja z Krakowa
+                    </h3>
+                    <ul class="krk-compare-list">
+                        <li>
+                            <i class="fa-solid fa-xmark"></i>
+                            <span>Wycena od 7 000 do 15 000 zł za prostą stronę wizytówkową</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark"></i>
+                            <span>Ociężały WordPress na gotowym motywie, ładujący się po 4-6 sekund</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark"></i>
+                            <span>Realizacja przeciągająca się na 2-3 miesiące przez korpo-procedury</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark"></i>
+                            <span>Ukryte comiesięczne umowy serwisowe i opłaty za „opiekę”</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="krk-compare-col krk-compare-col--good" data-aos="fade-left">
+                    <h3 class="krk-col-title" style="color: #f59e0b;">
+                        <i class="fa-solid fa-check"></i>
+                        Podejście Web2Sell
+                    </h3>
+                    <ul class="krk-compare-list">
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Przejrzysta, przystępna wycena dedykowana dla małych i średnich firm</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Ultra-lekki kod (Astro) – 100/100 punktów w testach Google PageSpeed</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>Gotowa strona w 3-7 dni roboczych, bez zbędnego przeciągania</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <span>100% własności bez żadnych umów abonamentowych</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- REAL CASE: KAWIARNIA W KRAKOWIE -->
+        <section class="krk-section">
+            <div class="krk-cafe-card" data-aos="fade-up">
+                <div class="krk-cafe-left">
+                    <span class="krk-tag">Case study z krakowskiego rynku</span>
+                    <h3>Kawiarnia w Krakowie – menu z kodu QR i klimat miejsca</h3>
+                    <p>
+                        Dla klimatycznej kawiarni w Krakowie stworzyliśmy stronę zintegrowaną z kodami QR na stolikach. Goście skanują kod smartfonem, a cyfrowe menu otwiera się w mgnieniu oka – bez pobierania aplikacji, bez czekania i bez zacinania.
+                    </p>
+
+                    <div class="krk-pill-grid">
+                        <span class="krk-feature-pill">Menu z kodów QR</span>
+                        <span class="krk-feature-pill">Błyskawiczne ładowanie</span>
+                        <span class="krk-feature-pill">Wzrost zamówień napojów</span>
+                        <span class="krk-feature-pill">Lokalne SEO w Google</span>
+                    </div>
+                </div>
+
+                <div class="krk-cafe-quote-box">
+                    <p class="krk-quote-text">
+                        „Klienci w lokalu nie chcieli czekać na fizyczną kartę menu, a strona na telefonie musiała działać od razu po zeskanowaniu QR. Projekt od Web2Sell działa z prędkością światła. Zero problemów, świetny kontakt.”
+                    </p>
+                    <div class="krk-quote-author">Właściciel kawiarni</div>
+                    <div class="krk-quote-sub">Kraków, gastronomia i lokalny klimat</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DZIELNICE KRAKOWA -->
+        <section class="krk-section">
+            <div class="krk-section-center" data-aos="fade-up">
+                <span class="krk-tag">Dzielnice i rejony</span>
+                <h2 class="krk-heading">Tworzymy strony dla firm w całym Krakowie</h2>
+                <p class="krk-desc">
+                    Spotkamy się w Twoim lokalu, biurze lub omówimy projekt zdalnie. Obsługujemy krakowskie firmy m.in. w rejonach:
+                </p>
+            </div>
+
+            <div class="krk-districts-grid" data-aos="fade-up">
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Stare Miasto & Centrum</span>
+                </div>
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Kazimierz</span>
+                </div>
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Podgórze & Zabłocie</span>
+                </div>
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Krowodrza</span>
+                </div>
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Nowa Huta</span>
+                </div>
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Ruczaj & Dębniki</span>
+                </div>
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Bronowice</span>
+                </div>
+                <div class="krk-district-card">
+                    <i class="fa-solid fa-location-dot krk-district-icon"></i>
+                    <span class="krk-district-name">Prądnik Czerwony / Biały</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Krakowa" />
+
+        <!-- FAQ KRAKÓW -->
+        <section class="krk-section">
+            <div class="krk-section-center" data-aos="fade-up">
+                <span class="krk-tag">Wątpliwości</span>
+                <h2 class="krk-heading">Pytania od przedsiębiorców z Krakowa</h2>
+            </div>
+
+            <div class="krk-faq-list">
+                <div class="krk-faq-card" data-aos="fade-up">
+                    <h3 class="krk-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy spotkamy się osobiście w Krakowie?
+                    </h3>
+                    <p class="krk-faq-a">
+                        Tak. Jesteśmy regularnie w Krakowie – chętnie spotkamy się w Twoim lokalu, kawiarni na Kazimierzu lub w biurze. Możemy również przeprowadzić całe wdrożenie sprawnie online lub przez telefon.
+                    </p>
+                </div>
+
+                <div class="krk-faq-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="krk-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy strona pomoże mi zdobyć klientów z Krakowa?
+                    </h3>
+                    <p class="krk-faq-a">
+                        Zdecydowanie. Każda strona jest od razu zoptymalizowana pod lokalne wyszukiwania (SEO lokalne) i zintegrowana z profilem firmy w Mapach Google. Twoi klienci znajdą Cię, gdy wpiszą w telefonie nazwę Twojej usługi z dopiskiem „Kraków” lub swojej dzielnicy.
+                    </p>
+                </div>
+
+                <div class="krk-faq-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="krk-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy strona nadaje się do menu restauracji / kawiarni na kody QR?
+                    </h3>
+                    <p class="krk-faq-a">
+                        Tak, technologia Astro, na której pracujemy, jest do tego stworzona. Goście po zeskanowaniu kodu QR widzą menu w ułamku sekundy, bez czekania na załadowanie ciężkiego systemu czy pobierania plików PDF.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM CTA -->
+        <section class="krk-section">
+            <div class="krk-cta-box" data-aos="zoom-in">
+                <h2 class="krk-cta-title">Wyróżnij swoją firmę na krakowskim rynku</h2>
+                <p class="krk-cta-desc">
+                    Zadzwoń i porozmawiajmy o Twoim pomyśle. Bez korporacyjnego bełkotu, bez sztucznego zawyżania stawek – konkretny plan i szybkie wdrożenie.
+                </p>
+                <div class="krk-actions" style="margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="krk-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="krk-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Wyceń stronę online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

@@ -1,0 +1,259 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/wadowice.css";
+
+const wadowiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Wadowice",
+    "description": "Projektowanie i wdrażanie szybkich stron internetowych dla małych firm, usług i rzemiosła na terenie Wadowic, Andrychowa i okolic.",
+    "url": "https://web2sell.pl/strony-internetowe-wadowice",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Wadowice",
+        "Andrychów",
+        "Kalwaria Zebrzydowska",
+        "Zator",
+        "Wieprz",
+        "Tomice",
+        "Spytkowice"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wadowice",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Tworzenie Stron Internetowych Wadowice | Dla małych firm – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla firm z Wadowic, Andrychowa i powiatu wadowickiego. Bez abonamentów, wysoka pozycja w Google, realne telefony. Sprawdź!"
+    canonical="https://web2sell.pl/strony-internetowe-wadowice"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(wadowiceSchema)} />
+
+    <Header activePage="" />
+
+    <main class="wad-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="wad-hero">
+            <div class="wad-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="wad-badge">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Wadowice, Andrychów & powiat wadowicki</span>
+                </div>
+
+                <h1 class="wad-title">
+                    Tworzenie stron www w <span class="wad-highlight">Wadowicach</span>, które przynoszą realne zlecenia dla małych firm.
+                </h1>
+
+                <p class="wad-subtitle">
+                    Nie potrzebujesz skomplikowanego systemu za dziesiątki tysięcy złotych. Tworzymy przejrzyste, błyskawiczne strony internetowe dla lokalnych fachowców, usług i firm z rejonu Wadowic i Andrychowa, które zamieniają odwiedzających w dzwoniących klientów.
+                </p>
+
+                <div class="wad-actions">
+                    <a href="tel:+48530315860" class="wad-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="wad-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Wyceń stronę bez opłat</span>
+                    </a>
+                </div>
+
+                <div class="wad-trust-row">
+                    <div class="wad-trust-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Dojazd i spotkanie w Wadowicach</span>
+                    </div>
+                    <div class="wad-trust-item">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Płacisz raz, 0 zł abonamentu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="wad-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="wad-card-header">
+                    <span class="wad-card-title">
+                        <i class="fa-solid fa-chart-line" style="color: #0284c7;"></i>
+                        Lokalna przewaga w Wadowicach
+                    </span>
+                    <span style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">ASTRO SPEED</span>
+                </div>
+
+                <div class="wad-stat-grid">
+                    <div class="wad-stat-box">
+                        <div class="wad-stat-value">&lt; 0.5s</div>
+                        <div class="wad-stat-label">Błyskawiczne ładowanie w telefonie</div>
+                    </div>
+                    <div class="wad-stat-box">
+                        <div class="wad-stat-value">TOP 3</div>
+                        <div class="wad-stat-label">Lokalne pozycjonowanie w Google</div>
+                    </div>
+                    <div class="wad-stat-box">
+                        <div class="wad-stat-value">100%</div>
+                        <div class="wad-stat-label">Dostosowanie do smartfonów</div>
+                    </div>
+                    <div class="wad-stat-box">
+                        <div class="wad-stat-value">0 zł</div>
+                        <div class="wad-stat-label">Ukrytych stałych opłat za stronę</div>
+                    </div>
+                </div>
+
+                <div class="wad-card-note">
+                    <strong>Jak szukają klienci w Wadowicach i Andrychowie?</strong> Zamiast pytać znajomych, wpisują w telefonie frazę z miastem. Wygrywa firma, której strona ładuje się w mgnieniu oka i od razu podaje numer telefonu oraz czytelny zakres usług.
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA: KORZYŚCI -->
+        <section class="wad-section">
+            <div class="wad-section-header" data-aos="fade-up">
+                <span class="wad-section-tag">Dlaczego warto?</span>
+                <h2 class="wad-section-title">Co zyskuje mała firma w powiecie wadowickim?</h2>
+                <p class="wad-section-desc">
+                    Wielu przedsiębiorców w regionie ma strony, które powstały lata temu – są powolne, nieczytelne na telefonach i nie przynoszą żadnych zapytań. Naprawiamy to w kilka dni.
+                </p>
+            </div>
+
+            <div class="wad-grid-3">
+                <div class="wad-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="wad-card-icon">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <h3 class="wad-card-title">Zaprojektowane pod telefony</h3>
+                    <p class="wad-card-text">
+                        Duże przyciski "Zadzwoń teraz", klikalny adres i czytelny cennik. Klient w Wadowicach czy Andrychowie nie szuka ozdobników – chce szybko nawiązać kontakt.
+                    </p>
+                </div>
+
+                <div class="wad-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="wad-card-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="wad-card-title">Lokalne SEO w Google</h3>
+                    <p class="wad-card-text">
+                        Optymalizujemy stronę pod konkretne słowa kluczowe z Twojej branży połączone z Wadowicami, Andrychowem czy Zatorem, wspierając Twoją widoczność w Mapach Google.
+                    </p>
+                </div>
+
+                <div class="wad-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="wad-card-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="wad-card-title">Uczciwe zasady współpracy</h3>
+                    <p class="wad-card-text">
+                        Bez skomplikowanego bełkotu, bez wiązania wieloletnimi umowami. Płacisz raz za wdrożenie, a strona jest Twoją własnością na zawsze.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MIKROREGION WADOWICKI -->
+        <section class="wad-section">
+            <div class="wad-region-box" data-aos="fade-up">
+                <div class="wad-region-left">
+                    <span class="wad-section-tag">Region działania</span>
+                    <h3>Obsługujemy cały powiat wadowicki i sąsiednie gminy</h3>
+                    <p>
+                        Działamy na terenie całej Małopolski. Niezależnie czy prowadzisz warsztat, usługi budowlane, produkcję mebli, obiekt noclegowy czy gabinet – dojedziemy do Ciebie lub przygotujemy wszystko sprawnie online.
+                    </p>
+
+                    <div class="wad-towns-wrap">
+                        <span class="wad-town-pill">Wadowice</span>
+                        <span class="wad-town-pill">Andrychów</span>
+                        <span class="wad-town-pill">Kalwaria Zebrzydowska</span>
+                        <span class="wad-town-pill">Zator</span>
+                        <span class="wad-town-pill">Wieprz</span>
+                        <span class="wad-town-pill">Tomice</span>
+                        <span class="wad-town-pill">Mucharz</span>
+                        <span class="wad-town-pill">Stryszów</span>
+                    </div>
+                </div>
+
+                <div class="wad-region-quote">
+                    <p class="wad-quote-text">
+                        „Dobra strona lokalnej firmy nie musi być skomplikowana. Musi szybko przekonać klienta, że ma do czynienia z rzetelnym fachowcem z jego okolicy.”
+                    </p>
+                    <div class="wad-quote-author">Filozofia Web2Sell</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Wadowic" />
+
+        <!-- FAQ WADOWICE -->
+        <section class="wad-section">
+            <div class="wad-section-header" data-aos="fade-up">
+                <span class="wad-section-tag">Pytania i odpowiedzi</span>
+                <h2 class="wad-section-title">Częste pytania firm z Wadowic</h2>
+            </div>
+
+            <div class="wad-faq-list">
+                <div class="wad-faq-item" data-aos="fade-up">
+                    <h3 class="wad-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy możemy spotkać się osobiście w Wadowicach?
+                    </h3>
+                    <p class="wad-faq-a">
+                        Tak. Z przyjemnością spotkamy się w centrum Wadowic, w Twojej firmie lub warsztacie, aby omówić szczegóły. Jeśli wolisz oszczędzić czas, 100% ustaleń możemy sprawnie przeprowadzić przez telefon.
+                    </p>
+                </div>
+
+                <div class="wad-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="wad-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Jak szybko strona zacznie przynosić zapytania?
+                    </h3>
+                    <p class="wad-faq-a">
+                        Od razu po uruchomieniu strona jest gotowa do przyjmowania klientów. W połączeniu z poprawnie skonfigurowaną wizytówką Google (Mapy), lokalne telefony od klientów z Wadowic pojawiają się zazwyczaj w pierwszych tygodniach.
+                    </p>
+                </div>
+
+                <div class="wad-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="wad-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Co jeśli nie mam gotowych materiałów ani tekstów?
+                    </h3>
+                    <p class="wad-faq-a">
+                        Zajmiemy się tym. Przeprowadzimy z Tobą krótką rozmowę, dowiemy się co wyróżnia Twoją firmę, a profesjonalne, sprzedażowe teksty przygotujemy w ramach wdrożenia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="wad-section">
+            <div class="wad-cta-box" data-aos="zoom-in">
+                <h2 class="wad-cta-title">Zbuduj silną pozycję swojej firmy w Wadowicach</h2>
+                <p class="wad-cta-desc">
+                    Zadzwoń do nas i porozmawiajmy o Twojej firmie. Powiemy Ci wprost, co najlepiej zadziała w Twojej branży w naszym regionie.
+                </p>
+                <div class="wad-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="wad-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="wad-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

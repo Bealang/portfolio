@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/tarnow.css";
+
+const tarnowSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Tarnów",
+    "description": "Nowoczesne strony internetowe dla firm usługowych, handlowych i produkcyjnych w Tarnowie i powiecie tarnowskim.",
+    "url": "https://web2sell.pl/strony-internetowe-tarnow",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Tarnów",
+        "Wojnicz",
+        "Dąbrowa Tarnowska",
+        "Brzesko",
+        "Tuchów",
+        "Żabno",
+        "Dębica"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tarnów",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Strony Internetowe Tarnów | Dla małych firm – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla przedsiębiorców z Tarnowa i okolic. Pozycjonowanie w Google, brak abonamentów, wysoka konwersja. Sprawdź ofertę!"
+    canonical="https://web2sell.pl/strony-internetowe-tarnow"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(tarnowSchema)} />
+
+    <Header activePage="" />
+
+    <main class="tar-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="tar-hero">
+            <div class="tar-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="tar-badge">
+                    <i class="fa-solid fa-city"></i>
+                    <span>Tarnów & Region Tarnowski • Strony dla biznesu</span>
+                </div>
+
+                <h1 class="tar-title">
+                    Tworzenie stron www w <span class="tar-highlight">Tarnowie</span> dla małych i średnich firm.
+                </h1>
+
+                <p class="tar-subtitle">
+                    Przedsiębiorcy z Tarnowa, Brzeska i Dąbrowy Tarnowskiej nie muszą przepłacać za ociężałe strony od korporacyjnych agencji. Budujemy strony lekkie, błyskawiczne i nastawione na bezpośredni kontakt telefoniczny z klientem.
+                </p>
+
+                <div class="tar-actions">
+                    <a href="tel:+48530315860" class="tar-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="tar-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Wycena online</span>
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #ea580c;"></i>
+                        <span>Spotkanie w Tarnowie lub kontakt zdalny</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #ea580c;"></i>
+                        <span>Płacisz raz, 0 zł abonamentu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="tar-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="tar-card-header">
+                    <span class="tar-card-title">
+                        <i class="fa-solid fa-bolt" style="color: #ea580c;"></i>
+                        Wydajność dla tarnowskiego rynku
+                    </span>
+                    <span style="font-size: 0.8rem; color: #ea580c; font-weight: 700;">PROFIT MAX</span>
+                </div>
+
+                <div class="tar-stat-grid">
+                    <div class="tar-stat-box">
+                        <div class="tar-stat-value">&lt; 0.5s</div>
+                        <div class="tar-stat-label">Błyskawiczny czas ładowania w telefonie</div>
+                    </div>
+                    <div class="tar-stat-box">
+                        <div class="tar-stat-value">TOP 3</div>
+                        <div class="tar-stat-label">Pozycjonowanie w Tarnowie i okolicach</div>
+                    </div>
+                    <div class="tar-stat-box">
+                        <div class="tar-stat-value">100%</div>
+                        <div class="tar-stat-label">Mobilność i wygoda obsługi</div>
+                    </div>
+                    <div class="tar-stat-box">
+                        <div class="tar-stat-value">0 zł</div>
+                        <div class="tar-stat-label">Ukrytych comiesięcznych opłat</div>
+                    </div>
+                </div>
+
+                <div class="tar-card-note">
+                    <strong>Jak szuka klient z Tarnowa?</strong> Sprawdza opinie w Google Maps, wchodzi na stronę i oczekuje, że w 3 sekundy dowie się, czy rozwiążesz jego problem. Sprawimy, że wybierze Twoją firmę.
+                </div>
+            </div>
+        </section>
+
+        <!-- KORZYŚCI -->
+        <section class="tar-section">
+            <div class="tar-section-header" data-aos="fade-up">
+                <span class="tar-section-tag">Dlaczego Web2Sell?</span>
+                <h2 class="tar-section-title">Co zyskujesz ze stroną od Web2Sell?</h2>
+                <p class="tar-section-desc">
+                    Tarnów to silny rynek z ogromnym potencjałem. Zadbaj o stronę www, która deklasuje konkurencję szybkością i przejrzystością.
+                </p>
+            </div>
+
+            <div class="tar-grid-3">
+                <div class="tar-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tar-card-icon">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                    </div>
+                    <h3 class="tar-card-title">Stworzona pod smartfony</h3>
+                    <p class="tar-card-text">
+                        Ponad 80% ruchu w usługach lokalnych pochodzi z telefonów. Twoja strona będzie wyglądać na nich perfekcyjnie i ładować się błyskawicznie.
+                    </p>
+                </div>
+
+                <div class="tar-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tar-card-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="tar-card-title">Tarnowskie SEO lokalne</h3>
+                    <p class="tar-card-text">
+                        Optymalizacja pod Tarnów, Mościce, Brzesko i Dąbrowę Tarnowską zintegrowana z profilem w Mapach Google.
+                    </p>
+                </div>
+
+                <div class="tar-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tar-card-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="tar-card-title">Ekspresowe wdrożenie</h3>
+                    <p class="tar-card-text">
+                        Twoja nowa strona będzie gotowa w 3-7 dni roboczych. Bez niekończących się poprawek i bez zbędnej biurokracji.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REGION TARNÓW -->
+        <section class="tar-section">
+            <div class="tar-hub-box" data-aos="fade-up">
+                <div class="tar-hub-left">
+                    <span class="tar-section-tag">Zasięg</span>
+                    <h3>Strony dla firm w całym regionie tarnowskim</h3>
+                    <p>
+                        Obsługujemy przedsiębiorstwa z Tarnowa i okolicznych miast:
+                    </p>
+                    <div class="tar-hub-pills">
+                        <span class="tar-hub-pill">Tarnów Śródmieście</span>
+                        <span class="tar-hub-pill">Mościce</span>
+                        <span class="tar-hub-pill">Brzesko</span>
+                        <span class="tar-hub-pill">Dąbrowa Tarnowska</span>
+                        <span class="tar-hub-pill">Wojnicz</span>
+                        <span class="tar-hub-pill">Tuchów</span>
+                        <span class="tar-hub-pill">Żabno</span>
+                    </div>
+                </div>
+
+                <div class="tar-hub-quote">
+                    <p class="tar-quote-text">
+                        „Potrzebowałem prostej, ale szybkiej strony dla mojej firmy usługowej w Tarnowie. Web2Sell dostarczyło projekt w tydzień, bez żadnych ukrytych kosztów.”
+                    </p>
+                    <div class="tar-quote-author">Klient z Tarnowa</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Branża usługowa, Tarnów</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Tarnowa" />
+
+        <!-- FAQ -->
+        <section class="tar-section">
+            <div class="tar-section-header" data-aos="fade-up">
+                <span class="tar-section-tag">FAQ</span>
+                <h2 class="tar-section-title">Pytania od firm z Tarnowa</h2>
+            </div>
+
+            <div class="tar-faq-list">
+                <div class="tar-faq-item" data-aos="fade-up">
+                    <h3 class="tar-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy możemy spotkać się osobiście w Tarnowie?
+                    </h3>
+                    <p class="tar-faq-a">
+                        Tak, możemy umówić się na spotkanie w centrum Tarnowa lub przeprowadzić 100% ustaleń telefonicznie i mailowo, szanując Twój czas.
+                    </p>
+                </div>
+
+                <div class="tar-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="tar-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy strona wymaga comiesięcznych opłat?
+                    </h3>
+                    <p class="tar-faq-a">
+                        Nie. Płacisz raz za wykonanie. Nie pobieramy żadnych abonamentów agencyjnych za sam fakt istnienia strony.
+                    </p>
+                </div>
+
+                <div class="tar-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="tar-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy pomożecie przygotować teksty?
+                    </h3>
+                    <p class="tar-faq-a">
+                        Tak. Przeprowadzimy krótką rozmowę, dowiemy się co oferujesz, a przekonujące teksty napiszemy za Ciebie w cenie wdrożenia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="tar-section">
+            <div class="tar-cta-box" data-aos="zoom-in">
+                <h2 class="tar-cta-title">Rozwiń swój biznes w Tarnowie</h2>
+                <p class="tar-cta-desc">
+                    Zadzwoń do nas i porozmawiajmy o nowej stronie dla Twojej firmy. Konkretne rozwiązania, szybki termin i jasne warunki.
+                </p>
+                <div class="tar-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="tar-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="tar-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

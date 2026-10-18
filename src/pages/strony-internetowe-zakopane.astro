@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/zakopane.css";
+
+const zakopaneSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Zakopane & Podhale",
+    "description": "Projektowanie nowoczesnych stron internetowych dla apartamentów, domków w górach, pensjonatów i turystyki w Zakopanem i na Podhalu.",
+    "url": "https://web2sell.pl/strony-internetowe-zakopane",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Zakopane",
+        "Kościelisko",
+        "Poronin",
+        "Białka Tatrzańska",
+        "Bukowina Tatrzańska",
+        "Murzasichle",
+        "Nowy Targ"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zakopane",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Strony Internetowe Zakopane | Dla apartamentów i domków – Web2Sell"
+    description="Nowoczesne, szybkie strony www dla obiektów noclegowych, apartamentów i turystyki w Zakopanem. Rezerwacje direct, 0% prowizji pośredników, pozycjonowanie w Google."
+    canonical="https://web2sell.pl/strony-internetowe-zakopane"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(zakopaneSchema)} />
+
+    <Header activePage="" />
+
+    <main class="zak-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="zak-hero">
+            <div class="zak-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="zak-badge">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                    <span>Zakopane & Podhale • Strony dla turystyki</span>
+                </div>
+
+                <h1 class="zak-title">
+                    Strony internetowe w <span class="zak-highlight">Zakopanem</span> – przestań oddawać 18% prowizji portalom rezerwacyjnym.
+                </h1>
+
+                <p class="zak-subtitle">
+                    Własna, ultra-szybka strona domków, apartamentu czy pensjonatu to jedyny sposób na bezpośrednie rezerwacje od turystów. Pieniądze z noclegu zostają w Twojej kieszeni, zamiast zasilać zagraniczne platformy.
+                </p>
+
+                <div class="zak-actions">
+                    <a href="tel:+48530315860" class="zak-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="zak-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Bezpłatna wycena</span>
+                    </a>
+                </div>
+
+                <div class="zak-trust-row" style="display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #0d9488;"></i>
+                        <span>Integracja z kalendarzem rezerwacji</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #0d9488;"></i>
+                        <span>Dojazd i spotkanie na Podhalu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT: BOOKING MATH -->
+            <div class="zak-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="zak-card-header">
+                    <span class="zak-card-title">
+                        <i class="fa-solid fa-calculator" style="color: #0d9488;"></i>
+                        Matematyka zysku na Podhalu
+                    </span>
+                    <span style="font-size: 0.8rem; color: #0d9488; font-weight: 700;">DIRECT BOOKING</span>
+                </div>
+
+                <div class="zak-stat-grid">
+                    <div class="zak-stat-box">
+                        <div class="zak-stat-value">18-22%</div>
+                        <div class="zak-stat-label">Prowizja, którą oddajesz pośrednikom</div>
+                    </div>
+                    <div class="zak-stat-box">
+                        <div class="zak-stat-value">0%</div>
+                        <div class="zak-stat-label">Prowizji z rezerwacji z własnej strony</div>
+                    </div>
+                    <div class="zak-stat-box">
+                        <div class="zak-stat-value">&lt; 0.5s</div>
+                        <div class="zak-stat-label">Szybkość ładowania na Krupówkach</div>
+                    </div>
+                    <div class="zak-stat-box">
+                        <div class="zak-stat-value">1 msc</div>
+                        <div class="zak-stat-label">Średni czas zwrotu kosztu strony</div>
+                    </div>
+                </div>
+
+                <div class="zak-card-note">
+                    <strong>Ile tracisz w sezonie?</strong> Przy 80 000 zł przychodu z domku czy apartamentu, prowizja pośredników wynosi ponad 15 000 zł rocznie. Inwestycja w nowoczesną stronę zwraca się już po pierwszych kilku bezpośrednich rezerwacjach.
+                </div>
+            </div>
+        </section>
+
+        <!-- KORZYŚCI DLA PODHALA -->
+        <section class="zak-section">
+            <div class="zak-section-header" data-aos="fade-up">
+                <span class="zak-section-tag">Dla obiektów i turystyki</span>
+                <h2 class="zak-section-title">Co musi mieć skuteczna strona noclegu w Tatrach?</h2>
+                <p class="zak-section-desc">
+                    Turysta planujący wyjazd w Tatry ogląda dziesiątki obiektów na telefonie. Wygrywa ten, u którego zdjęcia ładują się natychmiast, a rezerwacja przez telefon lub WhatsApp zajmuje 10 sekund.
+                </p>
+            </div>
+
+            <div class="zak-grid-3">
+                <div class="zak-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="zak-card-icon">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="zak-card-title">Prezentacja apartamentów i pokoi</h3>
+                    <p class="zak-card-text">
+                        Klimatyczne zdjęcia wnętrz, widoków na Tatry, wyposażenia kuchni i łazienki. Lekki kod sprawia, że galeria nie zacina się nawet przy górskim zasięgu LTE.
+                    </p>
+                </div>
+
+                <div class="zak-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="zak-card-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="zak-card-title">Direct Booking & Sync</h3>
+                    <p class="zak-card-text">
+                        Możliwość synchronizacji kalendarzy (iCal) z Twoimi dotychczasowymi profilami, aby uniknąć dublowania terminów, lub prosty system bezpośrednich zapytań telefonicznych.
+                    </p>
+                </div>
+
+                <div class="zak-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="zak-card-icon">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="zak-card-title">Lokalne SEO na Podhalu</h3>
+                    <p class="zak-card-text">
+                        Optymalizacja pod turystów szukających haseł typu: „domki z kominkiem Zakopane”, „apartamenty Kościelisko”, „noclegi blisko stoku Białka Tatrzańska”.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MIEJSCOWOŚCI PODHALA -->
+        <section class="zak-section">
+            <div class="zak-podhale-box" data-aos="fade-up">
+                <div class="zak-podhale-left">
+                    <span class="zak-section-tag">Zasięg na Podhalu</span>
+                    <h3>Obsługujemy obiekty noclegowe i firmy w całym regionie Tatr</h3>
+                    <p>
+                        Realizujemy strony dla apartamentów, domków całorocznych, pensjonatów, wypożyczalni sprzętu narciarskiego, szkółek oraz regionalnej gastronomii:
+                    </p>
+                    <div class="zak-podhale-pills">
+                        <span class="zak-podhale-pill">Zakopane Centrum & Krzeptówki</span>
+                        <span class="zak-podhale-pill">Kościelisko</span>
+                        <span class="zak-podhale-pill">Białka Tatrzańska</span>
+                        <span class="zak-podhale-pill">Bukowina Tatrzańska</span>
+                        <span class="zak-podhale-pill">Poronin & Suche</span>
+                        <span class="zak-podhale-pill">Murzasichle</span>
+                        <span class="zak-podhale-pill">Nowy Targ</span>
+                    </div>
+                </div>
+
+                <div class="zak-podhale-quote">
+                    <p class="zak-quote-text">
+                        „Od kiedy turyści mogą sprawdzić dostępność i zarezerwować pobyt bezpośrednio na naszej stronie, zaoszczędziliśmy tysiące złotych na prowizjach. Strona zwróciła się już podczas ferii.”
+                    </p>
+                    <div class="zak-quote-author">Właściciel apartamentów</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Kościelisko, Tatry</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Zakopanego i Podhala" />
+
+        <!-- FAQ -->
+        <section class="zak-section">
+            <div class="zak-section-header" data-aos="fade-up">
+                <span class="zak-section-tag">FAQ</span>
+                <h2 class="zak-section-title">Pytania od właścicieli obiektów z Zakopanego</h2>
+            </div>
+
+            <div class="zak-faq-list">
+                <div class="zak-faq-item" data-aos="fade-up">
+                    <h3 class="zak-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy muszę rezygnować z Booking.com mając własną stronę?
+                    </h3>
+                    <p class="zak-faq-a">
+                        Absolutnie nie! Własna strona działa równolegle. Portale pośredniczące mogą służyć do pozyskiwania pierwszego kontaktu z gościem, ale powracający turyści oraz klienci z Google rezerwują bezpośrednio u Ciebie po lepszej cenie, a Ty nie płacisz od nich ani grosza prowizji.
+                    </p>
+                </div>
+
+                <div class="zak-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="zak-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy kalendarz rezerwacji nie będzie się dublował?
+                    </h3>
+                    <p class="zak-faq-a">
+                        Stronę możemy zintegrować za pomocą standardu iCal z dowolnym panelem (np. Booking, Airbnb, BedBooking). Gdy ktoś zarezerwuje termin na portalu, termin ten automatycznie zablokuje się na Twojej stronie.
+                    </p>
+                </div>
+
+                <div class="zak-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="zak-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy dojeżdżacie do Zakopanego?
+                    </h3>
+                    <p class="zak-faq-a">
+                        Tak. Jesteśmy w rejonie Podhala regularnie. Możemy spotkać się bezpośrednio w Twoim obiekcie w Zakopanem, Kościelisku czy Białce, aby obejrzeć nieruchomość i omówić projekt.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="zak-section">
+            <div class="zak-cta-box" data-aos="zoom-in">
+                <h2 class="zak-cta-title">Zwiększ zyski ze swojego noclegu w Zakopanem</h2>
+                <p class="zak-cta-desc">
+                    Zadzwoń do nas i dowiedz się, jak prosto uruchomić stronę, która zapełni Twój kalendarz rezerwacji bez oddawania haraczu pośrednikom.
+                </p>
+                <div class="zak-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="zak-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="zak-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

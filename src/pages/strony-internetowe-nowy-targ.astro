@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/nowy-targ.css";
+
+const nowyTargSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Nowy Targ",
+    "description": "Nowoczesne strony www dla firm handlowych, budowlanych, usługowych i produkcyjnych w Nowym Targu i na Orawie.",
+    "url": "https://web2sell.pl/strony-internetowe-nowy-targ",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Nowy Targ",
+        "Szaflary",
+        "Czarny Dunajec",
+        "Jabłonka",
+        "Rabka-Zdrój",
+        "Krościenko nad Dunajcem",
+        "Szczawnica"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nowy Targ",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Strony Internetowe Nowy Targ | Dla firm z Podhala – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla małych firm z Nowego Targu i okolic. Usługi, budowlanka, rzemiosło, handel. Pozycjonowanie w Google, brak abonamentów. Sprawdź ofertę!"
+    canonical="https://web2sell.pl/strony-internetowe-nowy-targ"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(nowyTargSchema)} />
+
+    <Header activePage="" />
+
+    <main class="nt-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="nt-hero">
+            <div class="nt-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="nt-badge">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Nowy Targ & Podhale • Stolica Handlu i Usług</span>
+                </div>
+
+                <h1 class="nt-title">
+                    Tworzenie stron www w <span class="nt-highlight">Nowym Targu</span>, które przynoszą realnych klientów.
+                </h1>
+
+                <p class="nt-subtitle">
+                    Przedsiębiorcy z Nowego Targu i Orawy wiedzą, czym jest twardy biznes. Nie potrzebujesz marketingowych obietnic – potrzebujesz strony, która ładuje się w ułamek sekundy, wyświetla numer na wierzchu i zapełnia skrzynkę zapytaniami o ofertę.
+                </p>
+
+                <div class="nt-actions">
+                    <a href="tel:+48530315860" class="nt-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="nt-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Wycena online</span>
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #0369a1;"></i>
+                        <span>Spotkanie w Nowym Targu</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #0369a1;"></i>
+                        <span>100% własności, 0 zł abonamentu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="nt-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="nt-card-header">
+                    <span class="nt-card-title">
+                        <i class="fa-solid fa-trophy" style="color: #0369a1;"></i>
+                        Twoja przewaga w stolicy Podhala
+                    </span>
+                    <span style="font-size: 0.8rem; color: #0369a1; font-weight: 700;">TOP WYNIKI</span>
+                </div>
+
+                <div class="nt-stat-grid">
+                    <div class="nt-stat-box">
+                        <div class="nt-stat-value">&lt; 0.5s</div>
+                        <div class="nt-stat-label">Błyskawiczny czas ładowania w telefonie</div>
+                    </div>
+                    <div class="nt-stat-box">
+                        <div class="nt-stat-value">TOP 3</div>
+                        <div class="nt-stat-label">Lokalne pozycjonowanie Nowy Targ & Orawa</div>
+                    </div>
+                    <div class="nt-stat-box">
+                        <div class="nt-stat-value">100%</div>
+                        <div class="nt-stat-label">Optymalizacja mobilna</div>
+                    </div>
+                    <div class="nt-stat-box">
+                        <div class="nt-stat-value">0 zł</div>
+                        <div class="nt-stat-label">Ukrytych comiesięcznych prowizji</div>
+                    </div>
+                </div>
+
+                <div class="nt-card-note">
+                    <strong>Jak szukają mieszkańcy Nowego Targu i okolic?</strong> Wpisują frazę na smartfonie, sprawdzają opinie i dzwonią pod pierwszy numer. Prosta, szybka strona od Web2Sell sprawia, że trafiają do Ciebie.
+                </div>
+            </div>
+        </section>
+
+        <!-- KORZYŚCI -->
+        <section class="nt-section">
+            <div class="nt-section-header" data-aos="fade-up">
+                <span class="nt-section-tag">Dla nowotarskich firm</span>
+                <h2 class="nt-section-title">Co zyskujesz ze stroną od Web2Sell?</h2>
+                <p class="nt-section-desc">
+                    W Nowym Targu rynek usług, handlu i budownictwa jest ogromny. Wyróżnij się nowoczesną stroną, która buduje przewagę nad konkurencją z powolnymi witrynami.
+                </p>
+            </div>
+
+            <div class="nt-grid-3">
+                <div class="nt-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="nt-card-icon">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="nt-card-title">Katalog produktów i usług</h3>
+                    <p class="nt-card-text">
+                        Klarowny podział asortymentu – od materiałów budowlanych, przez bramy i ogrodzenia, po usługi specjalistyczne i motoryzację.
+                    </p>
+                </div>
+
+                <div class="nt-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="nt-card-icon">
+                        <i class="fa-solid fa-map-pin"></i>
+                    </div>
+                    <h3 class="nt-card-title">Pozycjonowanie na cały region</h3>
+                    <p class="nt-card-text">
+                        Nowy Targ ściąga klientów z Czarnego Dunajca, Jabłonki, Szaflar i Rabki. Twoja strona będzie widoczna w całym powiecie nowotarskim.
+                    </p>
+                </div>
+
+                <div class="nt-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="nt-card-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="nt-card-title">Błyskawiczne wdrożenie</h3>
+                    <p class="nt-card-text">
+                        Gotowa, w pełni działająca strona w 3-7 dni roboczych. Bez przeciągania projektów i bez straty Twojego cennego czasu.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REGION NOWY TARG -->
+        <section class="nt-section">
+            <div class="nt-hub-box" data-aos="fade-up">
+                <div class="nt-hub-left">
+                    <span class="nt-section-tag">Zasięg</span>
+                    <h3>Obsługujemy cały powiat nowotarski i sąsiednie rejony</h3>
+                    <p>
+                        Dojeżdżamy na spotkania na terenie Nowego Targu, Zakopianki i okolicznych miejscowości:
+                    </p>
+                    <div class="nt-hub-pills">
+                        <span class="nt-hub-pill">Nowy Targ Centrum & Rynek</span>
+                        <span class="nt-hub-pill">Szaflary</span>
+                        <span class="nt-hub-pill">Czarny Dunajec</span>
+                        <span class="nt-hub-pill">Jabłonka</span>
+                        <span class="nt-hub-pill">Rabka-Zdrój</span>
+                        <span class="nt-hub-pill">Szczawnica</span>
+                        <span class="nt-hub-pill">Krościenko</span>
+                    </div>
+                </div>
+
+                <div class="nt-hub-quote">
+                    <p class="nt-quote-text">
+                        „Konkretnie, szybko i w ustalonej cenie. Klienci z Nowego Targu bez problemu znajdują nas teraz w telefonie.”
+                    </p>
+                    <div class="nt-quote-author">Klient z branży budowlanej</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Nowy Targ, Podhale</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Nowego Targu" />
+
+        <!-- FAQ -->
+        <section class="nt-section">
+            <div class="nt-section-header" data-aos="fade-up">
+                <span class="nt-section-tag">FAQ</span>
+                <h2 class="nt-section-title">Pytania od firm z Nowego Targu</h2>
+            </div>
+
+            <div class="nt-faq-list">
+                <div class="nt-faq-item" data-aos="fade-up">
+                    <h3 class="nt-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy spotkacie się ze mną w Nowym Targu?
+                    </h3>
+                    <p class="nt-faq-a">
+                        Tak, jesteśmy regularnie na Podhalu. Chętnie spotkamy się na Rynku w Nowym Targu lub w siedzibie Twojej firmy, aby omówić projekt.
+                    </p>
+                </div>
+
+                <div class="nt-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="nt-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy strona będzie dobrze działać na słabym zasięgu?
+                    </h3>
+                    <p class="nt-faq-a">
+                        Tak. Framework Astro, na którym pracujemy, ładuje tylko czysty kod HTML i CSS, bez ociężałych skryptów. Twoja strona otworzy się natychmiast nawet przy 1 kresce zasięgu LTE w trasie.
+                    </p>
+                </div>
+
+                <div class="nt-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="nt-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy płacę za stronę jednorazowo?
+                    </h3>
+                    <p class="nt-faq-a">
+                        Tak, w Web2Sell nie ma abonamentów. Płacisz raz za wdrożenie i strona jest Twoją własnością na zawsze.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="nt-section">
+            <div class="nt-cta-box" data-aos="zoom-in">
+                <h2 class="nt-cta-title">Zdobądź więcej klientów w Nowym Targu</h2>
+                <p class="nt-cta-desc">
+                    Zadzwoń do nas i porozmawiajmy o rozwoju Twojego biznesu. Przygotujemy bezpłatną wycenę dopasowaną do Twojej branży.
+                </p>
+                <div class="nt-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="nt-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="nt-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

@@ -1,0 +1,256 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/kalwaria.css";
+
+const kalwariaSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Kalwaria Zebrzydowska",
+    "description": "Projektowanie stron www dla producentów mebli, stolarzy, tapicerów i rzemiosła w Kalwarii Zebrzydowskiej.",
+    "url": "https://web2sell.pl/strony-internetowe-kalwaria-zebrzydowska",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Kalwaria Zebrzydowska",
+        "Brody",
+        "Zebrzydowice",
+        "Stanisław Dolny",
+        "Przytkowice",
+        "Leńcze",
+        "Wadowice",
+        "Skawina"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kalwaria Zebrzydowska",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Strony Internetowe Kalwaria Zebrzydowska | Dla stolarzy i mebli – Web2Sell"
+    description="Szybkie strony www dla producentów mebli, stolarzy i rzemiosła z Kalwarii Zebrzydowskiej. Cyfrowe portfolio realizacji, wysokie pozycje w Google i zapytania o wyceny."
+    canonical="https://web2sell.pl/strony-internetowe-kalwaria-zebrzydowska"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(kalwariaSchema)} />
+
+    <Header activePage="" />
+
+    <main class="kal-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="kal-hero">
+            <div class="kal-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="kal-badge">
+                    <i class="fa-solid fa-couch"></i>
+                    <span>Kalwaria Zebrzydowska • Stolica Polskiego Meblarstwa</span>
+                </div>
+
+                <h1 class="kal-title">
+                    Strony internetowe w <span class="kal-highlight">Kalwarii Zebrzydowskiej</span> dla stolarzy i producentów mebli.
+                </h1>
+
+                <p class="kal-subtitle">
+                    Klienci z Krakowa, Śląska i całej Polski szukają mebli z Kalwarii przez internet. Zbuduj stronę z profesjonalną galerią realizacji i prostym formularzem wyceny, która przyciąga zlecenia na kuchnie i zabudowy za dziesiątki tysięcy złotych.
+                </p>
+
+                <div class="kal-actions">
+                    <a href="tel:+48530315860" class="kal-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="kal-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Wyceń stronę www</span>
+                    </a>
+                </div>
+
+                <div class="kal-trust-row">
+                    <div class="kal-trust-item" style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #d97706;"></i>
+                        <span>Galeria zdjęć ładująca się w ułamek sekundy</span>
+                    </div>
+                    <div class="kal-trust-item" style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #d97706;"></i>
+                        <span>Dojazd i spotkanie w Kalwarii</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="kal-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="kal-card-header">
+                    <span class="kal-card-title">
+                        <i class="fa-solid fa-hammer" style="color: #d97706;"></i>
+                        Siła rzemiosła z Kalwarii w sieci
+                    </span>
+                    <span style="font-size: 0.8rem; color: #d97706; font-weight: 700;">PORTFOLIO PRO</span>
+                </div>
+
+                <div class="kal-stat-grid">
+                    <div class="kal-stat-box">
+                        <div class="kal-stat-value">&lt; 0.5s</div>
+                        <div class="kal-stat-label">Szybkość ładowania galerii zdjęć</div>
+                    </div>
+                    <div class="kal-stat-box">
+                        <div class="kal-stat-value">TOP 3</div>
+                        <div class="kal-stat-label">Widoczność w Google na Małopolskę i Śląsk</div>
+                    </div>
+                    <div class="kal-stat-box">
+                        <div class="kal-stat-value">100%</div>
+                        <div class="kal-stat-label">Dostosowanie do smartfonów</div>
+                    </div>
+                    <div class="kal-stat-box">
+                        <div class="kal-stat-value">0 zł</div>
+                        <div class="kal-stat-label">Ukrytych comiesięcznych prowizji</div>
+                    </div>
+                </div>
+
+                <div class="kal-card-note">
+                    <strong>Jak klient zamawia kuchnię na wymiar?</strong> Ogląda zdjęcia poprzednich realizacji na telefonie. Jeśli zdjęcia ładują się powoli lub strona jest brzydka, uważa, że wykonawca nie dba o detale. Zapewnimy Ci stronę, która zachwyca od pierwszego kliknięcia.
+                </div>
+            </div>
+        </section>
+
+        <!-- KORZYŚCI -->
+        <section class="kal-section">
+            <div class="kal-section-header" data-aos="fade-up">
+                <span class="kal-section-tag">Dedykowane rozwiązania</span>
+                <h2 class="kal-section-title">Dlaczego producenci z Kalwarii wybierają Web2Sell?</h2>
+                <p class="kal-section-desc">
+                    Znamy specyfikę branży meblarskiej i rzemieślniczej w naszym regionie. Nie oferujemy generycznych szablonów, tylko narzędzie sprzedażowe skrojone pod wysokie marże.
+                </p>
+            </div>
+
+            <div class="kal-grid-3">
+                <div class="kal-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="kal-card-icon">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+                    <h3 class="kal-card-title">Błyskawiczne portfolio zdjęć</h3>
+                    <p class="kal-card-text">
+                        Twoje realizacje mebli kuchennych, szaf czy schodów będą ładować się natychmiast, nawet przy słabym zasięgu mobilnym. Nowoczesna kompresja obrazów bez utraty jakości detali.
+                    </p>
+                </div>
+
+                <div class="kal-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="kal-card-icon">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="kal-card-title">Prosty formularz wyceny</h3>
+                    <p class="kal-card-text">
+                        Klienci mogą jednym kliknięciem przesłać wymiary pomieszczenia lub rzut architektoniczny z prośbą o wycenę wprost na Twój e-mail i telefon.
+                    </p>
+                </div>
+
+                <div class="kal-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="kal-card-icon">
+                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                    </div>
+                    <h3 class="kal-card-title">Pozycjonowanie na Kraków i Śląsk</h3>
+                    <p class="kal-card-text">
+                        Kalwaria ma legendarną markę stolarską. Zoptymalizujemy Twoją stronę tak, by przyciągała zamożnych inwestorów szukających rzemiosła z Kalwarii na terenie Krakowa, Katowic czy Bielska.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA RZEMIOSŁA -->
+        <section class="kal-section">
+            <div class="kal-craft-box" data-aos="fade-up">
+                <div class="kal-craft-left">
+                    <span class="kal-section-tag">Lokalne rzemiosło</span>
+                    <h3>Strony dla stolarzy, tapicerów, producentów obuwia i salonów</h3>
+                    <p>
+                        Bez względu na to, czy prowadzisz rodzinny zakład stolarski w Brodach, duży salon meblowy przy głównej trasie, czy pracownię tapicerską w Przytkowicach – stworzymy stronę, która rzetelnie reprezentuje jakość Twojej pracy.
+                    </p>
+                    <div class="kal-craft-pills">
+                        <span class="kal-craft-pill">Meble na wymiar i kuchnie</span>
+                        <span class="kal-craft-pill">Schody i drzwi drewniane</span>
+                        <span class="kal-craft-pill">Meble tapicerowane i wypoczynkowe</span>
+                        <span class="kal-craft-pill">Manufaktury obuwia</span>
+                        <span class="kal-craft-pill">Salony ekspozycyjne</span>
+                    </div>
+                </div>
+
+                <div class="kal-craft-quote">
+                    <p class="kal-quote-text">
+                        „W Kalwarii każdy umie zrobić solidny mebel. Ale wygrywa ten, kto potrafi go profesjonalnie zaprezentować w internecie.”
+                    </p>
+                    <div class="kal-quote-author">Rada Web2Sell dla stolarzy</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Kalwarii Zebrzydowskiej" />
+
+        <!-- FAQ -->
+        <section class="kal-section">
+            <div class="kal-section-header" data-aos="fade-up">
+                <span class="kal-section-tag">Pytania</span>
+                <h2 class="kal-section-title">Częste pytania wykonawców z Kalwarii</h2>
+            </div>
+
+            <div class="kal-faq-list">
+                <div class="kal-faq-item" data-aos="fade-up">
+                    <h3 class="kal-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy możemy spotkać się w Kalwarii Zebrzydowskiej?
+                    </h3>
+                    <p class="kal-faq-a">
+                        Tak. Jesteśmy lokalną firmą z Małopolski – chętnie przyjedziemy do Twojego warsztatu lub salonu w Kalwarii, Brodach czy Zebrzydowicach, aby omówić projekt przy kawie.
+                    </p>
+                </div>
+
+                <div class="kal-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="kal-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Mam tylko zdjęcia mebli zrobione telefonem. Czy będą się nadawać?
+                    </h3>
+                    <p class="kal-faq-a">
+                        Tak! Odpowiednio skadrujemy, rozjaśnimy i zoptymalizujemy Twoje zdjęcia, aby wyglądały czysto i estetycznie. Prawdziwe zdjęcia z montażu budzą w internecie 10x większe zaufanie niż sztuczne grafiki z katalogów.
+                    </p>
+                </div>
+
+                <div class="kal-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="kal-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy będę mógł sam dodawać nowe zdjęcia realizacji?
+                    </h3>
+                    <p class="kal-faq-a">
+                        Oczywiście. Możemy wdrożyć prosty panel do wrzucania nowych projektów prosto z telefonu, albo możesz po prostu przesłać nam zdjęcia na WhatsApp, a my dodamy je w ramach wsparcia technicznego.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="kal-section">
+            <div class="kal-cta-box" data-aos="zoom-in">
+                <h2 class="kal-cta-title">Zdobywaj zlecenia na meble z całej Polski</h2>
+                <p class="kal-cta-desc">
+                    Zadzwoń do nas i zobacz, jak nowoczesna strona internetowa może zapełnić Twój grafik stolarski na kolejne miesiące.
+                </p>
+                <div class="kal-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="kal-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="kal-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Wycena online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

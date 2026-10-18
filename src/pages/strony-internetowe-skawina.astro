@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/skawina.css";
+
+const skawinaSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Skawina",
+    "description": "Nowoczesne i szybkie strony internetowe dla firm usługowych, rzemiosła, warsztatów i B2B w Skawinie i gminie Skawina.",
+    "url": "https://web2sell.pl/strony-internetowe-skawina",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Skawina",
+        "Radziszów",
+        "Rzozów",
+        "Wola Radziszowska",
+        "Mogilany",
+        "Borek Szlachecki",
+        "Kraków Południe"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Skawina",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Tworzenie Stron Internetowych Skawina | Dla firm i usług – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla małych firm, warsztatów i B2B w Skawinie. Lokalne pozycjonowanie w Google, brak abonamentów, spotkanie na miejscu. Sprawdź!"
+    canonical="https://web2sell.pl/strony-internetowe-skawina"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(skawinaSchema)} />
+
+    <Header activePage="" />
+
+    <main class="ska-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="ska-hero">
+            <div class="ska-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="ska-badge">
+                    <i class="fa-solid fa-industry"></i>
+                    <span>Skawina & okolice Krakowa • Strony dla biznesu</span>
+                </div>
+
+                <h1 class="ska-title">
+                    Tworzenie stron www w <span class="ska-highlight">Skawinie</span> – profesjonalna obecność bez krakowskich cen.
+                </h1>
+
+                <p class="ska-subtitle">
+                    Przedsiębiorcy ze Skawiny nie muszą płacić stawek drogich krakowskich agencji. Budujemy ultra-szybkie, proste w obsłudze strony www dla warsztatów, firm produkcyjnych, transportowych i lokalnych usług, które pozyskują klientów z całego powiatu.
+                </p>
+
+                <div class="ska-actions">
+                    <a href="tel:+48530315860" class="ska-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="ska-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Darmowa wycena</span>
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #2563eb;"></i>
+                        <span>Możliwość spotkania w Skawinie</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #2563eb;"></i>
+                        <span>Brak comiesięcznych abonamentów</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="ska-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="ska-card-header">
+                    <span class="ska-card-title">
+                        <i class="fa-solid fa-gears" style="color: #2563eb;"></i>
+                        Wydajność techniczna dla firm
+                    </span>
+                    <span style="font-size: 0.8rem; color: #2563eb; font-weight: 700;">PRO BIZNES</span>
+                </div>
+
+                <div class="ska-stat-grid">
+                    <div class="ska-stat-box">
+                        <div class="ska-stat-value">&lt; 0.5s</div>
+                        <div class="ska-stat-label">Błyskawiczny czas ładowania</div>
+                    </div>
+                    <div class="ska-stat-box">
+                        <div class="ska-stat-value">TOP 3</div>
+                        <div class="ska-stat-label">Lokalne pozycjonowanie Skawina & Kraków</div>
+                    </div>
+                    <div class="ska-stat-box">
+                        <div class="ska-stat-value">100%</div>
+                        <div class="ska-stat-label">Mobilność i optymalizacja smartfonów</div>
+                    </div>
+                    <div class="ska-stat-box">
+                        <div class="ska-stat-value">0 zł</div>
+                        <div class="ska-stat-label">Ukrytych kosztów utrzymania</div>
+                    </div>
+                </div>
+
+                <div class="ska-card-note">
+                    <strong>Jak szuka klient ze Skawiny i południa Krakowa?</strong> Szuka solidnego wykonawcy z bezpośrednim dojazdem. Gdy widzi nowoczesną stronę z certyfikatem bezpieczeństwa i jasnym numerem telefonu, dzwoni bez wahania.
+                </div>
+            </div>
+        </section>
+
+        <!-- KORZYŚCI -->
+        <section class="ska-section">
+            <div class="ska-section-header" data-aos="fade-up">
+                <span class="ska-section-tag">Dlaczego my?</span>
+                <h2 class="ska-section-title">Co zyskuje Twoja firma w Skawinie?</h2>
+                <p class="ska-section-desc">
+                    Skawina to dynamiczne zaplecze przemysłowe i usługowe Krakowa. Twoja strona musi budować profesjonalny wizerunek w oczach klientów indywidualnych i partnerów B2B.
+                </p>
+            </div>
+
+            <div class="ska-grid-3">
+                <div class="ska-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ska-card-icon">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <h3 class="ska-card-title">Prezentacja usług i sprzętu</h3>
+                    <p class="ska-card-text">
+                        Klarowny podział na usługi dla klientów indywidualnych oraz kooperację B2B. Czytelne specyfikacje, zakres prac i cenniki wstępne.
+                    </p>
+                </div>
+
+                <div class="ska-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ska-card-icon">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                    </div>
+                    <h3 class="ska-card-title">Klienci ze Skawiny i Krakowa</h3>
+                    <p class="ska-card-text">
+                        Projektujemy strukturę tak, aby przyciągała zlecenia zarówno ze Skawiny, jak i z południowych dzielnic Krakowa (Ruczaj, Dębniki, Swoszowice).
+                    </p>
+                </div>
+
+                <div class="ska-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="ska-card-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="ska-card-title">Bezpośredni kontakt bez pośredników</h3>
+                    <p class="ska-card-text">
+                        Rozmawiasz bezpośrednio z twórcą strony. Szybkie decyzje, realizacja w kilka dni i wsparcie techniczne na każdym etapie.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA REGION SKAWINA -->
+        <section class="ska-section">
+            <div class="ska-zone-box" data-aos="fade-up">
+                <div class="ska-zone-left">
+                    <span class="ska-section-tag">Lokalny zasięg</span>
+                    <h3>Obsługujemy przedsiębiorstwa w całej gminie Skawina</h3>
+                    <p>
+                        Bez względu na to, czy prowadzisz warsztat w strefie gospodarczej, firmę budowlaną w Radziszowie czy sklep w centrum – dopasujemy stronę do Twoich celów:
+                    </p>
+                    <div class="ska-zone-pills">
+                        <span class="ska-zone-pill">Skawina Centrum</span>
+                        <span class="ska-zone-pill">Strefa Gospodarcza Skawina</span>
+                        <span class="ska-zone-pill">Radziszów</span>
+                        <span class="ska-zone-pill">Rzozów</span>
+                        <span class="ska-zone-pill">Wola Radziszowska</span>
+                        <span class="ska-zone-pill">Mogilany</span>
+                        <span class="ska-zone-pill">Kraków Ruczaj & Dębniki</span>
+                    </div>
+                </div>
+
+                <div class="ska-zone-quote">
+                    <p class="ska-quote-text">
+                        „Nie potrzebowaliśmy drogiej krakowskiej agencji. Chcieliśmy po prostu, żeby po wpisaniu naszych usług w Skawinie telefon zaczął dzwonić. Web2Sell zrobiło to w tydzień.”
+                    </p>
+                    <div class="ska-quote-author">Klient z branży technicznej</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Gmina Skawina</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Skawiny" />
+
+        <!-- FAQ -->
+        <section class="ska-section">
+            <div class="ska-section-header" data-aos="fade-up">
+                <span class="ska-section-tag">Pytania</span>
+                <h2 class="ska-section-title">Częste pytania firm ze Skawiny</h2>
+            </div>
+
+            <div class="ska-faq-list">
+                <div class="ska-faq-item" data-aos="fade-up">
+                    <h3 class="ska-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy możemy spotkać się osobiście w Skawinie?
+                    </h3>
+                    <p class="ska-faq-a">
+                        Jak najbardziej. Możemy spotkać się na Rynku w Skawinie, w Twoim biurze lub warsztacie. Wszystko możemy też ustalić w 100% telefonicznie, jeśli brakuje Ci czasu w ciągu dnia.
+                    </p>
+                </div>
+
+                <div class="ska-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="ska-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Ile kosztuje stworzenie strony dla firmy w Skawinie?
+                    </h3>
+                    <p class="ska-faq-a">
+                        Wycena zależy od zakresu, ale nasze ceny są wielokrotnie niższe od agencji z centrum Krakowa, a jakość kodu (technologia Astro) przewyższa ciężkie szablony WordPressa. Płacisz raz, bez stałych abonamentów.
+                    </p>
+                </div>
+
+                <div class="ska-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="ska-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy pomożecie z wizytówką Google i mapami?
+                    </h3>
+                    <p class="ska-faq-a">
+                        Tak, w ramach wdrożenia pomagamy poprawnie skonfigurować Profil Firmy w Google (Mapy), aby Twoja firma pojawiała się w wynikach wyszukiwania w Skawinie i na południu Krakowa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="ska-section">
+            <div class="ska-cta-box" data-aos="zoom-in">
+                <h2 class="ska-cta-title">Rozwiń swój biznes w Skawinie i okolicach</h2>
+                <p class="ska-cta-desc">
+                    Skontaktuj się z nami. Otrzymasz jasną wycenę bez gwiazdek i konkretny plan na pozyskiwanie klientów z internetu.
+                </p>
+                <div class="ska-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="ska-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="ska-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

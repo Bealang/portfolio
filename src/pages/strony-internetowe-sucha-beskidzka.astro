@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/sucha-beskidzka.css";
+
+const suchaSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Sucha Beskidzka",
+    "description": "Nowoczesne strony www dla małych firm, usług, rzemiosła i turystyki w Suchej Beskidzkiej, Makowie i Zawoi.",
+    "url": "https://web2sell.pl/strony-internetowe-sucha-beskidzka",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Sucha Beskidzka",
+        "Maków Podhalański",
+        "Zawoja",
+        "Jordanów",
+        "Zembrzyce",
+        "Budzów",
+        "Stryszawa"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sucha Beskidzka",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Strony Internetowe Sucha Beskidzka | Dla firm i usług – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla małych firm z Suchej Beskidzkiej i powiatu suskiego. Lokalne SEO, zero abonamentów, spotkanie na miejscu. Sprawdź ofertę!"
+    canonical="https://web2sell.pl/strony-internetowe-sucha-beskidzka"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(suchaSchema)} />
+
+    <Header activePage="" />
+
+    <main class="sb-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="sb-hero">
+            <div class="sb-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="sb-badge">
+                    <i class="fa-solid fa-tree"></i>
+                    <span>Sucha Beskidzka & powiat suski • Lokalne strony www</span>
+                </div>
+
+                <h1 class="sb-title">
+                    Tworzenie stron www w <span class="sb-highlight">Suchej Beskidzkiej</span> dla lokalnych firm i fachowców.
+                </h1>
+
+                <p class="sb-subtitle">
+                    Przedsiębiorcy z Suchej, Makowa Podhalańskiego i Zawoi nie potrzebują ociężałych, drogich systemów. Budujemy strony przejrzyste, błyskawicznie otwierające się w telefonie i pozycjonujące Twoją firmę w czołówce Google.
+                </p>
+
+                <div class="sb-actions">
+                    <a href="tel:+48530315860" class="sb-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="sb-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Wycena online</span>
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #059669;"></i>
+                        <span>Dojazd i spotkanie w Suchej Beskidzkiej</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #059669;"></i>
+                        <span>0 zł stałych opłat abonamentowych</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="sb-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="sb-card-header">
+                    <span class="sb-card-title">
+                        <i class="fa-solid fa-signal" style="color: #059669;"></i>
+                        Twoja widoczność w powiecie suskim
+                    </span>
+                    <span style="font-size: 0.8rem; color: #059669; font-weight: 700;">LIVE METRICS</span>
+                </div>
+
+                <div class="sb-stat-grid">
+                    <div class="sb-stat-box">
+                        <div class="sb-stat-value">&lt; 0.5s</div>
+                        <div class="sb-stat-label">Błyskawiczne ładowanie na telefonie</div>
+                    </div>
+                    <div class="sb-stat-box">
+                        <div class="sb-stat-value">TOP 3</div>
+                        <div class="sb-stat-label">Pozycjonowanie w powiecie suskim</div>
+                    </div>
+                    <div class="sb-stat-box">
+                        <div class="sb-stat-value">100%</div>
+                        <div class="sb-stat-label">Dostosowanie do smartfonów</div>
+                    </div>
+                    <div class="sb-stat-box">
+                        <div class="sb-stat-value">0 zł</div>
+                        <div class="sb-stat-label">Abonamentów za utrzymanie</div>
+                    </div>
+                </div>
+
+                <div class="sb-card-note">
+                    <strong>Jak szuka klient z Suchej, Makowa czy Zawoi?</strong> Wpisuje potrzebną usługę w Google i dzwoni do pierwszej rzetelnej firmy z czytelnym zakresem prac. Zadbamy o to, by trafiał bezpośrednio pod Twój numer.
+                </div>
+            </div>
+        </section>
+
+        <!-- KORZYŚCI -->
+        <section class="sb-section">
+            <div class="sb-section-header" data-aos="fade-up">
+                <span class="sb-section-tag">Dlaczego Web2Sell?</span>
+                <h2 class="sb-section-title">Co zyskuje lokalny biznes w Beskidach?</h2>
+                <p class="sb-section-desc">
+                    Wielu fachowców w regionie opiera się wyłącznie na poleceniach. Nowoczesna strona internetowa dodaje drugi, stabilny strumień nowych zapytań przez cały rok.
+                </p>
+            </div>
+
+            <div class="sb-grid-3">
+                <div class="sb-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="sb-card-icon">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="sb-card-title">Działa w każdych warunkach</h3>
+                    <p class="sb-card-text">
+                        Czysty kod Astro ładuje się błyskawicznie nawet w górskich miejscowościach przy słabszym sygnale sieci komórkowej.
+                    </p>
+                </div>
+
+                <div class="sb-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="sb-card-icon">
+                        <i class="fa-solid fa-map"></i>
+                    </div>
+                    <h3 class="sb-card-title">Lokalne SEO i Mapy Google</h3>
+                    <p class="sb-card-text">
+                        Pozycjonujemy Twoją stronę na Suchą Beskidzką, Maków Podhalański, Zawoję i Jordanów oraz pomagamy zdobyć czołowe miejsca w mapach Google.
+                    </p>
+                </div>
+
+                <div class="sb-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="sb-card-icon">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="sb-card-title">Jasne zasady i pomoc</h3>
+                    <p class="sb-card-text">
+                        Nie musisz znać się na technologii. Napiszemy teksty, dobierzemy grafiki i uruchomimy stronę w kilka dni. Płacisz raz, bez stałych opłat.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- OBSZAR SUCHA BESKIDZKA -->
+        <section class="sb-section">
+            <div class="sb-box" data-aos="fade-up">
+                <div class="sb-box-left">
+                    <span class="sb-section-tag">Obszar działania</span>
+                    <h3>Strony dla przedsiębiorców w całym powiecie suskim</h3>
+                    <p>
+                        Tworzymy strony dla warsztatów, firm budowlanych, instalatorów, producentów stolarki oraz obiektów noclegowych i restauracji:
+                    </p>
+                    <div class="sb-pills">
+                        <span class="sb-pill">Sucha Beskidzka</span>
+                        <span class="sb-pill">Maków Podhalański</span>
+                        <span class="sb-pill">Zawoja</span>
+                        <span class="sb-pill">Jordanów</span>
+                        <span class="sb-pill">Zembrzyce</span>
+                        <span class="sb-pill">Budzów</span>
+                        <span class="sb-pill">Stryszawa</span>
+                    </div>
+                </div>
+
+                <div class="sb-quote">
+                    <p class="sb-quote-text">
+                        „Od lat działamy lokalnie, ale dopiero nowoczesna strona z Google Maps sprawiła, że zaczęli dzwonić nowi klienci z całego powiatu.”
+                    </p>
+                    <div class="sb-quote-author">Przedsiębiorca z powiatu suskiego</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Sucha Beskidzka & Maków</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Suchej Beskidzkiej" />
+
+        <!-- FAQ -->
+        <section class="sb-section">
+            <div class="sb-section-header" data-aos="fade-up">
+                <span class="sb-section-tag">FAQ</span>
+                <h2 class="sb-section-title">Pytania od przedsiębiorców z Suchej Beskidzkiej</h2>
+            </div>
+
+            <div class="sb-faq-list">
+                <div class="sb-faq-item" data-aos="fade-up">
+                    <h3 class="sb-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy możemy spotkać się osobiście w Suchej Beskidzkiej?
+                    </h3>
+                    <p class="sb-faq-a">
+                        Tak. Jesteśmy firmą z Małopolski – chętnie przyjedziemy do Suchej Beskidzkiej, Makowa czy Zawoi, aby porozmawiać o Twojej ofercie przy kawie lub w siedzibie Twojej firmy.
+                    </p>
+                </div>
+
+                <div class="sb-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="sb-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Nie mam czasu na pisanie tekstów. Co wtedy?
+                    </h3>
+                    <p class="sb-faq-a">
+                        Wystarczy krótka 10-minutowa rozmowa telefoniczna. Opowiesz nam, czym się zajmujesz, a my napiszemy wszystkie teksty, poukładamy cennik i przygotujemy stronę pod klucz.
+                    </p>
+                </div>
+
+                <div class="sb-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="sb-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy strona będzie moją własnością?
+                    </h3>
+                    <p class="sb-faq-a">
+                        W 100% tak. W Web2Sell nie pobieramy comiesięcznych abonamentów. Płacisz raz za wdrożenie i strona należy wyłącznie do Ciebie.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="sb-section">
+            <div class="sb-cta-box" data-aos="zoom-in">
+                <h2 class="sb-cta-title">Rozwiń swój biznes w Suchej Beskidzkiej</h2>
+                <p class="sb-cta-desc">
+                    Zadzwoń do nas i porozmawiajmy bez zobowiązań. Przedstawimy konkretne rozwiązania dla Twojej branży.
+                </p>
+                <div class="sb-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="sb-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="sb-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>

@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroBg from "../components/HeroBg.astro";
+import LocalSharedSections from "../components/LocalSharedSections.astro";
+import "../styles/locations/nowy-sacz.css";
+
+const nowySaczSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Web2Sell - Tworzenie Stron Internetowych Nowy Sącz",
+    "description": "Nowoczesne strony www dla małych i średnich firm produkcyjnych, usługowych i handlowych w Nowym Sączu i na Sądecczyźnie.",
+    "url": "https://web2sell.pl/strony-internetowe-nowy-sacz",
+    "telephone": "+48530315860",
+    "areaServed": [
+        "Nowy Sącz",
+        "Stary Sącz",
+        "Grybów",
+        "Limanowa",
+        "Krynica-Zdrój",
+        "Muszyna",
+        "Piwniczna-Zdrój"
+    ],
+    "priceRange": "$$",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nowy Sącz",
+        "addressRegion": "Małopolskie",
+        "addressCountry": "PL"
+    }
+};
+---
+
+<Layout
+    title="Strony Internetowe Nowy Sącz | Dla firm i usług – Web2Sell"
+    description="Szybkie, nowoczesne strony www dla firm z Nowego Sącza i Sądecczyzny. Lokalne pozycjonowanie w Google, brak abonamentów, wysoka konwersja. Sprawdź ofertę!"
+    canonical="https://web2sell.pl/strony-internetowe-nowy-sacz"
+>
+    <script type="application/ld+json" set:html={JSON.stringify(nowySaczSchema)} />
+
+    <Header activePage="" />
+
+    <main class="ns-page">
+        <HeroBg behindContent={true} />
+
+        <!-- HERO SECTION -->
+        <section class="ns-hero">
+            <div class="ns-hero-left" data-aos="fade-right" data-aos-duration="900">
+                <div class="ns-badge">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Nowy Sącz & Sądecczyzna • Zagłębie Przedsiębiorczości</span>
+                </div>
+
+                <h1 class="ns-title">
+                    Tworzenie stron www w <span class="ns-highlight">Nowym Sączu</span> dla ambitnych małych firm.
+                </h1>
+
+                <p class="ns-subtitle">
+                    Sądecczyzna to region ludzi pracy i przedsiębiorczości. Twoja firma zasługuje na stronę www, która buduje autorytet, ładuje się w mgnieniu oka i realnie przynosi zlecenia z całego regionu i Polski – bez comiesięcznych abonamentów.
+                </p>
+
+                <div class="ns-actions">
+                    <a href="tel:+48530315860" class="ns-btn-primary">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="ns-btn-secondary">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Wycena online</span>
+                    </a>
+                </div>
+
+                <div style="display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #d97706;"></i>
+                        <span>Możliwość spotkania w Nowym Sączu</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-check" style="color: #d97706;"></i>
+                        <span>100% własności strony</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO RIGHT METRICS -->
+            <div class="ns-hero-card" data-aos="fade-left" data-aos-duration="900">
+                <div class="ns-card-header">
+                    <span class="ns-card-title">
+                        <i class="fa-solid fa-gauge-high" style="color: #d97706;"></i>
+                        Sądecka prędkość w sieci
+                    </span>
+                    <span style="font-size: 0.8rem; color: #d97706; font-weight: 700;">ASTRO SPEED</span>
+                </div>
+
+                <div class="ns-stat-grid">
+                    <div class="ns-stat-box">
+                        <div class="ns-stat-value">&lt; 0.5s</div>
+                        <div class="ns-stat-label">Błyskawiczne ładowanie w telefonie</div>
+                    </div>
+                    <div class="ns-stat-box">
+                        <div class="ns-stat-value">TOP 3</div>
+                        <div class="ns-stat-label">Pozycjonowanie w Nowym Sączu</div>
+                    </div>
+                    <div class="ns-stat-box">
+                        <div class="ns-stat-value">100%</div>
+                        <div class="ns-stat-label">Optymalizacja smartfonowa</div>
+                    </div>
+                    <div class="ns-stat-box">
+                        <div class="ns-stat-value">0 zł</div>
+                        <div class="ns-stat-label">Abonamentu za samo działanie</div>
+                    </div>
+                </div>
+
+                <div class="ns-card-note">
+                    <strong>Jak szuka sądecki klient?</strong> Weryfikuje firmę w Google. Widząc dopracowaną, nowoczesną stronę z referencjami i przejrzystą ofertą, od razu wybiera telefon.
+                </div>
+            </div>
+        </section>
+
+        <!-- KORZYŚCI -->
+        <section class="ns-section">
+            <div class="ns-section-header" data-aos="fade-up">
+                <span class="ns-section-tag">Dlaczego my?</span>
+                <h2 class="ns-section-title">Co zyskujesz ze stroną od Web2Sell?</h2>
+                <p class="ns-section-desc">
+                    W Nowym Sączu nie ma miejsca na przeciętność. Konkurencja jest czujna – zadbaj o wizerunek, który stawia Twoją firmę na pozycji lidera.
+                </p>
+            </div>
+
+            <div class="ns-grid-3">
+                <div class="ns-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ns-card-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="ns-card-title">Zaprojektowane na zysk</h3>
+                    <p class="ns-card-text">
+                        Duże przyciski kontaktu, formularze wyceny, czytelne case studies. Strona ma sprzedawać Twoje usługi, a nie tylko wisieć w sieci.
+                    </p>
+                </div>
+
+                <div class="ns-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ns-card-icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="ns-card-title">Sądeckie SEO i Mapy</h3>
+                    <p class="ns-card-text">
+                        Optymalizacja pod Nowy Sącz, Stary Sącz, Limanową i Krynicę. Wsparcie widoczności profilu w Mapach Google.
+                    </p>
+                </div>
+
+                <div class="ns-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="ns-card-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="ns-card-title">Bezpieczeństwo i lekkość</h3>
+                    <p class="ns-card-text">
+                        Brak podatności na ataki typowe dla WordPressa. Nowoczesny framework Astro gwarantuje maksymalne bezpieczeństwo danych.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- REGION SĄDECKI -->
+        <section class="ns-section">
+            <div class="ns-hub-box" data-aos="fade-up">
+                <div class="ns-hub-left">
+                    <span class="ns-section-tag">Zasięg</span>
+                    <h3>Strony www dla firm w całej kotlinie sądeckiej</h3>
+                    <p>
+                        Dojeżdżamy do klientów i współpracujemy zdalnie na terenie całego regionu:
+                    </p>
+                    <div class="ns-hub-pills">
+                        <span class="ns-hub-pill">Nowy Sącz Centrum & Rynek</span>
+                        <span class="ns-hub-pill">Stary Sącz</span>
+                        <span class="ns-hub-pill">Grybów</span>
+                        <span class="ns-hub-pill">Limanowa</span>
+                        <span class="ns-hub-pill">Krynica-Zdrój</span>
+                        <span class="ns-hub-pill">Muszyna</span>
+                        <span class="ns-hub-pill">Piwniczna-Zdrój</span>
+                    </div>
+                </div>
+
+                <div class="ns-hub-quote">
+                    <p class="ns-quote-text">
+                        „Konkretne podejście do tematu. Strona powstała sprawnie, a pierwsi klienci z Sącza zadzwonili już po paru tygodniach od publikacji.”
+                    </p>
+                    <div class="ns-quote-author">Klient z Nowego Sącza</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Usługi i produkcja, Sądecczyzna</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO, PROCES & CENNIK -->
+        <LocalSharedSections cityName="Nowego Sącza" />
+
+        <!-- FAQ -->
+        <section class="ns-section">
+            <div class="ns-section-header" data-aos="fade-up">
+                <span class="ns-section-tag">FAQ</span>
+                <h2 class="ns-section-title">Pytania od przedsiębiorców z Nowego Sącza</h2>
+            </div>
+
+            <div class="ns-faq-list">
+                <div class="ns-faq-item" data-aos="fade-up">
+                    <h3 class="ns-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy możemy spotkać się osobiście w Nowym Sączu?
+                    </h3>
+                    <p class="ns-faq-a">
+                        Tak, jesteśmy w Nowym Sączu regularnie. Możemy spotkać się na Rynku, w kawiarni lub w siedzibie Twojej firmy, aby omówić projekt.
+                    </p>
+                </div>
+
+                <div class="ns-faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="ns-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Ile trwa realizacja strony?
+                    </h3>
+                    <p class="ns-faq-a">
+                        Dla małych firm i usług realizacja wynosi zazwyczaj od 4 do 7 dni roboczych.
+                    </p>
+                </div>
+
+                <div class="ns-faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="ns-faq-q">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Czy strona wymaga opłacania miesięcznych abonamentów?
+                    </h3>
+                    <p class="ns-faq-a">
+                        Nie. Płacisz raz za wdrożenie. Strona jest Twoją własnością i nie ponosisz stałych haraczy agencyjnych.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="ns-section">
+            <div class="ns-cta-box" data-aos="zoom-in">
+                <h2 class="ns-cta-title">Wzmocnij pozycję swojej firmy w Nowym Sączu</h2>
+                <p class="ns-cta-desc">
+                    Zadzwoń do nas i dowiedz się, jak prosto i szybko możemy stworzyć nowoczesną stronę dla Twojego biznesu.
+                </p>
+                <div class="ns-actions" style="justify-content: center; margin-bottom: 0;">
+                    <a href="tel:+48530315860" class="ns-cta-phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Zadzwoń: 530 315 860</span>
+                    </a>
+                    <a href="/zamow" class="ns-btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <span>Formularz wyceny online &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>
