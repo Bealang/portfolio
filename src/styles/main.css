@@ -380,7 +380,7 @@ html[data-theme="light"] .theme-toggle-btn .sun-icon {
 
 html {
     scroll-behavior: auto;
-    overflow-x: hidden;
+    overflow-x: clip;
     background-color: var(--bg-color);
 }
 
@@ -388,12 +388,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .app-wrapper {
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     position: relative;
 }
 

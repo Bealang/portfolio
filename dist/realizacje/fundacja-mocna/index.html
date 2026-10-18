@@ -38,27 +38,73 @@
             })();
         </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/assets/favicon.png"><title>Projekt Fundacja MOCna! | web2sell</title><meta name="description" content="Zobacz naszą realizację projektu Fundacja MOCna!. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta."><link rel="canonical" href="https://web2sell.pl/realizacje/fundacja-mocna/"><meta name="robots" content="index, follow"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://web2sell.pl/realizacje/fundacja-mocna/"><meta property="og:title" content="Projekt Fundacja MOCna! | web2sell"><meta property="og:description" content="Zobacz naszą realizację projektu Fundacja MOCna!. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta."><meta property="og:image" content="https://web2sell.pl/assets/project-img/mocna/logo.avif"><meta property="og:site_name" content="web2sell"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://web2sell.pl/realizacje/fundacja-mocna/"><meta property="twitter:title" content="Projekt Fundacja MOCna! | web2sell"><meta property="twitter:description" content="Zobacz naszą realizację projektu Fundacja MOCna!. Szczegóły projektu, wdrożone technologie i osiągnięte rezultaty dla klienta."><meta property="twitter:image" content="https://web2sell.pl/assets/project-img/mocna/logo.avif"><!-- Fonts --><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="/assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/css/all.min.css"></noscript><!-- Google Analytics (Conditional load based on user cookie consent) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script>
             (function () {
+                var CONSENT_KEY = "cookie-consent";
+                var CONSENT_VERSION = "2026-09-22";
+                var GA_ID = "G-QZ55XLZEDP";
+
+                window.getPrivacyConsentRecord = function () {
+                    try {
+                        var storedConsent = localStorage.getItem(CONSENT_KEY);
+                        if (!storedConsent) return null;
+
+                        var record = JSON.parse(storedConsent);
+                        if (
+                            !record ||
+                            record.version !== CONSENT_VERSION ||
+                            (record.decision !== "accepted" &&
+                                record.decision !== "declined") ||
+                            !record.updatedAt
+                        ) {
+                            return null;
+                        }
+
+                        return record;
+                    } catch (error) {
+                        return null;
+                    }
+                };
+
+                window.hasOptionalGoogleConsent = function () {
+                    var record = window.getPrivacyConsentRecord();
+                    return Boolean(
+                        record &&
+                            record.decision === "accepted" &&
+                            record.categories &&
+                            record.categories.analytics === true &&
+                            record.categories.googleMaps === true,
+                    );
+                };
+
                 window.initGA = function () {
                     if (window.gaInitialized) return;
                     window.gaInitialized = true;
+                    window["ga-disable-" + GA_ID] = false;
 
                     // Inject gtag.js
                     var script = document.createElement("script");
                     script.async = true;
                     script.src =
-                        "https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP";
+                        "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
                     document.head.appendChild(script);
 
                     window.dataLayer = window.dataLayer || [];
                     window.gtag = function () {
                         window.dataLayer.push(arguments);
                     };
+                    window.gtag("consent", "default", {
+                        analytics_storage: "granted",
+                        ad_storage: "denied",
+                        ad_user_data: "denied",
+                        ad_personalization: "denied",
+                    });
                     window.gtag("js", new Date());
-                    window.gtag("config", "G-QZ55XLZEDP");
+                    window.gtag("config", GA_ID, {
+                        allow_google_signals: false,
+                        allow_ad_personalization_signals: false,
+                    });
                 };
 
-                const consent = localStorage.getItem("cookie-consent");
-                if (consent === "accepted") {
+                if (window.hasOptionalGoogleConsent()) {
                     // User has already given consent. Load GA non-blockingly with delayed strategy.
                     var gaTriggered = false;
                     function triggerGA() {
@@ -85,22 +131,62 @@
                     });
                 }
             })();
-        </script><!-- Structured Data --><script type="application/ld+json">
+        </script><!-- Structured Data (Org + SiteNavigationElement for Google Sitelinks) --><script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                "name": "web2sell - Tworzenie stron www",
-                "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
-                "url": "https://web2sell.pl/",
-                "telephone": "",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Myślenice",
-                    "addressCountry": "PL"
-                },
-                "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+                "@graph": [
+                    {
+                        "@type": "ProfessionalService",
+                        "@id": "https://web2sell.pl/#organization",
+                        "name": "web2sell - Tworzenie stron www",
+                        "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
+                        "url": "https://web2sell.pl/",
+                        "telephone": "+48530315860",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Myślenice",
+                            "addressCountry": "PL"
+                        },
+                        "description": "Profesjonalne tworzenie stron www w Myślenicach i całej Małopolsce. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+                    },
+                    {
+                        "@type": "ItemList",
+                        "@id": "https://web2sell.pl/#site-navigation",
+                        "name": "Główna nawigacja serwisu",
+                        "itemListElement": [
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 1,
+                                "name": "Cennik",
+                                "description": "Przejrzysty cennik stron www bez abonamentu - OnePage (990 zł), Wizytówka + CMS (2290 zł) i System Dedykowany (3990 zł).",
+                                "url": "https://web2sell.pl/cennik"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 2,
+                                "name": "Darmowa wycena",
+                                "description": "Skontaktuj się i otrzymaj bezpłatną, niezobowiązującą wycenę strony w 24 godziny.",
+                                "url": "https://web2sell.pl/zamow"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 3,
+                                "name": "Jak działamy",
+                                "description": "4-etapowy proces realizacji strony internetowej od projektu po wdrożenie oraz FAQ.",
+                                "url": "https://web2sell.pl/jak-dzialamy"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 4,
+                                "name": "Przykładowe realizacje",
+                                "description": "Portfolio stron internetowych stworzonych od zera dla firm z Małopolski.",
+                                "url": "https://web2sell.pl/#projekty"
+                            }
+                        ]
+                    }
+                ]
             }
-        </script><link rel="stylesheet" href="/_astro/Footer.2c710c7d.css">
+        </script><link rel="stylesheet" href="/_astro/Footer.d4144e44.css">
 <link rel="stylesheet" href="/_astro/_slug_.d569f10a.css"></head> <body class> <div class="app-wrapper">  <header id="main-header"> <!-- DESKTOP NAGŁÓWEK (FLOATING PILL NAVBAR) --> <div class="header-desktop-pill"> <a href="/" class="logo-text" aria-label="Strona główna">
 web2<span class="gradient__text">sell</span> </a> <nav id="nav-menu"> <a href="/#o-nas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/jak-dzialamy" class="nav-link">Jak działamy?</a> <a href="/jak-dzialamy#faq" class="nav-link">FAQ</a> <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile --> <div class="mobile-menu-footer"> <div class="mobile-menu-theme-row"> <span class="theme-label">Motyw:</span> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> </div> <a href="tel:+48530315860" class="mobile-menu-phone"> <i class="fa-solid fa-phone"></i> +48 530 315 860
 </a> <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a> </div> </nav> <div class="header-desktop-actions"> <a href="/zamow" class="header-cta">Bezpłatna wycena</a> </div> </div> <!-- 3. MOBILNY NAGŁÓWEK (COMPACT SINGLE ROW) --> <div class="header-mobile-row"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-mobile-actions"> <!-- Widoczny przycisk Zamów wycenę od razu na mobile (chowa się przy open menu) --> <a href="/zamow" class="mobile-visible-cta">Bezpłatna wycena</a> <!-- Hamburger menu --> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </div> </div> </header> <!-- 4. MOBILNE PŁYWAJĄCE MENU (FLOATING BOTTOM NAV) --> <div class="mobile-floating-nav" id="mobileFloatingNav"> <a href="/cennik" class="floating-nav-item" aria-label="Cennik"> <i class="fa-solid fa-dollar-sign"></i> <span>Cennik</span> </a> <a href="/zamow" class="floating-nav-item" aria-label="Wycena"> <i class="fa-solid fa-file-invoice-dollar"></i> <span>Wycena</span> </a> <a href="tel:+48530315860" class="floating-nav-item" aria-label="Zadzwoń"> <i class="fa-solid fa-phone"></i> <span>Zadzwoń</span> </a> </div> <script type="module" src="/_astro/Header.astro_astro_type_script_index_0_lang.DV4uzCUM.js"></script> <main class="project-container" data-astro-cid-2kxltejf> <div class="hero-bg" style="z-index: -1;"> <div class="glow-overlay"></div> </div> <article class="project" data-astro-cid-2kxltejf> <div class="project__header" data-aos="fade-up" data-aos-duration="600" data-astro-cid-2kxltejf> <a href="/#projekty" class="project__back-btn" data-astro-cid-2kxltejf> <i class="fa-solid fa-arrow-left-long" data-astro-cid-2kxltejf></i> <span data-astro-cid-2kxltejf>Powrót</span> </a> <div class="project__meta" data-astro-cid-2kxltejf> <span class="project__date" data-astro-cid-2kxltejf> <i class="fa-regular fa-calendar-days" data-astro-cid-2kxltejf></i> Rok realizacji:
@@ -137,40 +223,135 @@ Odwiedź stronę
 Tworzymy szybkie, nowoczesne i bezpieczne strony internetowe
                     od podstaw. Porzucamy obciążające systemy na rzecz
                     autorskiego, zoptymalizowanego kodu.
-</p> <div class="footer__contact-info"> <a href="mailto:kontakt@web2sell.pl" class="footer__contact-item"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>kontakt@web2sell.pl</span> </a> <div class="footer__contact-item"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Kraków, Myślenice, Polska</span> </div> </div> </div> <!-- Column 2: Split links (Menu & Docs) --> <div class="footer__links-col"> <div class="footer__links-subgrid"> <!-- Subsection A: Menu --> <div class="footer__links-group"> <h3 class="footer__group-title">Menu</h3> <ul class="footer__group-list"> <li> <a href="/#onas">O nas</a> </li> <li> <a href="/#projekty">Realizacje</a> </li> <li><a href="/cennik">Cennik</a></li> <li><a href="/jak-dzialamy">Jak działamy</a></li> <li><a href="/blog">Blog</a></li> <li> <a href="/#kontakt">Kontakt</a> </li> </ul> </div> <!-- Subsection B: Dokumenty --> <div class="footer__links-group"> <h3 class="footer__group-title">Dokumenty</h3> <ul class="footer__group-list"> <li> <a href="/polityka">Polityka prywatności</a> </li> <li> <a href="/zasady-wspolpracy">Zasady współpracy</a> </li> <li><a href="/sitemap">Mapa witryny</a></li> </ul> </div> </div> </div> </div> <div class="footer__bottom"> <p class="footer__copyright">
+</p> <div class="footer__contact-info"> <a href="mailto:kontakt@web2sell.pl" class="footer__contact-item"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>kontakt@web2sell.pl</span> </a> <div class="footer__contact-item"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Kraków, Myślenice, Polska</span> </div> </div> </div> <!-- Column 2: Split links (Menu & Docs) --> <div class="footer__links-col"> <div class="footer__links-subgrid"> <!-- Subsection A: Menu --> <div class="footer__links-group"> <h3 class="footer__group-title">Menu</h3> <ul class="footer__group-list"> <li> <a href="/#onas">O nas</a> </li> <li> <a href="/#projekty">Realizacje</a> </li> <li><a href="/cennik">Cennik</a></li> <li><a href="/jak-dzialamy">Jak działamy</a></li> <li><a href="/blog">Blog</a></li> <li> <a href="/#kontakt">Kontakt</a> </li> </ul> </div> <!-- Subsection B: Dokumenty --> <div class="footer__links-group"> <h3 class="footer__group-title">Dokumenty</h3> <ul class="footer__group-list"> <li> <a href="/polityka">Polityka prywatności</a> </li> <li> <button type="button" class="footer__privacy-settings" data-open-privacy-settings>
+Ustawienia prywatności
+</button> </li> <li> <a href="/zasady-wspolpracy">Zasady współpracy</a> </li> <li><a href="/sitemap">Mapa witryny</a></li> </ul> </div> </div> </div> </div> <div class="footer__bottom"> <p class="footer__copyright">
 &copy; 2026 Copyright web2sell
 </p> <p class="footer__credits">
 Design by web2sell team
 </p> </div> </div> </footer>  </div> <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) --> <div id="cookie-banner" class="cookie-banner hidden" role="dialog" aria-modal="true" aria-label="Zgoda na pliki cookie" aria-describedby="cookie-text"> <div class="cookie-banner__container"> <div class="cookie-banner__content"> <i class="fa-solid fa-cookie-bite cookie-banner__icon" aria-hidden="true"></i> <p id="cookie-text">
-Ta strona korzysta z ciasteczek analitycznych (Google
-                        Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
+Ta strona korzysta z opcjonalnych usług Google Analytics
+                        i Google Maps. Uruchomimy je dopiero po Twojej zgodzie.
+                        Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
 </p> </div> <div class="cookie-banner__actions"> <button id="cookie-decline" class="cookie-banner__btn cookie-banner__btn--decline">Odrzuć</button> <button id="cookie-accept" class="cookie-banner__btn">Akceptuję</button> </div> </div> </div> <script>
             (function () {
-                const consent = localStorage.getItem("cookie-consent");
-                // Show banner only if the user hasn't made a choice yet
-                if (!consent) {
-                    const banner = document.getElementById("cookie-banner");
-                    const acceptBtn = document.getElementById("cookie-accept");
-                    const declineBtn = document.getElementById("cookie-decline");
-                    
-                    if (banner && acceptBtn && declineBtn) {
-                        banner.classList.remove("hidden");
-                        
-                        // User accepts cookies
-                        acceptBtn.addEventListener("click", function () {
-                            localStorage.setItem("cookie-consent", "accepted");
-                            banner.classList.add("hidden");
-                            if (typeof window.initGA === "function") {
-                                window.initGA();
-                            }
+                var CONSENT_KEY = "cookie-consent";
+                var CONSENT_VERSION = "2026-09-22";
+                var GA_ID = "G-QZ55XLZEDP";
+                var banner = document.getElementById("cookie-banner");
+                var acceptBtn = document.getElementById("cookie-accept");
+                var declineBtn = document.getElementById("cookie-decline");
+
+                if (!banner || !acceptBtn || !declineBtn) return;
+
+                function showBanner() {
+                    banner.classList.remove("hidden");
+                    banner.setAttribute("aria-hidden", "false");
+                }
+
+                function hideBanner() {
+                    banner.classList.add("hidden");
+                    banner.setAttribute("aria-hidden", "true");
+                }
+
+                function saveDecision(decision) {
+                    var accepted = decision === "accepted";
+                    var record = {
+                        version: CONSENT_VERSION,
+                        decision: decision,
+                        updatedAt: new Date().toISOString(),
+                        categories: {
+                            analytics: accepted,
+                            googleMaps: accepted,
+                        },
+                    };
+                    localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
+                    return record;
+                }
+
+                function deleteAnalyticsCookies() {
+                    var cookieNames = document.cookie
+                        .split(";")
+                        .map(function (cookie) {
+                            return cookie.split("=")[0].trim();
+                        })
+                        .filter(function (name) {
+                            return name === "_ga" || name.indexOf("_ga_") === 0;
                         });
 
-                        // User declines cookies
-                        declineBtn.addEventListener("click", function () {
-                            localStorage.setItem("cookie-consent", "declined");
-                            banner.classList.add("hidden");
+                    cookieNames.forEach(function (name) {
+                        var expired =
+                            name +
+                            "=; Max-Age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax";
+                        document.cookie = expired;
+                        document.cookie =
+                            expired + "; domain=" + window.location.hostname;
+                        document.cookie =
+                            expired + "; domain=." + window.location.hostname;
+                    });
+                }
+
+                function notifyConsentChange(record) {
+                    window.dispatchEvent(
+                        new CustomEvent("privacy-consent-changed", {
+                            detail: record,
+                        }),
+                    );
+                }
+
+                acceptBtn.addEventListener("click", function () {
+                    var record = saveDecision("accepted");
+                    hideBanner();
+                    window["ga-disable-" + GA_ID] = false;
+
+                    if (typeof window.gtag === "function") {
+                        window.gtag("consent", "update", {
+                            analytics_storage: "granted",
+                        });
+                        window.gtag("config", GA_ID, {
+                            allow_google_signals: false,
+                            allow_ad_personalization_signals: false,
+                        });
+                    } else if (typeof window.initGA === "function") {
+                        window.initGA();
+                    }
+
+                    notifyConsentChange(record);
+                });
+
+                declineBtn.addEventListener("click", function () {
+                    var record = saveDecision("declined");
+                    hideBanner();
+                    window["ga-disable-" + GA_ID] = true;
+
+                    if (typeof window.gtag === "function") {
+                        window.gtag("consent", "update", {
+                            analytics_storage: "denied",
                         });
                     }
+
+                    deleteAnalyticsCookies();
+                    notifyConsentChange(record);
+                });
+
+                document.addEventListener("click", function (event) {
+                    if (!(event.target instanceof Element)) return;
+                    var trigger = event.target.closest(
+                        "[data-open-privacy-settings]",
+                    );
+                    if (!trigger) return;
+
+                    event.preventDefault();
+                    showBanner();
+                    acceptBtn.focus();
+                });
+
+                // Legacy string values do not contain a date or policy version,
+                // so one fresh choice is requested after this update.
+                if (!window.getPrivacyConsentRecord()) {
+                    showBanner();
+                } else {
+                    hideBanner();
                 }
             })();
         </script> <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("[data-aos]").forEach(e=>{e.classList.add("aos-animate")});return}let a=[],s=null;const d=()=>{a.forEach(e=>{e.classList.add("aos-animate")}),a=[],s=null},l=new IntersectionObserver((e,c)=>{let n=!1;e.forEach(o=>{if(o.isIntersecting){const t=o.target,r=t.getAttribute("data-aos-duration"),i=t.getAttribute("data-aos-delay");r&&(t.style.transitionDuration=`${r}ms`),i&&(t.style.transitionDelay=`${i}ms`),a.push(t),n=!0,c.unobserve(t)}}),n&&s===null&&(s=requestAnimationFrame(d))},{rootMargin:"0px 0px -60px 0px",threshold:.05});document.querySelectorAll("[data-aos]").forEach(e=>{l.observe(e)})});</script> <div class="theme-floating-controls" id="theme-floating-controls" data-astro-cid-ddta5pav> <!-- Dark / Light Mode Toggle Button (Taki sam okrąg jak próbnik kolorów) --> <button class="theme-mode-toggle" id="theme-mode-toggle" aria-label="Przełącz motyw jasny / ciemny" title="Przełącz motyw jasny / ciemny" data-astro-cid-ddta5pav> <span class="theme-mode-icon-wrap" data-astro-cid-ddta5pav> <i class="fa-solid fa-sun sun-icon" data-astro-cid-ddta5pav></i> <i class="fa-solid fa-moon moon-icon" data-astro-cid-ddta5pav></i> </span> </button> <!-- Color Theme Picker Container --> <div class="theme-picker" id="theme-picker-container" data-astro-cid-ddta5pav> <!-- Trigger Button --> <button class="theme-picker__trigger" id="theme-picker-trigger" aria-label="Wybierz motyw kolorystyczny" title="Zmień kolorystykę strony" data-astro-cid-ddta5pav> <i class="fa-solid fa-palette" data-astro-cid-ddta5pav></i> </button> <!-- Menu --> <div class="theme-picker__menu" id="theme-picker-menu" data-astro-cid-ddta5pav> <div class="theme-picker__title" data-astro-cid-ddta5pav>Kolorystyka strony</div> <div class="theme-picker__options" data-astro-cid-ddta5pav> <button class="theme-picker__option" data-theme-value="blue" title="Niebieski" aria-label="Motyw niebieski" style="background: linear-gradient(135deg, #2563eb, #38bdf8);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="pink" title="Różowy" aria-label="Motyw różowy" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="green" title="Zielony" aria-label="Motyw zielony" style="background: linear-gradient(135deg, #059669, #34d399);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="red" title="Czerwony" aria-label="Motyw czerwony" style="background: linear-gradient(135deg, #dc2626, #f87171);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="yellow" title="Żółty" aria-label="Motyw żółty" style="background: linear-gradient(135deg, #d97706, #facc15);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="orange" title="Pomarańczowy" aria-label="Motyw pomarańczowy" style="background: linear-gradient(135deg, #ea580c, #fb923c);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> </div> </div> </div> </div>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("theme-picker-container"),h=document.getElementById("theme-picker-trigger"),g=document.querySelectorAll(".theme-picker__option");if(a&&h){const s=()=>document.documentElement.getAttribute("data-color-theme")||"pink",c=e=>{g.forEach(t=>{t.getAttribute("data-theme-value")===e?t.classList.add("is-active"):t.classList.remove("is-active")})};c(s()),h.addEventListener("click",e=>{e.stopPropagation(),a.classList.toggle("is-open")}),document.addEventListener("click",e=>{a.contains(e.target)||a.classList.remove("is-open")}),g.forEach(e=>{e.addEventListener("click",t=>{t.stopPropagation();const n=e.getAttribute("data-theme-value");n&&(document.cookie=`color-theme=${n}; path=/; max-age=${365*24*60*60}; SameSite=Lax`,document.documentElement.setAttribute("data-color-theme",n),c(n),setTimeout(()=>{a.classList.remove("is-open")},200))})})}const d=document.getElementById("theme-mode-toggle");let l=!1;d&&d.addEventListener("click",s=>{if(l)return;l=!0;const c=document.documentElement.getAttribute("data-theme")||"light",e=c==="dark"?"light":"dark";let t=s.clientX,n=s.clientY;if(t===void 0||n===void 0){const i=d.getBoundingClientRect();t=i.left+i.width/2,n=i.top+i.height/2}const r=document.createElement("div");r.className="theme-transition-overlay";const o=document.createElement("div");o.className="theme-transition-circle",o.style.left=t-50+"px",o.style.top=n-50+"px";const u=document.createElement("div");u.className="theme-transition-circle-bg current-bg",u.style.backgroundColor=c==="dark"?"#000000":"#f5f6f8";const m=document.createElement("div");m.className="theme-transition-circle-bg target-bg",m.style.backgroundColor=e==="dark"?"#000000":"#f5f6f8",o.appendChild(u),o.appendChild(m),r.appendChild(o),document.body.appendChild(r);const f=Math.max(Math.hypot(t,n),Math.hypot(window.innerWidth-t,n),Math.hypot(t,window.innerHeight-n),Math.hypot(window.innerWidth-t,window.innerHeight-n))/50+.5;r.offsetWidth,o.animate([{transform:"scale(0)"},{transform:"scale("+f+")"}],{duration:550,easing:"cubic-bezier(0.76, 0, 0.24, 1)",fill:"forwards"}),setTimeout(()=>{m.animate([{opacity:0},{opacity:1}],{duration:150,easing:"ease-out",fill:"forwards"})},550),setTimeout(()=>{document.documentElement.setAttribute("data-theme",e),localStorage.setItem("theme",e);const i=document.querySelector('meta[name="theme-color"]');i&&i.setAttribute("content",e==="dark"?"#000000":"#f5f6f8")},700),setTimeout(()=>{const i=o.animate([{transform:"scale("+f+")"},{transform:"scale(0)"}],{duration:550,easing:"cubic-bezier(0.76, 0, 0.24, 1)",fill:"forwards"});i.onfinish=()=>{r.remove(),l=!1}},750)})});</script> </body></html> <!-- Lightweight gallery — no Swiper, scroll never blocked --> <script>

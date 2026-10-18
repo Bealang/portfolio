@@ -36,29 +36,75 @@
                 }
                 document.documentElement.setAttribute('data-color-theme', colorTheme);
             })();
-        </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/assets/favicon.png"><title>Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi? | web2sell</title><meta name="description" content="Rozważasz stworzenie strony w kreatorze Wix lub Elementorze? Przeczytaj rzetelną analizę wad, zalet i kosztów utrzymania w porównaniu do dedykowanego czystego kodu."><link rel="canonical" href="https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety/"><meta name="robots" content="noindex, follow"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety/"><meta property="og:title" content="Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi? | web2sell"><meta property="og:description" content="Rozważasz stworzenie strony w kreatorze Wix lub Elementorze? Przeczytaj rzetelną analizę wad, zalet i kosztów utrzymania w porównaniu do dedykowanego czystego kodu."><meta property="og:image" content="https://web2sell.pl/assets/blog/kreatory-stron-internetowych-wady-zalety/kreatory-stron-internetowych-wady-zalety.avif"><meta property="og:site_name" content="web2sell"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety/"><meta property="twitter:title" content="Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi? | web2sell"><meta property="twitter:description" content="Rozważasz stworzenie strony w kreatorze Wix lub Elementorze? Przeczytaj rzetelną analizę wad, zalet i kosztów utrzymania w porównaniu do dedykowanego czystego kodu."><meta property="twitter:image" content="https://web2sell.pl/assets/blog/kreatory-stron-internetowych-wady-zalety/kreatory-stron-internetowych-wady-zalety.avif"><!-- Fonts --><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="/assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/css/all.min.css"></noscript><!-- Google Analytics (Conditional load based on user cookie consent) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script>
+        </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/x-icon" href="/assets/favicon.png"><title>Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi? | web2sell Blog</title><meta name="description" content="Rozważasz stworzenie strony w kreatorze Wix lub Elementorze? Przeczytaj rzetelną analizę wad, zalet i kosztów utrzymania w porównaniu do dedykowanego czystego kodu."><link rel="canonical" href="https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety"><meta name="robots" content="index, follow"><!-- Open Graph / Facebook --><meta property="og:type" content="article"><meta property="og:url" content="https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety"><meta property="og:title" content="Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi? | web2sell Blog"><meta property="og:description" content="Rozważasz stworzenie strony w kreatorze Wix lub Elementorze? Przeczytaj rzetelną analizę wad, zalet i kosztów utrzymania w porównaniu do dedykowanego czystego kodu."><meta property="og:image" content="https://web2sell.pl/assets/blog/kreatory-stron-internetowych-wady-zalety/kreatory-stron-internetowych-wady-zalety.avif"><meta property="og:site_name" content="web2sell"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety"><meta property="twitter:title" content="Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi? | web2sell Blog"><meta property="twitter:description" content="Rozważasz stworzenie strony w kreatorze Wix lub Elementorze? Przeczytaj rzetelną analizę wad, zalet i kosztów utrzymania w porównaniu do dedykowanego czystego kodu."><meta property="twitter:image" content="https://web2sell.pl/assets/blog/kreatory-stron-internetowych-wady-zalety/kreatory-stron-internetowych-wady-zalety.avif"><!-- Fonts --><!-- Icons (Asynchronous non-blocking load) --><link rel="preload" href="/assets/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/assets/css/all.min.css"></noscript><!-- Google Analytics (Conditional load based on user cookie consent) --><meta name="google-site-verification" content="Mwvnib0juSolxrmHkKg77XAaBqiaqVDiL0JvLCP7hr0"><script>
             (function () {
+                var CONSENT_KEY = "cookie-consent";
+                var CONSENT_VERSION = "2026-09-22";
+                var GA_ID = "G-QZ55XLZEDP";
+
+                window.getPrivacyConsentRecord = function () {
+                    try {
+                        var storedConsent = localStorage.getItem(CONSENT_KEY);
+                        if (!storedConsent) return null;
+
+                        var record = JSON.parse(storedConsent);
+                        if (
+                            !record ||
+                            record.version !== CONSENT_VERSION ||
+                            (record.decision !== "accepted" &&
+                                record.decision !== "declined") ||
+                            !record.updatedAt
+                        ) {
+                            return null;
+                        }
+
+                        return record;
+                    } catch (error) {
+                        return null;
+                    }
+                };
+
+                window.hasOptionalGoogleConsent = function () {
+                    var record = window.getPrivacyConsentRecord();
+                    return Boolean(
+                        record &&
+                            record.decision === "accepted" &&
+                            record.categories &&
+                            record.categories.analytics === true &&
+                            record.categories.googleMaps === true,
+                    );
+                };
+
                 window.initGA = function () {
                     if (window.gaInitialized) return;
                     window.gaInitialized = true;
+                    window["ga-disable-" + GA_ID] = false;
 
                     // Inject gtag.js
                     var script = document.createElement("script");
                     script.async = true;
                     script.src =
-                        "https://www.googletagmanager.com/gtag/js?id=G-QZ55XLZEDP";
+                        "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
                     document.head.appendChild(script);
 
                     window.dataLayer = window.dataLayer || [];
                     window.gtag = function () {
                         window.dataLayer.push(arguments);
                     };
+                    window.gtag("consent", "default", {
+                        analytics_storage: "granted",
+                        ad_storage: "denied",
+                        ad_user_data: "denied",
+                        ad_personalization: "denied",
+                    });
                     window.gtag("js", new Date());
-                    window.gtag("config", "G-QZ55XLZEDP");
+                    window.gtag("config", GA_ID, {
+                        allow_google_signals: false,
+                        allow_ad_personalization_signals: false,
+                    });
                 };
 
-                const consent = localStorage.getItem("cookie-consent");
-                if (consent === "accepted") {
+                if (window.hasOptionalGoogleConsent()) {
                     // User has already given consent. Load GA non-blockingly with delayed strategy.
                     var gaTriggered = false;
                     function triggerGA() {
@@ -85,25 +131,69 @@
                     });
                 }
             })();
-        </script><!-- Structured Data --><script type="application/ld+json">
+        </script><!-- Structured Data (Org + SiteNavigationElement for Google Sitelinks) --><script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                "name": "web2sell - Tworzenie stron www",
-                "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
-                "url": "https://web2sell.pl/",
-                "telephone": "",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Myślenice",
-                    "addressCountry": "PL"
-                },
-                "description": "Profesjonalne tworzenie stron www w Myślenicach. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+                "@graph": [
+                    {
+                        "@type": "ProfessionalService",
+                        "@id": "https://web2sell.pl/#organization",
+                        "name": "web2sell - Tworzenie stron www",
+                        "image": "https://web2sell.pl/assets/project-img/joecraft.avif",
+                        "url": "https://web2sell.pl/",
+                        "telephone": "+48530315860",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Myślenice",
+                            "addressCountry": "PL"
+                        },
+                        "description": "Profesjonalne tworzenie stron www w Myślenicach i całej Małopolsce. Projektowanie i programowanie nowoczesnych, szybkich stron internetowych."
+                    },
+                    {
+                        "@type": "ItemList",
+                        "@id": "https://web2sell.pl/#site-navigation",
+                        "name": "Główna nawigacja serwisu",
+                        "itemListElement": [
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 1,
+                                "name": "Cennik",
+                                "description": "Przejrzysty cennik stron www bez abonamentu - OnePage (990 zł), Wizytówka + CMS (2290 zł) i System Dedykowany (3990 zł).",
+                                "url": "https://web2sell.pl/cennik"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 2,
+                                "name": "Darmowa wycena",
+                                "description": "Skontaktuj się i otrzymaj bezpłatną, niezobowiązującą wycenę strony w 24 godziny.",
+                                "url": "https://web2sell.pl/zamow"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 3,
+                                "name": "Jak działamy",
+                                "description": "4-etapowy proces realizacji strony internetowej od projektu po wdrożenie oraz FAQ.",
+                                "url": "https://web2sell.pl/jak-dzialamy"
+                            },
+                            {
+                                "@type": "SiteNavigationElement",
+                                "position": 4,
+                                "name": "Przykładowe realizacje",
+                                "description": "Portfolio stron internetowych stworzonych od zera dla firm z Małopolski.",
+                                "url": "https://web2sell.pl/#projekty"
+                            }
+                        ]
+                    }
+                ]
             }
-        </script><link rel="stylesheet" href="/_astro/Footer.2c710c7d.css">
-<link rel="stylesheet" href="/_astro/_slug_.ff7dbe00.css"></head> <body class> <div class="app-wrapper">  <header id="main-header"> <!-- DESKTOP NAGŁÓWEK (FLOATING PILL NAVBAR) --> <div class="header-desktop-pill"> <a href="/" class="logo-text" aria-label="Strona główna">
+        </script><link rel="stylesheet" href="/_astro/Footer.d4144e44.css">
+<link rel="stylesheet" href="/_astro/_slug_.959868b5.css"></head> <body class> <div class="app-wrapper">  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety#article","headline":"Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi?","description":"Rozważasz stworzenie strony w kreatorze Wix lub Elementorze? Przeczytaj rzetelną analizę wad, zalet i kosztów utrzymania w porównaniu do dedykowanego czystego kodu.","image":"https://web2sell.pl/assets/blog/kreatory-stron-internetowych-wady-zalety/kreatory-stron-internetowych-wady-zalety.avif","datePublished":"2026-05-17T00:00:00.000Z","dateModified":"2026-05-17T00:00:00.000Z","inLanguage":"pl-PL","mainEntityOfPage":{"@type":"WebPage","@id":"https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety"},"author":{"@type":"Person","name":"Łukasz Sroka","url":"https://web2sell.pl/#o-nas"},"publisher":{"@type":"Organization","name":"web2sell","url":"https://web2sell.pl/","logo":{"@type":"ImageObject","url":"https://web2sell.pl/assets/frameworks/logo.avif"}}},{"@type":"BreadcrumbList","@id":"https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Strona główna","item":"https://web2sell.pl/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://web2sell.pl/blog"},{"@type":"ListItem","position":3,"name":"Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi?","item":"https://web2sell.pl/blog/kreatory-stron-internetowych-wady-zalety"}]}]}</script> <header id="main-header"> <!-- DESKTOP NAGŁÓWEK (FLOATING PILL NAVBAR) --> <div class="header-desktop-pill"> <a href="/" class="logo-text" aria-label="Strona główna">
 web2<span class="gradient__text">sell</span> </a> <nav id="nav-menu"> <a href="/#o-nas" class="nav-link">O nas</a> <a href="/#projekty" class="nav-link">Realizacje</a> <a href="/cennik" class="nav-link">Cennik</a> <a href="/jak-dzialamy" class="nav-link">Jak działamy?</a> <a href="/jak-dzialamy#faq" class="nav-link">FAQ</a> <!-- Dedykowane szczegóły kontaktu wyświetlane na dole rozwijanego drawer menu na mobile --> <div class="mobile-menu-footer"> <div class="mobile-menu-theme-row"> <span class="theme-label">Motyw:</span> <button class="theme-switch-pill" aria-label="Zmień motyw"> <span class="pill-track"> <span class="pill-thumb"> <i class="fa-solid fa-sun sun-icon"></i> <i class="fa-solid fa-moon moon-icon"></i> </span> </span> </button> </div> <a href="tel:+48530315860" class="mobile-menu-phone"> <i class="fa-solid fa-phone"></i> +48 530 315 860
-</a> <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a> </div> </nav> <div class="header-desktop-actions"> <a href="/zamow" class="header-cta">Bezpłatna wycena</a> </div> </div> <!-- 3. MOBILNY NAGŁÓWEK (COMPACT SINGLE ROW) --> <div class="header-mobile-row"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-mobile-actions"> <!-- Widoczny przycisk Zamów wycenę od razu na mobile (chowa się przy open menu) --> <a href="/zamow" class="mobile-visible-cta">Bezpłatna wycena</a> <!-- Hamburger menu --> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </div> </div> </header> <!-- 4. MOBILNE PŁYWAJĄCE MENU (FLOATING BOTTOM NAV) --> <div class="mobile-floating-nav" id="mobileFloatingNav"> <a href="/cennik" class="floating-nav-item" aria-label="Cennik"> <i class="fa-solid fa-dollar-sign"></i> <span>Cennik</span> </a> <a href="/zamow" class="floating-nav-item" aria-label="Wycena"> <i class="fa-solid fa-file-invoice-dollar"></i> <span>Wycena</span> </a> <a href="tel:+48530315860" class="floating-nav-item" aria-label="Zadzwoń"> <i class="fa-solid fa-phone"></i> <span>Zadzwoń</span> </a> </div> <script type="module" src="/_astro/Header.astro_astro_type_script_index_0_lang.DV4uzCUM.js"></script> <main class="post-container" data-astro-cid-4sn4zg3r> <div class="hero-bg" style="z-index: -1;"> <div class="glow-overlay"></div> </div> <article class="post" data-astro-cid-4sn4zg3r> <div class="post__header" data-astro-cid-4sn4zg3r> <a href="/blog" class="post__back-btn" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-arrow-left-long" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Wróć do bloga</span> </a> <div class="post__meta" data-astro-cid-4sn4zg3r> <span class="post__author" data-astro-cid-4sn4zg3r> <i class="fa-regular fa-user" data-astro-cid-4sn4zg3r></i> Łukasz Sroka </span> <span class="post__divider" data-astro-cid-4sn4zg3r>•</span> <time datetime="2026-05-17T00:00:00.000Z" class="post__date" data-astro-cid-4sn4zg3r> <i class="fa-regular fa-calendar-days" data-astro-cid-4sn4zg3r></i> 17 maja 2026 </time> </div> <h1 class="post__title" data-astro-cid-4sn4zg3r>Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi?</h1> </div> <div class="post__image-wrapper" data-astro-cid-4sn4zg3r> <img src="/assets/blog/kreatory-stron-internetowych-wady-zalety/kreatory-stron-internetowych-wady-zalety.avif" alt="Kreatory stron internetowych kontra czysty kod programistyczny" data-astro-cid-4sn4zg3r="true" loading="lazy" decoding="async" width="1200" height="600" class="post__image"> </div> <section class="post__content" data-astro-cid-4sn4zg3r> <p>W dzisiejszych czasach rozpoczęcie działalności w sieci wydaje się prostsze niż kiedykolwiek. Narzędzia typu “zrób to sam” (DIY), takie jak Wix, Webwave, Squarespace czy Elementor dla WordPressa kuszą obietnicą darmowego, szybkiego i bezkodowego stworzenia własnej witryny. Jednak czy strona zbudowana w ten sposób rzeczywiście wystarczy do prowadzenia profesjonalnego biznesu? W tym artykule Łukasz Sroka dokonuje technicznej analizy i porównuje kreatory z dedykowanym czystym kodem.</p>
+</a> <a href="/zamow" class="mobile-menu-cta">Bezpłatna wycena</a> </div> </nav> <div class="header-desktop-actions"> <a href="/zamow" class="header-cta">Bezpłatna wycena</a> </div> </div> <!-- 3. MOBILNY NAGŁÓWEK (COMPACT SINGLE ROW) --> <div class="header-mobile-row"> <a href="/" class="logo-text">web2<span class="gradient__text">sell</span></a> <div class="header-mobile-actions"> <!-- Widoczny przycisk Zamów wycenę od razu na mobile (chowa się przy open menu) --> <a href="/zamow" class="mobile-visible-cta">Bezpłatna wycena</a> <!-- Hamburger menu --> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </div> </div> </header> <!-- 4. MOBILNE PŁYWAJĄCE MENU (FLOATING BOTTOM NAV) --> <div class="mobile-floating-nav" id="mobileFloatingNav"> <a href="/cennik" class="floating-nav-item" aria-label="Cennik"> <i class="fa-solid fa-dollar-sign"></i> <span>Cennik</span> </a> <a href="/zamow" class="floating-nav-item" aria-label="Wycena"> <i class="fa-solid fa-file-invoice-dollar"></i> <span>Wycena</span> </a> <a href="tel:+48530315860" class="floating-nav-item" aria-label="Zadzwoń"> <i class="fa-solid fa-phone"></i> <span>Zadzwoń</span> </a> </div> <script type="module" src="/_astro/Header.astro_astro_type_script_index_0_lang.DV4uzCUM.js"></script> <main class="post-container" data-astro-cid-4sn4zg3r> <div class="hero-bg" style="z-index: -1;"> <div class="glow-overlay"></div> </div> <article class="post" data-astro-cid-4sn4zg3r> <!-- Breadcrumbs SEO --> <nav class="post__breadcrumbs" aria-label="Ścieżka nawigacyjna" data-astro-cid-4sn4zg3r> <a href="/" data-astro-cid-4sn4zg3r>Strona główna</a> <span class="bc-sep" data-astro-cid-4sn4zg3r>/</span> <a href="/blog" data-astro-cid-4sn4zg3r>Blog</a> <span class="bc-sep" data-astro-cid-4sn4zg3r>/</span> <span class="bc-current" aria-current="page" data-astro-cid-4sn4zg3r>Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi?</span> </nav> <div class="post__header" data-astro-cid-4sn4zg3r> <a href="/blog" class="post__back-btn" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-arrow-left-long" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Wróć do bloga</span> </a> <div class="post__meta" data-astro-cid-4sn4zg3r> <span class="post__author" data-astro-cid-4sn4zg3r> <i class="fa-regular fa-user" data-astro-cid-4sn4zg3r></i> Łukasz Sroka </span> <span class="post__divider" data-astro-cid-4sn4zg3r>•</span> <time datetime="2026-05-17T00:00:00.000Z" class="post__date" data-astro-cid-4sn4zg3r> <i class="fa-regular fa-calendar-days" data-astro-cid-4sn4zg3r></i> 17 maja 2026 </time> <span class="post__divider" data-astro-cid-4sn4zg3r>•</span> <span class="post__reading-time" data-astro-cid-4sn4zg3r> <i class="fa-regular fa-clock" data-astro-cid-4sn4zg3r></i> 3 min czytania
+</span> </div> <h1 class="post__title" data-astro-cid-4sn4zg3r>Kreatory stron internetowych – kiedy pomagają, a kiedy szkodzą biznesowi?</h1> </div> <!-- UKŁAD DWUKOLUMNOWY: LEWA STRONA TREŚĆ, PRAWA STRONA STICKY SIDEBAR --> <div class="post__layout" data-astro-cid-4sn4zg3r> <!-- LEWA KOLUMNA: GŁÓWNA TREŚĆ ARTYKUŁU --> <div class="post__main-content" data-astro-cid-4sn4zg3r> <div class="post__image-wrapper" data-astro-cid-4sn4zg3r> <img src="/assets/blog/kreatory-stron-internetowych-wady-zalety/kreatory-stron-internetowych-wady-zalety.avif" alt="Kreatory stron internetowych kontra czysty kod programistyczny" loading="eager" data-astro-cid-4sn4zg3r="true" decoding="async" width="1280" height="720" class="post__image"> </div> <!-- Spis treści na telefony (zwijany akordeon) -->
+                        <div class="post__mobile-toc" data-astro-cid-4sn4zg3r> <details class="mobile-toc-details" data-astro-cid-4sn4zg3r> <summary class="mobile-toc-summary" data-astro-cid-4sn4zg3r> <span class="mobile-toc-title" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-list-ul" data-astro-cid-4sn4zg3r></i>
+Spis treści artykułu
+</span> <i class="fa-solid fa-chevron-down mobile-toc-arrow" data-astro-cid-4sn4zg3r></i> </summary> <ul class="mobile-toc-list" data-astro-cid-4sn4zg3r> <li class="mobile-toc-item mobile-toc-item--depth-2" data-astro-cid-4sn4zg3r> <a href="#kiedy-kreator-stron-to-dobry-wybór" data-astro-cid-4sn4zg3r>Kiedy kreator stron to dobry wybór?</a> </li><li class="mobile-toc-item mobile-toc-item--depth-2" data-astro-cid-4sn4zg3r> <a href="#ukryte-wady-bezkodowych-kreatorów-stron" data-astro-cid-4sn4zg3r>Ukryte wady bezkodowych kreatorów stron</a> </li><li class="mobile-toc-item mobile-toc-item--depth-3" data-astro-cid-4sn4zg3r> <a href="#1-vendor-lock-in-brak-własności-strony" data-astro-cid-4sn4zg3r>1. Vendor Lock-in (Brak własności strony)</a> </li><li class="mobile-toc-item mobile-toc-item--depth-3" data-astro-cid-4sn4zg3r> <a href="#2-nadmiar-kodu-i-katastrofalna-szybkość-core-web-vitals" data-astro-cid-4sn4zg3r>2. Nadmiar kodu i katastrofalna szybkość (Core Web Vitals)</a> </li><li class="mobile-toc-item mobile-toc-item--depth-3" data-astro-cid-4sn4zg3r> <a href="#3-słabe-możliwości-pozycjonowania-seo" data-astro-cid-4sn4zg3r>3. Słabe możliwości pozycjonowania (SEO)</a> </li><li class="mobile-toc-item mobile-toc-item--depth-2" data-astro-cid-4sn4zg3r> <a href="#porównanie-kreatory-vs-dedykowany-czysty-kod-tco" data-astro-cid-4sn4zg3r>Porównanie: Kreatory vs Dedykowany Czysty Kod (TCO)</a> </li><li class="mobile-toc-item mobile-toc-item--depth-2" data-astro-cid-4sn4zg3r> <a href="#podsumowanie-co-wybrać-dla-swojej-firmy" data-astro-cid-4sn4zg3r>Podsumowanie: Co wybrać dla swojej firmy?</a> </li> </ul> </details> </div> <section class="post__content" data-astro-cid-4sn4zg3r> <p>W dzisiejszych czasach rozpoczęcie działalności w sieci wydaje się prostsze niż kiedykolwiek. Narzędzia typu “zrób to sam” (DIY), takie jak Wix, Webwave, Squarespace czy Elementor dla WordPressa kuszą obietnicą darmowego, szybkiego i bezkodowego stworzenia własnej witryny. Jednak czy strona zbudowana w ten sposób rzeczywiście wystarczy do prowadzenia profesjonalnego biznesu? W tym artykule Łukasz Sroka dokonuje technicznej analizy i porównuje kreatory z dedykowanym czystym kodem.</p>
 <h2 id="kiedy-kreator-stron-to-dobry-wybór">Kiedy kreator stron to dobry wybór?</h2>
 <p>Kreatory stron bez wątpienia mają swoje miejsce na rynku i mogą być doskonałym rozwiązaniem w konkretnych sytuacjach:</p>
 <ul>
@@ -162,121 +252,199 @@ web2<span class="gradient__text">sell</span> </a> <nav id="nav-menu"> <a href="/
 <hr>
 <h2 id="podsumowanie-co-wybrać-dla-swojej-firmy">Podsumowanie: Co wybrać dla swojej firmy?</h2>
 <p>Decyzja sprowadza się do profesjonalizmu i celów biznesowych. Jeśli strona ma być wizytówką, której nikt nie szuka, lub służy do celów hobbystycznych – darmowy kreator w zupełności wystarczy.</p>
-<p>Jeśli jednak Twoja witryna ma aktywnie pozycjonować się w wyszukiwarkach, budować zaufanie klientów premium, ładować się w mgnieniu oka na urządzeniach mobilnych i rosnąć wraz z Twoją marką bez ograniczeń technologicznych – dedykowany, czysty kod jest jedynym słusznym i długofalowo tańszym rozwiązaniem.</p> </section> <!-- Sekcja udostępniania --> <div class="post__share" data-astro-cid-4sn4zg3r> <span class="share__title" data-astro-cid-4sn4zg3r>Spodobał ci się artykuł? Udostępnij go innym!</span> <div class="share__buttons" data-astro-cid-4sn4zg3r> <button class="share-btn share-btn--native" id="shareNative" style="display: none;" aria-label="Udostępnij artykuł" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-share-nodes" data-astro-cid-4sn4zg3r></i> <span class="tooltip" data-astro-cid-4sn4zg3r>Udostępnij</span> </button> <a href="#" class="share-btn share-btn--facebook" id="shareFacebook" target="_blank" rel="noopener noreferrer" aria-label="Udostępnij na Facebooku" data-astro-cid-4sn4zg3r> <i class="fa-brands fa-facebook-f" data-astro-cid-4sn4zg3r></i> </a> <a href="#" class="share-btn share-btn--x" id="shareX" target="_blank" rel="noopener noreferrer" aria-label="Udostępnij na X" data-astro-cid-4sn4zg3r> <i class="fa-brands fa-x-twitter" data-astro-cid-4sn4zg3r></i> </a> <a href="#" class="share-btn share-btn--linkedin" id="shareLinkedIn" target="_blank" rel="noopener noreferrer" aria-label="Udostępnij na LinkedIn" data-astro-cid-4sn4zg3r> <i class="fa-brands fa-linkedin-in" data-astro-cid-4sn4zg3r></i> </a> <button class="share-btn share-btn--copy" id="shareCopy" aria-label="Kopiuj link do schowka" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-link" data-astro-cid-4sn4zg3r></i> <span class="tooltip" id="copyTooltip" data-astro-cid-4sn4zg3r>Skopiuj link</span> </button> </div> </div> <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    var pageUrl = window.location.href;
-                    var pageTitle = document.title;
+<p>Jeśli jednak Twoja witryna ma aktywnie pozycjonować się w wyszukiwarkach, budować zaufanie klientów premium, ładować się w mgnieniu oka na urządzeniach mobilnych i rosnąć wraz z Twoją marką bez ograniczeń technologicznych – dedykowany, czysty kod jest jedynym słusznym i długofalowo tańszym rozwiązaniem.</p> </section> <!-- Sekcja udostępniania --> <div class="post__share" data-astro-cid-4sn4zg3r> <span class="share__title" data-astro-cid-4sn4zg3r>Spodobał ci się artykuł? Udostępnij go innym!</span> <div class="share__buttons" data-astro-cid-4sn4zg3r> <button class="share-btn share-btn--native" id="shareNative" style="display: none;" aria-label="Udostępnij artykuł" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-share-nodes" data-astro-cid-4sn4zg3r></i> <span class="tooltip" data-astro-cid-4sn4zg3r>Udostępnij</span> </button> <a href="#" class="share-btn share-btn--facebook" id="shareFacebook" target="_blank" rel="noopener noreferrer" aria-label="Udostępnij na Facebooku" data-astro-cid-4sn4zg3r> <i class="fa-brands fa-facebook-f" data-astro-cid-4sn4zg3r></i> </a> <a href="#" class="share-btn share-btn--x" id="shareX" target="_blank" rel="noopener noreferrer" aria-label="Udostępnij na X" data-astro-cid-4sn4zg3r> <i class="fa-brands fa-x-twitter" data-astro-cid-4sn4zg3r></i> </a> <a href="#" class="share-btn share-btn--linkedin" id="shareLinkedIn" target="_blank" rel="noopener noreferrer" aria-label="Udostępnij na LinkedIn" data-astro-cid-4sn4zg3r> <i class="fa-brands fa-linkedin-in" data-astro-cid-4sn4zg3r></i> </a> <button class="share-btn share-btn--copy" id="shareCopy" aria-label="Kopiuj link do schowka" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-link" data-astro-cid-4sn4zg3r></i> <span class="tooltip" id="copyTooltip" data-astro-cid-4sn4zg3r>Skopiuj link</span> </button> </div> </div> <!-- Dolna nawigacja artykułu --> <div class="post__navigation" data-astro-cid-4sn4zg3r> <a href="/blog" class="post__nav-btn post__nav-btn--back" aria-label="Wróć do listy wszystkich artykułów" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-arrow-left-long" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Powrót na bloga</span> </a> <a href="/blog/roznica-miedzy-astro-a-reactem" class="post__nav-btn post__nav-btn--next" aria-label="Przeczytaj kolejny artykuł: Astro vs. czysty React – co wybrać do projektu internetowego?" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Pokaż dalej</span> <i class="fa-solid fa-arrow-right-long" data-astro-cid-4sn4zg3r></i> </a> </div> </div> <!-- PRAWA KOLUMNA: STICKY DIVY (SPIS TREŚCI + DARMOWA WYCENA) --> <aside class="post__sidebar" data-astro-cid-4sn4zg3r> <div class="post__sidebar-sticky" data-astro-cid-4sn4zg3r> <div class="post__toc-card" data-astro-cid-4sn4zg3r> <div class="toc-card__header" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-list-ul" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Spis treści</span> </div> <nav class="toc-card__nav" aria-label="Spis treści artykułu" data-astro-cid-4sn4zg3r> <ul class="toc-card__list" data-astro-cid-4sn4zg3r> <li class="toc-card__item toc-card__item--depth-2" data-astro-cid-4sn4zg3r> <a href="#kiedy-kreator-stron-to-dobry-wybór" class="toc-link" data-astro-cid-4sn4zg3r> Kiedy kreator stron to dobry wybór? </a> </li><li class="toc-card__item toc-card__item--depth-2" data-astro-cid-4sn4zg3r> <a href="#ukryte-wady-bezkodowych-kreatorów-stron" class="toc-link" data-astro-cid-4sn4zg3r> Ukryte wady bezkodowych kreatorów stron </a> </li><li class="toc-card__item toc-card__item--depth-3" data-astro-cid-4sn4zg3r> <a href="#1-vendor-lock-in-brak-własności-strony" class="toc-link" data-astro-cid-4sn4zg3r> 1. Vendor Lock-in (Brak własności strony) </a> </li><li class="toc-card__item toc-card__item--depth-3" data-astro-cid-4sn4zg3r> <a href="#2-nadmiar-kodu-i-katastrofalna-szybkość-core-web-vitals" class="toc-link" data-astro-cid-4sn4zg3r> 2. Nadmiar kodu i katastrofalna szybkość (Core Web Vitals) </a> </li><li class="toc-card__item toc-card__item--depth-3" data-astro-cid-4sn4zg3r> <a href="#3-słabe-możliwości-pozycjonowania-seo" class="toc-link" data-astro-cid-4sn4zg3r> 3. Słabe możliwości pozycjonowania (SEO) </a> </li><li class="toc-card__item toc-card__item--depth-2" data-astro-cid-4sn4zg3r> <a href="#porównanie-kreatory-vs-dedykowany-czysty-kod-tco" class="toc-link" data-astro-cid-4sn4zg3r> Porównanie: Kreatory vs Dedykowany Czysty Kod (TCO) </a> </li><li class="toc-card__item toc-card__item--depth-2" data-astro-cid-4sn4zg3r> <a href="#podsumowanie-co-wybrać-dla-swojej-firmy" class="toc-link" data-astro-cid-4sn4zg3r> Podsumowanie: Co wybrać dla swojej firmy? </a> </li> </ul> </nav> </div> <!-- STICKY CTA: DARMOWA WYCENA / CZY POTRZEBUJESZ STRONY --> <div class="post__sidebar-cta" data-astro-cid-4sn4zg3r> <div class="sidebar-cta__badge" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-bolt" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Darmowa wycena w 24h</span> </div> <h3 class="sidebar-cta__title" data-astro-cid-4sn4zg3r>
+Potrzebujesz strony dla swojej firmy?
+</h3> <p class="sidebar-cta__desc" data-astro-cid-4sn4zg3r>
+Budujemy ultra-szybkie strony internetowe od zera. Bez ciężkich motywów WordPress, z wynikiem 95-100 PageSpeed i bez comiesięcznych abonamentów.
+</p> <ul class="sidebar-cta__features" data-astro-cid-4sn4zg3r> <li data-astro-cid-4sn4zg3r> <i class="fa-solid fa-check" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>100% autorski kod (Astro)</span> </li> <li data-astro-cid-4sn4zg3r> <i class="fa-solid fa-check" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Ładowanie w ułamek sekundy</span> </li> <li data-astro-cid-4sn4zg3r> <i class="fa-solid fa-check" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Optymalizacja SEO pod Google</span> </li> </ul> <div class="sidebar-cta__actions" data-astro-cid-4sn4zg3r> <a href="/zamow" class="sidebar-cta__btn-primary" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Wyceń projekt za darmo</span> <i class="fa-solid fa-arrow-right" data-astro-cid-4sn4zg3r></i> </a> <a href="tel:+48530315860" class="sidebar-cta__btn-phone" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-phone" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Zadzwoń: 530 315 860</span> </a> </div> <a href="/cennik" class="sidebar-cta__link-cennik" data-astro-cid-4sn4zg3r>
+Sprawdź nasz przejrzysty cennik &rarr;
+</a> </div> </div> </aside> </div> </article> </main>  <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tocLinks = document.querySelectorAll(".toc-link, .mobile-toc-list a");
+            var contentHeadings = document.querySelectorAll(
+                ".post__content h2, .post__content h3"
+            );
 
-                    var shareNativeBtn = document.getElementById("shareNative");
-                    var fbBtn = document.getElementById("shareFacebook");
-                    var xBtn = document.getElementById("shareX");
-                    var liBtn = document.getElementById("shareLinkedIn");
-                    var copyBtn = document.getElementById("shareCopy");
-                    var tooltip = document.getElementById("copyTooltip");
+            if (tocLinks.length && contentHeadings.length) {
+                tocLinks.forEach(function (link) {
+                    link.addEventListener("click", function (e) {
+                        var targetHref = this.getAttribute("href");
+                        if (targetHref && targetHref.startsWith("#")) {
+                            var targetEl = document.getElementById(targetHref.substring(1));
+                            if (targetEl) {
+                                e.preventDefault();
+                                var offset = 100;
+                                var bodyRect = document.body.getBoundingClientRect().top;
+                                var elementRect = targetEl.getBoundingClientRect().top;
+                                var elementPosition = elementRect - bodyRect;
+                                var offsetPosition = elementPosition - offset;
 
-                    if (navigator.share) {
-                        // Jeśli przeglądarka wspiera Web Share API (głównie urządzenia mobilne)
-                        if (shareNativeBtn) {
-                            shareNativeBtn.style.display = "flex";
-                            shareNativeBtn.addEventListener(
-                                "click",
-                                function () {
-                                    navigator
-                                        .share({
-                                            title: document.title,
-                                            url: pageUrl,
-                                        })
-                                        .catch(function (err) {
-                                            console.log(
-                                                "Anulowano udostępnianie lub błąd: ",
-                                                err,
-                                            );
-                                        });
-                                },
-                            );
-                        }
-                        // Ukrywamy poszczególne przyciski społecznościowe, bo natywny panel systemowy obsługuje je znacznie lepiej
-                        if (fbBtn) fbBtn.style.display = "none";
-                        if (xBtn) xBtn.style.display = "none";
-                        if (liBtn) liBtn.style.display = "none";
-                    } else {
-                        // Tradycyjne linki społecznościowe dla komputerów stacjonarnych
-                        var encodedUrl = encodeURIComponent(pageUrl);
-                        var encodedTitle = encodeURIComponent(pageTitle);
-                        if (fbBtn)
-                            fbBtn.href =
-                                "https://www.facebook.com/sharer/sharer.php?u=" +
-                                encodedUrl;
-                        if (xBtn)
-                            xBtn.href =
-                                "https://twitter.com/intent/tweet?url=" +
-                                encodedUrl +
-                                "&text=" +
-                                encodedTitle;
-                        if (liBtn)
-                            liBtn.href =
-                                "https://www.linkedin.com/sharing/share-offsite/?url=" +
-                                encodedUrl;
-                    }
-
-                    if (copyBtn && tooltip) {
-                        copyBtn.addEventListener("click", function () {
-                            navigator.clipboard
-                                .writeText(pageUrl)
-                                .then(function () {
-                                    tooltip.textContent = "Skopiowano!";
-                                    tooltip.classList.add("tooltip--visible");
-                                    setTimeout(function () {
-                                        tooltip.textContent = "Skopiuj link";
-                                        tooltip.classList.remove(
-                                            "tooltip--visible",
-                                        );
-                                    }, 2000);
-                                })
-                                .catch(function (err) {
-                                    console.error("Błąd kopiowania: ", err);
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: "smooth"
                                 });
-                        });
-                    }
+                                history.pushState(null, "", targetHref);
+                            }
+                        }
+                    });
                 });
-            </script> <!-- Dolna nawigacja artykułu --> <div class="post__navigation" data-astro-cid-4sn4zg3r> <a href="/blog" class="post__nav-btn post__nav-btn--back" aria-label="Wróć do listy wszystkich artykułów" data-astro-cid-4sn4zg3r> <i class="fa-solid fa-arrow-left-long" data-astro-cid-4sn4zg3r></i> <span data-astro-cid-4sn4zg3r>Powrót na bloga</span> </a> <a href="/blog/roznica-miedzy-astro-a-reactem" class="post__nav-btn post__nav-btn--next" aria-label="Przeczytaj kolejny artykuł: Astro vs. czysty React – co wybrać do projektu internetowego?" data-astro-cid-4sn4zg3r> <span data-astro-cid-4sn4zg3r>Pokaż dalej</span> <i class="fa-solid fa-arrow-right-long" data-astro-cid-4sn4zg3r></i> </a> </div> </article> </main> <footer class="site-footer"> <div class="footer__container"> <div class="footer__grid"> <!-- Column 1: Info & Contact details --> <div class="footer__info-col"> <a href="/" class="logo-text footer__logo">web2<span class="gradient__text">sell</span></a> <p class="footer__desc">
+
+                var observer = new IntersectionObserver(
+                    function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                var id = entry.target.id;
+                                document.querySelectorAll(".toc-link").forEach(function (l) {
+                                    if (l.getAttribute("href") === "#" + id) {
+                                        l.classList.add("toc-link--active");
+                                    } else {
+                                        l.classList.remove("toc-link--active");
+                                    }
+                                });
+                            }
+                        });
+                    },
+                    { rootMargin: "-80px 0px -70% 0px", threshold: 0 }
+                );
+
+                contentHeadings.forEach(function (h) {
+                    observer.observe(h);
+                });
+            }
+        });
+    </script> <footer class="site-footer"> <div class="footer__container"> <div class="footer__grid"> <!-- Column 1: Info & Contact details --> <div class="footer__info-col"> <a href="/" class="logo-text footer__logo">web2<span class="gradient__text">sell</span></a> <p class="footer__desc">
 Tworzymy szybkie, nowoczesne i bezpieczne strony internetowe
                     od podstaw. Porzucamy obciążające systemy na rzecz
                     autorskiego, zoptymalizowanego kodu.
-</p> <div class="footer__contact-info"> <a href="mailto:kontakt@web2sell.pl" class="footer__contact-item"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>kontakt@web2sell.pl</span> </a> <div class="footer__contact-item"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Kraków, Myślenice, Polska</span> </div> </div> </div> <!-- Column 2: Split links (Menu & Docs) --> <div class="footer__links-col"> <div class="footer__links-subgrid"> <!-- Subsection A: Menu --> <div class="footer__links-group"> <h3 class="footer__group-title">Menu</h3> <ul class="footer__group-list"> <li> <a href="/#onas">O nas</a> </li> <li> <a href="/#projekty">Realizacje</a> </li> <li><a href="/cennik">Cennik</a></li> <li><a href="/jak-dzialamy">Jak działamy</a></li> <li><a href="/blog">Blog</a></li> <li> <a href="/#kontakt">Kontakt</a> </li> </ul> </div> <!-- Subsection B: Dokumenty --> <div class="footer__links-group"> <h3 class="footer__group-title">Dokumenty</h3> <ul class="footer__group-list"> <li> <a href="/polityka">Polityka prywatności</a> </li> <li> <a href="/zasady-wspolpracy">Zasady współpracy</a> </li> <li><a href="/sitemap">Mapa witryny</a></li> </ul> </div> </div> </div> </div> <div class="footer__bottom"> <p class="footer__copyright">
+</p> <div class="footer__contact-info"> <a href="mailto:kontakt@web2sell.pl" class="footer__contact-item"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>kontakt@web2sell.pl</span> </a> <div class="footer__contact-item"> <i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span>Kraków, Myślenice, Polska</span> </div> </div> </div> <!-- Column 2: Split links (Menu & Docs) --> <div class="footer__links-col"> <div class="footer__links-subgrid"> <!-- Subsection A: Menu --> <div class="footer__links-group"> <h3 class="footer__group-title">Menu</h3> <ul class="footer__group-list"> <li> <a href="/#onas">O nas</a> </li> <li> <a href="/#projekty">Realizacje</a> </li> <li><a href="/cennik">Cennik</a></li> <li><a href="/jak-dzialamy">Jak działamy</a></li> <li><a href="/blog">Blog</a></li> <li> <a href="/#kontakt">Kontakt</a> </li> </ul> </div> <!-- Subsection B: Dokumenty --> <div class="footer__links-group"> <h3 class="footer__group-title">Dokumenty</h3> <ul class="footer__group-list"> <li> <a href="/polityka">Polityka prywatności</a> </li> <li> <button type="button" class="footer__privacy-settings" data-open-privacy-settings>
+Ustawienia prywatności
+</button> </li> <li> <a href="/zasady-wspolpracy">Zasady współpracy</a> </li> <li><a href="/sitemap">Mapa witryny</a></li> </ul> </div> </div> </div> </div> <div class="footer__bottom"> <p class="footer__copyright">
 &copy; 2026 Copyright web2sell
 </p> <p class="footer__credits">
 Design by web2sell team
 </p> </div> </div> </footer>  </div> <!-- Cookie Consent Banner (Premium Glassmorphic RODO Compliance) --> <div id="cookie-banner" class="cookie-banner hidden" role="dialog" aria-modal="true" aria-label="Zgoda na pliki cookie" aria-describedby="cookie-text"> <div class="cookie-banner__container"> <div class="cookie-banner__content"> <i class="fa-solid fa-cookie-bite cookie-banner__icon" aria-hidden="true"></i> <p id="cookie-text">
-Ta strona korzysta z ciasteczek analitycznych (Google
-                        Analytics). Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
+Ta strona korzysta z opcjonalnych usług Google Analytics
+                        i Google Maps. Uruchomimy je dopiero po Twojej zgodzie.
+                        Szczegóły znajdziesz w <a href="/polityka" class="cookie-banner__link">Polityce Prywatności</a>.
 </p> </div> <div class="cookie-banner__actions"> <button id="cookie-decline" class="cookie-banner__btn cookie-banner__btn--decline">Odrzuć</button> <button id="cookie-accept" class="cookie-banner__btn">Akceptuję</button> </div> </div> </div> <script>
             (function () {
-                const consent = localStorage.getItem("cookie-consent");
-                // Show banner only if the user hasn't made a choice yet
-                if (!consent) {
-                    const banner = document.getElementById("cookie-banner");
-                    const acceptBtn = document.getElementById("cookie-accept");
-                    const declineBtn = document.getElementById("cookie-decline");
-                    
-                    if (banner && acceptBtn && declineBtn) {
-                        banner.classList.remove("hidden");
-                        
-                        // User accepts cookies
-                        acceptBtn.addEventListener("click", function () {
-                            localStorage.setItem("cookie-consent", "accepted");
-                            banner.classList.add("hidden");
-                            if (typeof window.initGA === "function") {
-                                window.initGA();
-                            }
+                var CONSENT_KEY = "cookie-consent";
+                var CONSENT_VERSION = "2026-09-22";
+                var GA_ID = "G-QZ55XLZEDP";
+                var banner = document.getElementById("cookie-banner");
+                var acceptBtn = document.getElementById("cookie-accept");
+                var declineBtn = document.getElementById("cookie-decline");
+
+                if (!banner || !acceptBtn || !declineBtn) return;
+
+                function showBanner() {
+                    banner.classList.remove("hidden");
+                    banner.setAttribute("aria-hidden", "false");
+                }
+
+                function hideBanner() {
+                    banner.classList.add("hidden");
+                    banner.setAttribute("aria-hidden", "true");
+                }
+
+                function saveDecision(decision) {
+                    var accepted = decision === "accepted";
+                    var record = {
+                        version: CONSENT_VERSION,
+                        decision: decision,
+                        updatedAt: new Date().toISOString(),
+                        categories: {
+                            analytics: accepted,
+                            googleMaps: accepted,
+                        },
+                    };
+                    localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
+                    return record;
+                }
+
+                function deleteAnalyticsCookies() {
+                    var cookieNames = document.cookie
+                        .split(";")
+                        .map(function (cookie) {
+                            return cookie.split("=")[0].trim();
+                        })
+                        .filter(function (name) {
+                            return name === "_ga" || name.indexOf("_ga_") === 0;
                         });
 
-                        // User declines cookies
-                        declineBtn.addEventListener("click", function () {
-                            localStorage.setItem("cookie-consent", "declined");
-                            banner.classList.add("hidden");
+                    cookieNames.forEach(function (name) {
+                        var expired =
+                            name +
+                            "=; Max-Age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax";
+                        document.cookie = expired;
+                        document.cookie =
+                            expired + "; domain=" + window.location.hostname;
+                        document.cookie =
+                            expired + "; domain=." + window.location.hostname;
+                    });
+                }
+
+                function notifyConsentChange(record) {
+                    window.dispatchEvent(
+                        new CustomEvent("privacy-consent-changed", {
+                            detail: record,
+                        }),
+                    );
+                }
+
+                acceptBtn.addEventListener("click", function () {
+                    var record = saveDecision("accepted");
+                    hideBanner();
+                    window["ga-disable-" + GA_ID] = false;
+
+                    if (typeof window.gtag === "function") {
+                        window.gtag("consent", "update", {
+                            analytics_storage: "granted",
+                        });
+                        window.gtag("config", GA_ID, {
+                            allow_google_signals: false,
+                            allow_ad_personalization_signals: false,
+                        });
+                    } else if (typeof window.initGA === "function") {
+                        window.initGA();
+                    }
+
+                    notifyConsentChange(record);
+                });
+
+                declineBtn.addEventListener("click", function () {
+                    var record = saveDecision("declined");
+                    hideBanner();
+                    window["ga-disable-" + GA_ID] = true;
+
+                    if (typeof window.gtag === "function") {
+                        window.gtag("consent", "update", {
+                            analytics_storage: "denied",
                         });
                     }
+
+                    deleteAnalyticsCookies();
+                    notifyConsentChange(record);
+                });
+
+                document.addEventListener("click", function (event) {
+                    if (!(event.target instanceof Element)) return;
+                    var trigger = event.target.closest(
+                        "[data-open-privacy-settings]",
+                    );
+                    if (!trigger) return;
+
+                    event.preventDefault();
+                    showBanner();
+                    acceptBtn.focus();
+                });
+
+                // Legacy string values do not contain a date or policy version,
+                // so one fresh choice is requested after this update.
+                if (!window.getPrivacyConsentRecord()) {
+                    showBanner();
+                } else {
+                    hideBanner();
                 }
             })();
         </script> <!-- Native GPU-accelerated Scroll Reveal using IntersectionObserver --> <script type="module">document.addEventListener("DOMContentLoaded",()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("[data-aos]").forEach(e=>{e.classList.add("aos-animate")});return}let a=[],s=null;const d=()=>{a.forEach(e=>{e.classList.add("aos-animate")}),a=[],s=null},l=new IntersectionObserver((e,c)=>{let n=!1;e.forEach(o=>{if(o.isIntersecting){const t=o.target,r=t.getAttribute("data-aos-duration"),i=t.getAttribute("data-aos-delay");r&&(t.style.transitionDuration=`${r}ms`),i&&(t.style.transitionDelay=`${i}ms`),a.push(t),n=!0,c.unobserve(t)}}),n&&s===null&&(s=requestAnimationFrame(d))},{rootMargin:"0px 0px -60px 0px",threshold:.05});document.querySelectorAll("[data-aos]").forEach(e=>{l.observe(e)})});</script> <div class="theme-floating-controls" id="theme-floating-controls" data-astro-cid-ddta5pav> <!-- Dark / Light Mode Toggle Button (Taki sam okrąg jak próbnik kolorów) --> <button class="theme-mode-toggle" id="theme-mode-toggle" aria-label="Przełącz motyw jasny / ciemny" title="Przełącz motyw jasny / ciemny" data-astro-cid-ddta5pav> <span class="theme-mode-icon-wrap" data-astro-cid-ddta5pav> <i class="fa-solid fa-sun sun-icon" data-astro-cid-ddta5pav></i> <i class="fa-solid fa-moon moon-icon" data-astro-cid-ddta5pav></i> </span> </button> <!-- Color Theme Picker Container --> <div class="theme-picker" id="theme-picker-container" data-astro-cid-ddta5pav> <!-- Trigger Button --> <button class="theme-picker__trigger" id="theme-picker-trigger" aria-label="Wybierz motyw kolorystyczny" title="Zmień kolorystykę strony" data-astro-cid-ddta5pav> <i class="fa-solid fa-palette" data-astro-cid-ddta5pav></i> </button> <!-- Menu --> <div class="theme-picker__menu" id="theme-picker-menu" data-astro-cid-ddta5pav> <div class="theme-picker__title" data-astro-cid-ddta5pav>Kolorystyka strony</div> <div class="theme-picker__options" data-astro-cid-ddta5pav> <button class="theme-picker__option" data-theme-value="blue" title="Niebieski" aria-label="Motyw niebieski" style="background: linear-gradient(135deg, #2563eb, #38bdf8);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="pink" title="Różowy" aria-label="Motyw różowy" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="green" title="Zielony" aria-label="Motyw zielony" style="background: linear-gradient(135deg, #059669, #34d399);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="red" title="Czerwony" aria-label="Motyw czerwony" style="background: linear-gradient(135deg, #dc2626, #f87171);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="yellow" title="Żółty" aria-label="Motyw żółty" style="background: linear-gradient(135deg, #d97706, #facc15);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> <button class="theme-picker__option" data-theme-value="orange" title="Pomarańczowy" aria-label="Motyw pomarańczowy" style="background: linear-gradient(135deg, #ea580c, #fb923c);" data-astro-cid-ddta5pav> <span class="theme-picker__option-dot" data-astro-cid-ddta5pav></span> </button> </div> </div> </div> </div>  <script type="module">document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("theme-picker-container"),h=document.getElementById("theme-picker-trigger"),g=document.querySelectorAll(".theme-picker__option");if(a&&h){const s=()=>document.documentElement.getAttribute("data-color-theme")||"pink",c=e=>{g.forEach(t=>{t.getAttribute("data-theme-value")===e?t.classList.add("is-active"):t.classList.remove("is-active")})};c(s()),h.addEventListener("click",e=>{e.stopPropagation(),a.classList.toggle("is-open")}),document.addEventListener("click",e=>{a.contains(e.target)||a.classList.remove("is-open")}),g.forEach(e=>{e.addEventListener("click",t=>{t.stopPropagation();const n=e.getAttribute("data-theme-value");n&&(document.cookie=`color-theme=${n}; path=/; max-age=${365*24*60*60}; SameSite=Lax`,document.documentElement.setAttribute("data-color-theme",n),c(n),setTimeout(()=>{a.classList.remove("is-open")},200))})})}const d=document.getElementById("theme-mode-toggle");let l=!1;d&&d.addEventListener("click",s=>{if(l)return;l=!0;const c=document.documentElement.getAttribute("data-theme")||"light",e=c==="dark"?"light":"dark";let t=s.clientX,n=s.clientY;if(t===void 0||n===void 0){const i=d.getBoundingClientRect();t=i.left+i.width/2,n=i.top+i.height/2}const r=document.createElement("div");r.className="theme-transition-overlay";const o=document.createElement("div");o.className="theme-transition-circle",o.style.left=t-50+"px",o.style.top=n-50+"px";const u=document.createElement("div");u.className="theme-transition-circle-bg current-bg",u.style.backgroundColor=c==="dark"?"#000000":"#f5f6f8";const m=document.createElement("div");m.className="theme-transition-circle-bg target-bg",m.style.backgroundColor=e==="dark"?"#000000":"#f5f6f8",o.appendChild(u),o.appendChild(m),r.appendChild(o),document.body.appendChild(r);const f=Math.max(Math.hypot(t,n),Math.hypot(window.innerWidth-t,n),Math.hypot(t,window.innerHeight-n),Math.hypot(window.innerWidth-t,window.innerHeight-n))/50+.5;r.offsetWidth,o.animate([{transform:"scale(0)"},{transform:"scale("+f+")"}],{duration:550,easing:"cubic-bezier(0.76, 0, 0.24, 1)",fill:"forwards"}),setTimeout(()=>{m.animate([{opacity:0},{opacity:1}],{duration:150,easing:"ease-out",fill:"forwards"})},550),setTimeout(()=>{document.documentElement.setAttribute("data-theme",e),localStorage.setItem("theme",e);const i=document.querySelector('meta[name="theme-color"]');i&&i.setAttribute("content",e==="dark"?"#000000":"#f5f6f8")},700),setTimeout(()=>{const i=o.animate([{transform:"scale("+f+")"},{transform:"scale(0)"}],{duration:550,easing:"cubic-bezier(0.76, 0, 0.24, 1)",fill:"forwards"});i.onfinish=()=>{r.remove(),l=!1}},750)})});</script> </body></html> 
